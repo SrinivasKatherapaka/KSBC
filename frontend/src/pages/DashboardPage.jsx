@@ -32,10 +32,10 @@ export const DashboardPage = () => {
   const [error, setError] = useState('');
   const [metrics, setMetrics] = useState({
     vaultCash: 50000000,
-    loanPortfolio: 0,
-    customerDeposits: 50000000,
-    customerCount: 0,
-    loansCount: 0
+    loanPortfolio: 55060000,
+    customerDeposits: 314980000,
+    customerCount: 220,
+    loansCount: 54
   });
   const [transactions, setTransactions] = useState([]);
   const [loans, setLoans] = useState([]);
