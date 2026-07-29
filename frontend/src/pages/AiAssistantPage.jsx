@@ -9,7 +9,7 @@ export const AiAssistantPage = () => {
   const [messages, setMessages] = useState([
     {
       sender: 'assistant',
-      text: "### Welcome to Apex Banking ERP Assistant\n\nI am your Enterprise Banking AI Agent powered server-side by **Gemini 2.5 Flash**. I have continuous access to our General Ledger balances, commercial loan portfolio metrics, and customer compliance logs.\n\nHow may I assist you today?",
+      text: "### Welcome to KSBC ERP Assistant\n\nI am your Enterprise Banking AI Agent powered server-side by **Gemini 2.5 Flash**. I have continuous access to our General Ledger balances, commercial loan portfolio metrics, and customer compliance logs.\n\nHow may I assist you today?",
       suggestedActions: [
         'What is our current Vault Cash Reserve balance?',
         'Summarize commercial credit exposure',
@@ -49,7 +49,7 @@ export const AiAssistantPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-slate-950 text-slate-100">
+    <div className="flex min-h-screen bg-[#002b36] text-[#93a1a1]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 h-screen">
         <Navbar />

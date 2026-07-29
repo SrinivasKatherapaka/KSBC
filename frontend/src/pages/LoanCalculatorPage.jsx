@@ -1,164 +1,280 @@
 import React, { useState } from 'react';
 import Sidebar from '../components/common/Sidebar';
 import Navbar from '../components/common/Navbar';
-import RiskAssessmentBadge from '../components/loans/RiskAssessmentBadge';
-import { Calculator, Sparkles, TrendingUp, ShieldCheck, DollarSign, AlertCircle } from 'lucide-react';
+import LoadingSpinner from '../components/common/LoadingSpinner';
+import ErrorAlert from '../components/common/ErrorAlert';
+import { apiClient } from '../api/client';
+import { Calculator, Sparkles, DollarSign, ShieldAlert, CheckCircle2, Percent, TrendingUp, AlertTriangle, ArrowRight, Layers } from 'lucide-react';
 
 export const LoanCalculatorPage = () => {
-  const [revenue, setRevenue] = useState(12500000);
-  const [existingDebt, setExistingDebt] = useState(1800000);
-  const [loanAmount, setLoanAmount] = useState(2500000);
-  const [interestRate, setInterestRate] = useState(6.5);
-  const [termMonths, setTermMonths] = useState(36);
+  const [formData, setFormData] = useState({
+    principalAmount: 2500000,
+    interestRate: 6.5,
+    termMonths: 36,
+    annualIncome: 8500000,
+    creditScore: 740,
+    dtiRatio: 0.32,
+    collateralValue: 3500000,
+    loanPurpose: 'Equipment Purchase & Automation',
+    applicantCategory: 'private_individual'
+  });
 
-  // Math Calculations
-  const annualDebtService = existingDebt + (loanAmount / (termMonths / 12));
-  const dtiRatio = Number((annualDebtService / Math.max(revenue, 1)).toFixed(2));
-  
-  const rawRisk = Math.min(Math.round((loanAmount / Math.max(revenue, 1)) * 40 + dtiRatio * 30), 95);
-  const riskScore = Math.max(rawRisk, 12);
-  const riskLevel = riskScore > 70 ? 'HIGH' : (riskScore > 40 ? 'MODERATE' : 'LOW');
-  const dscr = Number(((revenue * 0.3) / Math.max(annualDebtService, 1)).toFixed(2));
+  const [assessment, setAssessment] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleCalculate = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+
+    try {
+      const res = await apiClient.post('/ai/loan-risk', {
+        ...formData,
+        principalAmount: Number(formData.principalAmount),
+        interestRate: Number(formData.interestRate),
+        termMonths: Number(formData.termMonths),
+        annualIncome: Number(formData.annualIncome),
+        creditScore: Number(formData.creditScore),
+        dtiRatio: Number(formData.dtiRatio),
+        collateralValue: Number(formData.collateralValue)
+      });
+
+      if (res.data.success) {
+        setAssessment(res.data.assessment);
+      }
+    } catch (err) {
+      setError(err.response?.data?.error || 'AI Loan Risk calculation failed');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-    <div className="flex min-h-screen bg-slate-950 text-slate-100">
+    <div className="flex min-h-screen bg-[#002b36] text-[#93a1a1]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
 
         <main className="p-6 md:p-8 space-y-6 max-w-7xl mx-auto w-full">
-          <div>
-            <h1 className="text-2xl font-extrabold text-white font-heading">AI Credit & Risk Simulator</h1>
-            <p className="text-xs text-slate-400">Interactive Underwriting Engine & Debt Service Exposure Modeler</p>
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+              <h1 className="text-2xl font-extrabold text-white font-heading">AI Loan Risk Calculator</h1>
+              <p className="text-xs text-rose-300/60">Powered by Gemini 2.5 Flash Underwriting & Credit Risk Engine</p>
+            </div>
+            <div className="flex items-center space-x-2 px-3 py-1 bg-amber-500/10 border border-amber-500/30 rounded-full text-xs text-amber-300 font-bold">
+              <Sparkles className="w-4 h-4 text-amber-400" />
+              <span>Real-Time Neural Credit Scoring</span>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Input Controls */}
-            <div className="lg:col-span-2 glass-panel p-6 rounded-2xl border border-white/10 space-y-6">
-              <div className="flex items-center space-x-2 pb-3 border-b border-white/10">
-                <Calculator className="w-5 h-5 text-blue-400" />
-                <h3 className="text-base font-bold text-white">Commercial Application Variables</h3>
-              </div>
+          <ErrorAlert message={error} onClose={() => setError('')} />
 
-              <div className="space-y-5 text-xs">
-                <div>
-                  <div className="flex justify-between mb-1 font-semibold">
-                    <span className="text-slate-300">Annual Business Revenue</span>
-                    <span className="text-blue-400 font-mono">${revenue.toLocaleString()}</span>
-                  </div>
-                  <input
-                    type="range"
-                    min="500000"
-                    max="50000000"
-                    step="250000"
-                    value={revenue}
-                    onChange={(e) => setRevenue(Number(e.target.value))}
-                    className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500"
-                  />
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            {/* Input Form */}
+            <div className="lg:col-span-7 glass-panel p-6 rounded-2xl border border-rose-900/30 space-y-5">
+              <h3 className="text-base font-bold text-white flex items-center space-x-2 pb-3 border-b border-rose-900/30">
+                <Calculator className="w-4 h-4 text-rose-400" />
+                <span>Input Applicant Credit Parameters</span>
+              </h3>
 
-                <div>
-                  <div className="flex justify-between mb-1 font-semibold">
-                    <span className="text-slate-300">Requested Principal Amount</span>
-                    <span className="text-emerald-400 font-mono">${loanAmount.toLocaleString()}</span>
-                  </div>
-                  <input
-                    type="range"
-                    min="100000"
-                    max="25000000"
-                    step="100000"
-                    value={loanAmount}
-                    onChange={(e) => setLoanAmount(Number(e.target.value))}
-                    className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
-                  />
-                </div>
-
-                <div>
-                  <div className="flex justify-between mb-1 font-semibold">
-                    <span className="text-slate-300">Existing Annual Debt Obligations</span>
-                    <span className="text-amber-400 font-mono">${existingDebt.toLocaleString()}</span>
-                  </div>
-                  <input
-                    type="range"
-                    min="0"
-                    max="10000000"
-                    step="100000"
-                    value={existingDebt}
-                    onChange={(e) => setExistingDebt(Number(e.target.value))}
-                    className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
-                  />
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
+              <form onSubmit={handleCalculate} className="space-y-4 text-xs">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block font-semibold text-slate-300 mb-1">Interest Rate (%)</label>
+                    <label className="block text-slate-300 font-semibold mb-1">Applicant Category</label>
+                    <select
+                      value={formData.applicantCategory}
+                      onChange={(e) => setFormData({ ...formData, applicantCategory: e.target.value })}
+                      className="w-full glass-input bg-[#1a030b] border border-rose-900/40 rounded-xl p-2.5 text-white"
+                    >
+                      <option value="private_individual">👤 Private / Individual Account Holder</option>
+                      <option value="corporate">🏢 Corporate Enterprise</option>
+                      <option value="sme">🏬 SME Business</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-slate-300 font-semibold mb-1">Credit Score (FICO/FICO-B)</label>
                     <input
                       type="number"
-                      step="0.1"
-                      value={interestRate}
-                      onChange={(e) => setInterestRate(Number(e.target.value))}
-                      className="w-full glass-input bg-slate-900 border border-slate-700 rounded-xl p-2.5 text-white font-mono"
+                      min="300"
+                      max="850"
+                      value={formData.creditScore}
+                      onChange={(e) => setFormData({ ...formData, creditScore: e.target.value })}
+                      className="w-full glass-input bg-[#1a030b] border border-rose-900/40 rounded-xl p-2.5 text-white font-mono"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-slate-300 font-semibold mb-1">Requested Principal ($)</label>
+                    <input
+                      type="number"
+                      min="10000"
+                      max="50000000"
+                      value={formData.principalAmount}
+                      onChange={(e) => setFormData({ ...formData, principalAmount: e.target.value })}
+                      className="w-full glass-input bg-[#1a030b] border border-rose-900/40 rounded-xl p-2.5 text-white font-mono"
+                      required
                     />
                   </div>
 
                   <div>
-                    <label className="block font-semibold text-slate-300 mb-1">Term Length (Months)</label>
+                    <label className="block text-slate-300 font-semibold mb-1">Annual Revenue / Income ($)</label>
+                    <input
+                      type="number"
+                      min="50000"
+                      max="100000000"
+                      value={formData.annualIncome}
+                      onChange={(e) => setFormData({ ...formData, annualIncome: e.target.value })}
+                      className="w-full glass-input bg-[#1a030b] border border-rose-900/40 rounded-xl p-2.5 text-white font-mono"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div>
+                    <label className="block text-slate-300 font-semibold mb-1">Interest Rate (%)</label>
+                    <input
+                      type="number"
+                      step="0.1"
+                      min="0.1"
+                      max="30"
+                      value={formData.interestRate}
+                      onChange={(e) => setFormData({ ...formData, interestRate: e.target.value })}
+                      className="w-full glass-input bg-[#1a030b] border border-rose-900/40 rounded-xl p-2.5 text-white font-mono"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-slate-300 font-semibold mb-1">Term Length</label>
                     <select
-                      value={termMonths}
-                      onChange={(e) => setTermMonths(Number(e.target.value))}
-                      className="w-full glass-input bg-slate-900 border border-slate-700 rounded-xl p-2.5 text-white font-mono"
+                      value={formData.termMonths}
+                      onChange={(e) => setFormData({ ...formData, termMonths: e.target.value })}
+                      className="w-full glass-input bg-[#1a030b] border border-rose-900/40 rounded-xl p-2.5 text-white"
                     >
-                      <option value="12">12 Months</option>
-                      <option value="24">24 Months</option>
-                      <option value="36">36 Months</option>
-                      <option value="60">60 Months</option>
-                      <option value="120">120 Months</option>
+                      <option value="12">12 Months (1 yr)</option>
+                      <option value="24">24 Months (2 yrs)</option>
+                      <option value="36">36 Months (3 yrs)</option>
+                      <option value="60">60 Months (5 yrs)</option>
+                      <option value="120">120 Months (10 yrs)</option>
+                      <option value="240">240 Months (20 yrs)</option>
                     </select>
                   </div>
+
+                  <div>
+                    <label className="block text-slate-300 font-semibold mb-1">Collateral Value ($)</label>
+                    <input
+                      type="number"
+                      min="0"
+                      value={formData.collateralValue}
+                      onChange={(e) => setFormData({ ...formData, collateralValue: e.target.value })}
+                      className="w-full glass-input bg-[#1a030b] border border-rose-900/40 rounded-xl p-2.5 text-white font-mono"
+                    />
+                  </div>
                 </div>
-              </div>
+
+                <div>
+                  <label className="block text-slate-300 font-semibold mb-1">Loan Purpose</label>
+                  <select
+                    value={formData.loanPurpose}
+                    onChange={(e) => setFormData({ ...formData, loanPurpose: e.target.value })}
+                    className="w-full glass-input bg-[#1a030b] border border-rose-900/40 rounded-xl p-2.5 text-white"
+                  >
+                    <option value="Equipment Purchase & Automation">Equipment Purchase & Automation</option>
+                    <option value="Working Capital Expansion">Working Capital Expansion</option>
+                    <option value="Commercial Real Estate Acquisition">Commercial Real Estate Acquisition</option>
+                    <option value="Debt Refinancing & Consolidation">Debt Refinancing & Consolidation</option>
+                    <option value="Personal Wealth Portfolio Scaling">Personal Wealth Portfolio Scaling</option>
+                  </select>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full py-3 bg-gradient-to-r from-rose-800 via-rose-700 to-amber-600 hover:from-rose-700 hover:to-amber-500 text-white font-bold rounded-xl shadow-lg shadow-rose-900/30 transition flex items-center justify-center space-x-2 disabled:opacity-50 border border-rose-500/40"
+                >
+                  <Sparkles className="w-4 h-4 text-amber-300" />
+                  <span>{loading ? 'Evaluating Gemini AI Credit Model...' : 'Calculate AI Risk & Underwriting Decision'}</span>
+                </button>
+              </form>
             </div>
 
-            {/* Calculated Risk Output Card */}
-            <div className="glass-panel p-6 rounded-2xl border border-white/10 flex flex-col justify-between space-y-6">
-              <div>
-                <div className="flex items-center space-x-2 text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">
-                  <Sparkles className="w-4 h-4 text-amber-400" />
-                  <span>Calculated Risk Metrics</span>
+            {/* Assessment Output Gauge */}
+            <div className="lg:col-span-5 space-y-5">
+              {loading ? (
+                <div className="glass-panel p-10 rounded-2xl border border-rose-900/30 text-center">
+                  <LoadingSpinner text="Running Gemini 2.5 Flash Neural Risk Model..." />
                 </div>
-
-                <div className="text-center p-6 bg-slate-900/80 rounded-2xl border border-slate-800 space-y-2">
-                  <span className="text-[10px] uppercase font-bold text-slate-500">Calculated Risk Score</span>
-                  <div className="text-4xl font-extrabold font-mono text-white">
-                    {riskScore}<span className="text-xs text-slate-500">/100</span>
+              ) : assessment ? (
+                <div className="glass-panel p-6 rounded-2xl border border-rose-900/40 space-y-5 shadow-2xl bg-rose-950/20">
+                  <div className="flex justify-between items-center pb-3 border-b border-rose-900/30">
+                    <h3 className="text-base font-bold text-white">AI Credit Underwriting Verdict</h3>
+                    <span className={`px-3 py-1 rounded-full text-xs font-bold font-mono border uppercase ${
+                      assessment.recommendation === 'APPROVE'
+                        ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/40'
+                        : assessment.recommendation === 'CONDITIONAL_APPROVE'
+                        ? 'bg-amber-500/10 text-amber-400 border-amber-500/40'
+                        : 'bg-red-500/10 text-red-400 border-red-500/40'
+                    }`}>
+                      {assessment.recommendation.replace('_', ' ')}
+                    </span>
                   </div>
-                  <RiskAssessmentBadge score={riskScore} level={riskLevel} />
+
+                  {/* Score Dial */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="p-4 bg-rose-950/60 rounded-xl border border-rose-900/40 text-center">
+                      <span className="text-[10px] text-slate-400 font-sans block uppercase font-bold">AI RISK SCORE</span>
+                      <span className={`text-3xl font-extrabold font-mono ${
+                        assessment.riskScore > 70 ? 'text-red-400' : assessment.riskScore > 40 ? 'text-amber-400' : 'text-emerald-400'
+                      }`}>
+                        {assessment.riskScore}/100
+                      </span>
+                      <span className="text-[10px] text-slate-400 block mt-1 font-semibold">{assessment.riskLevel} RISK</span>
+                    </div>
+
+                    <div className="p-4 bg-rose-950/60 rounded-xl border border-rose-900/40 text-center">
+                      <span className="text-[10px] text-slate-400 font-sans block uppercase font-bold">DEFAULT PROBABILITY</span>
+                      <span className="text-3xl font-extrabold font-mono text-amber-400">
+                        {assessment.defaultProbability}%
+                      </span>
+                      <span className="text-[10px] text-slate-400 block mt-1 font-semibold">12-Month Horizon</span>
+                    </div>
+                  </div>
+
+                  {/* Recommended Limit */}
+                  <div className="p-3.5 bg-rose-950/80 rounded-xl border border-rose-900/40 flex justify-between items-center text-xs font-mono">
+                    <span className="text-slate-300 font-sans">MAX RECOMMENDED CREDIT LIMIT:</span>
+                    <span className="text-emerald-400 font-extrabold text-sm">${Number(assessment.maxRecommendedLoan || 0).toLocaleString()}</span>
+                  </div>
+
+                  {/* Key Risks */}
+                  <div className="space-y-2 text-xs">
+                    <span className="font-bold text-rose-300 block text-[11px] uppercase tracking-wider">Identified Risk Factors:</span>
+                    {assessment.keyRisks?.map((r, i) => (
+                      <div key={i} className="p-2 bg-red-950/30 rounded-lg border border-red-900/30 text-red-300 flex items-center space-x-2">
+                        <AlertTriangle className="w-3.5 h-3.5 text-red-400 flex-shrink-0" />
+                        <span>{r}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Executive Advisory */}
+                  <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-800 text-xs italic text-slate-300 space-y-1">
+                    <span className="font-bold text-amber-400 not-italic block">🤖 Gemini AI Advisory:</span>
+                    <p>"{assessment.summaryAdvisory}"</p>
+                  </div>
                 </div>
-
-                <div className="mt-4 space-y-2 text-xs font-mono">
-                  <div className="flex justify-between p-2.5 bg-slate-900/50 rounded-xl">
-                    <span className="text-slate-400">Debt-To-Income (DTI):</span>
-                    <span className="font-bold text-white">{dtiRatio}</span>
-                  </div>
-                  <div className="flex justify-between p-2.5 bg-slate-900/50 rounded-xl">
-                    <span className="text-slate-400">Debt Service Coverage (DSCR):</span>
-                    <span className="font-bold text-emerald-400">{dscr}x</span>
-                  </div>
-                  <div className="flex justify-between p-2.5 bg-slate-900/50 rounded-xl">
-                    <span className="text-slate-400">Max Safe Exposure:</span>
-                    <span className="font-bold text-blue-400">${Math.round(revenue * 0.45).toLocaleString()}</span>
-                  </div>
+              ) : (
+                <div className="glass-panel p-8 rounded-2xl border border-rose-900/30 text-center text-slate-400 text-xs space-y-2">
+                  <Calculator className="w-8 h-8 text-rose-500/40 mx-auto" />
+                  <p>Input credit parameters and click "Calculate AI Risk" to run neural credit scoring.</p>
                 </div>
-              </div>
-
-              <div className="p-3 bg-blue-600/10 border border-blue-500/20 rounded-xl text-[11px] text-blue-300">
-                <span className="font-bold block mb-1">Underwriting Recommendation:</span>
-                {riskScore <= 40 
-                  ? '✓ APPROVE - Strong cash flow coverage and low debt ratio.' 
-                  : (riskScore <= 70 
-                  ? '⚠️ CONDITIONAL APPROVE - Require additional collateral guarantee.' 
-                  : '❌ REJECT - Excessive debt-to-income leverage.')}
-              </div>
+              )}
             </div>
           </div>
         </main>

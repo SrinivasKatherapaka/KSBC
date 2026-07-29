@@ -11,11 +11,15 @@ import CustomersPage from './pages/CustomersPage';
 import CompliancePage from './pages/CompliancePage';
 import LoanCalculatorPage from './pages/LoanCalculatorPage';
 import LoansPage from './pages/LoansPage';
+import DefaultersPage from './pages/DefaultersPage';
+import FraudDetectionPage from './pages/FraudDetectionPage';
+import CustomerServicePage from './pages/CustomerServicePage';
 import TreasuryPage from './pages/TreasuryPage';
 import FinancePage from './pages/FinancePage';
 import ProcurementPage from './pages/ProcurementPage';
 import AiAssistantPage from './pages/AiAssistantPage';
 import AdvisoryHistoryPage from './pages/AdvisoryHistoryPage';
+import CfoAiAssistantPage from './pages/CfoAiAssistantPage';
 import ProfilePage from './pages/ProfilePage';
 
 export function App() {
@@ -34,9 +38,13 @@ export function App() {
           <Route path="/compliance" element={<ProtectedRoute><CompliancePage /></ProtectedRoute>} />
           <Route path="/loan-calculator" element={<ProtectedRoute><LoanCalculatorPage /></ProtectedRoute>} />
           <Route path="/loan-applications" element={<ProtectedRoute><LoansPage /></ProtectedRoute>} />
+          <Route path="/defaulters" element={<ProtectedRoute><DefaultersPage /></ProtectedRoute>} />
+          <Route path="/fraud-detection" element={<ProtectedRoute><FraudDetectionPage /></ProtectedRoute>} />
+          <Route path="/customer-service" element={<ProtectedRoute><CustomerServicePage /></ProtectedRoute>} />
           <Route path="/treasury" element={<ProtectedRoute><TreasuryPage /></ProtectedRoute>} />
           <Route path="/finance" element={<ProtectedRoute><FinancePage /></ProtectedRoute>} />
           <Route path="/procurement" element={<ProtectedRoute><ProcurementPage /></ProtectedRoute>} />
+          <Route path="/cfo-ai-chat" element={<ProtectedRoute><CfoAiAssistantPage /></ProtectedRoute>} />
           <Route path="/ai-assistant" element={<ProtectedRoute><AiAssistantPage /></ProtectedRoute>} />
           <Route path="/advisory-history" element={<ProtectedRoute><AdvisoryHistoryPage /></ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />

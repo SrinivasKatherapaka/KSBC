@@ -51,16 +51,25 @@ CREATE TABLE IF NOT EXISTS customers (
   phone VARCHAR(50) NOT NULL,
   national_id VARCHAR(100) UNIQUE NOT NULL,
   annual_revenue NUMERIC(15, 2) DEFAULT 0.00,
+  client_category VARCHAR(100) DEFAULT 'private_savings',
+  account_type VARCHAR(100) DEFAULT 'Private Standard Savings',
+  account_number VARCHAR(100),
   kyc_status kyc_status_enum DEFAULT 'pending',
   kyc_notes TEXT,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
+ALTER TABLE customers ADD COLUMN IF NOT EXISTS client_category VARCHAR(100) DEFAULT 'private_savings';
+ALTER TABLE customers ADD COLUMN IF NOT EXISTS account_type VARCHAR(100) DEFAULT 'Private Standard Savings';
+ALTER TABLE customers ADD COLUMN IF NOT EXISTS account_number VARCHAR(100);
+
 -- LOANS TABLE
 CREATE TABLE IF NOT EXISTS loans (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   customer_id UUID NOT NULL REFERENCES customers(id) ON DELETE RESTRICT,
+  applicant_name VARCHAR(255),
+  applicant_category VARCHAR(100) DEFAULT 'private_individual',
   principal_amount NUMERIC(15, 2) NOT NULL,
   interest_rate NUMERIC(5, 2) NOT NULL,
   term_months INT NOT NULL,
@@ -74,6 +83,9 @@ CREATE TABLE IF NOT EXISTS loans (
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
+
+ALTER TABLE loans ADD COLUMN IF NOT EXISTS applicant_name VARCHAR(255);
+ALTER TABLE loans ADD COLUMN IF NOT EXISTS applicant_category VARCHAR(100) DEFAULT 'private_individual';
 
 -- GENERAL LEDGER ACCOUNTS TABLE
 CREATE TABLE IF NOT EXISTS gl_accounts (

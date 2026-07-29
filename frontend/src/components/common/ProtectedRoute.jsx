@@ -8,7 +8,7 @@ export const ProtectedRoute = ({ children, roles = [] }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#120207] flex items-center justify-center">
+      <div className="min-h-screen bg-[#002b36] flex items-center justify-center text-[#93a1a1]">
         <LoadingSpinner text="Authenticating KSBC credentials..." />
       </div>
     );

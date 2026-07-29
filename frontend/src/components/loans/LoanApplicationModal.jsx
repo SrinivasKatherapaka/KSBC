@@ -57,24 +57,24 @@ export const LoanApplicationModal = ({ isOpen, onClose, customers = [], onSubmit
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-      <div className="glass-panel w-full max-w-xl p-6 rounded-2xl border border-rose-900/40 shadow-2xl relative">
-        <div className="flex items-center justify-between pb-4 border-b border-rose-900/30 mb-5">
+      <div className="glass-panel w-full max-w-xl p-6 rounded-2xl border border-[#2aa198]/40 shadow-2xl relative bg-[#073642]">
+        <div className="flex items-center justify-between pb-4 border-b border-[#2aa198]/20 mb-5">
           <div className="flex items-center space-x-2">
-            <div className="p-2 bg-rose-900/30 text-rose-400 rounded-xl border border-rose-600/30">
-              <DollarSign className="w-5 h-5 text-amber-400" />
+            <div className="p-2 bg-[#002129] text-[#ffd700] rounded-xl border border-[#ffd700]/30">
+              <DollarSign className="w-5 h-5 text-[#ffd700]" />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-white">New Loan Application Intake</h2>
-              <p className="text-xs text-rose-300/60">Private Account Holder & Commercial Underwriting Intake</p>
+              <h2 className="text-lg font-bold text-[#fdf6e3]">New Loan Application Intake</h2>
+              <p className="text-xs text-[#2aa198]">Private Account Holder & Commercial Underwriting Intake</p>
             </div>
           </div>
-          <button onClick={onClose} className="p-1 text-slate-400 hover:text-white rounded-lg">
+          <button onClick={onClose} className="p-1 text-[#93a1a1] hover:text-[#fdf6e3] rounded-lg">
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {error && (
-          <div className="p-3 mb-4 bg-rose-950/80 border border-rose-600/40 rounded-xl text-xs text-rose-300">
+          <div className="p-3 mb-4 bg-[#002129] border border-red-500/40 rounded-xl text-xs text-rose-300">
             {error}
           </div>
         )}

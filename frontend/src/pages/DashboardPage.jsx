@@ -16,6 +16,9 @@ import {
   ShieldCheck, 
   ArrowUpRight,
   Calculator,
+  AlertOctagon,
+  ShieldAlert,
+  MessageSquare,
   BookOpen,
   ShoppingBag,
   Bot,
@@ -41,12 +44,15 @@ export const DashboardPage = () => {
 
   const moduleTabs = [
     { label: 'KSBC Overview', path: '/dashboard', icon: TrendingUp, color: 'text-rose-400' },
-    { label: 'Accounts Database (105 Accounts)', path: '/accounts', icon: Wallet, color: 'text-emerald-400' },
+    { label: 'Accounts Database', path: '/accounts', icon: Wallet, color: 'text-emerald-400' },
+    { label: 'AI Risk Calculator', path: '/loan-calculator', icon: Calculator, color: 'text-amber-400' },
+    { label: 'Loan Defaulters (NPA)', path: '/defaulters', icon: AlertOctagon, color: 'text-red-400' },
+    { label: 'AI Fraud Sentinel', path: '/fraud-detection', icon: ShieldAlert, color: 'text-rose-400' },
+    { label: '24/7 AI Support', path: '/customer-service', icon: MessageSquare, color: 'text-cyan-400' },
     { label: 'Loans Portfolio', path: '/loan-applications', icon: Landmark, color: 'text-amber-400' },
     { label: 'Customer Ops', path: '/customers', icon: Users, color: 'text-purple-400' },
     { label: 'Compliance & KYC', path: '/compliance', icon: ShieldCheck, color: 'text-indigo-400' },
-    { label: 'AI Risk Calculator', path: '/loan-calculator', icon: Calculator, color: 'text-teal-400' },
-    { label: 'Treasury Reserves', path: '/treasury', icon: Vault, color: 'text-cyan-400' },
+    { label: 'Treasury Reserves', path: '/treasury', icon: Vault, color: 'text-teal-400' },
     { label: 'General Ledger', path: '/finance', icon: BookOpen, color: 'text-pink-400' },
     { label: 'Procurement POs', path: '/procurement', icon: ShoppingBag, color: 'text-rose-400' },
     { label: 'AI Assistant', path: '/ai-assistant', icon: Bot, color: 'text-amber-400' },
@@ -97,7 +103,7 @@ export const DashboardPage = () => {
   }, []);
 
   return (
-    <div className="flex min-h-screen bg-[#120207] text-slate-100">
+    <div className="flex min-h-screen bg-[#002b36] text-[#93a1a1]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -112,16 +118,16 @@ export const DashboardPage = () => {
                   {user?.role?.replace('_', ' ')}
                 </span>
               </div>
-              <p className="text-xs md:text-sm text-rose-300/60">Unified Real-Time KSBC Banking Operations & Continuous Ledger</p>
+              <p className="text-xs md:text-sm text-rose-300/60">Unified Real-Time KSBC Banking Operations & AI Intelligence Hub</p>
             </div>
 
             <div className="flex items-center space-x-3">
               <Link
-                to="/accounts"
+                to="/loan-calculator"
                 className="px-4 py-2.5 bg-gradient-to-r from-rose-800 to-rose-950 hover:from-rose-700 hover:to-rose-900 text-white text-xs font-bold rounded-xl shadow-lg shadow-rose-900/30 transition flex items-center space-x-2 border border-rose-600/40"
               >
-                <Wallet className="w-4 h-4 text-emerald-400" />
-                <span>Accounts Database ({metrics.customerCount})</span>
+                <Calculator className="w-4 h-4 text-amber-400" />
+                <span>AI Risk Calculator</span>
               </Link>
             </div>
           </div>
@@ -230,11 +236,11 @@ export const DashboardPage = () => {
 
                   <div className="mt-6 pt-4 border-t border-rose-900/30">
                     <Link
-                      to="/loan-applications"
+                      to="/customer-service"
                       className="w-full py-2.5 bg-rose-900/40 hover:bg-rose-900/60 text-rose-300 text-xs font-bold rounded-xl flex items-center justify-center space-x-2 transition border border-rose-700/50"
                     >
-                      <span>Manage All {loans.length} Loan Applications</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
+                      <MessageSquare className="w-4 h-4 text-cyan-400" />
+                      <span>Launch 24/7 AI Support Chatbot</span>
                     </Link>
                   </div>
                 </div>

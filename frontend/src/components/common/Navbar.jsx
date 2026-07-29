@@ -29,15 +29,15 @@ export const Navbar = () => {
 
   return (
     <>
-      <header className="h-16 glass-panel border-b border-rose-900/30 px-6 flex items-center justify-between sticky top-0 z-20">
+      <header className="h-16 glass-panel border-b border-[#2aa198]/20 px-6 flex items-center justify-between sticky top-0 z-20 bg-[#002b36]/80">
         <div className="flex items-center space-x-4">
-          <div className="flex items-center space-x-2 px-3 py-1 bg-rose-500/10 border border-rose-500/20 rounded-full">
-            <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
-            <span className="text-[11px] font-bold text-rose-400 uppercase tracking-wider">KSBC Live</span>
+          <div className="flex items-center space-x-2 px-3 py-1 bg-[#2aa198]/10 border border-[#2aa198]/30 rounded-full">
+            <span className="w-2 h-2 rounded-full bg-[#2aa198] animate-pulse"></span>
+            <span className="text-[11px] font-bold text-[#2aa198] uppercase tracking-wider">KSBC Live</span>
           </div>
 
-          <div className="hidden lg:flex items-center space-x-2 text-xs text-slate-400">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+          <div className="hidden lg:flex items-center space-x-2 text-xs text-[#93a1a1]">
+            <Sparkles className="w-3.5 h-3.5 text-[#ffd700]" />
             <span>Gemini 2.5 Flash KSBC Underwriting Engine Active</span>
           </div>
         </div>
@@ -45,13 +45,13 @@ export const Navbar = () => {
         <div className="flex items-center space-x-3">
           {/* Quick Persona Shift Dropdown with Authentication */}
           <div className="relative group">
-            <button className="flex items-center space-x-2 bg-rose-950/70 hover:bg-rose-900/50 px-3 py-1.5 rounded-xl border border-rose-800/60 text-xs font-bold text-slate-200 transition">
-              <KeyRound className="w-3.5 h-3.5 text-amber-400" />
+            <button className="flex items-center space-x-2 bg-[#073642] hover:bg-[#002129] px-3 py-1.5 rounded-xl border border-[#2aa198]/40 text-xs font-bold text-[#fdf6e3] transition">
+              <KeyRound className="w-3.5 h-3.5 text-[#ffd700]" />
               <span>Shift Account Clearance</span>
             </button>
 
-            <div className="absolute right-0 mt-1 w-56 glass-panel p-2 rounded-2xl border border-rose-900/40 shadow-2xl hidden group-hover:block z-50 space-y-1">
-              <div className="px-2 py-1 text-[10px] font-bold text-rose-300/60 uppercase tracking-wider">
+            <div className="absolute right-0 mt-1 w-56 glass-panel p-2 rounded-2xl border border-[#2aa198]/40 shadow-2xl hidden group-hover:block z-50 space-y-1 bg-[#002b36]">
+              <div className="px-2 py-1 text-[10px] font-bold text-[#2aa198] uppercase tracking-wider">
                 Shift Account View (Requires Auth):
               </div>
               {demoPersonas.map((p) => (
@@ -60,26 +60,26 @@ export const Navbar = () => {
                   onClick={() => handleTriggerShift(p.email)}
                   className={`w-full text-left px-2.5 py-1.5 rounded-xl text-xs font-medium transition flex items-center justify-between ${
                     user?.email === p.email
-                      ? 'bg-rose-900/60 text-amber-300 font-bold border border-rose-600/40'
-                      : 'text-slate-300 hover:bg-rose-950 hover:text-white'
+                      ? 'bg-[#073642] text-[#ffd700] font-bold border border-[#d4af37]/40'
+                      : 'text-[#93a1a1] hover:bg-[#073642]/60 hover:text-[#fdf6e3]'
                   }`}
                 >
                   <span>{p.label}</span>
-                  {user?.email === p.email && <span className="text-[9px] font-mono text-emerald-400">Active</span>}
+                  {user?.email === p.email && <span className="text-[9px] font-mono text-[#859900]">Active</span>}
                 </button>
               ))}
             </div>
           </div>
 
-          <div className="hidden sm:flex items-center space-x-2 bg-rose-950/60 px-3 py-1.5 rounded-xl border border-rose-800/60 text-xs">
-            <Shield className="w-3.5 h-3.5 text-amber-400" />
-            <span className="text-slate-300 font-medium">Clearance:</span>
-            <span className="text-amber-400 font-mono font-bold capitalize">{user?.role?.replace('_', ' ')}</span>
+          <div className="hidden sm:flex items-center space-x-2 bg-[#073642]/80 px-3 py-1.5 rounded-xl border border-[#2aa198]/30 text-xs">
+            <Shield className="w-3.5 h-3.5 text-[#ffd700]" />
+            <span className="text-[#93a1a1] font-medium">Clearance:</span>
+            <span className="text-[#ffd700] font-mono font-bold capitalize">{user?.role?.replace('_', ' ')}</span>
           </div>
 
           <button 
             onClick={logout}
-            className="flex items-center space-x-2 px-3 py-1.5 bg-rose-900/20 hover:bg-rose-900/40 border border-rose-600/40 text-rose-300 rounded-xl text-xs font-semibold transition"
+            className="flex items-center space-x-2 px-3 py-1.5 bg-[#073642] hover:bg-[#002129] border border-[#2aa198]/40 text-[#2aa198] hover:text-[#ffd700] rounded-xl text-xs font-semibold transition"
             title="Sign out of KSBC Session"
           >
             <LogOut className="w-3.5 h-3.5" />

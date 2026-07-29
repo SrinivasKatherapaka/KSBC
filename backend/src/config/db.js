@@ -293,6 +293,38 @@ export const db = {
     return newCustomer;
   },
 
+  updateCustomer: async (id, updateData) => {
+    if (isSupabaseConfigured) {
+      try {
+        const { data, error } = await supabase.from('customers').update({ ...updateData, updated_at: new Date().toISOString() }).eq('id', id).select().single();
+        if (!error && data) return data;
+      } catch (err) {}
+    }
+    const idx = memoryDb.customers.findIndex(c => c.id === id);
+    if (idx !== -1) {
+      memoryDb.customers[idx] = { ...memoryDb.customers[idx], ...updateData, updated_at: new Date().toISOString() };
+      return memoryDb.customers[idx];
+    }
+    return null;
+  },
+
+  deleteCustomer: async (id) => {
+    if (isSupabaseConfigured) {
+      try {
+        await supabase.from('loans').delete().eq('customer_id', id);
+        await supabase.from('customers').delete().eq('id', id);
+      } catch (err) {
+        console.warn('Supabase delete customer warning:', err.message);
+      }
+    }
+
+    const initialCount = memoryDb.customers.length;
+    memoryDb.customers = memoryDb.customers.filter(c => c.id !== id && c.account_number !== id && c.email !== id);
+    memoryDb.loans = memoryDb.loans.filter(l => l.customer_id !== id);
+
+    return true;
+  },
+
   updateCustomerKyc: async (id, status, notes) => {
     if (isSupabaseConfigured) {
       try {
