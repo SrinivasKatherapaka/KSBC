@@ -1,0 +1,252 @@
+import React, { useState, useEffect } from 'react';
+import { Sidebar } from '../components/common/Sidebar';
+import { Navbar } from '../components/common/Navbar';
+import { StatCard } from '../components/common/StatCard';
+import { PortfolioYieldChart } from '../components/dashboard/PortfolioYieldChart';
+import { RecentTransactionsTable } from '../components/dashboard/RecentTransactionsTable';
+import { LoadingSpinner } from '../components/common/LoadingSpinner';
+import { ErrorAlert } from '../components/common/ErrorAlert';
+import { apiClient } from '../api/client';
+import { useAuth } from '../context/AuthContext';
+import { 
+  Vault, 
+  Landmark, 
+  Users, 
+  TrendingUp, 
+  ShieldCheck, 
+  ArrowUpRight,
+  Calculator,
+  BookOpen,
+  ShoppingBag,
+  Bot,
+  History,
+  Wallet
+} from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+
+export const DashboardPage = () => {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [metrics, setMetrics] = useState({
+    vaultCash: 50000000,
+    loanPortfolio: 0,
+    customerDeposits: 50000000,
+    customerCount: 0,
+    loansCount: 0
+  });
+  const [transactions, setTransactions] = useState([]);
+  const [loans, setLoans] = useState([]);
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  const moduleTabs = [
+    { label: 'KSBC Overview', path: '/dashboard', icon: TrendingUp, color: 'text-rose-400' },
+    { label: 'Accounts Database (105 Accounts)', path: '/accounts', icon: Wallet, color: 'text-emerald-400' },
+    { label: 'Loans Portfolio', path: '/loan-applications', icon: Landmark, color: 'text-amber-400' },
+    { label: 'Customer Ops', path: '/customers', icon: Users, color: 'text-purple-400' },
+    { label: 'Compliance & KYC', path: '/compliance', icon: ShieldCheck, color: 'text-indigo-400' },
+    { label: 'AI Risk Calculator', path: '/loan-calculator', icon: Calculator, color: 'text-teal-400' },
+    { label: 'Treasury Reserves', path: '/treasury', icon: Vault, color: 'text-cyan-400' },
+    { label: 'General Ledger', path: '/finance', icon: BookOpen, color: 'text-pink-400' },
+    { label: 'Procurement POs', path: '/procurement', icon: ShoppingBag, color: 'text-rose-400' },
+    { label: 'AI Assistant', path: '/ai-assistant', icon: Bot, color: 'text-amber-400' },
+    { label: 'Advisory Audit', path: '/advisory-history', icon: History, color: 'text-emerald-400' }
+  ];
+
+  useEffect(() => {
+    const fetchDashboardData = async () => {
+      try {
+        setLoading(true);
+        const [treasuryRes, ledgerRes, customersRes, loansRes] = await Promise.all([
+          apiClient.get('/treasury/reserves').catch(() => ({ data: { success: false } })),
+          apiClient.get('/finance/ledger').catch(() => ({ data: { success: false } })),
+          apiClient.get('/customers').catch(() => ({ data: { success: false } })),
+          apiClient.get('/loans').catch(() => ({ data: { success: false } }))
+        ]);
+
+        if (treasuryRes.data?.success) {
+          const m = treasuryRes.data.metrics;
+          setMetrics(prev => ({
+            ...prev,
+            vaultCash: m.vaultCashReserves,
+            loanPortfolio: m.loanPortfolioBalance,
+            customerDeposits: m.customerDeposits
+          }));
+        }
+
+        if (ledgerRes.data?.success) {
+          setTransactions(ledgerRes.data.ledger.transactions || []);
+        }
+
+        if (customersRes.data?.success) {
+          setMetrics(prev => ({ ...prev, customerCount: customersRes.data.customers.length }));
+        }
+
+        if (loansRes.data?.success) {
+          setLoans(loansRes.data.loans || []);
+          setMetrics(prev => ({ ...prev, loansCount: loansRes.data.loans.length }));
+        }
+      } catch (err) {
+        setError('Failed to sync executive dashboard analytics');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDashboardData();
+  }, []);
+
+  return (
+    <div className="flex min-h-screen bg-[#120207] text-slate-100">
+      <Sidebar />
+      <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
+        <Navbar />
+
+        <main className="p-6 md:p-8 space-y-6 max-w-7xl mx-auto w-full">
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+              <div className="flex items-center space-x-3 mb-1">
+                <h1 className="text-2xl md:text-3xl font-extrabold text-white font-heading">KSBC Executive Dashboard</h1>
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-rose-500/10 text-rose-400 border border-rose-500/30 uppercase">
+                  {user?.role?.replace('_', ' ')}
+                </span>
+              </div>
+              <p className="text-xs md:text-sm text-rose-300/60">Unified Real-Time KSBC Banking Operations & Continuous Ledger</p>
+            </div>
+
+            <div className="flex items-center space-x-3">
+              <Link
+                to="/accounts"
+                className="px-4 py-2.5 bg-gradient-to-r from-rose-800 to-rose-950 hover:from-rose-700 hover:to-rose-900 text-white text-xs font-bold rounded-xl shadow-lg shadow-rose-900/30 transition flex items-center space-x-2 border border-rose-600/40"
+              >
+                <Wallet className="w-4 h-4 text-emerald-400" />
+                <span>Accounts Database ({metrics.customerCount})</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Quick Module Tabs Bar */}
+          <div className="glass-panel p-2 rounded-2xl border border-rose-900/30 overflow-x-auto scrollbar-none">
+            <div className="flex space-x-2 min-w-max">
+              {moduleTabs.map((tab) => {
+                const Icon = tab.icon;
+                const isActive = tab.path === '/dashboard';
+                return (
+                  <button
+                    key={tab.path}
+                    onClick={() => navigate(tab.path)}
+                    className={`flex items-center space-x-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
+                      isActive
+                        ? 'bg-rose-800 text-white shadow-lg shadow-rose-900/40 border border-rose-500/40'
+                        : 'bg-rose-950/40 hover:bg-rose-900/30 text-slate-300 border border-rose-900/30'
+                    }`}
+                  >
+                    <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : tab.color}`} />
+                    <span>{tab.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <ErrorAlert message={error} onClose={() => setError('')} />
+
+          {loading ? (
+            <LoadingSpinner text="Calculating KSBC portfolio yields & General Ledger positions..." />
+          ) : (
+            <>
+              {/* Executive Stat Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <StatCard
+                  title="Vault Cash Reserves (1010)"
+                  value={`$${metrics.vaultCash.toLocaleString()}`}
+                  icon={Vault}
+                  color="purple"
+                  change="+0.0%"
+                  description="KSBC Tier 1 Reserves"
+                />
+                <StatCard
+                  title="Commercial Loans (1200)"
+                  value={`$${metrics.loanPortfolio.toLocaleString()}`}
+                  icon={Landmark}
+                  color="emerald"
+                  change={metrics.loanPortfolio > 0 ? '+12.4%' : '0.0%'}
+                  description="Earning Asset Portfolio"
+                />
+                <StatCard
+                  title="Master Accounts"
+                  value={metrics.customerCount.toString()}
+                  icon={Wallet}
+                  color="amber"
+                  description="Private & Corporate Accounts"
+                />
+                <StatCard
+                  title="Capital Adequacy Ratio"
+                  value="18.4%"
+                  icon={ShieldCheck}
+                  color="indigo"
+                  description="Basel III Compliant Level"
+                />
+              </div>
+
+              {/* Charts & Analytics Section */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="lg:col-span-2">
+                  <PortfolioYieldChart totalPortfolio={metrics.loanPortfolio} yieldPercentage={6.5} />
+                </div>
+                <div className="glass-panel p-6 rounded-2xl border border-rose-900/30 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-base font-bold text-white mb-1">Commercial Loan Pipeline</h3>
+                    <p className="text-xs text-rose-300/60 mb-4">Active KSBC applications by status ({loans.length} total)</p>
+                    
+                    <div className="space-y-2.5 text-xs">
+                      <div className="p-2.5 bg-rose-950/60 rounded-xl border border-rose-900/40 flex justify-between items-center">
+                        <span className="text-slate-300 font-medium">Applied (Draft)</span>
+                        <span className="font-bold text-slate-300 font-mono">
+                          {loans.filter(l => l.status === 'draft').length} Loans
+                        </span>
+                      </div>
+                      <div className="p-2.5 bg-rose-950/60 rounded-xl border border-rose-900/40 flex justify-between items-center">
+                        <span className="text-slate-300 font-medium">In Process (Compliance / Risk)</span>
+                        <span className="font-bold text-amber-400 font-mono">
+                          {loans.filter(l => l.status === 'underwriting' || l.status === 'compliance_review').length} Loans
+                        </span>
+                      </div>
+                      <div className="p-2.5 bg-rose-950/60 rounded-xl border border-rose-900/40 flex justify-between items-center">
+                        <span className="text-slate-300 font-medium">Approved (Awaiting Payout)</span>
+                        <span className="font-bold text-rose-400 font-mono">
+                          {loans.filter(l => l.status === 'approved').length} Loans
+                        </span>
+                      </div>
+                      <div className="p-2.5 bg-rose-950/60 rounded-xl border border-rose-900/40 flex justify-between items-center">
+                        <span className="text-slate-300 font-medium">Disbursed to Portfolio</span>
+                        <span className="font-bold text-emerald-400 font-mono">
+                          {loans.filter(l => l.status === 'disbursed').length} Loans
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-rose-900/30">
+                    <Link
+                      to="/loan-applications"
+                      className="w-full py-2.5 bg-rose-900/40 hover:bg-rose-900/60 text-rose-300 text-xs font-bold rounded-xl flex items-center justify-center space-x-2 transition border border-rose-700/50"
+                    >
+                      <span>Manage All {loans.length} Loan Applications</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* Recent Double-Entry GL Ledger Postings */}
+              <RecentTransactionsTable transactions={transactions} />
+            </>
+          )}
+        </main>
+      </div>
+    </div>
+  );
+};
+export default DashboardPage;

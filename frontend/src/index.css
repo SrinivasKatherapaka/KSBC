@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #120207;
+    color: #f8fafc;
+  }
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+/* Glassmorphism maroon custom classes */
+.glass-panel {
+  background: rgba(36, 5, 16, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(190, 18, 60, 0.18);
+}
+
+.glass-card {
+  background: rgba(55, 8, 25, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(190, 18, 60, 0.15);
+}
+
+.glass-input {
+  background: rgba(26, 3, 11, 0.8);
+  border: 1px solid rgba(190, 18, 60, 0.3);
+}
+
+.glass-input:focus {
+  border-color: rgba(225, 29, 72, 0.9);
+  box-shadow: 0 0 15px rgba(225, 29, 72, 0.3);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #120207;
+}
+::-webkit-scrollbar-thumb {
+  background: #800020;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #be123c;
+}
