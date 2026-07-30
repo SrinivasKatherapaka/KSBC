@@ -148,4 +148,82 @@ router.get('/sessions', authenticateJWT, async (req, res) => {
   }
 });
 
+// 9. POST /api/ai/workflow/execute (AI Workflow Automation Trigger)
+router.post('/workflow/execute', authenticateJWT, async (req, res) => {
+  try {
+    const { workflowType, targetId, parameters } = req.body;
+    if (!workflowType) {
+      return res.status(400).json({ success: false, error: 'workflowType is required' });
+    }
+
+    const result = await executeAiWorkflow({ workflowType, targetId, parameters });
+    await db.logAiSession(req.user.id, 'workflow_automation', `Workflow Trigger: ${workflowType}`, result);
+
+    return res.json({ success: true, result });
+  } catch (err) {
+    console.error('Error executing AI Workflow:', err);
+    return res.status(500).json({ success: false, error: 'Failed to execute AI workflow' });
+  }
+});
+
+// 10. POST /api/ai/predictive-analytics (AI Predictive Analytics & Stress Testing)
+router.post('/predictive-analytics', authenticateJWT, async (req, res) => {
+  try {
+    const { forecastMonths = 12, scenario = 'baseline' } = req.body;
+
+    const [loans, customers, glAccounts] = await Promise.all([
+      db.getLoans(),
+      db.getCustomers(),
+      db.getGlAccounts()
+    ]);
+
+    const activeDisbursedLoans = loans.filter(l => l.status === 'disbursed');
+    const totalDisbursedAmount = activeDisbursedLoans.reduce((sum, l) => sum + Number(l.principal_amount), 0);
+    const totalCustomerDeposits = customers.reduce((sum, c) => sum + Number(c.annual_revenue || 0), 0);
+
+    const financialContext = {
+      totalDisbursedAmount: totalDisbursedAmount || 55060000,
+      customerDeposits: totalCustomerDeposits || 314980000
+    };
+
+    const analytics = await generatePredictiveAnalytics({ forecastMonths, scenario, financialContext });
+    return res.json({ success: true, analytics });
+  } catch (err) {
+    console.error('Error generating predictive analytics:', err);
+    return res.status(500).json({ success: false, error: 'Failed to generate predictive analytics' });
+  }
+});
+
+// 11. POST /api/ai/intelligent-reporting/generate (AI Intelligent Reporting Synthesis)
+router.post('/intelligent-reporting/generate', authenticateJWT, async (req, res) => {
+  try {
+    const { reportType = 'EXECUTIVE_FINANCIAL_SUMMARY', period = 'Q3 2026' } = req.body;
+
+    const [loans, customers, glAccounts] = await Promise.all([
+      db.getLoans(),
+      db.getCustomers(),
+      db.getGlAccounts()
+    ]);
+
+    const activeDisbursedLoans = loans.filter(l => l.status === 'disbursed');
+    const totalDisbursedAmount = activeDisbursedLoans.reduce((sum, l) => sum + Number(l.principal_amount), 0);
+    const totalCustomerDeposits = customers.reduce((sum, c) => sum + Number(c.annual_revenue || 0), 0);
+    const vaultCash = glAccounts.find(a => a.account_code === '1010')?.balance || 50000000;
+
+    const financialContext = {
+      vaultCash,
+      totalDisbursedAmount: totalDisbursedAmount || 55060000,
+      customerDeposits: totalCustomerDeposits || 314980000
+    };
+
+    const report = await generateIntelligentReport({ reportType, period, financialContext });
+    await db.logAiSession(req.user.id, 'intelligent_reporting', `Report Generated: ${reportType}`, report);
+
+    return res.json({ success: true, report });
+  } catch (err) {
+    console.error('Error generating intelligent report:', err);
+    return res.status(500).json({ success: false, error: 'Failed to generate intelligent report' });
+  }
+});
+
 export default router;

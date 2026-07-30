@@ -17,6 +17,9 @@ import CustomerServicePage from './pages/CustomerServicePage';
 import TreasuryPage from './pages/TreasuryPage';
 import FinancePage from './pages/FinancePage';
 import ProcurementPage from './pages/ProcurementPage';
+import WorkflowAutomationPage from './pages/WorkflowAutomationPage';
+import PredictiveAnalyticsPage from './pages/PredictiveAnalyticsPage';
+import IntelligentReportingPage from './pages/IntelligentReportingPage';
 import AiAssistantPage from './pages/AiAssistantPage';
 import AdvisoryHistoryPage from './pages/AdvisoryHistoryPage';
 import CfoAiAssistantPage from './pages/CfoAiAssistantPage';
@@ -44,6 +47,9 @@ export function App() {
           <Route path="/treasury" element={<ProtectedRoute><TreasuryPage /></ProtectedRoute>} />
           <Route path="/finance" element={<ProtectedRoute><FinancePage /></ProtectedRoute>} />
           <Route path="/procurement" element={<ProtectedRoute><ProcurementPage /></ProtectedRoute>} />
+          <Route path="/workflow-automation" element={<ProtectedRoute><WorkflowAutomationPage /></ProtectedRoute>} />
+          <Route path="/predictive-analytics" element={<ProtectedRoute><PredictiveAnalyticsPage /></ProtectedRoute>} />
+          <Route path="/intelligent-reporting" element={<ProtectedRoute><IntelligentReportingPage /></ProtectedRoute>} />
           <Route path="/cfo-ai-chat" element={<ProtectedRoute><CfoAiAssistantPage /></ProtectedRoute>} />
           <Route path="/ai-assistant" element={<ProtectedRoute><AiAssistantPage /></ProtectedRoute>} />
           <Route path="/advisory-history" element={<ProtectedRoute><AdvisoryHistoryPage /></ProtectedRoute>} />

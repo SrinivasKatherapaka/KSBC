@@ -13,6 +13,9 @@ import {
   Vault, 
   BookOpen, 
   ShoppingBag, 
+  Zap,
+  BarChart3,
+  FileText,
   Bot, 
   History, 
   UserCheck 
@@ -37,6 +40,9 @@ export const Sidebar = () => {
     { label: 'Treasury Reserves', path: '/treasury', icon: Vault, roleTag: 'Treasury' },
     { label: 'General Ledger', path: '/finance', icon: BookOpen, roleTag: 'Finance' },
     { label: 'Procurement & POs', path: '/procurement', icon: ShoppingBag, roleTag: 'Procure' },
+    { label: 'AI Workflow Automation', path: '/workflow-automation', icon: Zap, roleTag: 'Auto AI' },
+    { label: 'AI Predictive Analytics', path: '/predictive-analytics', icon: BarChart3, roleTag: 'Predict' },
+    { label: 'AI Intelligent Reporting', path: '/intelligent-reporting', icon: FileText, roleTag: 'Reports' },
     { label: 'AI ERP Assistant', path: '/ai-assistant', icon: Bot, roleTag: 'AI Agent' },
     { label: 'AI Advisory History', path: '/advisory-history', icon: History, roleTag: 'Audit' },
     { label: 'User Security Profile', path: '/profile', icon: UserCheck, roleTag: 'Security' }
