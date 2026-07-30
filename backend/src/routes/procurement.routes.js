@@ -67,4 +67,27 @@ router.post('/pos', authenticateJWT, requireRole(['finance_manager', 'admin']), 
   }
 });
 
+// PUT /api/procurement/pos/:id/pay (Process Payment Due)
+router.put('/pos/:id/pay', authenticateJWT, requireRole(['finance_manager', 'cfo_executive', 'admin']), async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedPo = await db.payPurchaseOrder(id, req.user.id);
+    if (!updatedPo) {
+      return res.status(404).json({ success: false, error: 'Purchase order not found' });
+    }
+
+    // Auto write GL payment entry: Debit Expense (5010), Credit Vault Cash (1010)
+    await LedgerService.disbursePurchaseOrderLedgerPosting(updatedPo, req.user.id);
+
+    return res.json({
+      success: true,
+      message: 'Payment processed successfully and posted to General Ledger.',
+      purchaseOrder: updatedPo
+    });
+  } catch (err) {
+    console.error('Error processing PO payment:', err);
+    return res.status(500).json({ success: false, error: 'Failed to process payment' });
+  }
+});
+
 export default router;

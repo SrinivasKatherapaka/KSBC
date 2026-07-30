@@ -32,9 +32,14 @@ const memoryDb = {
   ],
   transactions: [],
   vendors: [
-    { id: uuidv4(), vendor_name: 'Global Tech Hardware Inc', tax_id: 'US-9988223', contact_email: 'procurement@globaltech.com', is_approved: true, created_at: new Date().toISOString() },
-    { id: uuidv4(), vendor_name: 'CyberShield Banking Security', tax_id: 'US-4433112', contact_email: 'billing@cybershield.io', is_approved: true, created_at: new Date().toISOString() },
-    { id: uuidv4(), vendor_name: 'OmniCloud Data Infrastructure', tax_id: 'US-8822991', contact_email: 'enterprise@omnicloud.com', is_approved: true, created_at: new Date().toISOString() }
+    { id: 'v1000001-1111-4111-v111-111111111111', vendor_name: 'Global Tech Hardware Inc', tax_id: 'US-9988223', contact_email: 'procurement@globaltech.com', is_approved: true, created_at: new Date().toISOString() },
+    { id: 'v1000002-2222-4222-v222-222222222222', vendor_name: 'CyberShield Banking Security', tax_id: 'US-4433112', contact_email: 'billing@cybershield.io', is_approved: true, created_at: new Date().toISOString() },
+    { id: 'v1000003-3333-4333-v333-333333333333', vendor_name: 'OmniCloud Data Infrastructure', tax_id: 'US-8822991', contact_email: 'enterprise@omnicloud.com', is_approved: true, created_at: new Date().toISOString() },
+    { id: 'v1000004-4444-4444-v444-444444444444', vendor_name: 'Apex Data Center Solutions', tax_id: 'US-7711005', contact_email: 'orders@apexdatacenters.com', is_approved: true, created_at: new Date().toISOString() },
+    { id: 'v1000005-5555-4555-v555-555555555555', vendor_name: 'Vanguard ATM & Vault Hardware', tax_id: 'US-3344556', contact_email: 'finance@vanguardatm.com', is_approved: true, created_at: new Date().toISOString() },
+    { id: 'v1000006-6666-4666-v666-666666666666', vendor_name: 'BioPharma Commercial Equipment', tax_id: 'US-6655443', contact_email: 'accounts@biopharmasupplies.com', is_approved: true, created_at: new Date().toISOString() },
+    { id: 'v1000007-7777-4777-v777-777777777777', vendor_name: 'Titan Real Estate Management', tax_id: 'US-2233441', contact_email: 'billing@titanproperties.com', is_approved: true, created_at: new Date().toISOString() },
+    { id: 'v1000008-8888-4888-v888-888888888888', vendor_name: 'Solstice Renewable Energy Corp', tax_id: 'US-1122334', contact_email: 'orders@solsticepower.com', is_approved: true, created_at: new Date().toISOString() }
   ],
   purchase_orders: [],
   ai_sessions: []
@@ -220,6 +225,40 @@ function initializeSeedData() {
         updated_at: new Date().toISOString()
       });
     }
+  }
+
+  // Seed 8 Approved Vendors
+  if (memoryDb.vendors.length === 0) {
+    const defaultVendors = [
+      { id: 'v1000001-1111-4111-v111-111111111111', vendor_name: 'Global Tech Hardware Inc', tax_id: 'US-9988223', contact_email: 'procurement@globaltech.com', is_approved: true, created_at: new Date().toISOString() },
+      { id: 'v1000002-2222-4222-v222-222222222222', vendor_name: 'CyberShield Banking Security', tax_id: 'US-4433112', contact_email: 'billing@cybershield.io', is_approved: true, created_at: new Date().toISOString() },
+      { id: 'v1000003-3333-4333-v333-333333333333', vendor_name: 'OmniCloud Data Infrastructure', tax_id: 'US-8822991', contact_email: 'enterprise@omnicloud.com', is_approved: true, created_at: new Date().toISOString() },
+      { id: 'v1000004-4444-4444-v444-444444444444', vendor_name: 'Apex Data Center Solutions', tax_id: 'US-7711005', contact_email: 'orders@apexdatacenters.com', is_approved: true, created_at: new Date().toISOString() },
+      { id: 'v1000005-5555-4555-v555-555555555555', vendor_name: 'Vanguard ATM & Vault Hardware', tax_id: 'US-3344556', contact_email: 'finance@vanguardatm.com', is_approved: true, created_at: new Date().toISOString() },
+      { id: 'v1000006-6666-4666-v666-666666666666', vendor_name: 'BioPharma Commercial Equipment', tax_id: 'US-6655443', contact_email: 'accounts@biopharmasupplies.com', is_approved: true, created_at: new Date().toISOString() },
+      { id: 'v1000007-7777-4777-v777-777777777777', vendor_name: 'Titan Real Estate Management', tax_id: 'US-2233441', contact_email: 'billing@titanproperties.com', is_approved: true, created_at: new Date().toISOString() },
+      { id: 'v1000008-8888-4888-v888-888888888888', vendor_name: 'Solstice Renewable Energy Corp', tax_id: 'US-1122334', contact_email: 'orders@solsticepower.com', is_approved: true, created_at: new Date().toISOString() }
+    ];
+    memoryDb.vendors.push(...defaultVendors);
+  }
+
+  // Seed 12 Live Commercial Purchase Orders reflecting live orders & payments due
+  if (memoryDb.purchase_orders.length === 0 && memoryDb.vendors.length > 0) {
+    const seededPOs = [
+      { id: 'po-1001-1111-4111-p111-111111111111', po_number: 'PO-2026-1001', vendor_id: memoryDb.vendors[2].id, amount: 250000.00, description: 'Enterprise Cloud Data Core & Backup Storage SAN', status: 'pending_payment', due_date: '2026-08-15T00:00:00.000Z', created_by: 'a6666666-6666-4666-a666-666666666666', created_at: '2026-07-01T10:00:00.000Z' },
+      { id: 'po-1002-2222-4222-p222-222222222222', po_number: 'PO-2026-1002', vendor_id: memoryDb.vendors[1].id, amount: 185000.00, description: 'Zero-Trust Banking Firewall & HSM Security Modules', status: 'paid', due_date: '2026-07-28T00:00:00.000Z', paid_at: '2026-07-25T14:30:00.000Z', created_by: 'a6666666-6666-4666-a666-666666666666', created_at: '2026-06-15T11:20:00.000Z' },
+      { id: 'po-1003-3333-4333-p333-333333333333', po_number: 'PO-2026-1003', vendor_id: memoryDb.vendors[0].id, amount: 420000.00, description: 'Core Server Rack Array & High-Velocity Routers', status: 'pending_payment', due_date: '2026-08-20T00:00:00.000Z', created_by: 'a6666666-6666-4666-a666-666666666666', created_at: '2026-07-05T09:15:00.000Z' },
+      { id: 'po-1004-4444-4444-p444-444444444444', po_number: 'PO-2026-1004', vendor_id: memoryDb.vendors[3].id, amount: 310000.00, description: 'Secondary Data Center Hot-Disaster Recovery Site', status: 'approved', due_date: '2026-09-05T00:00:00.000Z', created_by: 'a6666666-6666-4666-a666-666666666666', created_at: '2026-07-10T16:45:00.000Z' },
+      { id: 'po-1005-5555-4555-p555-555555555555', po_number: 'PO-2026-1005', vendor_id: memoryDb.vendors[4].id, amount: 145000.00, description: 'Biometric Smart Vaults & Branch ATM Terminal Units', status: 'paid', due_date: '2026-06-30T00:00:00.000Z', paid_at: '2026-06-28T10:00:00.000Z', created_by: 'a6666666-6666-4666-a666-666666666666', created_at: '2026-05-12T13:10:00.000Z' },
+      { id: 'po-1006-6666-4666-p666-666666666666', po_number: 'PO-2026-1006', vendor_id: memoryDb.vendors[7].id, amount: 95000.00, description: 'Green Energy Micro-Grid Installation & Solar Feed', status: 'pending_payment', due_date: '2026-08-30T00:00:00.000Z', created_by: 'a6666666-6666-4666-a666-666666666666', created_at: '2026-07-12T11:00:00.000Z' },
+      { id: 'po-1007-7777-4777-p777-777777777777', po_number: 'PO-2026-1007', vendor_id: memoryDb.vendors[6].id, amount: 540000.00, description: 'Executive Regional Headquarters Facility Lease Q3', status: 'paid', due_date: '2026-07-15T00:00:00.000Z', paid_at: '2026-07-14T09:00:00.000Z', created_by: 'a6666666-6666-4666-a666-666666666666', created_at: '2026-06-01T08:30:00.000Z' },
+      { id: 'po-1008-8888-4888-p888-888888888888', po_number: 'PO-2026-1008', vendor_id: memoryDb.vendors[5].id, amount: 165000.00, description: 'Automated Vault Climate & Environmental Controls', status: 'in_review', due_date: '2026-09-12T00:00:00.000Z', created_by: 'a6666666-6666-4666-a666-666666666666', created_at: '2026-07-18T14:20:00.000Z' },
+      { id: 'po-1009-9999-4999-p999-999999999999', po_number: 'PO-2026-1009', vendor_id: memoryDb.vendors[2].id, amount: 380000.00, description: 'High-Frequency Banking API Gateway & Microservices Upgrade', status: 'pending_payment', due_date: '2026-08-10T00:00:00.000Z', created_by: 'a6666666-6666-4666-a666-666666666666', created_at: '2026-07-02T15:00:00.000Z' },
+      { id: 'po-1010-0000-4000-p000-000000000000', po_number: 'PO-2026-1010', vendor_id: memoryDb.vendors[1].id, amount: 290000.00, description: 'SOC-2 Penetration Testing & AI Fraud Sentinel Suite', status: 'paid', due_date: '2026-05-20T00:00:00.000Z', paid_at: '2026-05-18T16:00:00.000Z', created_by: 'a6666666-6666-4666-a666-666666666666', created_at: '2026-04-10T10:00:00.000Z' },
+      { id: 'po-1011-1112-4112-p112-111222333444', po_number: 'PO-2026-1011', vendor_id: memoryDb.vendors[3].id, amount: 175000.00, description: 'Fiber-Optic Low-Latency Backbone Interconnect Cabling', status: 'approved', due_date: '2026-10-01T00:00:00.000Z', created_by: 'a6666666-6666-4666-a666-666666666666', created_at: '2026-07-20T12:00:00.000Z' },
+      { id: 'po-1012-2223-4223-p223-222333444555', po_number: 'PO-2026-1012', vendor_id: memoryDb.vendors[0].id, amount: 510000.00, description: 'Tier-3 NVMe Storage SAN Array & High-Density Flash Drives', status: 'pending_payment', due_date: '2026-08-25T00:00:00.000Z', created_by: 'a6666666-6666-4666-a666-666666666666', created_at: '2026-07-22T09:30:00.000Z' }
+    ];
+    memoryDb.purchase_orders.push(...seededPOs);
   }
 }
 
@@ -484,9 +523,38 @@ export const db = {
   },
 
   createPurchaseOrder: async (poData) => {
-    const newPo = { id: uuidv4(), status: 'submitted', ...poData, created_at: new Date().toISOString() };
-    memoryDb.purchase_orders.push(newPo);
+    const poNum = `PO-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+    const newPo = { 
+      id: uuidv4(), 
+      po_number: poNum, 
+      status: 'pending_payment', 
+      due_date: new Date(Date.now() + 30 * 86400000).toISOString(),
+      ...poData, 
+      created_at: new Date().toISOString() 
+    };
+    memoryDb.purchase_orders.unshift(newPo);
     return newPo;
+  },
+
+  payPurchaseOrder: async (poId, userId) => {
+    const updatePayload = {
+      status: 'paid',
+      paid_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    };
+
+    if (isSupabaseConfigured) {
+      try {
+        await supabase.from('purchase_orders').update(updatePayload).eq('id', poId);
+      } catch (err) {}
+    }
+
+    const idx = memoryDb.purchase_orders.findIndex(p => p.id === poId);
+    if (idx !== -1) {
+      memoryDb.purchase_orders[idx] = { ...memoryDb.purchase_orders[idx], ...updatePayload };
+      return memoryDb.purchase_orders[idx];
+    }
+    return null;
   },
 
   logAiSession: async (userId, sessionType, promptContext, aiResponse) => {
