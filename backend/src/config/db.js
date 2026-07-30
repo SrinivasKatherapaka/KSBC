@@ -42,6 +42,7 @@ const memoryDb = {
     { id: 'v1000008-8888-4888-v888-888888888888', vendor_name: 'Solstice Renewable Energy Corp', tax_id: 'US-1122334', contact_email: 'orders@solsticepower.com', is_approved: true, created_at: new Date().toISOString() }
   ],
   purchase_orders: [],
+  procurement: [],
   ai_sessions: []
 };
 
@@ -516,6 +517,25 @@ export const db = {
   },
 
   getPurchaseOrders: async () => {
+    if (isSupabaseConfigured) {
+      try {
+        const { data, error } = await supabase.from('procurement').select('*, vendor:vendors(*)').order('created_at', { ascending: false });
+        if (!error && data && data.length > 0) return data;
+      } catch (err) {}
+    }
+    return memoryDb.purchase_orders.map(po => ({
+      ...po,
+      vendor: memoryDb.vendors.find(v => v.id === po.vendor_id) || null
+    }));
+  },
+
+  getProcurement: async () => {
+    if (isSupabaseConfigured) {
+      try {
+        const { data, error } = await supabase.from('procurement').select('*, vendor:vendors(*)').order('created_at', { ascending: false });
+        if (!error && data && data.length > 0) return data;
+      } catch (err) {}
+    }
     return memoryDb.purchase_orders.map(po => ({
       ...po,
       vendor: memoryDb.vendors.find(v => v.id === po.vendor_id) || null

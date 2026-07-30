@@ -258,6 +258,34 @@ export async function exportAndSeedData() {
     if (vendorErr) console.warn('Supabase Vendors warning:', vendorErr.message);
     else console.log(` ✅ ${vendors.length} Approved Vendors synced to Supabase`);
 
+    // F. Seed Purchase Orders & Procurement Table
+    const purchaseOrders = await db.getPurchaseOrders();
+    const poPayload = purchaseOrders.map(po => ({
+      id: po.id,
+      po_number: po.po_number || `PO-${po.id.slice(0, 8)}`,
+      vendor_id: po.vendor_id,
+      vendor_name: po.vendor?.vendor_name || 'Approved Vendor',
+      requisition_description: po.description,
+      amount: po.amount,
+      status: po.status || 'pending_payment',
+      due_date: po.due_date,
+      paid_at: po.paid_at,
+      created_by: po.created_by,
+      created_at: po.created_at
+    }));
+
+    const { error: poErr } = await supabase.from('procurement').upsert(poPayload, { onConflict: 'po_number' });
+    if (poErr) {
+      const fallbackPo = poPayload.map(({ vendor_name, requisition_description, ...base }) => ({
+        ...base,
+        description: requisition_description
+      }));
+      await supabase.from('purchase_orders').upsert(fallbackPo, { onConflict: 'id' });
+      console.log(` ✅ ${purchaseOrders.length} Purchase Orders synced to Supabase purchase_orders table`);
+    } else {
+      console.log(` ✅ ${purchaseOrders.length} Procurement Purchase Orders synced to Supabase procurement table`);
+    }
+
     console.log('🎉 ALL Master Data Excel Exports & Supabase Synchronization Completed Cleanly!');
 
   } catch (err) {

@@ -124,9 +124,25 @@ CREATE TABLE IF NOT EXISTS purchase_orders (
   vendor_id UUID NOT NULL REFERENCES vendors(id),
   amount NUMERIC(15, 2) NOT NULL,
   description TEXT NOT NULL,
-  status po_status_enum DEFAULT 'draft',
-  created_by UUID NOT NULL REFERENCES users(id),
+  status VARCHAR(50) DEFAULT 'submitted',
+  created_by UUID REFERENCES users(id),
   created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- PROCUREMENT TABLE (Live Orders & Payments Due Reconciliations)
+CREATE TABLE IF NOT EXISTS procurement (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  po_number VARCHAR(100) UNIQUE NOT NULL,
+  vendor_id UUID REFERENCES vendors(id),
+  vendor_name VARCHAR(255) NOT NULL,
+  requisition_description TEXT NOT NULL,
+  amount NUMERIC(15, 2) NOT NULL,
+  status VARCHAR(50) DEFAULT 'pending_payment', -- 'pending_payment', 'paid', 'approved', 'in_review'
+  due_date TIMESTAMPTZ,
+  paid_at TIMESTAMPTZ,
+  created_by UUID REFERENCES users(id),
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
 -- AI SESSIONS & ADVISORY LOGS
@@ -143,6 +159,23 @@ CREATE TABLE IF NOT EXISTS ai_sessions (
 ALTER TABLE users ENABLE ROW LEVEL SECURITY;
 ALTER TABLE customers ENABLE ROW LEVEL SECURITY;
 ALTER TABLE loans ENABLE ROW LEVEL SECURITY;
+ALTER TABLE gl_accounts ENABLE ROW LEVEL SECURITY;
+ALTER TABLE transactions ENABLE ROW LEVEL SECURITY;
+ALTER TABLE vendors ENABLE ROW LEVEL SECURITY;
+ALTER TABLE purchase_orders ENABLE ROW LEVEL SECURITY;
+ALTER TABLE procurement ENABLE ROW LEVEL SECURITY;
+ALTER TABLE ai_sessions ENABLE ROW LEVEL SECURITY;
+
+-- SERVICE ROLE FULL ACCESS POLICIES
+CREATE POLICY "Service Role Full Access Users" ON users FOR ALL USING (true);
+CREATE POLICY "Service Role Full Access Customers" ON customers FOR ALL USING (true);
+CREATE POLICY "Service Role Full Access Loans" ON loans FOR ALL USING (true);
+CREATE POLICY "Service Role Full Access GL Accounts" ON gl_accounts FOR ALL USING (true);
+CREATE POLICY "Service Role Full Access Transactions" ON transactions FOR ALL USING (true);
+CREATE POLICY "Service Role Full Access Vendors" ON vendors FOR ALL USING (true);
+CREATE POLICY "Service Role Full Access Purchase Orders" ON purchase_orders FOR ALL USING (true);
+CREATE POLICY "Service Role Full Access Procurement" ON procurement FOR ALL USING (true);
+CREATE POLICY "Service Role Full Access AI Sessions" ON ai_sessions FOR ALL USING (true);
 ALTER TABLE transactions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE vendors ENABLE ROW LEVEL SECURITY;
 ALTER TABLE purchase_orders ENABLE ROW LEVEL SECURITY;
