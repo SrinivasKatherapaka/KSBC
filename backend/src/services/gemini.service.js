@@ -235,11 +235,52 @@ export async function detectTransactionFraud(transaction) {
   }
 }
 
+const BANKING_KEYWORDS = [
+  'loan', 'account', 'balance', 'deposit', 'interest', 'rate', 'ksbc', 'clearance',
+  'security', 'defaulter', 'npa', 'fraud', 'credit', 'borrow', 'pay', 'statement',
+  'branch', 'transfer', 'login', 'password', 'admin', 'cfo', 'treasury', 'ledger',
+  'vendor', 'procurement', 'po', 'purchase', 'customer', 'kyc', 'eligib', 'underwrit',
+  'calculate', 'money', 'cash', 'reserve', 'dti', 'apr', 'score', 'risk', 'bank',
+  'withdraw', 'finance', 'audit', 'yield', 'portfolio', 'fund', 'saving', 'corp',
+  'help', 'hi', 'hello', 'hey', 'who', 'what', 'how', 'contact', 'support', 'services',
+  'figure', 'disburs', 'amount', 'ratio', 'lcr', 'car', 'tier'
+];
+
+export function isOffTopicQuery(userMessage) {
+  const msg = (userMessage || '').toLowerCase().trim();
+  if (!msg) return true;
+
+  const offTopicTriggers = [
+    'rain', 'weather', 'aiming', 'sport', 'movie', 'recipe', 'joke', 'song', 'game',
+    'president', 'politics', 'football', 'cricket', 'temperature', 'forecast', 'dance',
+    'actor', 'singer', 'cooking', 'food'
+  ];
+
+  if (offTopicTriggers.some(t => msg.includes(t))) {
+    return true;
+  }
+
+  const hasBankingKeyword = BANKING_KEYWORDS.some(k => msg.includes(k));
+  if (!hasBankingKeyword && msg.split(' ').length >= 2) {
+    return true;
+  }
+
+  return false;
+}
+
 /**
  * 4. 24/7 AI Customer Service Assistant
  */
 export async function customerServiceChat(userMessage, chatHistory = [], customerList = []) {
   const msg = userMessage.toLowerCase();
+
+  // 0. Off-Topic / Irrelevant Domain Boundary Intercept
+  if (isOffTopicQuery(userMessage)) {
+    return {
+      message: `⚠️ **KSBC Digital Banking Domain Boundary**\n\nPlease ask me only **relevant banking, loan, or KSBC account queries**.\n\nAs the KSBC Virtual Customer Support Assistant, I am specialized in assisting you with:\n* 💳 **Loan Eligibility & Credit Applications** (e.g., enter account number \`KSBC-SAV-10107424\`)\n* 🏦 **KSBC Account Balances & Customer Records**\n* 📈 **Commercial Interest Rates & Underwriting Criteria**\n* 🔒 **Security Clearance & Banking ERP Operations**`,
+      suggestedTopics: ['Check Loan Eligibility', 'View Accounts Database', 'KSBC Interest Rates', 'Security Clearance Help']
+    };
+  }
 
   // Security & Administrative Intent Interception
   if (msg.includes('delete') || msg.includes('remove') || msg.includes('drop') || msg.includes('wipe') || msg.includes('terminate') || msg.includes('cancel account') || msg.includes('erase') || msg.includes('clear account')) {
@@ -323,6 +364,11 @@ export async function customerServiceChat(userMessage, chatHistory = [], custome
     const systemPrompt = `
     You are the official 24/7 Virtual Customer Service Assistant for KSBC Digital Banking ERP.
     Be polite, professional, concise, helpful, and clear.
+
+    CRITICAL DOMAIN BOUNDARY RULE:
+    If the user asks an off-topic, irrelevant, or non-banking question (such as weather, sports, movies, casual chit-chat, or general trivia like "is it raining today"):
+    You MUST politely refuse and reply: "Please ask me only relevant banking, loan, or KSBC account queries." and list the core banking topics you assist with.
+
     If the user asks for loan eligibility or calculations, request their KSBC Account Number (e.g. KSBC-SAV-10107424) so you can evaluate deposit balances.
 
     Conversation History:
@@ -347,8 +393,8 @@ export async function customerServiceChat(userMessage, chatHistory = [], custome
   } catch (err) {
     console.error('Gemini Customer Service Chat Error:', err);
     return {
-      message: "To analyze your exact loan eligibility and pre-approved borrowing limits, please enter your KSBC Account Number (e.g. KSBC-SAV-10107424).",
-      suggestedTopics: ['Check KSBC-SAV-10107424', 'Accounts Database', 'Interest Rates']
+      message: `⚠️ **KSBC Digital Banking Domain Boundary**\n\nPlease ask me only **relevant banking, loan, or KSBC account queries**.\n\nAs the KSBC Virtual Customer Support Assistant, I am specialized in assisting you with:\n* 💳 **Loan Eligibility & Credit Risk Analysis** (e.g., enter account number \`KSBC-SAV-10107424\`)\n* 🏦 **KSBC Account Balances & Customer Records**\n* 📈 **Commercial Interest Rates & Underwriting Criteria**\n* 🔒 **Security Clearance & Banking ERP Operations**`,
+      suggestedTopics: ['Check Loan Eligibility', 'View Accounts Database', 'KSBC Interest Rates', 'Security Clearance Help']
     };
   }
 }
@@ -477,7 +523,25 @@ export async function cfoExecutiveChat(userMessage, chatHistory = [], financialC
 
   const msg = userMessage.toLowerCase();
 
-  // 0. Security Clearance & Administrative Destructive Action Intercept
+  // 0. Off-Topic Domain Boundary Intercept
+  if (isOffTopicQuery(userMessage)) {
+    return {
+      message: `⚠️ **KSBC Executive Domain Boundary**\n\nPlease ask me only **relevant banking, financial, or KSBC executive queries**.\n\nAs the CFO Executive AI Advisor, I can assist you with:\n* 🏦 **Vault Cash Reserves & Tier-1 Liquidity Coverage (LCR)**\n* 💳 **Disbursed Commercial Loan Portfolio & Yield Analysis**\n* 📊 **Double-Entry General Ledger Balance Audits**\n* ⚠️ **NPA Defaulter Exposure & Provision Coverage**`,
+      executiveMetrics: {
+        vaultReserves: vaultCash,
+        loanPortfolio: totalDisbursedAmount || loanPortfolio,
+        capitalAdequacyRatio: '18.4%',
+        netNpaRatio: '1.2%'
+      },
+      suggestedQueries: [
+        'Give me the exact amount disbursed in figures',
+        'What is our current Tier-1 Liquidity & Vault Reserve status?',
+        'Run double-entry GL audit & balance check'
+      ]
+    };
+  }
+
+  // 1. Security Clearance & Administrative Destructive Action Intercept
   if (msg.includes('delete') || msg.includes('remove') || msg.includes('drop') || msg.includes('wipe') || msg.includes('terminate') || msg.includes('cancel account') || msg.includes('erase') || msg.includes('clear account')) {
     const securityMessage = `🔒 **Security Clearance & Administrative Authorization Required**\n\n` +
       `Account deletion, customer record modification, and database write operations are **restricted security actions** under KSBC ERP Compliance & Audit Protocol.\n\n` +

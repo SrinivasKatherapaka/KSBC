@@ -1,6 +1,6 @@
 import express from 'express';
 import { authenticateJWT, requireRole } from '../middleware/auth.js';
-import { calculateLoanRisk, analyzeDefaulterRisk, detectTransactionFraud, customerServiceChat, cfoExecutiveChat } from '../services/gemini.service.js';
+import { calculateLoanRisk, analyzeDefaulterRisk, detectTransactionFraud, customerServiceChat, cfoExecutiveChat, executeAiWorkflow, generatePredictiveAnalytics, generateIntelligentReport } from '../services/gemini.service.js';
 import { db } from '../config/db.js';
 
 const router = express.Router();
@@ -223,6 +223,27 @@ router.post('/intelligent-reporting/generate', authenticateJWT, async (req, res)
   } catch (err) {
     console.error('Error generating intelligent report:', err);
     return res.status(500).json({ success: false, error: 'Failed to generate intelligent report' });
+  }
+});
+
+// 12. POST /api/ai/assistant (General AI ERP Assistant)
+router.post('/assistant', authenticateJWT, async (req, res) => {
+  try {
+    const { message } = req.body;
+    if (!message) {
+      return res.status(400).json({ success: false, error: 'Message is required' });
+    }
+    const customerList = await db.getCustomers();
+    const reply = await customerServiceChat(message, [], customerList);
+    return res.json({
+      success: true,
+      aiResponse: {
+        answer: reply.message,
+        suggestedActions: (reply.suggestedTopics || []).map(t => ({ label: t, action: t }))
+      }
+    });
+  } catch (err) {
+    return res.status(500).json({ success: false, error: 'AI ERP Assistant failed' });
   }
 });
 
