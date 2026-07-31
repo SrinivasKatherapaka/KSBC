@@ -123,7 +123,9 @@ router.post('/cfo-chat', authenticateJWT, async (req, res) => {
       totalApprovedAmount,
       totalPendingCount: pendingLoans.length,
       totalPendingAmount,
-      totalCustomersCount: customers.length
+      totalCustomersCount: customers.length,
+      customerList: customers,
+      loansList: loans
     };
 
     const reply = await cfoExecutiveChat(message, history || [], financialContext);
