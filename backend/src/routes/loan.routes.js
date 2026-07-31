@@ -131,4 +131,39 @@ router.patch('/:id/approve', authenticateJWT, requireRole(['loan_officer', 'fina
   }
 });
 
+// PUT /api/loans/:id (Modify loan record)
+router.put('/:id', authenticateJWT, requireRole(['loan_officer', 'finance_manager', 'cfo_executive', 'admin']), async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedLoan = await db.updateLoanDetails(id, req.body);
+    if (!updatedLoan) return res.status(404).json({ success: false, error: 'Loan application record not found' });
+
+    return res.json({
+      success: true,
+      message: 'Loan application record modified successfully',
+      loan: updatedLoan
+    });
+  } catch (err) {
+    console.error('Error modifying loan record:', err);
+    return res.status(500).json({ success: false, error: 'Failed to modify loan record' });
+  }
+});
+
+// DELETE /api/loans/:id (Delete loan record)
+router.delete('/:id', authenticateJWT, requireRole(['cfo_executive', 'admin']), async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleted = await db.deleteLoanRecord(id);
+    if (!deleted) return res.status(404).json({ success: false, error: 'Loan record not found' });
+
+    return res.json({
+      success: true,
+      message: `Loan record #${id.slice(0, 8)} deleted successfully`
+    });
+  } catch (err) {
+    console.error('Error deleting loan record:', err);
+    return res.status(500).json({ success: false, error: 'Failed to delete loan record' });
+  }
+});
+
 export default router;

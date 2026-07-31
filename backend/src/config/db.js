@@ -466,6 +466,38 @@ export const db = {
     return null;
   },
 
+  updateLoanDetails: async (id, loanData) => {
+    const updatePayload = {
+      ...loanData,
+      updated_at: new Date().toISOString()
+    };
+    if (isSupabaseConfigured) {
+      try {
+        await supabase.from('loans').update(updatePayload).eq('id', id);
+      } catch (err) {}
+    }
+    const idx = memoryDb.loans.findIndex(l => l.id === id);
+    if (idx !== -1) {
+      memoryDb.loans[idx] = { ...memoryDb.loans[idx], ...updatePayload };
+      return memoryDb.loans[idx];
+    }
+    return null;
+  },
+
+  deleteLoanRecord: async (id) => {
+    if (isSupabaseConfigured) {
+      try {
+        await supabase.from('loans').delete().eq('id', id);
+      } catch (err) {}
+    }
+    const idx = memoryDb.loans.findIndex(l => l.id === id);
+    if (idx !== -1) {
+      memoryDb.loans.splice(idx, 1);
+      return true;
+    }
+    return false;
+  },
+
   getGlAccounts: async () => {
     return memoryDb.gl_accounts;
   },
