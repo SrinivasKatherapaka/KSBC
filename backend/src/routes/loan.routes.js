@@ -28,10 +28,10 @@ router.get('/:id', authenticateJWT, async (req, res) => {
   }
 });
 
-// POST /api/loans (Customer Ops creates draft application)
-router.post('/', authenticateJWT, requireRole(['customer_ops', 'admin']), validateRequest(createLoanSchema), async (req, res) => {
+// POST /api/loans (Create loan application)
+router.post('/', authenticateJWT, requireRole(['customer_ops', 'loan_officer', 'finance_manager', 'cfo_executive', 'admin']), validateRequest(createLoanSchema), async (req, res) => {
   try {
-    const { customerId, applicantName, applicantCategory, principalAmount, interestRate, termMonths, purpose } = req.body;
+    const { customerId, applicantName, applicantCategory, principalAmount, interestRate, termMonths, purpose, status } = req.body;
 
     let targetCustomerId = customerId;
     let targetApplicantName = applicantName;
@@ -55,6 +55,7 @@ router.post('/', authenticateJWT, requireRole(['customer_ops', 'admin']), valida
       interest_rate: interestRate,
       term_months: termMonths,
       purpose,
+      status: status || 'applied',
       created_by: req.user.id
     });
 
@@ -70,7 +71,7 @@ router.post('/', authenticateJWT, requireRole(['customer_ops', 'admin']), valida
 });
 
 // POST /api/loans/:id/assess-risk (Run Gemini Risk Model)
-router.post('/:id/assess-risk', authenticateJWT, requireRole(['loan_officer', 'compliance_officer', 'admin']), async (req, res) => {
+router.post('/:id/assess-risk', authenticateJWT, requireRole(['loan_officer', 'compliance_officer', 'cfo_executive', 'admin']), async (req, res) => {
   try {
     const loan = await db.getLoanById(req.params.id);
     if (!loan) return res.status(404).json({ success: false, error: 'Loan not found' });
@@ -109,7 +110,7 @@ router.post('/:id/assess-risk', authenticateJWT, requireRole(['loan_officer', 'c
 });
 
 // PATCH /api/loans/:id/approve (Loan Officer Approval)
-router.patch('/:id/approve', authenticateJWT, requireRole(['loan_officer', 'admin']), async (req, res) => {
+router.patch('/:id/approve', authenticateJWT, requireRole(['loan_officer', 'finance_manager', 'cfo_executive', 'admin']), async (req, res) => {
   try {
     const loan = await db.getLoanById(req.params.id);
     if (!loan) return res.status(404).json({ success: false, error: 'Loan not found' });

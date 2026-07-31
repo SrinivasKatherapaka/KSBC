@@ -158,6 +158,21 @@ export const DefaultersPage = () => {
                     <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-800 text-xs italic text-slate-300">
                       🤖 <span className="font-bold text-amber-400 not-italic">Gemini AI Executive Summary:</span> "{activeStrategy.aiExecutiveSummary}"
                     </div>
+
+                    <div className="pt-2 border-t border-rose-900/30 grid grid-cols-2 gap-2 text-xs">
+                      <button
+                        onClick={() => alert(`✅ 90-Day Workout Plan & Restructure initiated for ${activeStrategy.borrowerName}. General Ledger NPA Provision updated.`)}
+                        className="py-2 bg-gradient-to-r from-amber-600 to-emerald-600 hover:from-amber-500 hover:to-emerald-500 text-white font-bold rounded-xl shadow transition"
+                      >
+                        Execute 90-Day Workout Plan
+                      </button>
+                      <button
+                        onClick={() => alert(`🚨 Asset Seizure Legal Notice generated for ${activeStrategy.borrowerName}. Transmitted to Legal Counsel.`)}
+                        className="py-2 bg-rose-900/80 hover:bg-rose-800 text-rose-200 font-bold rounded-xl border border-rose-700 transition"
+                      >
+                        Initiate Asset Legal Recovery
+                      </button>
+                    </div>
                   </div>
                 ) : (
                   <div className="glass-panel p-8 rounded-2xl border border-rose-900/30 text-center text-slate-400 text-xs space-y-2">

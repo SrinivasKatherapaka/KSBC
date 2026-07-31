@@ -142,27 +142,27 @@ export const LoansPage = () => {
         )}
 
         {/* Action Triggers */}
-        <div className="pt-2 border-t border-[#2aa198]/20 flex items-center justify-end space-x-2 text-xs">
-          {(loan.status === 'draft' || loan.status === 'compliance_review' || loan.status === 'underwriting') && (
-            <button
-              onClick={() => handleAssessRisk(loan.id)}
-              disabled={processingId === loan.id}
-              className="w-full py-2 bg-gradient-to-r from-[#b58900] to-[#d4af37] hover:from-[#d4af37] hover:to-[#ffd700] text-[#002b36] text-[11px] font-black rounded-xl shadow transition flex items-center justify-center space-x-1.5 disabled:opacity-50"
-            >
-              {processingId === loan.id ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Sparkles className="w-3.5 h-3.5 text-[#002b36]" />}
-              <span>Run Gemini Risk Model</span>
-            </button>
-          )}
+        <div className="pt-2 border-t border-[#2aa198]/20 flex flex-col space-y-1.5 text-xs">
+          {(loan.status === 'draft' || loan.status === 'applied' || loan.status === 'compliance_review' || loan.status === 'underwriting') && (
+            <div className="grid grid-cols-2 gap-1.5">
+              <button
+                onClick={() => handleAssessRisk(loan.id)}
+                disabled={processingId === loan.id}
+                className="w-full py-1.5 bg-gradient-to-r from-[#b58900] to-[#d4af37] hover:from-[#d4af37] hover:to-[#ffd700] text-[#002b36] text-[10px] font-black rounded-lg shadow transition flex items-center justify-center space-x-1 disabled:opacity-50"
+              >
+                {processingId === loan.id ? <Loader2 className="w-3 h-3 animate-spin" /> : <Sparkles className="w-3 h-3 text-[#002b36]" />}
+                <span>AI Risk</span>
+              </button>
 
-          {loan.status === 'underwriting' && (
-            <button
-              onClick={() => handleApproveLoan(loan.id)}
-              disabled={processingId === loan.id}
-              className="w-full py-2 bg-[#859900] hover:bg-emerald-500 text-[#002b36] text-[11px] font-black rounded-xl shadow transition flex items-center justify-center space-x-1.5 disabled:opacity-50"
-            >
-              <CheckCircle2 className="w-3.5 h-3.5" />
-              <span>Approve Loan</span>
-            </button>
+              <button
+                onClick={() => handleApproveLoan(loan.id)}
+                disabled={processingId === loan.id}
+                className="w-full py-1.5 bg-[#859900] hover:bg-emerald-500 text-[#002b36] text-[10px] font-black rounded-lg shadow transition flex items-center justify-center space-x-1 disabled:opacity-50"
+              >
+                <CheckCircle2 className="w-3 h-3" />
+                <span>Approve</span>
+              </button>
+            </div>
           )}
 
           {loan.status === 'approved' && (

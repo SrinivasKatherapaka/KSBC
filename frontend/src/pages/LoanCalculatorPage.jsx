@@ -4,9 +4,10 @@ import Navbar from '../components/common/Navbar';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 import ErrorAlert from '../components/common/ErrorAlert';
 import { apiClient } from '../api/client';
+import { Link } from 'react-router-dom';
 import {
   Calculator, Sparkles, DollarSign, ShieldAlert, CheckCircle2, Percent,
-  TrendingUp, AlertTriangle, ArrowRight, Layers, UserCheck, CreditCard, FileText
+  TrendingUp, AlertTriangle, ArrowRight, Layers, UserCheck, CreditCard, FileText, Check, ExternalLink
 } from 'lucide-react';
 
 export const LoanCalculatorPage = () => {
@@ -14,10 +15,10 @@ export const LoanCalculatorPage = () => {
   const [selectedCustomerId, setSelectedCustomerId] = useState('');
 
   const [formData, setFormData] = useState({
-    applicantName: 'David Reddy',
-    accountNumber: 'KSBC-SAV-10049281',
-    taxId: 'US-SSN-***-**-3941',
-    customerEmail: 'david.reddy@enterprise.com',
+    applicantName: 'Charlotte Sterling',
+    accountNumber: 'KSBC-SAV-10040284',
+    taxId: 'US-SSN-***-**-3027',
+    customerEmail: 'charlotte.sterling27@privatesavings.com',
     principalAmount: 2500000,
     interestRate: 6.5,
     termMonths: 36,
@@ -26,12 +27,14 @@ export const LoanCalculatorPage = () => {
     dtiRatio: 0.32,
     collateralValue: 3500000,
     loanPurpose: 'Equipment Purchase & Automation',
-    applicantCategory: 'corporate'
+    applicantCategory: 'private_individual'
   });
 
   const [assessment, setAssessment] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [submittingAction, setSubmittingAction] = useState(false);
   const [error, setError] = useState('');
+  const [successMsg, setSuccessMsg] = useState('');
 
   useEffect(() => {
     const fetchCustomers = async () => {
@@ -58,7 +61,7 @@ export const LoanCalculatorPage = () => {
         taxId: cust.national_id || 'US-EIN-99-882233',
         customerEmail: cust.email || 'client@ksbc-banking.com',
         annualIncome: Number(cust.annual_revenue || 5000000),
-        applicantCategory: cust.client_category || 'corporate'
+        applicantCategory: cust.client_category || 'private_individual'
       }));
     }
   };
@@ -67,6 +70,7 @@ export const LoanCalculatorPage = () => {
     e.preventDefault();
     setLoading(true);
     setError('');
+    setSuccessMsg('');
 
     try {
       const res = await apiClient.post('/ai/loan-risk', {
@@ -94,6 +98,48 @@ export const LoanCalculatorPage = () => {
     }
   };
 
+  // Interactive Action: Approve & Intake Loan Application
+  const handleApproveAndIntake = async (shouldDisburse = false) => {
+    setSubmittingAction(true);
+    setError('');
+    setSuccessMsg('');
+
+    try {
+      // 1. Create Loan in Pipeline
+      const targetCustId = selectedCustomerId || (customers[0]?.id || 'c0000001-1111-4111-c111-111111111111');
+      const createRes = await apiClient.post('/loans', {
+        customerId: targetCustId,
+        applicantName: formData.applicantName,
+        applicantCategory: formData.applicantCategory,
+        principalAmount: Number(formData.principalAmount),
+        interestRate: Number(formData.interestRate),
+        termMonths: Number(formData.termMonths),
+        purpose: formData.loanPurpose,
+        status: 'approved'
+      });
+
+      if (createRes.data.success) {
+        const createdLoan = createRes.data.loan;
+
+        if (shouldDisburse && createdLoan?.id) {
+          // 2. Disburse Funds in Treasury & Post to General Ledger
+          try {
+            await apiClient.post(`/treasury/loans/${createdLoan.id}/disburse`);
+            setSuccessMsg(`🎉 Loan #${createdLoan.id.slice(0, 8)} ($${Number(formData.principalAmount).toLocaleString()}) for ${formData.applicantName} (${formData.accountNumber}) successfully APPROVED and DISBURSED into General Ledger!`);
+          } catch (disburseErr) {
+            setSuccessMsg(`✅ Loan #${createdLoan.id.slice(0, 8)} for ${formData.applicantName} (${formData.accountNumber}) successfully APPROVED in underwriting pipeline!`);
+          }
+        } else {
+          setSuccessMsg(`✅ Loan application for ${formData.applicantName} (${formData.accountNumber}) successfully APPROVED & added to Pipeline!`);
+        }
+      }
+    } catch (err) {
+      setError(err.response?.data?.error || 'Failed to execute loan approval action');
+    } finally {
+      setSubmittingAction(false);
+    }
+  };
+
   return (
     <div className="flex min-h-screen bg-[#002b36] text-[#93a1a1]">
       <Sidebar />
@@ -111,6 +157,23 @@ export const LoanCalculatorPage = () => {
               <span>Real-Time Neural Credit Scoring</span>
             </div>
           </div>
+
+          {/* Success Banner */}
+          {successMsg && (
+            <div className="p-4 bg-[#859900]/20 border border-[#859900]/50 rounded-2xl text-xs text-[#859900] font-bold flex items-center justify-between shadow-lg">
+              <span className="flex items-center space-x-2">
+                <CheckCircle2 className="w-5 h-5 text-[#859900]" />
+                <span>{successMsg}</span>
+              </span>
+              <Link
+                to="/loans"
+                className="px-3 py-1.5 bg-[#859900] text-[#002b36] text-[11px] font-black rounded-lg hover:bg-white transition flex items-center space-x-1"
+              >
+                <span>View Loans Pipeline</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          )}
 
           <ErrorAlert message={error} onClose={() => setError('')} />
 
@@ -158,7 +221,7 @@ export const LoanCalculatorPage = () => {
                         value={formData.applicantName}
                         onChange={(e) => setFormData({ ...formData, applicantName: e.target.value })}
                         className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3] font-bold"
-                        placeholder="e.g. David Reddy"
+                        placeholder="e.g. Charlotte Sterling"
                         required
                       />
                     </div>
@@ -170,7 +233,7 @@ export const LoanCalculatorPage = () => {
                         value={formData.accountNumber}
                         onChange={(e) => setFormData({ ...formData, accountNumber: e.target.value })}
                         className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#ffd700] font-mono font-bold"
-                        placeholder="e.g. KSBC-SAV-10049281"
+                        placeholder="e.g. KSBC-SAV-10040284"
                         required
                       />
                     </div>
@@ -184,7 +247,7 @@ export const LoanCalculatorPage = () => {
                         value={formData.taxId}
                         onChange={(e) => setFormData({ ...formData, taxId: e.target.value })}
                         className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3] font-mono"
-                        placeholder="e.g. US-SSN-***-**-3941"
+                        placeholder="e.g. US-SSN-***-**-3027"
                         required
                       />
                     </div>
@@ -196,7 +259,7 @@ export const LoanCalculatorPage = () => {
                         value={formData.customerEmail}
                         onChange={(e) => setFormData({ ...formData, customerEmail: e.target.value })}
                         className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#2aa198]"
-                        placeholder="e.g. david.reddy@enterprise.com"
+                        placeholder="e.g. charlotte.sterling27@privatesavings.com"
                         required
                       />
                     </div>
@@ -338,15 +401,22 @@ export const LoanCalculatorPage = () => {
                 <div className="glass-panel p-6 rounded-2xl border border-[#ffd700]/40 space-y-5 shadow-2xl bg-[#073642]/80">
                   <div className="flex justify-between items-center pb-3 border-b border-[#2aa198]/20">
                     <h3 className="text-sm font-bold text-[#fdf6e3]">AI Credit Underwriting Verdict</h3>
-                    <span className={`px-3 py-1 rounded-full text-xs font-black font-mono border uppercase ${
-                      assessment.recommendation === 'APPROVE'
-                        ? 'bg-[#859900]/20 text-[#859900] border-[#859900]/40'
-                        : assessment.recommendation === 'CONDITIONAL_APPROVE'
-                        ? 'bg-[#b58900]/20 text-[#ffd700] border-[#ffd700]/40'
-                        : 'bg-red-500/10 text-red-400 border-red-500/40'
-                    }`}>
-                      {assessment.recommendation.replace('_', ' ')}
-                    </span>
+                    
+                    {/* Interactive Approve Button */}
+                    <button
+                      onClick={() => handleApproveAndIntake(false)}
+                      disabled={submittingAction}
+                      className={`px-3 py-1.5 rounded-full text-xs font-black font-mono border uppercase shadow transition flex items-center space-x-1.5 hover:scale-105 cursor-pointer ${
+                        assessment.recommendation === 'APPROVE'
+                          ? 'bg-[#859900] text-[#002b36] border-[#859900] hover:bg-[#859900]/80'
+                          : assessment.recommendation === 'CONDITIONAL_APPROVE'
+                          ? 'bg-[#b58900] text-[#002b36] border-[#ffd700] hover:bg-[#ffd700]'
+                          : 'bg-red-600 text-white border-red-500 hover:bg-red-700'
+                      }`}
+                    >
+                      <CheckCircle2 className="w-3.5 h-3.5" />
+                      <span>{submittingAction ? 'Processing...' : `EXECUTE ${assessment.recommendation.replace('_', ' ')}`}</span>
+                    </button>
                   </div>
 
                   {/* Customer Account Details Card */}
@@ -407,6 +477,30 @@ export const LoanCalculatorPage = () => {
                       <span>Gemini AI Advisory:</span>
                     </span>
                     <p className="italic text-[#fdf6e3]">"{assessment.summaryAdvisory}"</p>
+                  </div>
+
+                  {/* Executive Interactive Action Toolbar */}
+                  <div className="pt-3 border-t border-[#2aa198]/20 space-y-2">
+                    <span className="text-[10px] font-bold text-[#2aa198] uppercase block tracking-wider">Executive Action Commands</span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                      <button
+                        onClick={() => handleApproveAndIntake(true)}
+                        disabled={submittingAction}
+                        className="w-full py-2.5 bg-gradient-to-r from-[#859900] to-[#2aa198] text-[#002b36] font-black rounded-xl shadow hover:opacity-90 transition flex items-center justify-center space-x-1.5 text-[11px] disabled:opacity-50"
+                      >
+                        <Check className="w-4 h-4" />
+                        <span>{submittingAction ? 'Processing...' : 'Approve & Disburse Immediately'}</span>
+                      </button>
+
+                      <button
+                        onClick={() => handleApproveAndIntake(false)}
+                        disabled={submittingAction}
+                        className="w-full py-2.5 bg-[#002129] text-[#ffd700] font-bold rounded-xl border border-[#ffd700]/40 hover:bg-[#073642] transition flex items-center justify-center space-x-1.5 text-[11px] disabled:opacity-50"
+                      >
+                        <FileText className="w-4 h-4 text-[#ffd700]" />
+                        <span>Intake to Approved Pipeline</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               ) : (
