@@ -1,13 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from '../components/common/Sidebar';
 import Navbar from '../components/common/Navbar';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 import ErrorAlert from '../components/common/ErrorAlert';
 import { apiClient } from '../api/client';
-import { Calculator, Sparkles, DollarSign, ShieldAlert, CheckCircle2, Percent, TrendingUp, AlertTriangle, ArrowRight, Layers } from 'lucide-react';
+import {
+  Calculator, Sparkles, DollarSign, ShieldAlert, CheckCircle2, Percent,
+  TrendingUp, AlertTriangle, ArrowRight, Layers, UserCheck, CreditCard, FileText
+} from 'lucide-react';
 
 export const LoanCalculatorPage = () => {
+  const [customers, setCustomers] = useState([]);
+  const [selectedCustomerId, setSelectedCustomerId] = useState('');
+
   const [formData, setFormData] = useState({
+    applicantName: 'David Reddy',
+    accountNumber: 'KSBC-SAV-10049281',
+    taxId: 'US-SSN-***-**-3941',
+    customerEmail: 'david.reddy@enterprise.com',
     principalAmount: 2500000,
     interestRate: 6.5,
     termMonths: 36,
@@ -16,12 +26,42 @@ export const LoanCalculatorPage = () => {
     dtiRatio: 0.32,
     collateralValue: 3500000,
     loanPurpose: 'Equipment Purchase & Automation',
-    applicantCategory: 'private_individual'
+    applicantCategory: 'corporate'
   });
 
   const [assessment, setAssessment] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    const fetchCustomers = async () => {
+      try {
+        const res = await apiClient.get('/customers');
+        if (res.data.success && res.data.customers?.length > 0) {
+          setCustomers(res.data.customers);
+        }
+      } catch (err) {}
+    };
+    fetchCustomers();
+  }, []);
+
+  const handleCustomerSelect = (custID) => {
+    setSelectedCustomerId(custID);
+    if (!custID) return;
+
+    const cust = customers.find(c => c.id === custID);
+    if (cust) {
+      setFormData(prev => ({
+        ...prev,
+        applicantName: `${cust.first_name || ''} ${cust.last_name || ''}`.trim() || 'Onboarded Account Holder',
+        accountNumber: cust.account_number || `KSBC-SAV-${cust.id.slice(0, 8)}`,
+        taxId: cust.national_id || 'US-EIN-99-882233',
+        customerEmail: cust.email || 'client@ksbc-banking.com',
+        annualIncome: Number(cust.annual_revenue || 5000000),
+        applicantCategory: cust.client_category || 'corporate'
+      }));
+    }
+  };
 
   const handleCalculate = async (e) => {
     e.preventDefault();
@@ -31,6 +71,10 @@ export const LoanCalculatorPage = () => {
     try {
       const res = await apiClient.post('/ai/loan-risk', {
         ...formData,
+        applicantName: formData.applicantName,
+        accountNumber: formData.accountNumber,
+        taxId: formData.taxId,
+        customerEmail: formData.customerEmail,
         principalAmount: Number(formData.principalAmount),
         interestRate: Number(formData.interestRate),
         termMonths: Number(formData.termMonths),
@@ -59,11 +103,11 @@ export const LoanCalculatorPage = () => {
         <main className="p-6 md:p-8 space-y-6 max-w-7xl mx-auto w-full">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-extrabold text-white font-heading">AI Loan Risk Calculator</h1>
-              <p className="text-xs text-rose-300/60">Powered by Gemini 2.5 Flash Underwriting & Credit Risk Engine</p>
+              <h1 className="text-2xl font-extrabold text-[#fdf6e3] font-heading">AI Loan Risk & Underwriting Calculator</h1>
+              <p className="text-xs text-[#2aa198]">Powered by Gemini 2.0 Flash Neural Credit Risk Engine</p>
             </div>
-            <div className="flex items-center space-x-2 px-3 py-1 bg-amber-500/10 border border-amber-500/30 rounded-full text-xs text-amber-300 font-bold">
-              <Sparkles className="w-4 h-4 text-amber-400" />
+            <div className="flex items-center space-x-2 px-3.5 py-1.5 bg-[#b58900]/20 border border-[#ffd700]/40 rounded-full text-xs text-[#ffd700] font-bold shadow">
+              <Sparkles className="w-4 h-4 text-[#ffd700]" />
               <span>Real-Time Neural Credit Scoring</span>
             </div>
           </div>
@@ -72,36 +116,118 @@ export const LoanCalculatorPage = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
             {/* Input Form */}
-            <div className="lg:col-span-7 glass-panel p-6 rounded-2xl border border-rose-900/30 space-y-5">
-              <h3 className="text-base font-bold text-white flex items-center space-x-2 pb-3 border-b border-rose-900/30">
-                <Calculator className="w-4 h-4 text-rose-400" />
-                <span>Input Applicant Credit Parameters</span>
+            <div className="lg:col-span-7 glass-panel p-6 rounded-2xl border border-[#2aa198]/30 space-y-5 bg-[#073642]/60 shadow-xl">
+              <h3 className="text-sm font-bold text-[#fdf6e3] flex items-center space-x-2 pb-3 border-b border-[#2aa198]/20">
+                <Calculator className="w-4 h-4 text-[#ffd700]" />
+                <span>Input Applicant & Credit Parameters</span>
               </h3>
 
               <form onSubmit={handleCalculate} className="space-y-4 text-xs">
+                {/* Customer Account Details Auto-Fill Selection */}
+                <div className="p-3.5 bg-[#002129] rounded-xl border border-[#ffd700]/30 space-y-2">
+                  <label className="block text-[#ffd700] font-bold uppercase text-[10px] flex items-center space-x-1.5">
+                    <UserCheck className="w-3.5 h-3.5 text-[#ffd700]" />
+                    <span>Select Onboarded Customer Account (Auto-Fill)</span>
+                  </label>
+                  <select
+                    value={selectedCustomerId}
+                    onChange={(e) => handleCustomerSelect(e.target.value)}
+                    className="w-full glass-input bg-[#073642] border border-[#ffd700]/40 rounded-xl p-2.5 text-[#fdf6e3] font-medium"
+                  >
+                    <option value="">-- Select Existing Onboarded Customer Account --</option>
+                    {customers.map((c) => (
+                      <option key={c.id} value={c.id}>
+                        {c.first_name} {c.last_name} — {c.account_number || `KSBC-ACC-${c.id.slice(0, 6)}`} (${Number(c.annual_revenue || 0).toLocaleString()} Rev)
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Customer Account Details Explicit Input Fields */}
+                <div className="p-3.5 bg-[#002129]/60 rounded-xl border border-[#2aa198]/20 space-y-3">
+                  <span className="text-[10px] font-bold text-[#2aa198] uppercase block tracking-wider flex items-center space-x-1">
+                    <CreditCard className="w-3.5 h-3.5 text-[#2aa198]" />
+                    <span>Customer Account Identification Details</span>
+                  </span>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Customer / Applicant Full Name</label>
+                      <input
+                        type="text"
+                        value={formData.applicantName}
+                        onChange={(e) => setFormData({ ...formData, applicantName: e.target.value })}
+                        className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3] font-bold"
+                        placeholder="e.g. David Reddy"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Account Number</label>
+                      <input
+                        type="text"
+                        value={formData.accountNumber}
+                        onChange={(e) => setFormData({ ...formData, accountNumber: e.target.value })}
+                        className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#ffd700] font-mono font-bold"
+                        placeholder="e.g. KSBC-SAV-10049281"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Tax ID / SSN / EIN</label>
+                      <input
+                        type="text"
+                        value={formData.taxId}
+                        onChange={(e) => setFormData({ ...formData, taxId: e.target.value })}
+                        className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3] font-mono"
+                        placeholder="e.g. US-SSN-***-**-3941"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Contact Email</label>
+                      <input
+                        type="email"
+                        value={formData.customerEmail}
+                        onChange={(e) => setFormData({ ...formData, customerEmail: e.target.value })}
+                        className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#2aa198]"
+                        placeholder="e.g. david.reddy@enterprise.com"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Credit Financial Parameters */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-slate-300 font-semibold mb-1">Applicant Category</label>
+                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Applicant Category</label>
                     <select
                       value={formData.applicantCategory}
                       onChange={(e) => setFormData({ ...formData, applicantCategory: e.target.value })}
-                      className="w-full glass-input bg-[#1a030b] border border-rose-900/40 rounded-xl p-2.5 text-white"
+                      className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
                     >
-                      <option value="private_individual">👤 Private / Individual Account Holder</option>
+                      <option value="private_individual">👤 Private Individual Account Holder</option>
                       <option value="corporate">🏢 Corporate Enterprise</option>
                       <option value="sme">🏬 SME Business</option>
+                      <option value="real_estate">🏢 Commercial Real Estate</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-slate-300 font-semibold mb-1">Credit Score (FICO/FICO-B)</label>
+                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Credit Score (FICO/FICO-B)</label>
                     <input
                       type="number"
                       min="300"
                       max="850"
                       value={formData.creditScore}
                       onChange={(e) => setFormData({ ...formData, creditScore: e.target.value })}
-                      className="w-full glass-input bg-[#1a030b] border border-rose-900/40 rounded-xl p-2.5 text-white font-mono"
+                      className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3] font-mono font-bold"
                       required
                     />
                   </div>
@@ -109,27 +235,27 @@ export const LoanCalculatorPage = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-slate-300 font-semibold mb-1">Requested Principal ($)</label>
+                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Requested Principal ($)</label>
                     <input
                       type="number"
                       min="10000"
                       max="50000000"
                       value={formData.principalAmount}
                       onChange={(e) => setFormData({ ...formData, principalAmount: e.target.value })}
-                      className="w-full glass-input bg-[#1a030b] border border-rose-900/40 rounded-xl p-2.5 text-white font-mono"
+                      className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#ffd700] font-mono font-bold"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="block text-slate-300 font-semibold mb-1">Annual Revenue / Income ($)</label>
+                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Annual Revenue / Income ($)</label>
                     <input
                       type="number"
                       min="50000"
                       max="100000000"
                       value={formData.annualIncome}
                       onChange={(e) => setFormData({ ...formData, annualIncome: e.target.value })}
-                      className="w-full glass-input bg-[#1a030b] border border-rose-900/40 rounded-xl p-2.5 text-white font-mono"
+                      className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3] font-mono font-bold"
                       required
                     />
                   </div>
@@ -137,7 +263,7 @@ export const LoanCalculatorPage = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div>
-                    <label className="block text-slate-300 font-semibold mb-1">Interest Rate (%)</label>
+                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Interest Rate (%)</label>
                     <input
                       type="number"
                       step="0.1"
@@ -145,61 +271,59 @@ export const LoanCalculatorPage = () => {
                       max="30"
                       value={formData.interestRate}
                       onChange={(e) => setFormData({ ...formData, interestRate: e.target.value })}
-                      className="w-full glass-input bg-[#1a030b] border border-rose-900/40 rounded-xl p-2.5 text-white font-mono"
+                      className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3] font-mono"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="block text-slate-300 font-semibold mb-1">Term Length</label>
+                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Term Length</label>
                     <select
                       value={formData.termMonths}
                       onChange={(e) => setFormData({ ...formData, termMonths: e.target.value })}
-                      className="w-full glass-input bg-[#1a030b] border border-rose-900/40 rounded-xl p-2.5 text-white"
+                      className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
                     >
                       <option value="12">12 Months (1 yr)</option>
                       <option value="24">24 Months (2 yrs)</option>
                       <option value="36">36 Months (3 yrs)</option>
                       <option value="60">60 Months (5 yrs)</option>
                       <option value="120">120 Months (10 yrs)</option>
-                      <option value="240">240 Months (20 yrs)</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-slate-300 font-semibold mb-1">Collateral Value ($)</label>
+                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Collateral Value ($)</label>
                     <input
                       type="number"
                       min="0"
                       value={formData.collateralValue}
                       onChange={(e) => setFormData({ ...formData, collateralValue: e.target.value })}
-                      className="w-full glass-input bg-[#1a030b] border border-rose-900/40 rounded-xl p-2.5 text-white font-mono"
+                      className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3] font-mono"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-slate-300 font-semibold mb-1">Loan Purpose</label>
+                  <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Loan Purpose</label>
                   <select
                     value={formData.loanPurpose}
                     onChange={(e) => setFormData({ ...formData, loanPurpose: e.target.value })}
-                    className="w-full glass-input bg-[#1a030b] border border-rose-900/40 rounded-xl p-2.5 text-white"
+                    className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
                   >
                     <option value="Equipment Purchase & Automation">Equipment Purchase & Automation</option>
                     <option value="Working Capital Expansion">Working Capital Expansion</option>
                     <option value="Commercial Real Estate Acquisition">Commercial Real Estate Acquisition</option>
                     <option value="Debt Refinancing & Consolidation">Debt Refinancing & Consolidation</option>
-                    <option value="Personal Wealth Portfolio Scaling">Personal Wealth Portfolio Scaling</option>
                   </select>
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3 bg-gradient-to-r from-rose-800 via-rose-700 to-amber-600 hover:from-rose-700 hover:to-amber-500 text-white font-bold rounded-xl shadow-lg shadow-rose-900/30 transition flex items-center justify-center space-x-2 disabled:opacity-50 border border-rose-500/40"
+                  className="w-full py-3 bg-gradient-to-r from-[#b58900] via-[#d4af37] to-[#b58900] hover:from-[#d4af37] hover:to-[#ffd700] text-[#002b36] font-black rounded-xl shadow-lg transition flex items-center justify-center space-x-2 disabled:opacity-50 border border-[#ffd700]/50 text-xs uppercase tracking-wider"
                 >
-                  <Sparkles className="w-4 h-4 text-amber-300" />
-                  <span>{loading ? 'Evaluating Gemini AI Credit Model...' : 'Calculate AI Risk & Underwriting Decision'}</span>
+                  <Sparkles className="w-4 h-4 text-[#002b36]" />
+                  <span>{loading ? 'Evaluating Gemini AI Risk Model...' : 'Calculate AI Risk & Underwriting Decision'}</span>
                 </button>
               </form>
             </div>
@@ -207,56 +331,69 @@ export const LoanCalculatorPage = () => {
             {/* Assessment Output Gauge */}
             <div className="lg:col-span-5 space-y-5">
               {loading ? (
-                <div className="glass-panel p-10 rounded-2xl border border-rose-900/30 text-center">
-                  <LoadingSpinner text="Running Gemini 2.5 Flash Neural Risk Model..." />
+                <div className="glass-panel p-10 rounded-2xl border border-[#2aa198]/30 text-center bg-[#073642]/60">
+                  <LoadingSpinner text="Running Gemini 2.0 Flash Neural Credit Risk Model..." />
                 </div>
               ) : assessment ? (
-                <div className="glass-panel p-6 rounded-2xl border border-rose-900/40 space-y-5 shadow-2xl bg-rose-950/20">
-                  <div className="flex justify-between items-center pb-3 border-b border-rose-900/30">
-                    <h3 className="text-base font-bold text-white">AI Credit Underwriting Verdict</h3>
-                    <span className={`px-3 py-1 rounded-full text-xs font-bold font-mono border uppercase ${
+                <div className="glass-panel p-6 rounded-2xl border border-[#ffd700]/40 space-y-5 shadow-2xl bg-[#073642]/80">
+                  <div className="flex justify-between items-center pb-3 border-b border-[#2aa198]/20">
+                    <h3 className="text-sm font-bold text-[#fdf6e3]">AI Credit Underwriting Verdict</h3>
+                    <span className={`px-3 py-1 rounded-full text-xs font-black font-mono border uppercase ${
                       assessment.recommendation === 'APPROVE'
-                        ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/40'
+                        ? 'bg-[#859900]/20 text-[#859900] border-[#859900]/40'
                         : assessment.recommendation === 'CONDITIONAL_APPROVE'
-                        ? 'bg-amber-500/10 text-amber-400 border-amber-500/40'
+                        ? 'bg-[#b58900]/20 text-[#ffd700] border-[#ffd700]/40'
                         : 'bg-red-500/10 text-red-400 border-red-500/40'
                     }`}>
                       {assessment.recommendation.replace('_', ' ')}
                     </span>
                   </div>
 
+                  {/* Customer Account Details Card */}
+                  <div className="p-3.5 bg-[#002129] rounded-xl border border-[#2aa198]/30 space-y-1 text-xs">
+                    <span className="text-[10px] font-bold text-[#2aa198] uppercase block tracking-wider">Target Account Identification</span>
+                    <div className="flex justify-between items-center">
+                      <span className="font-bold text-[#fdf6e3]">{assessment.applicantName || formData.applicantName}</span>
+                      <span className="font-mono text-[#ffd700] font-bold">{assessment.accountNumber || formData.accountNumber}</span>
+                    </div>
+                    <div className="flex justify-between items-center text-[11px] text-[#93a1a1]">
+                      <span>Tax ID: <code className="text-[#fdf6e3]">{assessment.taxId || formData.taxId}</code></span>
+                      <span className="text-[#2aa198]">{assessment.customerEmail || formData.customerEmail}</span>
+                    </div>
+                  </div>
+
                   {/* Score Dial */}
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="p-4 bg-rose-950/60 rounded-xl border border-rose-900/40 text-center">
-                      <span className="text-[10px] text-slate-400 font-sans block uppercase font-bold">AI RISK SCORE</span>
+                    <div className="p-4 bg-[#002129] rounded-xl border border-[#2aa198]/30 text-center space-y-0.5">
+                      <span className="text-[10px] text-[#2aa198] font-sans block uppercase font-bold">AI RISK SCORE</span>
                       <span className={`text-3xl font-extrabold font-mono ${
-                        assessment.riskScore > 70 ? 'text-red-400' : assessment.riskScore > 40 ? 'text-amber-400' : 'text-emerald-400'
+                        assessment.riskScore > 70 ? 'text-red-400' : assessment.riskScore > 40 ? 'text-[#ffd700]' : 'text-[#859900]'
                       }`}>
                         {assessment.riskScore}/100
                       </span>
-                      <span className="text-[10px] text-slate-400 block mt-1 font-semibold">{assessment.riskLevel} RISK</span>
+                      <span className="text-[10px] text-[#93a1a1] block font-bold uppercase">{assessment.riskLevel} RISK</span>
                     </div>
 
-                    <div className="p-4 bg-rose-950/60 rounded-xl border border-rose-900/40 text-center">
-                      <span className="text-[10px] text-slate-400 font-sans block uppercase font-bold">DEFAULT PROBABILITY</span>
-                      <span className="text-3xl font-extrabold font-mono text-amber-400">
+                    <div className="p-4 bg-[#002129] rounded-xl border border-[#2aa198]/30 text-center space-y-0.5">
+                      <span className="text-[10px] text-[#2aa198] font-sans block uppercase font-bold">DEFAULT PROBABILITY</span>
+                      <span className="text-3xl font-extrabold font-mono text-[#ffd700]">
                         {assessment.defaultProbability}%
                       </span>
-                      <span className="text-[10px] text-slate-400 block mt-1 font-semibold">12-Month Horizon</span>
+                      <span className="text-[10px] text-[#93a1a1] block font-semibold">12-Month Horizon</span>
                     </div>
                   </div>
 
                   {/* Recommended Limit */}
-                  <div className="p-3.5 bg-rose-950/80 rounded-xl border border-rose-900/40 flex justify-between items-center text-xs font-mono">
-                    <span className="text-slate-300 font-sans">MAX RECOMMENDED CREDIT LIMIT:</span>
-                    <span className="text-emerald-400 font-extrabold text-sm">${Number(assessment.maxRecommendedLoan || 0).toLocaleString()}</span>
+                  <div className="p-3.5 bg-[#002129] rounded-xl border border-[#ffd700]/30 flex justify-between items-center text-xs font-mono">
+                    <span className="text-[#93a1a1] font-sans font-bold">MAX RECOMMENDED CREDIT LIMIT:</span>
+                    <span className="text-[#859900] font-black text-sm">${Number(assessment.maxRecommendedLoan || 0).toLocaleString()}</span>
                   </div>
 
                   {/* Key Risks */}
                   <div className="space-y-2 text-xs">
-                    <span className="font-bold text-rose-300 block text-[11px] uppercase tracking-wider">Identified Risk Factors:</span>
+                    <span className="font-bold text-[#ffd700] block text-[10px] uppercase tracking-wider">Identified Risk Factors:</span>
                     {assessment.keyRisks?.map((r, i) => (
-                      <div key={i} className="p-2 bg-red-950/30 rounded-lg border border-red-900/30 text-red-300 flex items-center space-x-2">
+                      <div key={i} className="p-2 bg-[#002129] rounded-lg border border-red-500/30 text-red-300 flex items-center space-x-2 text-[11px]">
                         <AlertTriangle className="w-3.5 h-3.5 text-red-400 flex-shrink-0" />
                         <span>{r}</span>
                       </div>
@@ -264,15 +401,18 @@ export const LoanCalculatorPage = () => {
                   </div>
 
                   {/* Executive Advisory */}
-                  <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-800 text-xs italic text-slate-300 space-y-1">
-                    <span className="font-bold text-amber-400 not-italic block">🤖 Gemini AI Advisory:</span>
-                    <p>"{assessment.summaryAdvisory}"</p>
+                  <div className="p-3.5 bg-[#002129] rounded-xl border border-[#2aa198]/30 text-xs text-[#93a1a1] space-y-1">
+                    <span className="font-bold text-[#ffd700] block flex items-center space-x-1.5">
+                      <Sparkles className="w-3.5 h-3.5 text-[#ffd700]" />
+                      <span>Gemini AI Advisory:</span>
+                    </span>
+                    <p className="italic text-[#fdf6e3]">"{assessment.summaryAdvisory}"</p>
                   </div>
                 </div>
               ) : (
-                <div className="glass-panel p-8 rounded-2xl border border-rose-900/30 text-center text-slate-400 text-xs space-y-2">
-                  <Calculator className="w-8 h-8 text-rose-500/40 mx-auto" />
-                  <p>Input credit parameters and click "Calculate AI Risk" to run neural credit scoring.</p>
+                <div className="glass-panel p-8 rounded-2xl border border-[#2aa198]/30 text-center text-[#93a1a1] text-xs space-y-2 bg-[#073642]/60">
+                  <Calculator className="w-8 h-8 text-[#ffd700] mx-auto" />
+                  <p>Select a customer account or enter custom details and click "Calculate AI Risk" to run neural credit scoring.</p>
                 </div>
               )}
             </div>

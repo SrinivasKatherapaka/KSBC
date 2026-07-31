@@ -12,8 +12,22 @@ export const aiClient = (apiKey && !apiKey.includes('your-gemini'))
 /**
  * 1. AI Enabled Loan Risk Calculator & Credit Scoring
  */
-export async function calculateLoanRisk(loanParams) {
-  const { principalAmount, interestRate, termMonths, annualIncome, creditScore, dtiRatio, collateralValue, loanPurpose, applicantCategory } = loanParams;
+export async function calculateLoanRisk(params) {
+  const {
+    applicantName = 'David Reddy',
+    accountNumber = 'KSBC-SAV-10049281',
+    taxId = 'US-SSN-***-**-3941',
+    customerEmail = 'david.reddy@enterprise.com',
+    principalAmount,
+    interestRate,
+    termMonths,
+    annualIncome,
+    creditScore,
+    dtiRatio,
+    collateralValue,
+    loanPurpose,
+    applicantCategory
+  } = params;
 
   if (!aiClient) {
     // Algorithmic Fail-Safe Risk Engine fallback
@@ -27,6 +41,10 @@ export async function calculateLoanRisk(loanParams) {
     else if (riskScore > 40) { riskLevel = 'MODERATE'; rec = 'CONDITIONAL_APPROVE'; }
 
     return {
+      applicantName,
+      accountNumber,
+      taxId,
+      customerEmail,
       riskScore,
       riskLevel,
       defaultProbability: defaultProb,
@@ -34,14 +52,14 @@ export async function calculateLoanRisk(loanParams) {
       maxRecommendedLoan: Math.round(annualIncome * 0.45),
       recommendation: rec,
       keyRisks: [
-        calcDti > 0.4 ? 'High Debt-to-Income Ratio' : 'Rate sensitivity in macro downturn',
+        calcDti > 0.4 ? 'High Debt-to-Income Ratio' : 'Macroeconomic rate sensitivity',
         principalAmount > 3000000 ? 'Large Single-Borrower Concentration' : 'Collateral volatility'
       ],
       mitigatingFactors: [
         'Established banking history with KSBC',
         'Strong cash flow reserves'
       ],
-      summaryAdvisory: `Automated Risk Score: ${riskScore}/100 (${riskLevel}). Estimated Default Probability: ${defaultProb}%. Underwriting Decision: ${rec}.`
+      summaryAdvisory: `Applicant ${applicantName} (Account: ${accountNumber}) evaluated under baseline AI underwriting. Risk Score: ${riskScore}/100 (${riskLevel}). Decision: ${rec}.`
     };
   }
 
@@ -80,19 +98,30 @@ export async function calculateLoanRisk(loanParams) {
       config: { responseMimeType: 'application/json' }
     });
 
-    return JSON.parse(response.text);
+    const parsed = JSON.parse(response.text);
+    return {
+      applicantName,
+      accountNumber,
+      taxId,
+      customerEmail,
+      ...parsed
+    };
   } catch (err) {
     console.error('Gemini Loan Risk Calculation Error:', err);
     return {
+      applicantName,
+      accountNumber,
+      taxId,
+      customerEmail,
       riskScore: 35,
       riskLevel: 'LOW',
       defaultProbability: 3.2,
       dtiRatio: 0.28,
-      maxRecommendedLoan: Math.round(annualIncome * 0.4),
+      maxRecommendedLoan: Math.round((annualIncome || 8500000) * 0.4),
       recommendation: 'APPROVE',
       keyRisks: ['Macroeconomic rate sensitivity'],
-      mitigatingFactors: ['Verified bank deposits'],
-      summaryAdvisory: 'Standard low-risk profile approved under baseline AI parameters.'
+      mitigatingFactors: ['Verified bank deposits', 'Established KSBC account history'],
+      summaryAdvisory: `Applicant ${applicantName} (Account: ${accountNumber}) evaluated under baseline AI underwriting parameters.`
     };
   }
 }
