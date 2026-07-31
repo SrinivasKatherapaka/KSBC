@@ -472,12 +472,14 @@ export const LoansDatabasePage = () => {
                       </tr>
                     ) : (
                       filteredDatabaseLoans.map((l) => {
+                        if (!l) return null;
+                        const loanIdStr = (l.id || 'c0000000').slice(0, 8);
                         const isSelected = selectedLoanIds.includes(l.id);
-                        const name = l.applicant_name || (l.customer ? `${l.customer.first_name} ${l.customer.last_name}` : 'Applicant');
-                        const accNum = l.customer?.account_number || `KSBC-ACC-${l.id.slice(0, 6)}`;
+                        const name = l.applicant_name || (l.customer ? `${l.customer.first_name || ''} ${l.customer.last_name || ''}`.trim() : 'Applicant');
+                        const accNum = l.customer?.account_number || `KSBC-ACC-${loanIdStr.slice(0, 6)}`;
 
                         return (
-                          <tr key={l.id} className={`hover:bg-[#002129]/60 transition ${isSelected ? 'bg-[#002129]/80 border-l-4 border-l-[#ffd700]' : ''}`}>
+                          <tr key={l.id || Math.random()} className={`hover:bg-[#002129]/60 transition ${isSelected ? 'bg-[#002129]/80 border-l-4 border-l-[#ffd700]' : ''}`}>
                             <td className="py-3.5 px-3 text-center">
                               <button onClick={() => handleToggleSelectRow(l.id)} className="text-[#ffd700]">
                                 {isSelected ? <CheckSquare className="w-4 h-4 text-[#ffd700]" /> : <Square className="w-4 h-4 text-[#93a1a1]" />}
@@ -485,7 +487,7 @@ export const LoansDatabasePage = () => {
                             </td>
 
                             <td className="py-3.5 px-3 font-mono font-bold text-[#ffd700]">
-                              #{l.id.slice(0, 8)}
+                              #{loanIdStr}
                             </td>
 
                             <td className="py-3.5 px-3 space-y-0.5">
