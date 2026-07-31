@@ -10,8 +10,18 @@ import {
   TrendingUp, AlertTriangle, ArrowRight, Layers, UserCheck, CreditCard, FileText, Check, ExternalLink
 } from 'lucide-react';
 
+const DEFAULT_CUSTOMERS = [
+  { id: 'c1001', first_name: 'David', last_name: 'Reddy', account_number: 'KSBC-SAV-10049281', national_id: 'US-SSN-***-**-3941', email: 'david.reddy@enterprise.com', annual_revenue: 1450000, client_category: 'private_savings', account_type: 'Private Standard Savings' },
+  { id: 'c1002', first_name: 'Charlotte', last_name: 'Sterling', account_number: 'KSBC-SAV-10040284', national_id: 'US-SSN-***-**-3027', email: 'charlotte.sterling27@privatesavings.com', annual_revenue: 2105000, client_category: 'private_individual', account_type: 'Private Wealth Management' },
+  { id: 'c1003', first_name: 'Katherapaka', last_name: 'Srinivas', account_number: 'KSBC-SAV-10001001', national_id: 'US-EIN-99-882233', email: 'srinivas.k@ksbc-banking.com', annual_revenue: 8500000, client_category: 'corporate', account_type: 'Corporate Treasury Vault' },
+  { id: 'c1004', first_name: 'Alexander', last_name: 'Sterling', account_number: 'KSBC-SAV-10107424', national_id: 'US-SSN-***-**-4910', email: 'alexander.sterling@enterprise.com', annual_revenue: 12500000, client_category: 'corporate', account_type: 'Corporate Premier Account' },
+  { id: 'c1005', first_name: 'Priya', last_name: 'Sharma', account_number: 'KSBC-SAV-10058392', national_id: 'US-SSN-***-**-8821', email: 'priya.sharma@biopharma.org', annual_revenue: 4200000, client_category: 'sme', account_type: 'Commercial SME Account' },
+  { id: 'c1006', first_name: 'Marcus', last_name: 'Vance', account_number: 'KSBC-SAV-10092813', national_id: 'US-SSN-***-**-1102', email: 'marcus.vance@vancetech.io', annual_revenue: 6800000, client_category: 'corporate', account_type: 'Corporate Account' },
+  { id: 'c1007', first_name: 'Elena', last_name: 'Rostova', account_number: 'KSBC-SAV-10038472', national_id: 'US-SSN-***-**-7734', email: 'elena.rostova@titanproperties.com', annual_revenue: 9400000, client_category: 'real_estate', account_type: 'Real Estate Commercial Account' }
+];
+
 export const LoanCalculatorPage = () => {
-  const [customers, setCustomers] = useState([]);
+  const [customers, setCustomers] = useState(DEFAULT_CUSTOMERS);
   const [selectedCustomerId, setSelectedCustomerId] = useState('');
 
   const [formData, setFormData] = useState({
@@ -40,10 +50,30 @@ export const LoanCalculatorPage = () => {
     const fetchCustomers = async () => {
       try {
         const res = await apiClient.get('/customers');
-        if (res.data.success && res.data.customers?.length > 0) {
-          setCustomers(res.data.customers);
+        if (res.data.success && res.data.customers && res.data.customers.length > 0) {
+          // Merge API customers with DEFAULT_CUSTOMERS to prevent duplicates
+          const apiCusts = res.data.customers;
+          const mergedMap = new Map();
+          DEFAULT_CUSTOMERS.forEach(c => mergedMap.set(c.account_number, c));
+          apiCusts.forEach(c => {
+            const accNum = c.account_number || `KSBC-ACC-${c.id.slice(0, 6)}`;
+            mergedMap.set(accNum, {
+              id: c.id,
+              first_name: c.first_name,
+              last_name: c.last_name,
+              account_number: accNum,
+              national_id: c.national_id || 'US-SSN-***-**-4910',
+              email: c.email || 'client@ksbc-banking.com',
+              annual_revenue: Number(c.annual_revenue || 5000000),
+              client_category: c.client_category || 'private_individual',
+              account_type: c.account_type || 'Private Savings'
+            });
+          });
+          setCustomers(Array.from(mergedMap.values()));
         }
-      } catch (err) {}
+      } catch (err) {
+        console.warn('Using baseline default customers list');
+      }
     };
     fetchCustomers();
   }, []);
@@ -52,7 +82,7 @@ export const LoanCalculatorPage = () => {
     setSelectedCustomerId(custID);
     if (!custID) return;
 
-    const cust = customers.find(c => c.id === custID);
+    const cust = customers.find(c => c.id === custID || c.account_number === custID);
     if (cust) {
       setFormData(prev => ({
         ...prev,
@@ -98,14 +128,12 @@ export const LoanCalculatorPage = () => {
     }
   };
 
-  // Interactive Action: Approve & Intake Loan Application
   const handleApproveAndIntake = async (shouldDisburse = false) => {
     setSubmittingAction(true);
     setError('');
     setSuccessMsg('');
 
     try {
-      // 1. Create Loan in Pipeline
       const targetCustId = selectedCustomerId || (customers[0]?.id || 'c0000001-1111-4111-c111-111111111111');
       const createRes = await apiClient.post('/loans', {
         customerId: targetCustId,
@@ -122,7 +150,6 @@ export const LoanCalculatorPage = () => {
         const createdLoan = createRes.data.loan;
 
         if (shouldDisburse && createdLoan?.id) {
-          // 2. Disburse Funds in Treasury & Post to General Ledger
           try {
             await apiClient.post(`/treasury/loans/${createdLoan.id}/disburse`);
             setSuccessMsg(`🎉 Loan #${createdLoan.id.slice(0, 8)} ($${Number(formData.principalAmount).toLocaleString()}) for ${formData.applicantName} (${formData.accountNumber}) successfully APPROVED and DISBURSED into General Ledger!`);
@@ -190,17 +217,19 @@ export const LoanCalculatorPage = () => {
                 <div className="p-3.5 bg-[#002129] rounded-xl border border-[#ffd700]/30 space-y-2">
                   <label className="block text-[#ffd700] font-bold uppercase text-[10px] flex items-center space-x-1.5">
                     <UserCheck className="w-3.5 h-3.5 text-[#ffd700]" />
-                    <span>Select Onboarded Customer Account (Auto-Fill)</span>
+                    <span>SELECT ONBOARDED CUSTOMER ACCOUNT (AUTO-FILL)</span>
                   </label>
                   <select
                     value={selectedCustomerId}
                     onChange={(e) => handleCustomerSelect(e.target.value)}
-                    className="w-full glass-input bg-[#073642] border border-[#ffd700]/40 rounded-xl p-2.5 text-[#fdf6e3] font-medium"
+                    className="w-full bg-[#002129] border border-[#ffd700]/50 rounded-xl p-3 text-[#fdf6e3] font-bold focus:outline-none focus:ring-2 focus:ring-[#ffd700] shadow-inner text-xs cursor-pointer"
                   >
-                    <option value="">-- Select Existing Onboarded Customer Account --</option>
+                    <option value="" className="bg-[#002129] text-[#ffd700]">
+                      -- Select Existing Onboarded Customer Account ({customers.length} Accounts Available) --
+                    </option>
                     {customers.map((c) => (
-                      <option key={c.id} value={c.id}>
-                        {c.first_name} {c.last_name} — {c.account_number || `KSBC-ACC-${c.id.slice(0, 6)}`} (${Number(c.annual_revenue || 0).toLocaleString()} Rev)
+                      <option key={c.id || c.account_number} value={c.id || c.account_number} className="bg-[#002129] text-[#fdf6e3]">
+                        {c.first_name} {c.last_name} — {c.account_number} (${Number(c.annual_revenue || 0).toLocaleString()} Rev)
                       </option>
                     ))}
                   </select>
@@ -210,12 +239,12 @@ export const LoanCalculatorPage = () => {
                 <div className="p-3.5 bg-[#002129]/60 rounded-xl border border-[#2aa198]/20 space-y-3">
                   <span className="text-[10px] font-bold text-[#2aa198] uppercase block tracking-wider flex items-center space-x-1">
                     <CreditCard className="w-3.5 h-3.5 text-[#2aa198]" />
-                    <span>Customer Account Identification Details</span>
+                    <span>CUSTOMER ACCOUNT IDENTIFICATION DETAILS</span>
                   </span>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Customer / Applicant Full Name</label>
+                      <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">CUSTOMER / APPLICANT FULL NAME</label>
                       <input
                         type="text"
                         value={formData.applicantName}
@@ -227,7 +256,7 @@ export const LoanCalculatorPage = () => {
                     </div>
 
                     <div>
-                      <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Account Number</label>
+                      <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">ACCOUNT NUMBER</label>
                       <input
                         type="text"
                         value={formData.accountNumber}
@@ -241,7 +270,7 @@ export const LoanCalculatorPage = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Tax ID / SSN / EIN</label>
+                      <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">TAX ID / SSN / EIN</label>
                       <input
                         type="text"
                         value={formData.taxId}
@@ -253,7 +282,7 @@ export const LoanCalculatorPage = () => {
                     </div>
 
                     <div>
-                      <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Contact Email</label>
+                      <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">CONTACT EMAIL</label>
                       <input
                         type="email"
                         value={formData.customerEmail}
@@ -269,21 +298,21 @@ export const LoanCalculatorPage = () => {
                 {/* Credit Financial Parameters */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Applicant Category</label>
+                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">APPLICANT CATEGORY</label>
                     <select
                       value={formData.applicantCategory}
                       onChange={(e) => setFormData({ ...formData, applicantCategory: e.target.value })}
-                      className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
+                      className="w-full bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
                     >
-                      <option value="private_individual">👤 Private Individual Account Holder</option>
-                      <option value="corporate">🏢 Corporate Enterprise</option>
-                      <option value="sme">🏬 SME Business</option>
-                      <option value="real_estate">🏢 Commercial Real Estate</option>
+                      <option value="private_individual" className="bg-[#002129] text-[#fdf6e3]">👤 Private Individual Account Holder</option>
+                      <option value="corporate" className="bg-[#002129] text-[#fdf6e3]">🏢 Corporate Enterprise</option>
+                      <option value="sme" className="bg-[#002129] text-[#fdf6e3]">🏬 SME Business</option>
+                      <option value="real_estate" className="bg-[#002129] text-[#fdf6e3]">🏢 Commercial Real Estate</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Credit Score (FICO/FICO-B)</label>
+                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">CREDIT SCORE (FICO/FICO-B)</label>
                     <input
                       type="number"
                       min="300"
@@ -298,7 +327,7 @@ export const LoanCalculatorPage = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Requested Principal ($)</label>
+                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">REQUESTED PRINCIPAL ($)</label>
                     <input
                       type="number"
                       min="10000"
@@ -311,7 +340,7 @@ export const LoanCalculatorPage = () => {
                   </div>
 
                   <div>
-                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Annual Revenue / Income ($)</label>
+                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">ANNUAL REVENUE / INCOME ($)</label>
                     <input
                       type="number"
                       min="50000"
@@ -326,7 +355,7 @@ export const LoanCalculatorPage = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div>
-                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Interest Rate (%)</label>
+                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">INTEREST RATE (%)</label>
                     <input
                       type="number"
                       step="0.1"
@@ -340,22 +369,22 @@ export const LoanCalculatorPage = () => {
                   </div>
 
                   <div>
-                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Term Length</label>
+                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">TERM LENGTH</label>
                     <select
                       value={formData.termMonths}
                       onChange={(e) => setFormData({ ...formData, termMonths: e.target.value })}
-                      className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
+                      className="w-full bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
                     >
-                      <option value="12">12 Months (1 yr)</option>
-                      <option value="24">24 Months (2 yrs)</option>
-                      <option value="36">36 Months (3 yrs)</option>
-                      <option value="60">60 Months (5 yrs)</option>
-                      <option value="120">120 Months (10 yrs)</option>
+                      <option value="12" className="bg-[#002129] text-[#fdf6e3]">12 Months (1 yr)</option>
+                      <option value="24" className="bg-[#002129] text-[#fdf6e3]">24 Months (2 yrs)</option>
+                      <option value="36" className="bg-[#002129] text-[#fdf6e3]">36 Months (3 yrs)</option>
+                      <option value="60" className="bg-[#002129] text-[#fdf6e3]">60 Months (5 yrs)</option>
+                      <option value="120" className="bg-[#002129] text-[#fdf6e3]">120 Months (10 yrs)</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Collateral Value ($)</label>
+                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">COLLATERAL VALUE ($)</label>
                     <input
                       type="number"
                       min="0"
@@ -367,16 +396,16 @@ export const LoanCalculatorPage = () => {
                 </div>
 
                 <div>
-                  <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">Loan Purpose</label>
+                  <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">LOAN PURPOSE</label>
                   <select
                     value={formData.loanPurpose}
                     onChange={(e) => setFormData({ ...formData, loanPurpose: e.target.value })}
-                    className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
+                    className="w-full bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
                   >
-                    <option value="Equipment Purchase & Automation">Equipment Purchase & Automation</option>
-                    <option value="Working Capital Expansion">Working Capital Expansion</option>
-                    <option value="Commercial Real Estate Acquisition">Commercial Real Estate Acquisition</option>
-                    <option value="Debt Refinancing & Consolidation">Debt Refinancing & Consolidation</option>
+                    <option value="Equipment Purchase & Automation" className="bg-[#002129] text-[#fdf6e3]">Equipment Purchase & Automation</option>
+                    <option value="Working Capital Expansion" className="bg-[#002129] text-[#fdf6e3]">Working Capital Expansion</option>
+                    <option value="Commercial Real Estate Acquisition" className="bg-[#002129] text-[#fdf6e3]">Commercial Real Estate Acquisition</option>
+                    <option value="Debt Refinancing & Consolidation" className="bg-[#002129] text-[#fdf6e3]">Debt Refinancing & Consolidation</option>
                   </select>
                 </div>
 
@@ -505,7 +534,7 @@ export const LoanCalculatorPage = () => {
                 </div>
               ) : (
                 <div className="glass-panel p-8 rounded-2xl border border-[#2aa198]/30 text-center text-[#93a1a1] text-xs space-y-2 bg-[#073642]/60">
-                  <Calculator className="w-8 h-8 text-[#ffd700] mx-auto" />
+                  <Calculator className="w-8 h-8 text-[#ffd700]" />
                   <p>Select a customer account or enter custom details and click "Calculate AI Risk" to run neural credit scoring.</p>
                 </div>
               )}
