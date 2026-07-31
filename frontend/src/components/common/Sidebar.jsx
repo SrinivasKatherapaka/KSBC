@@ -30,7 +30,7 @@ export const Sidebar = () => {
     { label: 'KSBC Executive Dashboard', path: '/dashboard', icon: LayoutDashboard, roleTag: 'Executive' },
     { label: 'CFO Executive AI Chatbot', path: '/cfo-ai-chat', icon: Bot, roleTag: 'CFO AI' },
     { label: 'Accounts Database', path: '/accounts', icon: Wallet, roleTag: 'Master' },
-    { label: 'Loans Database', path: '/loans?view=DATABASE', icon: Landmark, roleTag: 'Master DB' },
+    { label: 'Loans Database', path: '/loans-database', icon: Landmark, roleTag: 'Master DB' },
     { label: 'Loans Portfolio Pipeline', path: '/loans', icon: Landmark, roleTag: 'Loans' },
     { label: 'AI Risk Calculator', path: '/loan-calculator', icon: Calculator, roleTag: 'AI Underwrite' },
     { label: 'Loan Defaulters & NPA', path: '/defaulters', icon: AlertOctagon, roleTag: 'Risk Watch' },
