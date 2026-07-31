@@ -11,6 +11,7 @@ import CustomersPage from './pages/CustomersPage';
 import CompliancePage from './pages/CompliancePage';
 import LoanCalculatorPage from './pages/LoanCalculatorPage';
 import LoansPage from './pages/LoansPage';
+import LoansDatabasePage from './pages/LoansDatabasePage';
 import DefaultersPage from './pages/DefaultersPage';
 import FraudDetectionPage from './pages/FraudDetectionPage';
 import CustomerServicePage from './pages/CustomerServicePage';
