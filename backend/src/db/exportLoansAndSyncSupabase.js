@@ -95,8 +95,22 @@ export async function exportLoansAndSyncSupabase() {
   const loansExcelBackendPath = path.join(backendDataDir, 'KSBC_Loans_Portfolio_Master.xlsx');
   const loansExcelRootPath = path.resolve(__dirname, '../../..', 'KSBC_Loans_Portfolio_Master.xlsx');
 
+  const approvedExcelBackendPath = path.join(backendDataDir, 'KSBC_Approved_Loans_Master.xlsx');
+  const approvedExcelRootPath = path.resolve(__dirname, '../../..', 'KSBC_Approved_Loans_Master.xlsx');
+
   XLSX.writeFile(workbook, loansExcelBackendPath);
   XLSX.writeFile(workbook, loansExcelRootPath);
+
+  // Dedicated Approved Loans Workbook
+  const approvedWorkbook = XLSX.utils.book_new();
+  const allApprovedAndDisbursed = loans.filter(l => l.status === 'approved' || l.status === 'disbursed').map(formatLoanRow);
+  const wsAllApproved = XLSX.utils.json_to_sheet(allApprovedAndDisbursed);
+  XLSX.utils.book_append_sheet(approvedWorkbook, wsAllApproved, 'All Approved Loans');
+  XLSX.utils.book_append_sheet(approvedWorkbook, wsDisbursed, 'Disbursed Loans');
+  XLSX.utils.book_append_sheet(approvedWorkbook, wsApproved, 'Approved Pending Disbursed');
+
+  XLSX.writeFile(approvedWorkbook, approvedExcelBackendPath);
+  XLSX.writeFile(approvedWorkbook, approvedExcelRootPath);
 
   console.log(`✅ Excel master loans sheet created successfully with 6 worksheets:`);
   console.log(` 📁 Path 1: ${loansExcelBackendPath}`);
