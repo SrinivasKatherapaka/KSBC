@@ -210,6 +210,58 @@ export const DashboardPage = () => {
                 />
               </div>
 
+              {/* 💳 KSBC Official Corporate Executive Debit Card Banner */}
+              <div className="glass-panel p-6 rounded-2xl border border-[#ffd700]/40 bg-gradient-to-r from-[#002129] via-[#073642] to-[#002129] shadow-2xl overflow-hidden relative">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                  {/* Left Column: Card Details */}
+                  <div className="lg:col-span-7 space-y-4">
+                    <div className="flex items-center space-x-2">
+                      <span className="px-3 py-1 bg-[#ffd700]/20 text-[#ffd700] border border-[#ffd700]/50 rounded-full text-[10px] font-mono font-extrabold uppercase tracking-wider">
+                        ⚡ KSBC Executive Metallic Debit Card
+                      </span>
+                      <span className="text-xs text-[#2aa198] font-mono font-bold">Basel III Vault Cash Access</span>
+                    </div>
+
+                    <h2 className="text-xl md:text-2xl font-black text-[#fdf6e3] font-heading leading-tight">
+                      KSBC Corporate Black Platinum Metallic Debit Card
+                    </h2>
+
+                    <p className="text-xs text-[#93a1a1] leading-relaxed">
+                      Issued directly for executive treasury disbursement, commercial credit clearance, and instant liquidity access across 220 onboarded master bank accounts.
+                    </p>
+
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs font-mono">
+                      <div className="p-3 bg-[#002129] rounded-xl border border-[#2aa198]/30">
+                        <span className="text-[9px] text-[#2aa198] block font-sans font-bold">CARD HOLDER</span>
+                        <span className="font-bold text-[#fdf6e3]">KSBC TREASURY</span>
+                      </div>
+
+                      <div className="p-3 bg-[#002129] rounded-xl border border-[#2aa198]/30">
+                        <span className="text-[9px] text-[#2aa198] block font-sans font-bold">CARD NUMBER</span>
+                        <span className="font-bold text-[#ffd700]">4092 •••• 8821</span>
+                      </div>
+
+                      <div className="p-3 bg-[#002129] rounded-xl border border-[#2aa198]/30">
+                        <span className="text-[9px] text-[#2aa198] block font-sans font-bold">DAILY LIMIT</span>
+                        <span className="font-bold text-[#859900]">$10,000,000.00</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Column: Premium Generated Debit Card Image */}
+                  <div className="lg:col-span-5 flex justify-center items-center">
+                    <div className="relative group cursor-pointer">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-[#ffd700] via-[#2aa198] to-[#b58900] rounded-2xl blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
+                      <img
+                        src="/ksbc_debit_card.png"
+                        alt="KSBC Bank Commercial Executive Debit Card"
+                        className="relative w-full max-w-sm rounded-2xl shadow-2xl border border-[#ffd700]/40 transform group-hover:scale-105 transition duration-500 object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* Charts & Analytics Section */}
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div className="lg:col-span-2">
