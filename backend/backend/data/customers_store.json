@@ -1,5 +1,21 @@
 [
   {
+    "id": "23a384c7-946c-452e-ba88-6818556edfaa",
+    "client_category": "private_savings",
+    "account_type": "Private Standard Savings",
+    "account_number": "KSBC-ACC-34817188",
+    "kyc_status": "verified",
+    "kyc_notes": "Executive clearance & beneficial ownership audit completed.",
+    "first_name": "Viraj",
+    "last_name": "Mahadev",
+    "email": "viraj.mahadev@pvsavings.com",
+    "phone": "+11020306045",
+    "national_id": "US-CIN-1593578",
+    "annual_revenue": 1000000,
+    "created_at": "2026-08-05T04:58:38.443Z",
+    "updated_at": "2026-08-05T04:58:38.443Z"
+  },
+  {
     "id": "64f02db1-f53d-4a6e-8048-54faca011e68",
     "client_category": "corporate",
     "account_type": "Corporate Treasury Checking",

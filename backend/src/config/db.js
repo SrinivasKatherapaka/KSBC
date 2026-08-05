@@ -421,8 +421,32 @@ export const db = {
     if (isSupabaseConfigured) {
       try {
         const { data, error } = await supabase.from('customers').select('*').order('created_at', { ascending: false });
-        if (!error && data && data.length >= 200) return data;
-      } catch (err) {}
+        if (!error && Array.isArray(data)) {
+          // Merge Supabase records with local memoryDb store
+          for (const spCust of data) {
+            const idx = memoryDb.customers.findIndex(c => c.id === spCust.id || c.email === spCust.email);
+            if (idx === -1) {
+              memoryDb.customers.unshift(spCust);
+            } else {
+              memoryDb.customers[idx] = { ...memoryDb.customers[idx], ...spCust };
+            }
+          }
+          // Also check for local customers created in memoryDb that need syncing to Supabase
+          const spIds = new Set(data.map(d => d.id));
+          for (const memCust of memoryDb.customers) {
+            if (!spIds.has(memCust.id)) {
+              data.unshift(memCust);
+              try {
+                await supabase.from('customers').upsert(memCust);
+              } catch (e) {}
+            }
+          }
+          saveCustomerStore();
+          return memoryDb.customers;
+        }
+      } catch (err) {
+        console.warn('[SUPABASE WARN] Fetching customers fallback to local WAL store:', err.message);
+      }
     }
     return memoryDb.customers;
   },
@@ -438,14 +462,30 @@ export const db = {
   },
 
   createCustomer: async (customerData) => {
+    const category = customerData.client_category || customerData.clientCategory || 'private_savings';
+    const accType = customerData.account_type || customerData.accountType || (category === 'hnwi' ? 'Private High-Net-Worth Reserve' : category === 'corporate' ? 'Corporate Treasury Checking' : 'Private Standard Savings');
+    const kycStat = customerData.kyc_status || customerData.kycStatus || 'verified';
+    const kycNote = customerData.kyc_notes || customerData.kycNotes || 'Cleared under executive intake protocol.';
+    const fn = customerData.first_name || customerData.firstName || 'Client';
+    const ln = customerData.last_name || customerData.lastName || 'Account';
+    const emailAddr = customerData.email ? customerData.email.trim().toLowerCase() : `client.${Date.now()}@ksbcbanking.com`;
+    const phoneNum = customerData.phone || '+1-555-0199';
+    const natId = customerData.national_id || customerData.nationalId || `US-SSN-${Math.floor(100 + Math.random() * 900)}-${Math.floor(10 + Math.random() * 90)}-${Math.floor(1000 + Math.random() * 9000)}`;
+    const revenue = Number(customerData.annual_revenue ?? customerData.annualRevenue ?? 0);
+
     const newCustomer = { 
-      id: uuidv4(), 
-      client_category: customerData.clientCategory || 'private_savings',
-      account_type: customerData.accountType || (customerData.clientCategory === 'hnwi' ? 'Private High-Net-Worth Reserve' : customerData.clientCategory === 'corporate' ? 'Corporate Treasury Checking' : 'Private Standard Savings'),
-      account_number: `KSBC-ACC-${Math.floor(10000000 + Math.random() * 90000000)}`,
-      kyc_status: customerData.kycStatus || 'verified', 
-      kyc_notes: customerData.kycNotes || 'Cleared under executive intake protocol.',
-      ...customerData, 
+      id: customerData.id || uuidv4(), 
+      first_name: fn,
+      last_name: ln,
+      email: emailAddr,
+      phone: phoneNum,
+      national_id: natId,
+      annual_revenue: revenue,
+      client_category: category,
+      account_type: accType,
+      account_number: customerData.account_number || `KSBC-ACC-${Math.floor(10000000 + Math.random() * 90000000)}`,
+      kyc_status: kycStat, 
+      kyc_notes: kycNote,
       created_at: new Date().toISOString(), 
       updated_at: new Date().toISOString() 
     };
@@ -454,15 +494,29 @@ export const db = {
     writeToWal('CREATE_CUSTOMER', newCustomer);
 
     // 2. Prepend to memory database store so new customer immediately appears at top of ledger
-    memoryDb.customers.unshift(newCustomer);
+    const existingIdx = memoryDb.customers.findIndex(c => c.id === newCustomer.id || c.email === newCustomer.email);
+    if (existingIdx !== -1) {
+      memoryDb.customers[existingIdx] = newCustomer;
+    } else {
+      memoryDb.customers.unshift(newCustomer);
+    }
 
     // 3. Persist updated database state snapshot to disk
     saveCustomerStore();
 
+    // 4. Sync directly to Supabase Database
     if (isSupabaseConfigured) {
       try {
-        await supabase.from('customers').insert(newCustomer);
-      } catch (err) {}
+        const { data, error } = await supabase.from('customers').insert(newCustomer).select().single();
+        if (error) {
+          console.error('[SUPABASE SYNC WARNING] Primary insert failed, executing upsert:', error.message);
+          await supabase.from('customers').upsert(newCustomer);
+        } else {
+          console.log('[SUPABASE SYNC SUCCESS] New customer account created in Supabase:', data?.id || newCustomer.id);
+        }
+      } catch (err) {
+        console.error('[SUPABASE SYNC EXCEPTION] Customer creation error:', err.message);
+      }
     }
 
     return newCustomer;

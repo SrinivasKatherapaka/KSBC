@@ -46,7 +46,9 @@ router.post('/', authenticateJWT, async (req, res) => {
   try {
     const isAuthorized = (
       req.user.role === 'cfo' ||
+      req.user.role === 'cfo_executive' ||
       req.user.role === 'compliance' ||
+      req.user.role === 'compliance_officer' ||
       req.user.role === 'admin' ||
       req.user.email === 'cfo@banking.com' ||
       req.user.email === 'compliance@banking.com' ||
@@ -81,7 +83,7 @@ router.post('/', authenticateJWT, async (req, res) => {
 
     return res.status(201).json({
       success: true,
-      message: 'New customer account created successfully',
+      message: 'New customer account created successfully and synced to database & Supabase.',
       customer: newCustomer
     });
   } catch (err) {
