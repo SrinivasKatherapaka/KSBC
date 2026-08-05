@@ -1,23 +1,27 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Sidebar from '../components/common/Sidebar';
 import Navbar from '../components/common/Navbar';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 import ErrorAlert from '../components/common/ErrorAlert';
 import ReAuthModal from '../components/common/ReAuthModal';
+import AccountDetailsModal from '../components/accounts/AccountDetailsModal';
 import { apiClient } from '../api/client';
 import { useAuth } from '../context/AuthContext';
 import {
   Users, Search, ShieldCheck, KeyRound, Edit, Trash2, CheckSquare, Square,
-  X, AlertTriangle, ShieldAlert, Check, Plus, DollarSign, Lock, Building, User, Sparkles, UserPlus
+  X, AlertTriangle, ShieldAlert, Check, Plus, DollarSign, Lock, Building, User, Sparkles, UserPlus, Eye
 } from 'lucide-react';
 
 export const AccountsPage = () => {
+  const navigate = useNavigate();
   const [customers, setCustomers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  const [isUnlocked, setIsUnlocked] = useState(true);
+  const [isUnlocked, setIsUnlocked] = useState(false);
+  const [viewingCustomer, setViewingCustomer] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('ALL');
 
@@ -455,10 +459,12 @@ export const AccountsPage = () => {
                       return (
                         <tr
                           key={c.id}
-                          className={`transition ${isSelected ? 'bg-[#002129]/90' : 'hover:bg-[#002129]/40'}`}
+                          onClick={() => { setViewingCustomer(c); navigate(`/accounts/${c.id}`); }}
+                          className={`transition cursor-pointer ${isSelected ? 'bg-[#002129]/90' : 'hover:bg-[#002129]/70 hover:shadow-inner'}`}
+                          title="Click row to view detailed customer account information"
                         >
                           {/* Selection Checkbox Cell */}
-                          <td className="py-3.5 px-4 text-center">
+                          <td className="py-3.5 px-4 text-center" onClick={(e) => e.stopPropagation()}>
                             <button
                               onClick={() => handleToggleSelectRow(c.id)}
                               className="text-[#ffd700] hover:text-white"
@@ -473,12 +479,16 @@ export const AccountsPage = () => {
 
                           {/* Account Number */}
                           <td className="py-3.5 px-4 font-mono font-bold text-[#ffd700]">
-                            {c.account_number || `KSBC-ACC-${c.id.slice(0, 8)}`}
+                            <span onClick={(e) => { e.stopPropagation(); navigate(`/accounts/${c.id}`); }} className="hover:underline cursor-pointer">
+                              {c.account_number || `KSBC-ACC-${c.id.slice(0, 8)}`}
+                            </span>
                           </td>
 
                           {/* Client Name & Category Badge */}
                           <td className="py-3.5 px-4">
-                            <span className="font-bold text-[#fdf6e3] block">{c.first_name} {c.last_name}</span>
+                            <span onClick={(e) => { e.stopPropagation(); navigate(`/accounts/${c.id}`); }} className="font-bold text-[#fdf6e3] hover:underline cursor-pointer block">
+                              {c.first_name} {c.last_name}
+                            </span>
                             <span className={`inline-flex items-center px-2 py-0.5 rounded text-[9px] font-bold border uppercase mt-1 ${
                               isHnwi
                                 ? 'bg-[#ffd700]/10 text-[#ffd700] border-[#ffd700]/30'
@@ -495,9 +505,13 @@ export const AccountsPage = () => {
                             {c.account_type || (isHnwi ? 'Private High-Net-Worth Reserve' : isCorporate ? 'Corporate Treasury Checking' : 'Private Standard Savings')}
                           </td>
 
-                          {/* SSN / EIN */}
+                          {/* SSN / EIN (Displays last 4 digits, rest masked under *) */}
                           <td className="py-3.5 px-4 font-mono text-[#93a1a1]">
-                            {isUnlocked ? (c.national_id || 'US-SSN-***-**-9918') : '••••••••••••'}
+                            {isUnlocked
+                              ? (c.national_id || 'US-SSN-648-92-9918')
+                              : (c.national_id && c.national_id.length >= 4
+                                  ? `${c.national_id.slice(0, 6).includes('EIN') ? 'US-EIN-**-***' : 'US-SSN-***-**-'}${c.national_id.slice(-4)}`
+                                  : 'US-SSN-***-**-9918')}
                           </td>
 
                           {/* Deposit Balance */}
@@ -518,9 +532,17 @@ export const AccountsPage = () => {
                             </span>
                           </td>
 
-                          {/* Action Buttons: Modify & Delete Account */}
-                          <td className="py-3.5 px-4 text-center">
+                          {/* Action Buttons: View Details Page, Modify & Delete Account */}
+                          <td className="py-3.5 px-4 text-center" onClick={(e) => e.stopPropagation()}>
                             <div className="flex items-center justify-center space-x-1.5">
+                              <button
+                                onClick={() => { setViewingCustomer(c); navigate(`/accounts/${c.id}`); }}
+                                className="px-2.5 py-1 bg-[#073642] hover:bg-[#002129] text-[#2aa198] hover:text-white border border-[#2aa198]/40 rounded-lg text-[10px] font-bold transition flex items-center space-x-1 shadow"
+                                title="View Detailed Account Information"
+                              >
+                                <Eye className="w-3 h-3 text-[#2aa198]" />
+                                <span>Details</span>
+                              </button>
                               <button
                                 onClick={() => handleOpenEdit(c)}
                                 className="px-2.5 py-1 bg-[#002129] hover:bg-[#073642] text-[#ffd700] border border-[#ffd700]/30 rounded-lg text-[10px] font-bold transition flex items-center space-x-1 shadow"
@@ -904,6 +926,16 @@ export const AccountsPage = () => {
         onClose={() => setIsAuthModalOpen(false)}
         targetEmail={user?.email || 'cfo@banking.com'}
         onAuthenticate={handleReAuthenticate}
+      />
+
+      {/* Account Details & Customer Information Modal */}
+      <AccountDetailsModal
+        isOpen={!!viewingCustomer}
+        onClose={() => setViewingCustomer(null)}
+        customer={viewingCustomer}
+        onEdit={handleOpenEdit}
+        onDelete={handleOpenDelete}
+        isCfoOrAdmin={isCfoOrAdmin}
       />
     </div>
   );

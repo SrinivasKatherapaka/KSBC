@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
 import AccountsPage from './pages/AccountsPage';
+import AccountDetailsPage from './pages/AccountDetailsPage';
 import CustomersPage from './pages/CustomersPage';
 import CompliancePage from './pages/CompliancePage';
 import LoanCalculatorPage from './pages/LoanCalculatorPage';
@@ -38,6 +39,8 @@ export function App() {
           {/* Protected Application Routes */}
           <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
           <Route path="/accounts" element={<ProtectedRoute><AccountsPage /></ProtectedRoute>} />
+          <Route path="/accounts/:id" element={<ProtectedRoute><AccountDetailsPage /></ProtectedRoute>} />
+          <Route path="/accounts/details/:id" element={<ProtectedRoute><AccountDetailsPage /></ProtectedRoute>} />
           <Route path="/loans-database" element={<ProtectedRoute><LoansDatabasePage /></ProtectedRoute>} />
           <Route path="/loans" element={<ProtectedRoute><LoansPage /></ProtectedRoute>} />
           <Route path="/customers" element={<ProtectedRoute><CustomersPage /></ProtectedRoute>} />

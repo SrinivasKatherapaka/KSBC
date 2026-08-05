@@ -16,6 +16,31 @@ router.get('/', authenticateJWT, async (req, res) => {
   }
 });
 
+// GET /api/customers/wal/status (WAL Persistence Engine Status)
+router.get('/wal/status', authenticateJWT, async (req, res) => {
+  try {
+    const wal = await db.getWalStatus();
+    return res.json({ success: true, wal });
+  } catch (err) {
+    return res.status(500).json({ success: false, error: 'Failed to fetch WAL status' });
+  }
+});
+
+// GET /api/customers/:id
+router.get('/:id', authenticateJWT, async (req, res) => {
+  try {
+    const customers = await db.getCustomers();
+    const customer = customers.find(c => c.id === req.params.id || c.account_number === req.params.id);
+    if (!customer) {
+      return res.status(404).json({ success: false, error: 'Customer account not found' });
+    }
+    return res.json({ success: true, customer });
+  } catch (err) {
+    console.error('Error fetching customer details:', err);
+    return res.status(500).json({ success: false, error: 'Failed to fetch customer account details' });
+  }
+});
+
 // POST /api/customers (Create New Account - Restricted to CFO, Compliance & Admin)
 router.post('/', authenticateJWT, async (req, res) => {
   try {
