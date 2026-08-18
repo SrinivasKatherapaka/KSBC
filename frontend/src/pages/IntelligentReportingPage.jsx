@@ -51,7 +51,7 @@ export const IntelligentReportingPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#002b36] text-[#93a1a1]">
+    <div className="flex min-h-screen bg-[#1b2827] text-[#a4b8b5]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -60,11 +60,11 @@ export const IntelligentReportingPage = () => {
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-black text-[#fdf6e3] font-heading flex items-center space-x-2">
-                <FileText className="w-6 h-6 text-[#ffd700]" />
+              <h1 className="text-2xl font-black text-[#f4eee2] font-heading flex items-center space-x-2">
+                <FileText className="w-6 h-6 text-[#dfbd84]" />
                 <span>KSBC AI Intelligent Reporting Engine</span>
               </h1>
-              <p className="text-xs text-[#2aa198]">
+              <p className="text-xs text-[#dfbd84]">
                 Automated Publication-Ready Financial Summaries, Regulatory Audits & Stress Test Reports
               </p>
             </div>
@@ -73,17 +73,17 @@ export const IntelligentReportingPage = () => {
             <div className="flex items-center space-x-2 self-start md:self-auto">
               <button
                 onClick={handleCopyMarkdown}
-                className="px-3.5 py-2 bg-[#073642] hover:bg-[#002129] text-[#ffd700] text-xs font-bold rounded-xl border border-[#ffd700]/30 transition flex items-center space-x-1.5"
+                className="px-3.5 py-2 bg-[#20302f] hover:bg-[#182423] text-[#dfbd84] text-xs font-bold rounded-xl border border-[#dfbd84]/30 transition flex items-center space-x-1.5"
               >
-                {copied ? <Check className="w-4 h-4 text-[#859900]" /> : <Copy className="w-4 h-4 text-[#ffd700]" />}
+                {copied ? <Check className="w-4 h-4 text-[#58b388]" /> : <Copy className="w-4 h-4 text-[#dfbd84]" />}
                 <span>{copied ? 'Copied Markdown!' : 'Copy Markdown Report'}</span>
               </button>
 
               <button
                 onClick={handlePrintReport}
-                className="px-4 py-2 bg-gradient-to-r from-[#b58900] via-[#d4af37] to-[#b58900] hover:from-[#d4af37] hover:to-[#ffd700] text-[#002b36] text-xs font-black rounded-xl shadow-lg transition flex items-center space-x-1.5"
+                className="px-4 py-2 bg-gradient-to-r from-[#c59e5f] via-[#dfbd84] to-[#c59e5f] hover:from-[#dfbd84] hover:to-[#dfbd84] text-[#1b2827] text-xs font-black rounded-xl shadow-lg transition flex items-center space-x-1.5"
               >
-                <Printer className="w-4 h-4 text-[#002b36]" />
+                <Printer className="w-4 h-4 text-[#1b2827]" />
                 <span>Export / Print PDF</span>
               </button>
             </div>
@@ -92,13 +92,13 @@ export const IntelligentReportingPage = () => {
           <ErrorAlert message={error} onClose={() => setError('')} />
 
           {/* Controls Bar */}
-          <div className="glass-panel p-4 rounded-2xl border border-[#2aa198]/30 bg-[#073642]/60 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
+          <div className="glass-panel p-4 rounded-2xl border border-[#dfbd84]/30 bg-[#20302f]/60 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
             <div className="flex items-center space-x-2">
-              <span className="text-[10px] font-bold text-[#2aa198] uppercase">Select Report Module:</span>
+              <span className="text-[10px] font-bold text-[#dfbd84] uppercase">Select Report Module:</span>
               <select
                 value={reportType}
                 onChange={(e) => setReportType(e.target.value)}
-                className="glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2 text-[#fdf6e3] font-bold"
+                className="glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2 text-[#f4eee2] font-bold"
               >
                 <option value="EXECUTIVE_FINANCIAL_SUMMARY">📋 Board Executive Financial Summary</option>
                 <option value="BASEL_III_REGULATORY_AUDIT">🏛️ Basel III Regulatory Compliance Audit</option>
@@ -107,11 +107,11 @@ export const IntelligentReportingPage = () => {
             </div>
 
             <div className="flex items-center space-x-2">
-              <span className="text-[10px] font-bold text-[#2aa198] uppercase">Audit Period:</span>
+              <span className="text-[10px] font-bold text-[#dfbd84] uppercase">Audit Period:</span>
               <select
                 value={period}
                 onChange={(e) => setPeriod(e.target.value)}
-                className="glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2 text-[#ffd700] font-mono font-bold"
+                className="glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2 text-[#dfbd84] font-mono font-bold"
               >
                 <option value="Q3 2026">Q3 2026 (Current Period)</option>
                 <option value="Q2 2026">Q2 2026</option>
@@ -124,24 +124,24 @@ export const IntelligentReportingPage = () => {
           {loading ? (
             <LoadingSpinner text="Synthesizing publication-ready Gemini AI intelligent report..." />
           ) : reportData ? (
-            <div className="glass-panel p-8 rounded-2xl border border-[#2aa198]/30 bg-[#073642]/70 shadow-2xl space-y-6 text-xs leading-relaxed font-sans">
-              <div className="flex items-center justify-between border-b border-[#2aa198]/20 pb-4">
+            <div className="glass-panel p-8 rounded-2xl border border-[#dfbd84]/30 bg-[#20302f]/70 shadow-2xl space-y-6 text-xs leading-relaxed font-sans">
+              <div className="flex items-center justify-between border-b border-[#dfbd84]/20 pb-4">
                 <div className="space-y-1">
-                  <span className="text-[10px] font-mono text-[#ffd700] font-bold uppercase px-2 py-0.5 bg-[#002129] rounded border border-[#ffd700]/30">
+                  <span className="text-[10px] font-mono text-[#dfbd84] font-bold uppercase px-2 py-0.5 bg-[#182423] rounded border border-[#dfbd84]/30">
                     AUTOMATED AI REPORT SYNTHESIS
                   </span>
-                  <h2 className="text-xl font-extrabold text-[#fdf6e3] mt-2">{reportData.title}</h2>
-                  <p className="text-[11px] text-[#2aa198]">Generated on {new Date(reportData.generatedAt).toLocaleString()}</p>
+                  <h2 className="text-xl font-extrabold text-[#f4eee2] mt-2">{reportData.title}</h2>
+                  <p className="text-[11px] text-[#dfbd84]">Generated on {new Date(reportData.generatedAt).toLocaleString()}</p>
                 </div>
                 <div className="text-right font-mono text-xs">
-                  <span className="text-[10px] text-[#93a1a1] block font-sans uppercase">Security Clearance</span>
-                  <span className="text-[#859900] font-bold">RESTRICTED EXECUTIVE</span>
+                  <span className="text-[10px] text-[#a4b8b5] block font-sans uppercase">Security Clearance</span>
+                  <span className="text-[#58b388] font-bold">RESTRICTED EXECUTIVE</span>
                 </div>
               </div>
 
               {/* Formatted Markdown Content Render */}
-              <div className="prose prose-invert max-w-none text-[#fdf6e3] space-y-4 font-sans text-xs">
-                <div className="p-5 bg-[#002129] rounded-2xl border border-[#2aa198]/30 space-y-3 whitespace-pre-line">
+              <div className="prose prose-invert max-w-none text-[#f4eee2] space-y-4 font-sans text-xs">
+                <div className="p-5 bg-[#182423] rounded-2xl border border-[#dfbd84]/30 space-y-3 whitespace-pre-line">
                   {reportData.contentMarkdown}
                 </div>
               </div>

@@ -57,24 +57,24 @@ export const LoanApplicationModal = ({ isOpen, onClose, customers = [], onSubmit
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-      <div className="glass-panel w-full max-w-xl p-6 rounded-2xl border border-[#2aa198]/40 shadow-2xl relative bg-[#073642]">
-        <div className="flex items-center justify-between pb-4 border-b border-[#2aa198]/20 mb-5">
+      <div className="glass-panel w-full max-w-xl p-6 rounded-2xl border border-[#dfbd84]/40 shadow-2xl relative bg-[#20302f]">
+        <div className="flex items-center justify-between pb-4 border-b border-[#dfbd84]/20 mb-5">
           <div className="flex items-center space-x-2">
-            <div className="p-2 bg-[#002129] text-[#ffd700] rounded-xl border border-[#ffd700]/30">
-              <DollarSign className="w-5 h-5 text-[#ffd700]" />
+            <div className="p-2 bg-[#182423] text-[#dfbd84] rounded-xl border border-[#dfbd84]/30">
+              <DollarSign className="w-5 h-5 text-[#dfbd84]" />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-[#fdf6e3]">New Loan Application Intake</h2>
-              <p className="text-xs text-[#2aa198]">Private Account Holder & Commercial Underwriting Intake</p>
+              <h2 className="text-lg font-bold text-[#f4eee2]">New Loan Application Intake</h2>
+              <p className="text-xs text-[#dfbd84]">Private Account Holder & Commercial Underwriting Intake</p>
             </div>
           </div>
-          <button onClick={onClose} className="p-1 text-[#93a1a1] hover:text-[#fdf6e3] rounded-lg">
+          <button onClick={onClose} className="p-1 text-[#a4b8b5] hover:text-[#f4eee2] rounded-lg">
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {error && (
-          <div className="p-3 mb-4 bg-[#002129] border border-red-500/40 rounded-xl text-xs text-rose-300">
+          <div className="p-3 mb-4 bg-[#182423] border border-red-500/40 rounded-xl text-xs text-[#dfbd84]">
             {error}
           </div>
         )}
@@ -90,7 +90,7 @@ export const LoanApplicationModal = ({ isOpen, onClose, customers = [], onSubmit
                 value={applicantName}
                 onChange={(e) => setApplicantName(e.target.value)}
                 placeholder="e.g. Katherapaka Srinivas"
-                className="w-full glass-input bg-[#1a030b] border border-rose-900/40 text-white text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600"
+                className="w-full glass-input bg-[#1a030b] border border-[#dfbd84]/30 text-white text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600"
                 required
               />
             </div>
@@ -102,7 +102,7 @@ export const LoanApplicationModal = ({ isOpen, onClose, customers = [], onSubmit
               <select
                 value={applicantCategory}
                 onChange={(e) => setApplicantCategory(e.target.value)}
-                className="w-full glass-input bg-[#1a030b] border border-rose-900/40 text-white text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600 font-medium"
+                className="w-full glass-input bg-[#1a030b] border border-[#dfbd84]/30 text-white text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600 font-medium"
               >
                 <option value="private_individual">👤 Private / Individual Account Holder</option>
                 <option value="corporate">🏢 Corporate / Enterprise Commercial</option>
@@ -119,7 +119,7 @@ export const LoanApplicationModal = ({ isOpen, onClose, customers = [], onSubmit
             <select
               value={customerId}
               onChange={(e) => handleCustomerSelect(e.target.value)}
-              className="w-full glass-input bg-[#1a030b] border border-rose-900/40 text-white text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600"
+              className="w-full glass-input bg-[#1a030b] border border-[#dfbd84]/30 text-white text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600"
             >
               <option value="">-- Choose Existing Account ({customers.length}) --</option>
               {customers.map((c) => (
@@ -143,7 +143,7 @@ export const LoanApplicationModal = ({ isOpen, onClose, customers = [], onSubmit
                   max="50000000"
                   value={principalAmount}
                   onChange={(e) => setPrincipalAmount(e.target.value)}
-                  className="w-full glass-input bg-[#1a030b] border border-rose-900/40 text-white text-xs rounded-xl p-3 pl-7 focus:outline-none focus:ring-2 focus:ring-rose-600 font-mono"
+                  className="w-full glass-input bg-[#1a030b] border border-[#dfbd84]/30 text-white text-xs rounded-xl p-3 pl-7 focus:outline-none focus:ring-2 focus:ring-rose-600 font-mono"
                   required
                 />
               </div>
@@ -161,7 +161,7 @@ export const LoanApplicationModal = ({ isOpen, onClose, customers = [], onSubmit
                   max="30"
                   value={interestRate}
                   onChange={(e) => setInterestRate(e.target.value)}
-                  className="w-full glass-input bg-[#1a030b] border border-rose-900/40 text-white text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600 font-mono"
+                  className="w-full glass-input bg-[#1a030b] border border-[#dfbd84]/30 text-white text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600 font-mono"
                   required
                 />
                 <Percent className="absolute right-3 top-3 w-4 h-4 text-slate-500" />
@@ -177,7 +177,7 @@ export const LoanApplicationModal = ({ isOpen, onClose, customers = [], onSubmit
               <select
                 value={termMonths}
                 onChange={(e) => setTermMonths(e.target.value)}
-                className="w-full glass-input bg-[#1a030b] border border-rose-900/40 text-white text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600"
+                className="w-full glass-input bg-[#1a030b] border border-[#dfbd84]/30 text-white text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600"
               >
                 <option value="12">12 Months (1 Year)</option>
                 <option value="24">24 Months (2 Years)</option>
@@ -195,7 +195,7 @@ export const LoanApplicationModal = ({ isOpen, onClose, customers = [], onSubmit
               <select
                 value={purpose}
                 onChange={(e) => setPurpose(e.target.value)}
-                className="w-full glass-input bg-[#1a030b] border border-rose-900/40 text-white text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600"
+                className="w-full glass-input bg-[#1a030b] border border-[#dfbd84]/30 text-white text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600"
               >
                 <option value="Working Capital">Working Capital</option>
                 <option value="Equipment Purchase">Equipment Purchase & Automation</option>
@@ -206,7 +206,7 @@ export const LoanApplicationModal = ({ isOpen, onClose, customers = [], onSubmit
             </div>
           </div>
 
-          <div className="pt-4 flex items-center justify-end space-x-3 border-t border-rose-900/30">
+          <div className="pt-4 flex items-center justify-end space-x-3 border-t border-[#dfbd84]/25">
             <button
               type="button"
               onClick={onClose}
@@ -217,7 +217,7 @@ export const LoanApplicationModal = ({ isOpen, onClose, customers = [], onSubmit
             <button
               type="submit"
               disabled={submitting}
-              className="px-5 py-2.5 bg-gradient-to-r from-rose-800 to-rose-950 hover:from-rose-700 hover:to-rose-900 text-white text-xs font-bold rounded-xl shadow-lg shadow-rose-900/30 transition disabled:opacity-50 border border-rose-600/40"
+              className="px-5 py-2.5 bg-gradient-to-r from-[#c59e5f] via-[#dfbd84] to-[#c59e5f] hover:from-[#dfbd84] hover:to-[#eed29e] text-white text-xs font-bold rounded-xl shadow-lg shadow-[#182423]/30 transition disabled:opacity-50 border border-[#dfbd84]/50"
             >
               {submitting ? 'Submitting Application...' : 'Create Loan Application'}
             </button>

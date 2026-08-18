@@ -168,7 +168,7 @@ export const LoanCalculatorPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#002b36] text-[#93a1a1]">
+    <div className="flex min-h-screen bg-[#1b2827] text-[#a4b8b5]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -176,25 +176,25 @@ export const LoanCalculatorPage = () => {
         <main className="p-6 md:p-8 space-y-6 max-w-7xl mx-auto w-full">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-extrabold text-[#fdf6e3] font-heading">AI Loan Risk & Underwriting Calculator</h1>
-              <p className="text-xs text-[#2aa198]">Powered by Gemini 2.0 Flash Neural Credit Risk Engine</p>
+              <h1 className="text-2xl font-extrabold text-[#f4eee2] font-heading">AI Loan Risk & Underwriting Calculator</h1>
+              <p className="text-xs text-[#dfbd84]">Powered by Gemini 2.0 Flash Neural Credit Risk Engine</p>
             </div>
-            <div className="flex items-center space-x-2 px-3.5 py-1.5 bg-[#b58900]/20 border border-[#ffd700]/40 rounded-full text-xs text-[#ffd700] font-bold shadow">
-              <Sparkles className="w-4 h-4 text-[#ffd700]" />
+            <div className="flex items-center space-x-2 px-3.5 py-1.5 bg-[#c59e5f]/20 border border-[#dfbd84]/40 rounded-full text-xs text-[#dfbd84] font-bold shadow">
+              <Sparkles className="w-4 h-4 text-[#dfbd84]" />
               <span>Real-Time Neural Credit Scoring</span>
             </div>
           </div>
 
           {/* Success Banner */}
           {successMsg && (
-            <div className="p-4 bg-[#859900]/20 border border-[#859900]/50 rounded-2xl text-xs text-[#859900] font-bold flex items-center justify-between shadow-lg">
+            <div className="p-4 bg-[#58b388]/20 border border-[#58b388]/50 rounded-2xl text-xs text-[#58b388] font-bold flex items-center justify-between shadow-lg">
               <span className="flex items-center space-x-2">
-                <CheckCircle2 className="w-5 h-5 text-[#859900]" />
+                <CheckCircle2 className="w-5 h-5 text-[#58b388]" />
                 <span>{successMsg}</span>
               </span>
               <Link
                 to="/loans"
-                className="px-3 py-1.5 bg-[#859900] text-[#002b36] text-[11px] font-black rounded-lg hover:bg-white transition flex items-center space-x-1"
+                className="px-3 py-1.5 bg-[#58b388] text-[#1b2827] text-[11px] font-black rounded-lg hover:bg-white transition flex items-center space-x-1"
               >
                 <span>View Loans Pipeline</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -206,29 +206,29 @@ export const LoanCalculatorPage = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
             {/* Input Form */}
-            <div className="lg:col-span-7 glass-panel p-6 rounded-2xl border border-[#2aa198]/30 space-y-5 bg-[#073642]/60 shadow-xl">
-              <h3 className="text-sm font-bold text-[#fdf6e3] flex items-center space-x-2 pb-3 border-b border-[#2aa198]/20">
-                <Calculator className="w-4 h-4 text-[#ffd700]" />
+            <div className="lg:col-span-7 glass-panel p-6 rounded-2xl border border-[#dfbd84]/30 space-y-5 bg-[#20302f]/60 shadow-xl">
+              <h3 className="text-sm font-bold text-[#f4eee2] flex items-center space-x-2 pb-3 border-b border-[#dfbd84]/20">
+                <Calculator className="w-4 h-4 text-[#dfbd84]" />
                 <span>Input Applicant & Credit Parameters</span>
               </h3>
 
               <form onSubmit={handleCalculate} className="space-y-4 text-xs">
                 {/* Customer Account Details Auto-Fill Selection */}
-                <div className="p-3.5 bg-[#002129] rounded-xl border border-[#ffd700]/30 space-y-2">
-                  <label className="block text-[#ffd700] font-bold uppercase text-[10px] flex items-center space-x-1.5">
-                    <UserCheck className="w-3.5 h-3.5 text-[#ffd700]" />
+                <div className="p-3.5 bg-[#182423] rounded-xl border border-[#dfbd84]/30 space-y-2">
+                  <label className="block text-[#dfbd84] font-bold uppercase text-[10px] flex items-center space-x-1.5">
+                    <UserCheck className="w-3.5 h-3.5 text-[#dfbd84]" />
                     <span>SELECT ONBOARDED CUSTOMER ACCOUNT (AUTO-FILL)</span>
                   </label>
                   <select
                     value={selectedCustomerId}
                     onChange={(e) => handleCustomerSelect(e.target.value)}
-                    className="w-full bg-[#002129] border border-[#ffd700]/50 rounded-xl p-3 text-[#fdf6e3] font-bold focus:outline-none focus:ring-2 focus:ring-[#ffd700] shadow-inner text-xs cursor-pointer"
+                    className="w-full bg-[#182423] border border-[#dfbd84]/50 rounded-xl p-3 text-[#f4eee2] font-bold focus:outline-none focus:ring-2 focus:ring-[#dfbd84] shadow-inner text-xs cursor-pointer"
                   >
-                    <option value="" className="bg-[#002129] text-[#ffd700]">
+                    <option value="" className="bg-[#182423] text-[#dfbd84]">
                       -- Select Existing Onboarded Customer Account ({customers.length} Accounts Available) --
                     </option>
                     {customers.map((c) => (
-                      <option key={c.id || c.account_number} value={c.id || c.account_number} className="bg-[#002129] text-[#fdf6e3]">
+                      <option key={c.id || c.account_number} value={c.id || c.account_number} className="bg-[#182423] text-[#f4eee2]">
                         {c.first_name} {c.last_name} — {c.account_number} (${Number(c.annual_revenue || 0).toLocaleString()} Rev)
                       </option>
                     ))}
@@ -236,32 +236,32 @@ export const LoanCalculatorPage = () => {
                 </div>
 
                 {/* Customer Account Details Explicit Input Fields */}
-                <div className="p-3.5 bg-[#002129]/60 rounded-xl border border-[#2aa198]/20 space-y-3">
-                  <span className="text-[10px] font-bold text-[#2aa198] uppercase block tracking-wider flex items-center space-x-1">
-                    <CreditCard className="w-3.5 h-3.5 text-[#2aa198]" />
+                <div className="p-3.5 bg-[#182423]/60 rounded-xl border border-[#dfbd84]/20 space-y-3">
+                  <span className="text-[10px] font-bold text-[#dfbd84] uppercase block tracking-wider flex items-center space-x-1">
+                    <CreditCard className="w-3.5 h-3.5 text-[#dfbd84]" />
                     <span>CUSTOMER ACCOUNT IDENTIFICATION DETAILS</span>
                   </span>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">CUSTOMER / APPLICANT FULL NAME</label>
+                      <label className="block text-[#a4b8b5] font-bold mb-1 uppercase text-[10px]">CUSTOMER / APPLICANT FULL NAME</label>
                       <input
                         type="text"
                         value={formData.applicantName}
                         onChange={(e) => setFormData({ ...formData, applicantName: e.target.value })}
-                        className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3] font-bold"
+                        className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2] font-bold"
                         placeholder="e.g. Charlotte Sterling"
                         required
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">ACCOUNT NUMBER</label>
+                      <label className="block text-[#a4b8b5] font-bold mb-1 uppercase text-[10px]">ACCOUNT NUMBER</label>
                       <input
                         type="text"
                         value={formData.accountNumber}
                         onChange={(e) => setFormData({ ...formData, accountNumber: e.target.value })}
-                        className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#ffd700] font-mono font-bold"
+                        className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#dfbd84] font-mono font-bold"
                         placeholder="e.g. KSBC-SAV-10040284"
                         required
                       />
@@ -270,24 +270,24 @@ export const LoanCalculatorPage = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">TAX ID / SSN / EIN</label>
+                      <label className="block text-[#a4b8b5] font-bold mb-1 uppercase text-[10px]">TAX ID / SSN / EIN</label>
                       <input
                         type="text"
                         value={formData.taxId}
                         onChange={(e) => setFormData({ ...formData, taxId: e.target.value })}
-                        className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3] font-mono"
+                        className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2] font-mono"
                         placeholder="e.g. US-SSN-***-**-3027"
                         required
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">CONTACT EMAIL</label>
+                      <label className="block text-[#a4b8b5] font-bold mb-1 uppercase text-[10px]">CONTACT EMAIL</label>
                       <input
                         type="email"
                         value={formData.customerEmail}
                         onChange={(e) => setFormData({ ...formData, customerEmail: e.target.value })}
-                        className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#2aa198]"
+                        className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#dfbd84]"
                         placeholder="e.g. charlotte.sterling27@privatesavings.com"
                         required
                       />
@@ -298,28 +298,28 @@ export const LoanCalculatorPage = () => {
                 {/* Credit Financial Parameters */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">APPLICANT CATEGORY</label>
+                    <label className="block text-[#a4b8b5] font-bold mb-1 uppercase text-[10px]">APPLICANT CATEGORY</label>
                     <select
                       value={formData.applicantCategory}
                       onChange={(e) => setFormData({ ...formData, applicantCategory: e.target.value })}
-                      className="w-full bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
+                      className="w-full bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2]"
                     >
-                      <option value="private_individual" className="bg-[#002129] text-[#fdf6e3]">👤 Private Individual Account Holder</option>
-                      <option value="corporate" className="bg-[#002129] text-[#fdf6e3]">🏢 Corporate Enterprise</option>
-                      <option value="sme" className="bg-[#002129] text-[#fdf6e3]">🏬 SME Business</option>
-                      <option value="real_estate" className="bg-[#002129] text-[#fdf6e3]">🏢 Commercial Real Estate</option>
+                      <option value="private_individual" className="bg-[#182423] text-[#f4eee2]">👤 Private Individual Account Holder</option>
+                      <option value="corporate" className="bg-[#182423] text-[#f4eee2]">🏢 Corporate Enterprise</option>
+                      <option value="sme" className="bg-[#182423] text-[#f4eee2]">🏬 SME Business</option>
+                      <option value="real_estate" className="bg-[#182423] text-[#f4eee2]">🏢 Commercial Real Estate</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">CREDIT SCORE (FICO/FICO-B)</label>
+                    <label className="block text-[#a4b8b5] font-bold mb-1 uppercase text-[10px]">CREDIT SCORE (FICO/FICO-B)</label>
                     <input
                       type="number"
                       min="300"
                       max="850"
                       value={formData.creditScore}
                       onChange={(e) => setFormData({ ...formData, creditScore: e.target.value })}
-                      className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3] font-mono font-bold"
+                      className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2] font-mono font-bold"
                       required
                     />
                   </div>
@@ -327,27 +327,27 @@ export const LoanCalculatorPage = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">REQUESTED PRINCIPAL ($)</label>
+                    <label className="block text-[#a4b8b5] font-bold mb-1 uppercase text-[10px]">REQUESTED PRINCIPAL ($)</label>
                     <input
                       type="number"
                       min="10000"
                       max="50000000"
                       value={formData.principalAmount}
                       onChange={(e) => setFormData({ ...formData, principalAmount: e.target.value })}
-                      className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#ffd700] font-mono font-bold"
+                      className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#dfbd84] font-mono font-bold"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">ANNUAL REVENUE / INCOME ($)</label>
+                    <label className="block text-[#a4b8b5] font-bold mb-1 uppercase text-[10px]">ANNUAL REVENUE / INCOME ($)</label>
                     <input
                       type="number"
                       min="50000"
                       max="100000000"
                       value={formData.annualIncome}
                       onChange={(e) => setFormData({ ...formData, annualIncome: e.target.value })}
-                      className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3] font-mono font-bold"
+                      className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2] font-mono font-bold"
                       required
                     />
                   </div>
@@ -355,7 +355,7 @@ export const LoanCalculatorPage = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div>
-                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">INTEREST RATE (%)</label>
+                    <label className="block text-[#a4b8b5] font-bold mb-1 uppercase text-[10px]">INTEREST RATE (%)</label>
                     <input
                       type="number"
                       step="0.1"
@@ -363,58 +363,58 @@ export const LoanCalculatorPage = () => {
                       max="30"
                       value={formData.interestRate}
                       onChange={(e) => setFormData({ ...formData, interestRate: e.target.value })}
-                      className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3] font-mono"
+                      className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2] font-mono"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">TERM LENGTH</label>
+                    <label className="block text-[#a4b8b5] font-bold mb-1 uppercase text-[10px]">TERM LENGTH</label>
                     <select
                       value={formData.termMonths}
                       onChange={(e) => setFormData({ ...formData, termMonths: e.target.value })}
-                      className="w-full bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
+                      className="w-full bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2]"
                     >
-                      <option value="12" className="bg-[#002129] text-[#fdf6e3]">12 Months (1 yr)</option>
-                      <option value="24" className="bg-[#002129] text-[#fdf6e3]">24 Months (2 yrs)</option>
-                      <option value="36" className="bg-[#002129] text-[#fdf6e3]">36 Months (3 yrs)</option>
-                      <option value="60" className="bg-[#002129] text-[#fdf6e3]">60 Months (5 yrs)</option>
-                      <option value="120" className="bg-[#002129] text-[#fdf6e3]">120 Months (10 yrs)</option>
+                      <option value="12" className="bg-[#182423] text-[#f4eee2]">12 Months (1 yr)</option>
+                      <option value="24" className="bg-[#182423] text-[#f4eee2]">24 Months (2 yrs)</option>
+                      <option value="36" className="bg-[#182423] text-[#f4eee2]">36 Months (3 yrs)</option>
+                      <option value="60" className="bg-[#182423] text-[#f4eee2]">60 Months (5 yrs)</option>
+                      <option value="120" className="bg-[#182423] text-[#f4eee2]">120 Months (10 yrs)</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">COLLATERAL VALUE ($)</label>
+                    <label className="block text-[#a4b8b5] font-bold mb-1 uppercase text-[10px]">COLLATERAL VALUE ($)</label>
                     <input
                       type="number"
                       min="0"
                       value={formData.collateralValue}
                       onChange={(e) => setFormData({ ...formData, collateralValue: e.target.value })}
-                      className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3] font-mono"
+                      className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2] font-mono"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[#93a1a1] font-bold mb-1 uppercase text-[10px]">LOAN PURPOSE</label>
+                  <label className="block text-[#a4b8b5] font-bold mb-1 uppercase text-[10px]">LOAN PURPOSE</label>
                   <select
                     value={formData.loanPurpose}
                     onChange={(e) => setFormData({ ...formData, loanPurpose: e.target.value })}
-                    className="w-full bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
+                    className="w-full bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2]"
                   >
-                    <option value="Equipment Purchase & Automation" className="bg-[#002129] text-[#fdf6e3]">Equipment Purchase & Automation</option>
-                    <option value="Working Capital Expansion" className="bg-[#002129] text-[#fdf6e3]">Working Capital Expansion</option>
-                    <option value="Commercial Real Estate Acquisition" className="bg-[#002129] text-[#fdf6e3]">Commercial Real Estate Acquisition</option>
-                    <option value="Debt Refinancing & Consolidation" className="bg-[#002129] text-[#fdf6e3]">Debt Refinancing & Consolidation</option>
+                    <option value="Equipment Purchase & Automation" className="bg-[#182423] text-[#f4eee2]">Equipment Purchase & Automation</option>
+                    <option value="Working Capital Expansion" className="bg-[#182423] text-[#f4eee2]">Working Capital Expansion</option>
+                    <option value="Commercial Real Estate Acquisition" className="bg-[#182423] text-[#f4eee2]">Commercial Real Estate Acquisition</option>
+                    <option value="Debt Refinancing & Consolidation" className="bg-[#182423] text-[#f4eee2]">Debt Refinancing & Consolidation</option>
                   </select>
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3 bg-gradient-to-r from-[#b58900] via-[#d4af37] to-[#b58900] hover:from-[#d4af37] hover:to-[#ffd700] text-[#002b36] font-black rounded-xl shadow-lg transition flex items-center justify-center space-x-2 disabled:opacity-50 border border-[#ffd700]/50 text-xs uppercase tracking-wider"
+                  className="w-full py-3 bg-gradient-to-r from-[#c59e5f] via-[#dfbd84] to-[#c59e5f] hover:from-[#dfbd84] hover:to-[#dfbd84] text-[#1b2827] font-black rounded-xl shadow-lg transition flex items-center justify-center space-x-2 disabled:opacity-50 border border-[#dfbd84]/50 text-xs uppercase tracking-wider"
                 >
-                  <Sparkles className="w-4 h-4 text-[#002b36]" />
+                  <Sparkles className="w-4 h-4 text-[#1b2827]" />
                   <span>{loading ? 'Evaluating Gemini AI Risk Model...' : 'Calculate AI Risk & Underwriting Decision'}</span>
                 </button>
               </form>
@@ -423,13 +423,13 @@ export const LoanCalculatorPage = () => {
             {/* Assessment Output Gauge */}
             <div className="lg:col-span-5 space-y-5">
               {loading ? (
-                <div className="glass-panel p-10 rounded-2xl border border-[#2aa198]/30 text-center bg-[#073642]/60">
+                <div className="glass-panel p-10 rounded-2xl border border-[#dfbd84]/30 text-center bg-[#20302f]/60">
                   <LoadingSpinner text="Running Gemini 2.0 Flash Neural Credit Risk Model..." />
                 </div>
               ) : assessment ? (
-                <div className="glass-panel p-6 rounded-2xl border border-[#ffd700]/40 space-y-5 shadow-2xl bg-[#073642]/80">
-                  <div className="flex justify-between items-center pb-3 border-b border-[#2aa198]/20">
-                    <h3 className="text-sm font-bold text-[#fdf6e3]">AI Credit Underwriting Verdict</h3>
+                <div className="glass-panel p-6 rounded-2xl border border-[#dfbd84]/40 space-y-5 shadow-2xl bg-[#20302f]/80">
+                  <div className="flex justify-between items-center pb-3 border-b border-[#dfbd84]/20">
+                    <h3 className="text-sm font-bold text-[#f4eee2]">AI Credit Underwriting Verdict</h3>
                     
                     {/* Interactive Approve Button */}
                     <button
@@ -437,9 +437,9 @@ export const LoanCalculatorPage = () => {
                       disabled={submittingAction}
                       className={`px-3 py-1.5 rounded-full text-xs font-black font-mono border uppercase shadow transition flex items-center space-x-1.5 hover:scale-105 cursor-pointer ${
                         assessment.recommendation === 'APPROVE'
-                          ? 'bg-[#859900] text-[#002b36] border-[#859900] hover:bg-[#859900]/80'
+                          ? 'bg-[#58b388] text-[#1b2827] border-[#58b388] hover:bg-[#58b388]/80'
                           : assessment.recommendation === 'CONDITIONAL_APPROVE'
-                          ? 'bg-[#b58900] text-[#002b36] border-[#ffd700] hover:bg-[#ffd700]'
+                          ? 'bg-[#c59e5f] text-[#1b2827] border-[#dfbd84] hover:bg-[#dfbd84]'
                           : 'bg-red-600 text-white border-red-500 hover:bg-red-700'
                       }`}
                     >
@@ -449,50 +449,50 @@ export const LoanCalculatorPage = () => {
                   </div>
 
                   {/* Customer Account Details Card */}
-                  <div className="p-3.5 bg-[#002129] rounded-xl border border-[#2aa198]/30 space-y-1 text-xs">
-                    <span className="text-[10px] font-bold text-[#2aa198] uppercase block tracking-wider">Target Account Identification</span>
+                  <div className="p-3.5 bg-[#182423] rounded-xl border border-[#dfbd84]/30 space-y-1 text-xs">
+                    <span className="text-[10px] font-bold text-[#dfbd84] uppercase block tracking-wider">Target Account Identification</span>
                     <div className="flex justify-between items-center">
-                      <span className="font-bold text-[#fdf6e3]">{assessment.applicantName || formData.applicantName}</span>
-                      <span className="font-mono text-[#ffd700] font-bold">{assessment.accountNumber || formData.accountNumber}</span>
+                      <span className="font-bold text-[#f4eee2]">{assessment.applicantName || formData.applicantName}</span>
+                      <span className="font-mono text-[#dfbd84] font-bold">{assessment.accountNumber || formData.accountNumber}</span>
                     </div>
-                    <div className="flex justify-between items-center text-[11px] text-[#93a1a1]">
-                      <span>Tax ID: <code className="text-[#fdf6e3]">{assessment.taxId || formData.taxId}</code></span>
-                      <span className="text-[#2aa198]">{assessment.customerEmail || formData.customerEmail}</span>
+                    <div className="flex justify-between items-center text-[11px] text-[#a4b8b5]">
+                      <span>Tax ID: <code className="text-[#f4eee2]">{assessment.taxId || formData.taxId}</code></span>
+                      <span className="text-[#dfbd84]">{assessment.customerEmail || formData.customerEmail}</span>
                     </div>
                   </div>
 
                   {/* Score Dial */}
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="p-4 bg-[#002129] rounded-xl border border-[#2aa198]/30 text-center space-y-0.5">
-                      <span className="text-[10px] text-[#2aa198] font-sans block uppercase font-bold">AI RISK SCORE</span>
+                    <div className="p-4 bg-[#182423] rounded-xl border border-[#dfbd84]/30 text-center space-y-0.5">
+                      <span className="text-[10px] text-[#dfbd84] font-sans block uppercase font-bold">AI RISK SCORE</span>
                       <span className={`text-3xl font-extrabold font-mono ${
-                        assessment.riskScore > 70 ? 'text-red-400' : assessment.riskScore > 40 ? 'text-[#ffd700]' : 'text-[#859900]'
+                        assessment.riskScore > 70 ? 'text-red-400' : assessment.riskScore > 40 ? 'text-[#dfbd84]' : 'text-[#58b388]'
                       }`}>
                         {assessment.riskScore}/100
                       </span>
-                      <span className="text-[10px] text-[#93a1a1] block font-bold uppercase">{assessment.riskLevel} RISK</span>
+                      <span className="text-[10px] text-[#a4b8b5] block font-bold uppercase">{assessment.riskLevel} RISK</span>
                     </div>
 
-                    <div className="p-4 bg-[#002129] rounded-xl border border-[#2aa198]/30 text-center space-y-0.5">
-                      <span className="text-[10px] text-[#2aa198] font-sans block uppercase font-bold">DEFAULT PROBABILITY</span>
-                      <span className="text-3xl font-extrabold font-mono text-[#ffd700]">
+                    <div className="p-4 bg-[#182423] rounded-xl border border-[#dfbd84]/30 text-center space-y-0.5">
+                      <span className="text-[10px] text-[#dfbd84] font-sans block uppercase font-bold">DEFAULT PROBABILITY</span>
+                      <span className="text-3xl font-extrabold font-mono text-[#dfbd84]">
                         {assessment.defaultProbability}%
                       </span>
-                      <span className="text-[10px] text-[#93a1a1] block font-semibold">12-Month Horizon</span>
+                      <span className="text-[10px] text-[#a4b8b5] block font-semibold">12-Month Horizon</span>
                     </div>
                   </div>
 
                   {/* Recommended Limit */}
-                  <div className="p-3.5 bg-[#002129] rounded-xl border border-[#ffd700]/30 flex justify-between items-center text-xs font-mono">
-                    <span className="text-[#93a1a1] font-sans font-bold">MAX RECOMMENDED CREDIT LIMIT:</span>
-                    <span className="text-[#859900] font-black text-sm">${Number(assessment.maxRecommendedLoan || 0).toLocaleString()}</span>
+                  <div className="p-3.5 bg-[#182423] rounded-xl border border-[#dfbd84]/30 flex justify-between items-center text-xs font-mono">
+                    <span className="text-[#a4b8b5] font-sans font-bold">MAX RECOMMENDED CREDIT LIMIT:</span>
+                    <span className="text-[#58b388] font-black text-sm">${Number(assessment.maxRecommendedLoan || 0).toLocaleString()}</span>
                   </div>
 
                   {/* Key Risks */}
                   <div className="space-y-2 text-xs">
-                    <span className="font-bold text-[#ffd700] block text-[10px] uppercase tracking-wider">Identified Risk Factors:</span>
+                    <span className="font-bold text-[#dfbd84] block text-[10px] uppercase tracking-wider">Identified Risk Factors:</span>
                     {assessment.keyRisks?.map((r, i) => (
-                      <div key={i} className="p-2 bg-[#002129] rounded-lg border border-red-500/30 text-red-300 flex items-center space-x-2 text-[11px]">
+                      <div key={i} className="p-2 bg-[#182423] rounded-lg border border-red-500/30 text-red-300 flex items-center space-x-2 text-[11px]">
                         <AlertTriangle className="w-3.5 h-3.5 text-red-400 flex-shrink-0" />
                         <span>{r}</span>
                       </div>
@@ -500,22 +500,22 @@ export const LoanCalculatorPage = () => {
                   </div>
 
                   {/* Executive Advisory */}
-                  <div className="p-3.5 bg-[#002129] rounded-xl border border-[#2aa198]/30 text-xs text-[#93a1a1] space-y-1">
-                    <span className="font-bold text-[#ffd700] block flex items-center space-x-1.5">
-                      <Sparkles className="w-3.5 h-3.5 text-[#ffd700]" />
+                  <div className="p-3.5 bg-[#182423] rounded-xl border border-[#dfbd84]/30 text-xs text-[#a4b8b5] space-y-1">
+                    <span className="font-bold text-[#dfbd84] block flex items-center space-x-1.5">
+                      <Sparkles className="w-3.5 h-3.5 text-[#dfbd84]" />
                       <span>Gemini AI Advisory:</span>
                     </span>
-                    <p className="italic text-[#fdf6e3]">"{assessment.summaryAdvisory}"</p>
+                    <p className="italic text-[#f4eee2]">"{assessment.summaryAdvisory}"</p>
                   </div>
 
                   {/* Executive Interactive Action Toolbar */}
-                  <div className="pt-3 border-t border-[#2aa198]/20 space-y-2">
-                    <span className="text-[10px] font-bold text-[#2aa198] uppercase block tracking-wider">Executive Action Commands</span>
+                  <div className="pt-3 border-t border-[#dfbd84]/20 space-y-2">
+                    <span className="text-[10px] font-bold text-[#dfbd84] uppercase block tracking-wider">Executive Action Commands</span>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                       <button
                         onClick={() => handleApproveAndIntake(true)}
                         disabled={submittingAction}
-                        className="w-full py-2.5 bg-gradient-to-r from-[#859900] to-[#2aa198] text-[#002b36] font-black rounded-xl shadow hover:opacity-90 transition flex items-center justify-center space-x-1.5 text-[11px] disabled:opacity-50"
+                        className="w-full py-2.5 bg-gradient-to-r from-[#58b388] to-[#dfbd84] text-[#1b2827] font-black rounded-xl shadow hover:opacity-90 transition flex items-center justify-center space-x-1.5 text-[11px] disabled:opacity-50"
                       >
                         <Check className="w-4 h-4" />
                         <span>{submittingAction ? 'Processing...' : 'Approve & Disburse Immediately'}</span>
@@ -524,17 +524,17 @@ export const LoanCalculatorPage = () => {
                       <button
                         onClick={() => handleApproveAndIntake(false)}
                         disabled={submittingAction}
-                        className="w-full py-2.5 bg-[#002129] text-[#ffd700] font-bold rounded-xl border border-[#ffd700]/40 hover:bg-[#073642] transition flex items-center justify-center space-x-1.5 text-[11px] disabled:opacity-50"
+                        className="w-full py-2.5 bg-[#182423] text-[#dfbd84] font-bold rounded-xl border border-[#dfbd84]/40 hover:bg-[#20302f] transition flex items-center justify-center space-x-1.5 text-[11px] disabled:opacity-50"
                       >
-                        <FileText className="w-4 h-4 text-[#ffd700]" />
+                        <FileText className="w-4 h-4 text-[#dfbd84]" />
                         <span>Intake to Approved Pipeline</span>
                       </button>
                     </div>
                   </div>
                 </div>
               ) : (
-                <div className="glass-panel p-8 rounded-2xl border border-[#2aa198]/30 text-center text-[#93a1a1] text-xs space-y-2 bg-[#073642]/60">
-                  <Calculator className="w-8 h-8 text-[#ffd700]" />
+                <div className="glass-panel p-8 rounded-2xl border border-[#dfbd84]/30 text-center text-[#a4b8b5] text-xs space-y-2 bg-[#20302f]/60">
+                  <Calculator className="w-8 h-8 text-[#dfbd84]" />
                   <p>Select a customer account or enter custom details and click "Calculate AI Risk" to run neural credit scoring.</p>
                 </div>
               )}

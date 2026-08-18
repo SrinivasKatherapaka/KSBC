@@ -2,20 +2,20 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { 
   LayoutDashboard, 
-  Wallet,
+  Wallet, 
   Users, 
   ShieldCheck, 
   Calculator, 
   Landmark, 
-  AlertOctagon,
-  ShieldAlert,
-  MessageSquare,
+  AlertOctagon, 
+  ShieldAlert, 
+  MessageSquare, 
   Vault, 
   BookOpen, 
   ShoppingBag, 
-  Zap,
-  BarChart3,
-  FileText,
+  Zap, 
+  BarChart3, 
+  FileText, 
   Bot, 
   History, 
   UserCheck 
@@ -50,15 +50,15 @@ export const Sidebar = () => {
   ];
 
   return (
-    <aside className="w-64 glass-panel border-r border-[#2aa198]/20 flex flex-col h-screen sticky top-0 z-30">
-      {/* KSBC Brand Header with Stylish Red KSBC Logo */}
-      <div className="p-4 border-b border-[#2aa198]/20 bg-[#002b36]/60 flex items-center justify-between">
+    <aside className="w-64 glass-panel border-r border-[#dfbd84]/20 flex flex-col h-screen sticky top-0 z-30 bg-[#1b2827]/90 backdrop-blur-xl">
+      {/* KSBC Brand Header with Temple Logo */}
+      <div className="p-4 border-b border-[#dfbd84]/20 bg-[#20302f]/70 flex items-center justify-between">
         <FlyingMatLogo size="lg" />
       </div>
 
       {/* Navigation items */}
       <div className="flex-1 overflow-y-auto py-4 px-3 space-y-1">
-        <div className="px-3 pb-2 text-[10px] font-bold uppercase tracking-wider text-[#2aa198]">KSBC Enterprise Modules</div>
+        <div className="px-3 pb-2 text-[10px] font-bold uppercase tracking-wider text-[#dfbd84]">KSBC Enterprise Modules</div>
         {navItems.map((item) => {
           const Icon = item.icon;
           return (
@@ -68,16 +68,16 @@ export const Sidebar = () => {
               className={({ isActive }) =>
                 `flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 ${
                   isActive
-                    ? 'bg-[#073642] text-[#ffd700] border border-[#d4af37]/50 shadow-md shadow-[#002b36]'
-                    : 'text-[#93a1a1] hover:text-[#fdf6e3] hover:bg-[#073642]/50'
+                    ? 'bg-[#273a39] text-[#dfbd84] border border-[#dfbd84]/50 shadow-md shadow-[#182423]'
+                    : 'text-[#a4b8b5] hover:text-[#f4eee2] hover:bg-[#273a39]/50'
                 }`
               }
             >
               <div className="flex items-center space-x-3">
-                <Icon className="w-4 h-4 flex-shrink-0 text-[#2aa198]" />
+                <Icon className="w-4 h-4 flex-shrink-0 text-[#dfbd84]" />
                 <span className="truncate">{item.label}</span>
               </div>
-              <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-[#002129] text-[#ffd700] font-mono border border-[#2aa198]/30">
+              <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-[#182423] text-[#dfbd84] font-mono border border-[#dfbd84]/25">
                 {item.roleTag}
               </span>
             </NavLink>
@@ -86,14 +86,14 @@ export const Sidebar = () => {
       </div>
 
       {/* Active User Persona Footer */}
-      <div className="p-4 border-t border-[#2aa198]/20 bg-[#002129]/80">
+      <div className="p-4 border-t border-[#dfbd84]/20 bg-[#182423]/80">
         <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 rounded-full bg-[#073642] border border-[#ffd700]/40 flex items-center justify-center text-xs font-bold text-[#ffd700]">
+          <div className="w-8 h-8 rounded-full bg-[#273a39] border border-[#dfbd84]/40 flex items-center justify-center text-xs font-bold text-[#dfbd84]">
             {user?.first_name?.[0]}{user?.last_name?.[0]}
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-xs font-bold text-[#fdf6e3] truncate">{user?.first_name} {user?.last_name}</p>
-            <p className="text-[10px] text-[#ffd700] font-mono capitalize truncate">{user?.role?.replace('_', ' ')}</p>
+            <p className="text-xs font-bold text-[#f4eee2] truncate">{user?.first_name} {user?.last_name}</p>
+            <p className="text-[10px] text-[#dfbd84] font-mono capitalize truncate">{user?.role?.replace('_', ' ')}</p>
           </div>
         </div>
       </div>

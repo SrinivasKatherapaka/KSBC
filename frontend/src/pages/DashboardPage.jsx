@@ -43,20 +43,20 @@ export const DashboardPage = () => {
   const navigate = useNavigate();
 
   const moduleTabs = [
-    { label: 'KSBC Overview', path: '/dashboard', icon: TrendingUp, color: 'text-rose-400' },
-    { label: 'Accounts Database', path: '/accounts', icon: Wallet, color: 'text-emerald-400' },
-    { label: 'AI Risk Calculator', path: '/loan-calculator', icon: Calculator, color: 'text-amber-400' },
-    { label: 'Loan Defaulters (NPA)', path: '/defaulters', icon: AlertOctagon, color: 'text-red-400' },
-    { label: 'AI Fraud Sentinel', path: '/fraud-detection', icon: ShieldAlert, color: 'text-rose-400' },
-    { label: '24/7 AI Support', path: '/customer-service', icon: MessageSquare, color: 'text-cyan-400' },
-    { label: 'Loans Portfolio', path: '/loan-applications', icon: Landmark, color: 'text-amber-400' },
-    { label: 'Customer Ops', path: '/customers', icon: Users, color: 'text-purple-400' },
-    { label: 'Compliance & KYC', path: '/compliance', icon: ShieldCheck, color: 'text-indigo-400' },
-    { label: 'Treasury Reserves', path: '/treasury', icon: Vault, color: 'text-teal-400' },
-    { label: 'General Ledger', path: '/finance', icon: BookOpen, color: 'text-pink-400' },
-    { label: 'Procurement POs', path: '/procurement', icon: ShoppingBag, color: 'text-rose-400' },
-    { label: 'AI Assistant', path: '/ai-assistant', icon: Bot, color: 'text-amber-400' },
-    { label: 'Advisory Audit', path: '/advisory-history', icon: History, color: 'text-emerald-400' }
+    { label: 'KSBC Overview', path: '/dashboard', icon: TrendingUp, color: 'text-[#dfbd84]' },
+    { label: 'Accounts Database', path: '/accounts', icon: Wallet, color: 'text-[#dfbd84]' },
+    { label: 'AI Risk Calculator', path: '/loan-calculator', icon: Calculator, color: 'text-[#dfbd84]' },
+    { label: 'Loan Defaulters (NPA)', path: '/defaulters', icon: AlertOctagon, color: 'text-[#dfbd84]' },
+    { label: 'AI Fraud Sentinel', path: '/fraud-detection', icon: ShieldAlert, color: 'text-amber-400' },
+    { label: '24/7 AI Support', path: '/customer-service', icon: MessageSquare, color: 'text-[#dfbd84]' },
+    { label: 'Loans Portfolio', path: '/loans', icon: Landmark, color: 'text-[#dfbd84]' },
+    { label: 'Customer Ops', path: '/customers', icon: Users, color: 'text-[#dfbd84]' },
+    { label: 'Compliance & KYC', path: '/compliance', icon: ShieldCheck, color: 'text-[#dfbd84]' },
+    { label: 'Treasury Reserves', path: '/treasury', icon: Vault, color: 'text-[#dfbd84]' },
+    { label: 'General Ledger', path: '/finance', icon: BookOpen, color: 'text-[#dfbd84]' },
+    { label: 'Procurement POs', path: '/procurement', icon: ShoppingBag, color: 'text-[#dfbd84]' },
+    { label: 'AI Assistant', path: '/ai-assistant', icon: Bot, color: 'text-[#dfbd84]' },
+    { label: 'Advisory Audit', path: '/advisory-history', icon: History, color: 'text-[#58b388]' }
   ];
 
   useEffect(() => {
@@ -117,7 +117,7 @@ export const DashboardPage = () => {
   }, []);
 
   return (
-    <div className="flex min-h-screen bg-[#002b36] text-[#93a1a1]">
+    <div className="flex min-h-screen bg-[#1b2827] text-[#a4b8b5]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -127,27 +127,27 @@ export const DashboardPage = () => {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <div className="flex items-center space-x-3 mb-1">
-                <h1 className="text-2xl md:text-3xl font-extrabold text-white font-heading">KSBC Executive Dashboard</h1>
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-rose-500/10 text-rose-400 border border-rose-500/30 uppercase">
+                <h1 className="text-2xl md:text-3xl font-extrabold text-[#f4eee2] font-heading">KSBC Executive Dashboard</h1>
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-[#dfbd84]/15 text-[#dfbd84] border border-[#dfbd84]/30 uppercase">
                   {user?.role?.replace('_', ' ')}
                 </span>
               </div>
-              <p className="text-xs md:text-sm text-rose-300/60">Unified Real-Time KSBC Banking Operations & AI Intelligence Hub</p>
+              <p className="text-xs md:text-sm text-[#dfbd84]/80">Unified Real-Time KSBC Banking Operations & AI Intelligence Hub</p>
             </div>
 
             <div className="flex items-center space-x-3">
               <Link
                 to="/loan-calculator"
-                className="px-4 py-2.5 bg-gradient-to-r from-rose-800 to-rose-950 hover:from-rose-700 hover:to-rose-900 text-white text-xs font-bold rounded-xl shadow-lg shadow-rose-900/30 transition flex items-center space-x-2 border border-rose-600/40"
+                className="px-4 py-2.5 bg-gradient-to-r from-[#c59e5f] via-[#dfbd84] to-[#c59e5f] hover:from-[#dfbd84] hover:to-[#eed29e] text-[#182423] text-xs font-black rounded-xl shadow-lg transition flex items-center space-x-2 border border-[#dfbd84]/50"
               >
-                <Calculator className="w-4 h-4 text-amber-400" />
+                <Calculator className="w-4 h-4 text-[#182423]" />
                 <span>AI Risk Calculator</span>
               </Link>
             </div>
           </div>
 
           {/* Quick Module Tabs Bar */}
-          <div className="glass-panel p-2 rounded-2xl border border-rose-900/30 overflow-x-auto scrollbar-none">
+          <div className="glass-panel p-2 rounded-2xl border border-[#dfbd84]/25 overflow-x-auto scrollbar-none bg-[#20302f]/80">
             <div className="flex space-x-2 min-w-max">
               {moduleTabs.map((tab) => {
                 const Icon = tab.icon;
@@ -158,11 +158,11 @@ export const DashboardPage = () => {
                     onClick={() => navigate(tab.path)}
                     className={`flex items-center space-x-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
                       isActive
-                        ? 'bg-rose-800 text-white shadow-lg shadow-rose-900/40 border border-rose-500/40'
-                        : 'bg-rose-950/40 hover:bg-rose-900/30 text-slate-300 border border-rose-900/30'
+                        ? 'bg-[#273a39] text-[#dfbd84] shadow-lg border border-[#dfbd84]/50'
+                        : 'bg-[#182423]/60 hover:bg-[#273a39]/60 text-[#a4b8b5] border border-[#dfbd84]/15'
                     }`}
                   >
-                    <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : tab.color}`} />
+                    <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#dfbd84]' : tab.color}`} />
                     <span>{tab.label}</span>
                   </button>
                 );
@@ -182,7 +182,7 @@ export const DashboardPage = () => {
                   title="Vault Cash Reserves (1010)"
                   value={`$${metrics.vaultCash.toLocaleString()}`}
                   icon={Vault}
-                  color="purple"
+                  color="gold"
                   change="+0.0%"
                   description="KSBC Tier 1 Reserves"
                 />
@@ -211,39 +211,39 @@ export const DashboardPage = () => {
               </div>
 
               {/* 💳 KSBC Official Corporate Executive Debit Card Banner */}
-              <div className="glass-panel p-6 rounded-2xl border border-[#ffd700]/40 bg-gradient-to-r from-[#002129] via-[#073642] to-[#002129] shadow-2xl overflow-hidden relative">
+              <div className="glass-panel p-6 rounded-2xl border border-[#dfbd84]/40 bg-gradient-to-r from-[#182423] via-[#20302f] to-[#182423] shadow-2xl overflow-hidden relative">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                   {/* Left Column: Card Details */}
                   <div className="lg:col-span-7 space-y-4">
                     <div className="flex items-center space-x-2">
-                      <span className="px-3 py-1 bg-[#ffd700]/20 text-[#ffd700] border border-[#ffd700]/50 rounded-full text-[10px] font-mono font-extrabold uppercase tracking-wider">
+                      <span className="px-3 py-1 bg-[#dfbd84]/20 text-[#dfbd84] border border-[#dfbd84]/50 rounded-full text-[10px] font-mono font-extrabold uppercase tracking-wider">
                         ⚡ KSBC Executive Metallic Debit Card
                       </span>
-                      <span className="text-xs text-[#2aa198] font-mono font-bold">Basel III Vault Cash Access</span>
+                      <span className="text-xs text-[#dfbd84] font-mono font-bold">Basel III Vault Cash Access</span>
                     </div>
 
-                    <h2 className="text-xl md:text-2xl font-black text-[#fdf6e3] font-heading leading-tight">
+                    <h2 className="text-xl md:text-2xl font-black text-[#f4eee2] font-heading leading-tight">
                       KSBC Corporate Black Platinum Metallic Debit Card
                     </h2>
 
-                    <p className="text-xs text-[#93a1a1] leading-relaxed">
+                    <p className="text-xs text-[#a4b8b5] leading-relaxed">
                       Issued directly for executive treasury disbursement, commercial credit clearance, and instant liquidity access across 220 onboarded master bank accounts.
                     </p>
 
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs font-mono">
-                      <div className="p-3 bg-[#002129] rounded-xl border border-[#2aa198]/30">
-                        <span className="text-[9px] text-[#2aa198] block font-sans font-bold">CARD HOLDER</span>
-                        <span className="font-bold text-[#fdf6e3]">KSBC TREASURY</span>
+                      <div className="p-3 bg-[#182423] rounded-xl border border-[#dfbd84]/25">
+                        <span className="text-[9px] text-[#dfbd84] block font-sans font-bold">CARD HOLDER</span>
+                        <span className="font-bold text-[#f4eee2]">KSBC TREASURY</span>
                       </div>
 
-                      <div className="p-3 bg-[#002129] rounded-xl border border-[#2aa198]/30">
-                        <span className="text-[9px] text-[#2aa198] block font-sans font-bold">CARD NUMBER</span>
-                        <span className="font-bold text-[#ffd700]">4092 •••• 8821</span>
+                      <div className="p-3 bg-[#182423] rounded-xl border border-[#dfbd84]/25">
+                        <span className="text-[9px] text-[#dfbd84] block font-sans font-bold">CARD NUMBER</span>
+                        <span className="font-bold text-[#dfbd84]">4092 •••• 8821</span>
                       </div>
 
-                      <div className="p-3 bg-[#002129] rounded-xl border border-[#2aa198]/30">
-                        <span className="text-[9px] text-[#2aa198] block font-sans font-bold">DAILY LIMIT</span>
-                        <span className="font-bold text-[#859900]">$10,000,000.00</span>
+                      <div className="p-3 bg-[#182423] rounded-xl border border-[#dfbd84]/25">
+                        <span className="text-[9px] text-[#dfbd84] block font-sans font-bold">DAILY LIMIT</span>
+                        <span className="font-bold text-[#58b388]">$10,000,000.00</span>
                       </div>
                     </div>
                   </div>
@@ -251,11 +251,11 @@ export const DashboardPage = () => {
                   {/* Right Column: Premium Generated Debit Card Image */}
                   <div className="lg:col-span-5 flex justify-center items-center">
                     <div className="relative group cursor-pointer">
-                      <div className="absolute -inset-1 bg-gradient-to-r from-[#ffd700] via-[#2aa198] to-[#b58900] rounded-2xl blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
+                      <div className="absolute -inset-1 bg-gradient-to-r from-[#dfbd84] via-[#eed29e] to-[#c59e5f] rounded-2xl blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
                       <img
                         src="/ksbc_debit_card.png"
                         alt="KSBC Bank Commercial Executive Debit Card"
-                        className="relative w-full max-w-sm rounded-2xl shadow-2xl border border-[#ffd700]/40 transform group-hover:scale-105 transition duration-500 object-cover"
+                        className="relative w-full max-w-sm rounded-2xl shadow-2xl border border-[#dfbd84]/40 transform group-hover:scale-105 transition duration-500 object-cover"
                       />
                     </div>
                   </div>
@@ -273,45 +273,45 @@ export const DashboardPage = () => {
                     growthRate={12.8}
                   />
                 </div>
-                <div className="glass-panel p-6 rounded-2xl border border-rose-900/30 flex flex-col justify-between">
+                <div className="glass-panel p-6 rounded-2xl border border-[#dfbd84]/30 flex flex-col justify-between bg-[#20302f]/80 shadow-xl">
                   <div>
-                    <h3 className="text-base font-bold text-white mb-1">Commercial Loan Pipeline</h3>
-                    <p className="text-xs text-rose-300/60 mb-4">Active KSBC applications by status ({loans.length} total)</p>
+                    <h3 className="text-base font-bold text-[#f4eee2] mb-1">Commercial Loan Pipeline</h3>
+                    <p className="text-xs text-[#dfbd84]/70 mb-4">Active KSBC applications by status ({loans.length} total)</p>
                     
                     <div className="space-y-2.5 text-xs">
-                      <div className="p-2.5 bg-rose-950/60 rounded-xl border border-rose-900/40 flex justify-between items-center">
-                        <span className="text-slate-300 font-medium">Applied (Draft)</span>
-                        <span className="font-bold text-slate-300 font-mono">
+                      <div className="p-2.5 bg-[#182423] rounded-xl border border-[#dfbd84]/20 flex justify-between items-center">
+                        <span className="text-[#a4b8b5] font-medium">Applied (Draft)</span>
+                        <span className="font-bold text-[#f4eee2] font-mono">
                           {loans.filter(l => l.status === 'draft').length} Loans
                         </span>
                       </div>
-                      <div className="p-2.5 bg-rose-950/60 rounded-xl border border-rose-900/40 flex justify-between items-center">
-                        <span className="text-slate-300 font-medium">In Process (Compliance / Risk)</span>
-                        <span className="font-bold text-amber-400 font-mono">
+                      <div className="p-2.5 bg-[#182423] rounded-xl border border-[#dfbd84]/20 flex justify-between items-center">
+                        <span className="text-[#a4b8b5] font-medium">In Process (Compliance / Risk)</span>
+                        <span className="font-bold text-[#dfbd84] font-mono">
                           {loans.filter(l => l.status === 'underwriting' || l.status === 'compliance_review').length} Loans
                         </span>
                       </div>
-                      <div className="p-2.5 bg-rose-950/60 rounded-xl border border-rose-900/40 flex justify-between items-center">
-                        <span className="text-slate-300 font-medium">Approved (Awaiting Payout)</span>
-                        <span className="font-bold text-rose-400 font-mono">
+                      <div className="p-2.5 bg-[#182423] rounded-xl border border-[#dfbd84]/20 flex justify-between items-center">
+                        <span className="text-[#a4b8b5] font-medium">Approved (Awaiting Payout)</span>
+                        <span className="font-bold text-[#eed29e] font-mono">
                           {loans.filter(l => l.status === 'approved').length} Loans
                         </span>
                       </div>
-                      <div className="p-2.5 bg-rose-950/60 rounded-xl border border-rose-900/40 flex justify-between items-center">
-                        <span className="text-slate-300 font-medium">Disbursed to Portfolio</span>
-                        <span className="font-bold text-emerald-400 font-mono">
+                      <div className="p-2.5 bg-[#182423] rounded-xl border border-[#dfbd84]/20 flex justify-between items-center">
+                        <span className="text-[#a4b8b5] font-medium">Disbursed to Portfolio</span>
+                        <span className="font-bold text-[#58b388] font-mono">
                           {loans.filter(l => l.status === 'disbursed').length} Loans
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-rose-900/30">
+                  <div className="mt-6 pt-4 border-t border-[#dfbd84]/20">
                     <Link
                       to="/customer-service"
-                      className="w-full py-2.5 bg-rose-900/40 hover:bg-rose-900/60 text-rose-300 text-xs font-bold rounded-xl flex items-center justify-center space-x-2 transition border border-rose-700/50"
+                      className="w-full py-2.5 bg-[#273a39] hover:bg-[#324846] text-[#dfbd84] text-xs font-bold rounded-xl flex items-center justify-center space-x-2 transition border border-[#dfbd84]/40"
                     >
-                      <MessageSquare className="w-4 h-4 text-cyan-400" />
+                      <MessageSquare className="w-4 h-4 text-[#dfbd84]" />
                       <span>Launch 24/7 AI Support Chatbot</span>
                     </Link>
                   </div>

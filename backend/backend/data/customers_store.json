@@ -1,5 +1,18 @@
 [
   {
+    "id": "b1111111-1111-4111-b111-111111111111",
+    "first_name": "Apex Industrial",
+    "last_name": "Corporation",
+    "email": "finance@apexindustrial.com",
+    "phone": "+1-555-019-2831",
+    "national_id": "US-EIN-9920194",
+    "annual_revenue": 12500000,
+    "kyc_status": "verified",
+    "kyc_notes": "Document OCR verified. Zero Sanctions or PEP flags detected.",
+    "created_at": "2026-07-29T09:10:43.491177+00:00",
+    "updated_at": "2026-07-29T09:10:43.491177+00:00"
+  },
+  {
     "id": "23a384c7-946c-452e-ba88-6818556edfaa",
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
@@ -37,15 +50,15 @@
     "last_name": "Chen",
     "email": "alexander.chen1@privatesavings.com",
     "phone": "+1-555-101-1007",
-    "national_id": "US-SSN-101-11-3001",
+    "national_id": "US-SSN-***-**-3001",
     "annual_revenue": 155000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10001492",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2025-12-27T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000002-1111-4111-b111-111111111111",
@@ -53,15 +66,15 @@
     "last_name": "Green",
     "email": "sarah.green2@privatesavings.com",
     "phone": "+1-555-102-1014",
-    "national_id": "US-SSN-102-12-3002",
+    "national_id": "US-SSN-***-**-3002",
     "annual_revenue": 230000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10002984",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2025-12-28T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000003-1111-4111-b111-111111111111",
@@ -69,15 +82,15 @@
     "last_name": "Reddy",
     "email": "david.reddy3@privatesavings.com",
     "phone": "+1-555-103-1021",
-    "national_id": "US-SSN-103-13-3003",
+    "national_id": "US-SSN-***-**-3003",
     "annual_revenue": 305000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10004476",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2025-12-29T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000004-1111-4111-b111-111111111111",
@@ -85,15 +98,15 @@
     "last_name": "Smith",
     "email": "elena.smith4@privatesavings.com",
     "phone": "+1-555-104-1028",
-    "national_id": "US-SSN-104-14-3004",
+    "national_id": "US-SSN-***-**-3004",
     "annual_revenue": 380000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10005968",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2025-12-30T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000005-1111-4111-b111-111111111111",
@@ -101,15 +114,15 @@
     "last_name": "Jones",
     "email": "marcus.jones5@privatesavings.com",
     "phone": "+1-555-105-1035",
-    "national_id": "US-SSN-105-15-3005",
+    "national_id": "US-SSN-***-**-3005",
     "annual_revenue": 455000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10007460",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2025-12-31T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000006-1111-4111-b111-111111111111",
@@ -117,15 +130,15 @@
     "last_name": "Davis",
     "email": "rachel.davis6@privatesavings.com",
     "phone": "+1-555-106-1042",
-    "national_id": "US-SSN-106-16-3006",
+    "national_id": "US-SSN-***-**-3006",
     "annual_revenue": 530000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10008952",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-01-01T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000007-1111-4111-b111-111111111111",
@@ -133,15 +146,15 @@
     "last_name": "Hernandez",
     "email": "vikram.hernandez7@privatesavings.com",
     "phone": "+1-555-107-1049",
-    "national_id": "US-SSN-107-17-3007",
+    "national_id": "US-SSN-***-**-3007",
     "annual_revenue": 605000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10010444",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-01-02T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000008-1111-4111-b111-111111111111",
@@ -149,15 +162,15 @@
     "last_name": "Wilson",
     "email": "priya.wilson8@privatesavings.com",
     "phone": "+1-555-108-1056",
-    "national_id": "US-SSN-108-18-3008",
+    "national_id": "US-SSN-***-**-3008",
     "annual_revenue": 680000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10011936",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-01-03T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000009-1111-4111-b111-111111111111",
@@ -165,15 +178,15 @@
     "last_name": "Taylor",
     "email": "ananya.taylor9@privatesavings.com",
     "phone": "+1-555-109-1063",
-    "national_id": "US-SSN-109-19-3009",
+    "national_id": "US-SSN-***-**-3009",
     "annual_revenue": 755000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10013428",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-01-04T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000010-1111-4111-b111-111111111111",
@@ -181,15 +194,15 @@
     "last_name": "Martin",
     "email": "rohan.martin10@privatesavings.com",
     "phone": "+1-555-110-1070",
-    "national_id": "US-SSN-110-20-3010",
+    "national_id": "US-SSN-***-**-3010",
     "annual_revenue": 830000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10014920",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-01-05T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000011-1111-4111-b111-111111111111",
@@ -197,15 +210,15 @@
     "last_name": "Thompson",
     "email": "michael.thompson11@privatesavings.com",
     "phone": "+1-555-111-1077",
-    "national_id": "US-SSN-111-21-3011",
+    "national_id": "US-SSN-***-**-3011",
     "annual_revenue": 905000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10016412",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-01-06T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000012-1111-4111-b111-111111111111",
@@ -213,15 +226,15 @@
     "last_name": "Sanchez",
     "email": "jessica.sanchez12@privatesavings.com",
     "phone": "+1-555-112-1084",
-    "national_id": "US-SSN-112-22-3012",
+    "national_id": "US-SSN-***-**-3012",
     "annual_revenue": 980000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10017904",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-01-07T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000013-1111-4111-b111-111111111111",
@@ -229,15 +242,15 @@
     "last_name": "Lewis",
     "email": "emily.lewis13@privatesavings.com",
     "phone": "+1-555-113-1091",
-    "national_id": "US-SSN-113-23-3013",
+    "national_id": "US-SSN-***-**-3013",
     "annual_revenue": 1055000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10019396",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-01-08T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000014-1111-4111-b111-111111111111",
@@ -245,15 +258,15 @@
     "last_name": "Jenkins",
     "email": "christopher.jenkins14@privatesavings.com",
     "phone": "+1-555-114-1098",
-    "national_id": "US-SSN-114-24-3014",
+    "national_id": "US-SSN-***-**-3014",
     "annual_revenue": 1130000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10020888",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-01-09T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000015-1111-4111-b111-111111111111",
@@ -261,15 +274,15 @@
     "last_name": "Vance",
     "email": "amanda.vance15@privatesavings.com",
     "phone": "+1-555-115-1105",
-    "national_id": "US-SSN-115-25-3015",
+    "national_id": "US-SSN-***-**-3015",
     "annual_revenue": 1205000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10022380",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-01-10T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000016-1111-4111-b111-111111111111",
@@ -277,15 +290,15 @@
     "last_name": "Patel",
     "email": "daniel.patel16@privatesavings.com",
     "phone": "+1-555-116-1112",
-    "national_id": "US-SSN-116-26-3016",
+    "national_id": "US-SSN-***-**-3016",
     "annual_revenue": 1280000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10023872",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-01-11T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000017-1111-4111-b111-111111111111",
@@ -293,15 +306,15 @@
     "last_name": "Johnson",
     "email": "sophia.johnson17@privatesavings.com",
     "phone": "+1-555-117-1119",
-    "national_id": "US-SSN-117-27-3017",
+    "national_id": "US-SSN-***-**-3017",
     "annual_revenue": 1355000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10025364",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-01-12T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000018-1111-4111-b111-111111111111",
@@ -309,15 +322,15 @@
     "last_name": "Brown",
     "email": "james.brown18@privatesavings.com",
     "phone": "+1-555-118-1126",
-    "national_id": "US-SSN-118-28-3018",
+    "national_id": "US-SSN-***-**-3018",
     "annual_revenue": 1430000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10026856",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-01-13T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000019-1111-4111-b111-111111111111",
@@ -325,15 +338,15 @@
     "last_name": "Miller",
     "email": "olivia.miller19@privatesavings.com",
     "phone": "+1-555-119-1133",
-    "national_id": "US-SSN-119-29-3019",
+    "national_id": "US-SSN-***-**-3019",
     "annual_revenue": 1505000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10028348",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-01-14T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000020-1111-4111-b111-111111111111",
@@ -341,15 +354,15 @@
     "last_name": "Martinez",
     "email": "ethan.martinez20@privatesavings.com",
     "phone": "+1-555-120-1140",
-    "national_id": "US-SSN-120-30-3020",
+    "national_id": "US-SSN-***-**-3020",
     "annual_revenue": 1580000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10029840",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-01-15T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000021-1111-4111-b111-111111111111",
@@ -357,15 +370,15 @@
     "last_name": "Gonzalez",
     "email": "isabella.gonzalez21@privatesavings.com",
     "phone": "+1-555-121-1147",
-    "national_id": "US-SSN-121-31-3021",
+    "national_id": "US-SSN-***-**-3021",
     "annual_revenue": 1655000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10031332",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-01-16T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000022-1111-4111-b111-111111111111",
@@ -373,15 +386,15 @@
     "last_name": "Thomas",
     "email": "william.thomas22@privatesavings.com",
     "phone": "+1-555-122-1154",
-    "national_id": "US-SSN-122-32-3022",
+    "national_id": "US-SSN-***-**-3022",
     "annual_revenue": 1730000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10032824",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-01-17T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000023-1111-4111-b111-111111111111",
@@ -389,15 +402,15 @@
     "last_name": "Jackson",
     "email": "ava.jackson23@privatesavings.com",
     "phone": "+1-555-123-1161",
-    "national_id": "US-SSN-123-33-3023",
+    "national_id": "US-SSN-***-**-3023",
     "annual_revenue": 1805000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10034316",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-01-18T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000024-1111-4111-b111-111111111111",
@@ -405,15 +418,15 @@
     "last_name": "Perez",
     "email": "benjamin.perez24@privatesavings.com",
     "phone": "+1-555-124-1168",
-    "national_id": "US-SSN-124-34-3024",
+    "national_id": "US-SSN-***-**-3024",
     "annual_revenue": 1880000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10035808",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-01-19T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000025-1111-4111-b111-111111111111",
@@ -421,15 +434,15 @@
     "last_name": "Harris",
     "email": "mia.harris25@privatesavings.com",
     "phone": "+1-555-125-1175",
-    "national_id": "US-SSN-125-35-3025",
+    "national_id": "US-SSN-***-**-3025",
     "annual_revenue": 1955000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10037300",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-01-20T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000026-1111-4111-b111-111111111111",
@@ -437,15 +450,15 @@
     "last_name": "Ramirez",
     "email": "lucas.ramirez26@privatesavings.com",
     "phone": "+1-555-126-1182",
-    "national_id": "US-SSN-126-36-3026",
+    "national_id": "US-SSN-***-**-3026",
     "annual_revenue": 2030000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10038792",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-01-21T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000027-1111-4111-b111-111111111111",
@@ -453,15 +466,15 @@
     "last_name": "Sterling",
     "email": "charlotte.sterling27@privatesavings.com",
     "phone": "+1-555-127-1189",
-    "national_id": "US-SSN-127-37-3027",
+    "national_id": "US-SSN-***-**-3027",
     "annual_revenue": 2105000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10040284",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-01-22T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000028-1111-4111-b111-111111111111",
@@ -469,15 +482,15 @@
     "last_name": "Rostova",
     "email": "henry.rostova28@privatesavings.com",
     "phone": "+1-555-128-1196",
-    "national_id": "US-SSN-128-38-3028",
+    "national_id": "US-SSN-***-**-3028",
     "annual_revenue": 2180000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10041776",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-01-23T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000029-1111-4111-b111-111111111111",
@@ -485,15 +498,15 @@
     "last_name": "Sharma",
     "email": "amelia.sharma29@privatesavings.com",
     "phone": "+1-555-129-1203",
-    "national_id": "US-SSN-129-39-3029",
+    "national_id": "US-SSN-***-**-3029",
     "annual_revenue": 2255000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10043268",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-01-24T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000030-1111-4111-b111-111111111111",
@@ -501,15 +514,15 @@
     "last_name": "Mehta",
     "email": "alexander.mehta30@privatesavings.com",
     "phone": "+1-555-130-1210",
-    "national_id": "US-SSN-130-40-3030",
+    "national_id": "US-SSN-***-**-3030",
     "annual_revenue": 2330000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10044760",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-01-25T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000031-1111-4111-b111-111111111111",
@@ -517,15 +530,15 @@
     "last_name": "Williams",
     "email": "harper.williams31@privatesavings.com",
     "phone": "+1-555-131-1217",
-    "national_id": "US-SSN-131-41-3031",
+    "national_id": "US-SSN-***-**-3031",
     "annual_revenue": 2405000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10046252",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-01-26T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000032-1111-4111-b111-111111111111",
@@ -533,15 +546,15 @@
     "last_name": "Garcia",
     "email": "sebastian.garcia32@privatesavings.com",
     "phone": "+1-555-132-1224",
-    "national_id": "US-SSN-132-42-3032",
+    "national_id": "US-SSN-***-**-3032",
     "annual_revenue": 2480000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10047744",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-01-27T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000033-1111-4111-b111-111111111111",
@@ -549,15 +562,15 @@
     "last_name": "Rodriguez",
     "email": "evelyn.rodriguez33@privatesavings.com",
     "phone": "+1-555-133-1231",
-    "national_id": "US-SSN-133-43-3033",
+    "national_id": "US-SSN-***-**-3033",
     "annual_revenue": 2555000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10049236",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-01-28T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000034-1111-4111-b111-111111111111",
@@ -565,15 +578,15 @@
     "last_name": "Lopez",
     "email": "jack.lopez34@privatesavings.com",
     "phone": "+1-555-134-1238",
-    "national_id": "US-SSN-134-44-3034",
+    "national_id": "US-SSN-***-**-3034",
     "annual_revenue": 2630000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10050728",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-01-29T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000035-1111-4111-b111-111111111111",
@@ -581,15 +594,15 @@
     "last_name": "Anderson",
     "email": "abigail.anderson35@privatesavings.com",
     "phone": "+1-555-135-1245",
-    "national_id": "US-SSN-135-45-3035",
+    "national_id": "US-SSN-***-**-3035",
     "annual_revenue": 2705000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10052220",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-01-30T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000036-1111-4111-b111-111111111111",
@@ -597,15 +610,15 @@
     "last_name": "Moore",
     "email": "owen.moore36@privatesavings.com",
     "phone": "+1-555-136-1252",
-    "national_id": "US-SSN-136-46-3036",
+    "national_id": "US-SSN-***-**-3036",
     "annual_revenue": 2780000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10053712",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-01-31T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000037-1111-4111-b111-111111111111",
@@ -613,15 +626,15 @@
     "last_name": "Lee",
     "email": "emily.lee37@privatesavings.com",
     "phone": "+1-555-137-1259",
-    "national_id": "US-SSN-137-47-3037",
+    "national_id": "US-SSN-***-**-3037",
     "annual_revenue": 2855000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10055204",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-02-01T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000038-1111-4111-b111-111111111111",
@@ -629,15 +642,15 @@
     "last_name": "White",
     "email": "theodore.white38@privatesavings.com",
     "phone": "+1-555-138-1266",
-    "national_id": "US-SSN-138-48-3038",
+    "national_id": "US-SSN-***-**-3038",
     "annual_revenue": 2930000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10056696",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-02-02T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000039-1111-4111-b111-111111111111",
@@ -645,15 +658,15 @@
     "last_name": "Clark",
     "email": "ella.clark39@privatesavings.com",
     "phone": "+1-555-139-1273",
-    "national_id": "US-SSN-139-49-3039",
+    "national_id": "US-SSN-***-**-3039",
     "annual_revenue": 3005000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10058188",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-02-03T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000040-1111-4111-b111-111111111111",
@@ -661,15 +674,15 @@
     "last_name": "Srinivas",
     "email": "katherapaka.srinivas40@privatesavings.com",
     "phone": "+1-555-140-1280",
-    "national_id": "US-SSN-140-50-3040",
+    "national_id": "US-SSN-***-**-3040",
     "annual_revenue": 3080000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10059680",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-02-04T10:56:08.014Z",
-    "updated_at": "2026-08-03T10:56:08.014Z"
+    "created_at": "2026-07-30T15:50:39.152129+00:00",
+    "updated_at": "2026-07-30T15:50:39.152129+00:00"
   },
   {
     "id": "b0000041-1111-4111-b111-111111111111",
@@ -677,15 +690,15 @@
     "last_name": "Chen",
     "email": "alexander.chen41@privatesavings.com",
     "phone": "+1-555-141-1287",
-    "national_id": "US-SSN-141-51-3041",
+    "national_id": "US-SSN-***-**-3041",
     "annual_revenue": 3155000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10061172",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-02-05T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000042-1111-4111-b111-111111111111",
@@ -693,15 +706,15 @@
     "last_name": "Green",
     "email": "sarah.green42@privatesavings.com",
     "phone": "+1-555-142-1294",
-    "national_id": "US-SSN-142-52-3042",
+    "national_id": "US-SSN-***-**-3042",
     "annual_revenue": 3230000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10062664",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-02-06T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000043-1111-4111-b111-111111111111",
@@ -709,15 +722,15 @@
     "last_name": "Reddy",
     "email": "david.reddy43@privatesavings.com",
     "phone": "+1-555-143-1301",
-    "national_id": "US-SSN-143-53-3043",
+    "national_id": "US-SSN-***-**-3043",
     "annual_revenue": 3305000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10064156",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-02-07T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000044-1111-4111-b111-111111111111",
@@ -725,15 +738,15 @@
     "last_name": "Smith",
     "email": "elena.smith44@privatesavings.com",
     "phone": "+1-555-144-1308",
-    "national_id": "US-SSN-144-54-3044",
+    "national_id": "US-SSN-***-**-3044",
     "annual_revenue": 3380000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10065648",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-02-08T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000045-1111-4111-b111-111111111111",
@@ -741,15 +754,15 @@
     "last_name": "Jones",
     "email": "marcus.jones45@privatesavings.com",
     "phone": "+1-555-145-1315",
-    "national_id": "US-SSN-145-55-3045",
+    "national_id": "US-SSN-***-**-3045",
     "annual_revenue": 3455000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10067140",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-02-09T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000046-1111-4111-b111-111111111111",
@@ -757,15 +770,15 @@
     "last_name": "Davis",
     "email": "rachel.davis46@privatesavings.com",
     "phone": "+1-555-146-1322",
-    "national_id": "US-SSN-146-56-3046",
+    "national_id": "US-SSN-***-**-3046",
     "annual_revenue": 3530000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10068632",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-02-10T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000047-1111-4111-b111-111111111111",
@@ -773,15 +786,15 @@
     "last_name": "Hernandez",
     "email": "vikram.hernandez47@privatesavings.com",
     "phone": "+1-555-147-1329",
-    "national_id": "US-SSN-147-57-3047",
+    "national_id": "US-SSN-***-**-3047",
     "annual_revenue": 3605000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10070124",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-02-11T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000048-1111-4111-b111-111111111111",
@@ -789,15 +802,15 @@
     "last_name": "Wilson",
     "email": "priya.wilson48@privatesavings.com",
     "phone": "+1-555-148-1336",
-    "national_id": "US-SSN-148-58-3048",
+    "national_id": "US-SSN-***-**-3048",
     "annual_revenue": 3680000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10071616",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-02-12T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000049-1111-4111-b111-111111111111",
@@ -805,15 +818,15 @@
     "last_name": "Taylor",
     "email": "ananya.taylor49@privatesavings.com",
     "phone": "+1-555-149-1343",
-    "national_id": "US-SSN-149-59-3049",
+    "national_id": "US-SSN-***-**-3049",
     "annual_revenue": 3755000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10073108",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-02-13T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000050-1111-4111-b111-111111111111",
@@ -821,15 +834,15 @@
     "last_name": "Martin",
     "email": "rohan.martin50@privatesavings.com",
     "phone": "+1-555-150-1350",
-    "national_id": "US-SSN-150-60-3050",
+    "national_id": "US-SSN-***-**-3050",
     "annual_revenue": 3830000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10074600",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-02-14T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:01.969381+00:00",
+    "updated_at": "2026-07-29T15:27:01.969381+00:00"
   },
   {
     "id": "b0000051-1111-4111-b111-111111111111",
@@ -837,15 +850,15 @@
     "last_name": "Thompson",
     "email": "michael.thompson51@privatesavings.com",
     "phone": "+1-555-151-1357",
-    "national_id": "US-SSN-151-61-3051",
+    "national_id": "US-SSN-***-**-3051",
     "annual_revenue": 3905000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10076092",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-02-15T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000052-1111-4111-b111-111111111111",
@@ -853,15 +866,15 @@
     "last_name": "Sanchez",
     "email": "jessica.sanchez52@privatesavings.com",
     "phone": "+1-555-152-1364",
-    "national_id": "US-SSN-152-62-3052",
+    "national_id": "US-SSN-***-**-3052",
     "annual_revenue": 3980000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10077584",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-02-16T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000053-1111-4111-b111-111111111111",
@@ -869,15 +882,15 @@
     "last_name": "Lewis",
     "email": "emily.lewis53@privatesavings.com",
     "phone": "+1-555-153-1371",
-    "national_id": "US-SSN-153-63-3053",
+    "national_id": "US-SSN-***-**-3053",
     "annual_revenue": 4055000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10079076",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-02-17T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000054-1111-4111-b111-111111111111",
@@ -885,15 +898,15 @@
     "last_name": "Jenkins",
     "email": "christopher.jenkins54@privatesavings.com",
     "phone": "+1-555-154-1378",
-    "national_id": "US-SSN-154-64-3054",
+    "national_id": "US-SSN-***-**-3054",
     "annual_revenue": 4130000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10080568",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-02-18T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000055-1111-4111-b111-111111111111",
@@ -901,15 +914,15 @@
     "last_name": "Vance",
     "email": "amanda.vance55@privatesavings.com",
     "phone": "+1-555-155-1385",
-    "national_id": "US-SSN-155-65-3055",
+    "national_id": "US-SSN-***-**-3055",
     "annual_revenue": 4205000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10082060",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-02-19T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000056-1111-4111-b111-111111111111",
@@ -917,15 +930,15 @@
     "last_name": "Patel",
     "email": "daniel.patel56@privatesavings.com",
     "phone": "+1-555-156-1392",
-    "national_id": "US-SSN-156-66-3056",
+    "national_id": "US-SSN-***-**-3056",
     "annual_revenue": 4280000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10083552",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-02-20T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000057-1111-4111-b111-111111111111",
@@ -933,15 +946,15 @@
     "last_name": "Johnson",
     "email": "sophia.johnson57@privatesavings.com",
     "phone": "+1-555-157-1399",
-    "national_id": "US-SSN-157-67-3057",
+    "national_id": "US-SSN-***-**-3057",
     "annual_revenue": 4355000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10085044",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-02-21T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000058-1111-4111-b111-111111111111",
@@ -949,15 +962,15 @@
     "last_name": "Brown",
     "email": "james.brown58@privatesavings.com",
     "phone": "+1-555-158-1406",
-    "national_id": "US-SSN-158-68-3058",
+    "national_id": "US-SSN-***-**-3058",
     "annual_revenue": 4430000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10086536",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-02-22T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000059-1111-4111-b111-111111111111",
@@ -965,15 +978,15 @@
     "last_name": "Miller",
     "email": "olivia.miller59@privatesavings.com",
     "phone": "+1-555-159-1413",
-    "national_id": "US-SSN-159-69-3059",
+    "national_id": "US-SSN-***-**-3059",
     "annual_revenue": 4505000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10088028",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-02-23T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000060-1111-4111-b111-111111111111",
@@ -981,15 +994,15 @@
     "last_name": "Martinez",
     "email": "ethan.martinez60@privatesavings.com",
     "phone": "+1-555-160-1420",
-    "national_id": "US-SSN-160-70-3060",
+    "national_id": "US-SSN-***-**-3060",
     "annual_revenue": 4580000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10089520",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-02-24T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000061-1111-4111-b111-111111111111",
@@ -997,15 +1010,15 @@
     "last_name": "Gonzalez",
     "email": "isabella.gonzalez61@privatesavings.com",
     "phone": "+1-555-161-1427",
-    "national_id": "US-SSN-161-71-3061",
+    "national_id": "US-SSN-***-**-3061",
     "annual_revenue": 4655000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10091012",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-02-25T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000062-1111-4111-b111-111111111111",
@@ -1013,15 +1026,15 @@
     "last_name": "Thomas",
     "email": "william.thomas62@privatesavings.com",
     "phone": "+1-555-162-1434",
-    "national_id": "US-SSN-162-72-3062",
+    "national_id": "US-SSN-***-**-3062",
     "annual_revenue": 4730000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10092504",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-02-26T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000063-1111-4111-b111-111111111111",
@@ -1029,15 +1042,15 @@
     "last_name": "Jackson",
     "email": "ava.jackson63@privatesavings.com",
     "phone": "+1-555-163-1441",
-    "national_id": "US-SSN-163-73-3063",
+    "national_id": "US-SSN-***-**-3063",
     "annual_revenue": 4805000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10093996",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-02-27T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000064-1111-4111-b111-111111111111",
@@ -1045,15 +1058,15 @@
     "last_name": "Perez",
     "email": "benjamin.perez64@privatesavings.com",
     "phone": "+1-555-164-1448",
-    "national_id": "US-SSN-164-74-3064",
+    "national_id": "US-SSN-***-**-3064",
     "annual_revenue": 4880000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10095488",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-02-28T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000065-1111-4111-b111-111111111111",
@@ -1061,15 +1074,15 @@
     "last_name": "Harris",
     "email": "mia.harris65@privatesavings.com",
     "phone": "+1-555-165-1455",
-    "national_id": "US-SSN-165-75-3065",
+    "national_id": "US-SSN-***-**-3065",
     "annual_revenue": 4955000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10096980",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-03-01T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000066-1111-4111-b111-111111111111",
@@ -1077,15 +1090,15 @@
     "last_name": "Ramirez",
     "email": "lucas.ramirez66@privatesavings.com",
     "phone": "+1-555-166-1462",
-    "national_id": "US-SSN-166-76-3066",
+    "national_id": "US-SSN-***-**-3066",
     "annual_revenue": 5030000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10098472",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-03-02T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000067-1111-4111-b111-111111111111",
@@ -1093,15 +1106,15 @@
     "last_name": "Sterling",
     "email": "charlotte.sterling67@privatesavings.com",
     "phone": "+1-555-167-1469",
-    "national_id": "US-SSN-167-77-3067",
+    "national_id": "US-SSN-***-**-3067",
     "annual_revenue": 5105000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10099964",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-03-03T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000068-1111-4111-b111-111111111111",
@@ -1109,15 +1122,15 @@
     "last_name": "Rostova",
     "email": "henry.rostova68@privatesavings.com",
     "phone": "+1-555-168-1476",
-    "national_id": "US-SSN-168-78-3068",
+    "national_id": "US-SSN-***-**-3068",
     "annual_revenue": 5180000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10101456",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-03-04T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000069-1111-4111-b111-111111111111",
@@ -1125,15 +1138,15 @@
     "last_name": "Sharma",
     "email": "amelia.sharma69@privatesavings.com",
     "phone": "+1-555-169-1483",
-    "national_id": "US-SSN-169-79-3069",
+    "national_id": "US-SSN-***-**-3069",
     "annual_revenue": 5255000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10102948",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-03-05T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000070-1111-4111-b111-111111111111",
@@ -1141,15 +1154,15 @@
     "last_name": "Mehta",
     "email": "alexander.mehta70@privatesavings.com",
     "phone": "+1-555-170-1490",
-    "national_id": "US-SSN-170-80-3070",
+    "national_id": "US-SSN-***-**-3070",
     "annual_revenue": 5330000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10104440",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-03-06T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000071-1111-4111-b111-111111111111",
@@ -1157,15 +1170,15 @@
     "last_name": "Williams",
     "email": "harper.williams71@privatesavings.com",
     "phone": "+1-555-171-1497",
-    "national_id": "US-SSN-171-81-3071",
+    "national_id": "US-SSN-***-**-3071",
     "annual_revenue": 5405000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10105932",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-03-07T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000072-1111-4111-b111-111111111111",
@@ -1173,15 +1186,15 @@
     "last_name": "Garcia",
     "email": "sebastian.garcia72@privatesavings.com",
     "phone": "+1-555-172-1504",
-    "national_id": "US-SSN-172-82-3072",
+    "national_id": "US-SSN-***-**-3072",
     "annual_revenue": 5480000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10107424",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-03-08T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000073-1111-4111-b111-111111111111",
@@ -1189,15 +1202,15 @@
     "last_name": "Rodriguez",
     "email": "evelyn.rodriguez73@privatesavings.com",
     "phone": "+1-555-173-1511",
-    "national_id": "US-SSN-173-83-3073",
+    "national_id": "US-SSN-***-**-3073",
     "annual_revenue": 55000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10108916",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-03-09T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000074-1111-4111-b111-111111111111",
@@ -1205,15 +1218,15 @@
     "last_name": "Lopez",
     "email": "jack.lopez74@privatesavings.com",
     "phone": "+1-555-174-1518",
-    "national_id": "US-SSN-174-84-3074",
+    "national_id": "US-SSN-***-**-3074",
     "annual_revenue": 130000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10110408",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-03-10T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000075-1111-4111-b111-111111111111",
@@ -1221,15 +1234,15 @@
     "last_name": "Anderson",
     "email": "abigail.anderson75@privatesavings.com",
     "phone": "+1-555-175-1525",
-    "national_id": "US-SSN-175-85-3075",
+    "national_id": "US-SSN-***-**-3075",
     "annual_revenue": 205000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10111900",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-03-11T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000076-1111-4111-b111-111111111111",
@@ -1237,15 +1250,15 @@
     "last_name": "Moore",
     "email": "owen.moore76@privatesavings.com",
     "phone": "+1-555-176-1532",
-    "national_id": "US-SSN-176-86-3076",
+    "national_id": "US-SSN-***-**-3076",
     "annual_revenue": 280000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10113392",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-03-12T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000077-1111-4111-b111-111111111111",
@@ -1253,15 +1266,15 @@
     "last_name": "Lee",
     "email": "emily.lee77@privatesavings.com",
     "phone": "+1-555-177-1539",
-    "national_id": "US-SSN-177-87-3077",
+    "national_id": "US-SSN-***-**-3077",
     "annual_revenue": 355000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10114884",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-03-13T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000078-1111-4111-b111-111111111111",
@@ -1269,15 +1282,15 @@
     "last_name": "White",
     "email": "theodore.white78@privatesavings.com",
     "phone": "+1-555-178-1546",
-    "national_id": "US-SSN-178-88-3078",
+    "national_id": "US-SSN-***-**-3078",
     "annual_revenue": 430000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10116376",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-03-14T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000079-1111-4111-b111-111111111111",
@@ -1285,15 +1298,15 @@
     "last_name": "Clark",
     "email": "ella.clark79@privatesavings.com",
     "phone": "+1-555-179-1553",
-    "national_id": "US-SSN-179-89-3079",
+    "national_id": "US-SSN-***-**-3079",
     "annual_revenue": 505000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10117868",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-03-15T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000080-1111-4111-b111-111111111111",
@@ -1301,15 +1314,15 @@
     "last_name": "Srinivas",
     "email": "katherapaka.srinivas80@privatesavings.com",
     "phone": "+1-555-180-1560",
-    "national_id": "US-SSN-180-10-3080",
+    "national_id": "US-SSN-***-**-3080",
     "annual_revenue": 580000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10119360",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-03-16T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-30T15:50:39.256165+00:00",
+    "updated_at": "2026-07-30T15:50:39.256165+00:00"
   },
   {
     "id": "b0000081-1111-4111-b111-111111111111",
@@ -1317,15 +1330,15 @@
     "last_name": "Chen",
     "email": "alexander.chen81@privatesavings.com",
     "phone": "+1-555-181-1567",
-    "national_id": "US-SSN-181-11-3081",
+    "national_id": "US-SSN-***-**-3081",
     "annual_revenue": 655000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10120852",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-03-17T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000082-1111-4111-b111-111111111111",
@@ -1333,15 +1346,15 @@
     "last_name": "Green",
     "email": "sarah.green82@privatesavings.com",
     "phone": "+1-555-182-1574",
-    "national_id": "US-SSN-182-12-3082",
+    "national_id": "US-SSN-***-**-3082",
     "annual_revenue": 730000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10122344",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-03-18T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000083-1111-4111-b111-111111111111",
@@ -1349,15 +1362,15 @@
     "last_name": "Reddy",
     "email": "david.reddy83@privatesavings.com",
     "phone": "+1-555-183-1581",
-    "national_id": "US-SSN-183-13-3083",
+    "national_id": "US-SSN-***-**-3083",
     "annual_revenue": 805000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10123836",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-03-19T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000084-1111-4111-b111-111111111111",
@@ -1365,15 +1378,15 @@
     "last_name": "Smith",
     "email": "elena.smith84@privatesavings.com",
     "phone": "+1-555-184-1588",
-    "national_id": "US-SSN-184-14-3084",
+    "national_id": "US-SSN-***-**-3084",
     "annual_revenue": 880000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10125328",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-03-20T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000085-1111-4111-b111-111111111111",
@@ -1381,15 +1394,15 @@
     "last_name": "Jones",
     "email": "marcus.jones85@privatesavings.com",
     "phone": "+1-555-185-1595",
-    "national_id": "US-SSN-185-15-3085",
+    "national_id": "US-SSN-***-**-3085",
     "annual_revenue": 955000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10126820",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-03-21T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000086-1111-4111-b111-111111111111",
@@ -1397,15 +1410,15 @@
     "last_name": "Davis",
     "email": "rachel.davis86@privatesavings.com",
     "phone": "+1-555-186-1602",
-    "national_id": "US-SSN-186-16-3086",
+    "national_id": "US-SSN-***-**-3086",
     "annual_revenue": 1030000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10128312",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-03-22T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000087-1111-4111-b111-111111111111",
@@ -1413,15 +1426,15 @@
     "last_name": "Hernandez",
     "email": "vikram.hernandez87@privatesavings.com",
     "phone": "+1-555-187-1609",
-    "national_id": "US-SSN-187-17-3087",
+    "national_id": "US-SSN-***-**-3087",
     "annual_revenue": 1105000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10129804",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-03-23T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000088-1111-4111-b111-111111111111",
@@ -1429,15 +1442,15 @@
     "last_name": "Wilson",
     "email": "priya.wilson88@privatesavings.com",
     "phone": "+1-555-188-1616",
-    "national_id": "US-SSN-188-18-3088",
+    "national_id": "US-SSN-***-**-3088",
     "annual_revenue": 1180000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10131296",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-03-24T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000089-1111-4111-b111-111111111111",
@@ -1445,15 +1458,15 @@
     "last_name": "Taylor",
     "email": "ananya.taylor89@privatesavings.com",
     "phone": "+1-555-189-1623",
-    "national_id": "US-SSN-189-19-3089",
+    "national_id": "US-SSN-***-**-3089",
     "annual_revenue": 1255000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10132788",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-03-25T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000090-1111-4111-b111-111111111111",
@@ -1461,15 +1474,15 @@
     "last_name": "Martin",
     "email": "rohan.martin90@privatesavings.com",
     "phone": "+1-555-190-1630",
-    "national_id": "US-SSN-190-20-3090",
+    "national_id": "US-SSN-***-**-3090",
     "annual_revenue": 1330000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10134280",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-03-26T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000091-1111-4111-b111-111111111111",
@@ -1477,15 +1490,15 @@
     "last_name": "Thompson",
     "email": "michael.thompson91@privatesavings.com",
     "phone": "+1-555-191-1637",
-    "national_id": "US-SSN-191-21-3091",
+    "national_id": "US-SSN-***-**-3091",
     "annual_revenue": 1405000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10135772",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-03-27T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000092-1111-4111-b111-111111111111",
@@ -1493,15 +1506,15 @@
     "last_name": "Sanchez",
     "email": "jessica.sanchez92@privatesavings.com",
     "phone": "+1-555-192-1644",
-    "national_id": "US-SSN-192-22-3092",
+    "national_id": "US-SSN-***-**-3092",
     "annual_revenue": 1480000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10137264",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-03-28T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000093-1111-4111-b111-111111111111",
@@ -1509,15 +1522,15 @@
     "last_name": "Lewis",
     "email": "emily.lewis93@privatesavings.com",
     "phone": "+1-555-193-1651",
-    "national_id": "US-SSN-193-23-3093",
+    "national_id": "US-SSN-***-**-3093",
     "annual_revenue": 1555000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10138756",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-03-29T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000094-1111-4111-b111-111111111111",
@@ -1525,15 +1538,15 @@
     "last_name": "Jenkins",
     "email": "christopher.jenkins94@privatesavings.com",
     "phone": "+1-555-194-1658",
-    "national_id": "US-SSN-194-24-3094",
+    "national_id": "US-SSN-***-**-3094",
     "annual_revenue": 1630000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10140248",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-03-30T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000095-1111-4111-b111-111111111111",
@@ -1541,15 +1554,15 @@
     "last_name": "Vance",
     "email": "amanda.vance95@privatesavings.com",
     "phone": "+1-555-195-1665",
-    "national_id": "US-SSN-195-25-3095",
+    "national_id": "US-SSN-***-**-3095",
     "annual_revenue": 1705000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10141740",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-03-31T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000096-1111-4111-b111-111111111111",
@@ -1557,15 +1570,15 @@
     "last_name": "Patel",
     "email": "daniel.patel96@privatesavings.com",
     "phone": "+1-555-196-1672",
-    "national_id": "US-SSN-196-26-3096",
+    "national_id": "US-SSN-***-**-3096",
     "annual_revenue": 1780000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10143232",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-04-01T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000097-1111-4111-b111-111111111111",
@@ -1573,15 +1586,15 @@
     "last_name": "Johnson",
     "email": "sophia.johnson97@privatesavings.com",
     "phone": "+1-555-197-1679",
-    "national_id": "US-SSN-197-27-3097",
+    "national_id": "US-SSN-***-**-3097",
     "annual_revenue": 1855000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10144724",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-04-02T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000098-1111-4111-b111-111111111111",
@@ -1589,15 +1602,15 @@
     "last_name": "Brown",
     "email": "james.brown98@privatesavings.com",
     "phone": "+1-555-198-1686",
-    "national_id": "US-SSN-198-28-3098",
+    "national_id": "US-SSN-***-**-3098",
     "annual_revenue": 1930000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10146216",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-04-03T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000099-1111-4111-b111-111111111111",
@@ -1605,15 +1618,15 @@
     "last_name": "Miller",
     "email": "olivia.miller99@privatesavings.com",
     "phone": "+1-555-199-1693",
-    "national_id": "US-SSN-199-29-3099",
+    "national_id": "US-SSN-***-**-3099",
     "annual_revenue": 2005000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10147708",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-04-04T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000100-1111-4111-b111-111111111111",
@@ -1621,15 +1634,15 @@
     "last_name": "Martinez",
     "email": "ethan.martinez100@privatesavings.com",
     "phone": "+1-555-200-1700",
-    "national_id": "US-SSN-200-30-3100",
+    "national_id": "US-SSN-***-**-3100",
     "annual_revenue": 2080000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10149200",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-04-05T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.131307+00:00",
+    "updated_at": "2026-07-29T15:27:02.131307+00:00"
   },
   {
     "id": "b0000101-1111-4111-b111-111111111111",
@@ -1637,15 +1650,15 @@
     "last_name": "Gonzalez",
     "email": "isabella.gonzalez101@privatesavings.com",
     "phone": "+1-555-201-1707",
-    "national_id": "US-SSN-201-31-3101",
+    "national_id": "US-SSN-***-**-3101",
     "annual_revenue": 2155000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10150692",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-04-06T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000102-1111-4111-b111-111111111111",
@@ -1653,15 +1666,15 @@
     "last_name": "Thomas",
     "email": "william.thomas102@privatesavings.com",
     "phone": "+1-555-202-1714",
-    "national_id": "US-SSN-202-32-3102",
+    "national_id": "US-SSN-***-**-3102",
     "annual_revenue": 2230000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10152184",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-04-07T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000103-1111-4111-b111-111111111111",
@@ -1669,15 +1682,15 @@
     "last_name": "Jackson",
     "email": "ava.jackson103@privatesavings.com",
     "phone": "+1-555-203-1721",
-    "national_id": "US-SSN-203-33-3103",
+    "national_id": "US-SSN-***-**-3103",
     "annual_revenue": 2305000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10153676",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-04-08T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000104-1111-4111-b111-111111111111",
@@ -1685,15 +1698,15 @@
     "last_name": "Perez",
     "email": "benjamin.perez104@privatesavings.com",
     "phone": "+1-555-204-1728",
-    "national_id": "US-SSN-204-34-3104",
+    "national_id": "US-SSN-***-**-3104",
     "annual_revenue": 2380000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10155168",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-04-09T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000105-1111-4111-b111-111111111111",
@@ -1701,15 +1714,15 @@
     "last_name": "Harris",
     "email": "mia.harris105@privatesavings.com",
     "phone": "+1-555-205-1735",
-    "national_id": "US-SSN-205-35-3105",
+    "national_id": "US-SSN-***-**-3105",
     "annual_revenue": 2455000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10156660",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-04-10T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000106-1111-4111-b111-111111111111",
@@ -1717,15 +1730,15 @@
     "last_name": "Ramirez",
     "email": "lucas.ramirez106@privatesavings.com",
     "phone": "+1-555-206-1742",
-    "national_id": "US-SSN-206-36-3106",
+    "national_id": "US-SSN-***-**-3106",
     "annual_revenue": 2530000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10158152",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-04-11T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000107-1111-4111-b111-111111111111",
@@ -1733,15 +1746,15 @@
     "last_name": "Sterling",
     "email": "charlotte.sterling107@privatesavings.com",
     "phone": "+1-555-207-1749",
-    "national_id": "US-SSN-207-37-3107",
+    "national_id": "US-SSN-***-**-3107",
     "annual_revenue": 2605000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10159644",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-04-12T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000108-1111-4111-b111-111111111111",
@@ -1749,15 +1762,15 @@
     "last_name": "Rostova",
     "email": "henry.rostova108@privatesavings.com",
     "phone": "+1-555-208-1756",
-    "national_id": "US-SSN-208-38-3108",
+    "national_id": "US-SSN-***-**-3108",
     "annual_revenue": 2680000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10161136",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-04-13T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000109-1111-4111-b111-111111111111",
@@ -1765,15 +1778,15 @@
     "last_name": "Sharma",
     "email": "amelia.sharma109@privatesavings.com",
     "phone": "+1-555-209-1763",
-    "national_id": "US-SSN-209-39-3109",
+    "national_id": "US-SSN-***-**-3109",
     "annual_revenue": 2755000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10162628",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-04-14T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000110-1111-4111-b111-111111111111",
@@ -1781,15 +1794,15 @@
     "last_name": "Mehta",
     "email": "alexander.mehta110@privatesavings.com",
     "phone": "+1-555-210-1770",
-    "national_id": "US-SSN-210-40-3110",
+    "national_id": "US-SSN-***-**-3110",
     "annual_revenue": 2830000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10164120",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-04-15T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000111-1111-4111-b111-111111111111",
@@ -1797,15 +1810,15 @@
     "last_name": "Williams",
     "email": "harper.williams111@privatesavings.com",
     "phone": "+1-555-211-1777",
-    "national_id": "US-SSN-211-41-3111",
+    "national_id": "US-SSN-***-**-3111",
     "annual_revenue": 2905000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10165612",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-04-16T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000112-1111-4111-b111-111111111111",
@@ -1813,15 +1826,15 @@
     "last_name": "Garcia",
     "email": "sebastian.garcia112@privatesavings.com",
     "phone": "+1-555-212-1784",
-    "national_id": "US-SSN-212-42-3112",
+    "national_id": "US-SSN-***-**-3112",
     "annual_revenue": 2980000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10167104",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-04-17T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000113-1111-4111-b111-111111111111",
@@ -1829,15 +1842,15 @@
     "last_name": "Rodriguez",
     "email": "evelyn.rodriguez113@privatesavings.com",
     "phone": "+1-555-213-1791",
-    "national_id": "US-SSN-213-43-3113",
+    "national_id": "US-SSN-***-**-3113",
     "annual_revenue": 3055000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10168596",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-04-18T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000114-1111-4111-b111-111111111111",
@@ -1845,15 +1858,15 @@
     "last_name": "Lopez",
     "email": "jack.lopez114@privatesavings.com",
     "phone": "+1-555-214-1798",
-    "national_id": "US-SSN-214-44-3114",
+    "national_id": "US-SSN-***-**-3114",
     "annual_revenue": 3130000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10170088",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-04-19T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000115-1111-4111-b111-111111111111",
@@ -1861,15 +1874,15 @@
     "last_name": "Anderson",
     "email": "abigail.anderson115@privatesavings.com",
     "phone": "+1-555-215-1805",
-    "national_id": "US-SSN-215-45-3115",
+    "national_id": "US-SSN-***-**-3115",
     "annual_revenue": 3205000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10171580",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-04-20T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000116-1111-4111-b111-111111111111",
@@ -1877,15 +1890,15 @@
     "last_name": "Moore",
     "email": "owen.moore116@privatesavings.com",
     "phone": "+1-555-216-1812",
-    "national_id": "US-SSN-216-46-3116",
+    "national_id": "US-SSN-***-**-3116",
     "annual_revenue": 3280000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10173072",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-04-21T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000117-1111-4111-b111-111111111111",
@@ -1893,15 +1906,15 @@
     "last_name": "Lee",
     "email": "emily.lee117@privatesavings.com",
     "phone": "+1-555-217-1819",
-    "national_id": "US-SSN-217-47-3117",
+    "national_id": "US-SSN-***-**-3117",
     "annual_revenue": 3355000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10174564",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-04-22T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000118-1111-4111-b111-111111111111",
@@ -1909,15 +1922,15 @@
     "last_name": "White",
     "email": "theodore.white118@privatesavings.com",
     "phone": "+1-555-218-1826",
-    "national_id": "US-SSN-218-48-3118",
+    "national_id": "US-SSN-***-**-3118",
     "annual_revenue": 3430000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10176056",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-04-23T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000119-1111-4111-b111-111111111111",
@@ -1925,15 +1938,15 @@
     "last_name": "Clark",
     "email": "ella.clark119@privatesavings.com",
     "phone": "+1-555-219-1833",
-    "national_id": "US-SSN-219-49-3119",
+    "national_id": "US-SSN-***-**-3119",
     "annual_revenue": 3505000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10177548",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-04-24T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000120-1111-4111-b111-111111111111",
@@ -1941,15 +1954,15 @@
     "last_name": "Srinivas",
     "email": "katherapaka.srinivas120@privatesavings.com",
     "phone": "+1-555-220-1840",
-    "national_id": "US-SSN-220-50-3120",
+    "national_id": "US-SSN-***-**-3120",
     "annual_revenue": 3580000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10179040",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-04-25T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-30T15:50:39.365968+00:00",
+    "updated_at": "2026-07-30T15:50:39.365968+00:00"
   },
   {
     "id": "b0000121-1111-4111-b111-111111111111",
@@ -1957,15 +1970,15 @@
     "last_name": "Chen",
     "email": "alexander.chen121@privatesavings.com",
     "phone": "+1-555-221-1847",
-    "national_id": "US-SSN-221-51-3121",
+    "national_id": "US-SSN-***-**-3121",
     "annual_revenue": 3655000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10180532",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-04-26T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000122-1111-4111-b111-111111111111",
@@ -1973,15 +1986,15 @@
     "last_name": "Green",
     "email": "sarah.green122@privatesavings.com",
     "phone": "+1-555-222-1854",
-    "national_id": "US-SSN-222-52-3122",
+    "national_id": "US-SSN-***-**-3122",
     "annual_revenue": 3730000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10182024",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-04-27T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000123-1111-4111-b111-111111111111",
@@ -1989,15 +2002,15 @@
     "last_name": "Reddy",
     "email": "david.reddy123@privatesavings.com",
     "phone": "+1-555-223-1861",
-    "national_id": "US-SSN-223-53-3123",
+    "national_id": "US-SSN-***-**-3123",
     "annual_revenue": 3805000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10183516",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-04-28T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000124-1111-4111-b111-111111111111",
@@ -2005,15 +2018,15 @@
     "last_name": "Smith",
     "email": "elena.smith124@privatesavings.com",
     "phone": "+1-555-224-1868",
-    "national_id": "US-SSN-224-54-3124",
+    "national_id": "US-SSN-***-**-3124",
     "annual_revenue": 3880000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10185008",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-04-29T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000125-1111-4111-b111-111111111111",
@@ -2021,15 +2034,15 @@
     "last_name": "Jones",
     "email": "marcus.jones125@privatesavings.com",
     "phone": "+1-555-225-1875",
-    "national_id": "US-SSN-225-55-3125",
+    "national_id": "US-SSN-***-**-3125",
     "annual_revenue": 3955000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10186500",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-04-30T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000126-1111-4111-b111-111111111111",
@@ -2037,15 +2050,15 @@
     "last_name": "Davis",
     "email": "rachel.davis126@privatesavings.com",
     "phone": "+1-555-226-1882",
-    "national_id": "US-SSN-226-56-3126",
+    "national_id": "US-SSN-***-**-3126",
     "annual_revenue": 4030000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10187992",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-05-01T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000127-1111-4111-b111-111111111111",
@@ -2053,15 +2066,15 @@
     "last_name": "Hernandez",
     "email": "vikram.hernandez127@privatesavings.com",
     "phone": "+1-555-227-1889",
-    "national_id": "US-SSN-227-57-3127",
+    "national_id": "US-SSN-***-**-3127",
     "annual_revenue": 4105000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10189484",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-05-02T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000128-1111-4111-b111-111111111111",
@@ -2069,15 +2082,15 @@
     "last_name": "Wilson",
     "email": "priya.wilson128@privatesavings.com",
     "phone": "+1-555-228-1896",
-    "national_id": "US-SSN-228-58-3128",
+    "national_id": "US-SSN-***-**-3128",
     "annual_revenue": 4180000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10190976",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-05-03T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000129-1111-4111-b111-111111111111",
@@ -2085,15 +2098,15 @@
     "last_name": "Taylor",
     "email": "ananya.taylor129@privatesavings.com",
     "phone": "+1-555-229-1903",
-    "national_id": "US-SSN-229-59-3129",
+    "national_id": "US-SSN-***-**-3129",
     "annual_revenue": 4255000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10192468",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-05-04T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000130-1111-4111-b111-111111111111",
@@ -2101,15 +2114,15 @@
     "last_name": "Martin",
     "email": "rohan.martin130@privatesavings.com",
     "phone": "+1-555-230-1910",
-    "national_id": "US-SSN-230-60-3130",
+    "national_id": "US-SSN-***-**-3130",
     "annual_revenue": 4330000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10193960",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-05-05T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000131-1111-4111-b111-111111111111",
@@ -2117,15 +2130,15 @@
     "last_name": "Thompson",
     "email": "michael.thompson131@privatesavings.com",
     "phone": "+1-555-231-1917",
-    "national_id": "US-SSN-231-61-3131",
+    "national_id": "US-SSN-***-**-3131",
     "annual_revenue": 4405000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10195452",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-05-06T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000132-1111-4111-b111-111111111111",
@@ -2133,15 +2146,15 @@
     "last_name": "Sanchez",
     "email": "jessica.sanchez132@privatesavings.com",
     "phone": "+1-555-232-1924",
-    "national_id": "US-SSN-232-62-3132",
+    "national_id": "US-SSN-***-**-3132",
     "annual_revenue": 4480000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10196944",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-05-07T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000133-1111-4111-b111-111111111111",
@@ -2149,15 +2162,15 @@
     "last_name": "Lewis",
     "email": "emily.lewis133@privatesavings.com",
     "phone": "+1-555-233-1931",
-    "national_id": "US-SSN-233-63-3133",
+    "national_id": "US-SSN-***-**-3133",
     "annual_revenue": 4555000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10198436",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-05-08T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000134-1111-4111-b111-111111111111",
@@ -2165,15 +2178,15 @@
     "last_name": "Jenkins",
     "email": "christopher.jenkins134@privatesavings.com",
     "phone": "+1-555-234-1938",
-    "national_id": "US-SSN-234-64-3134",
+    "national_id": "US-SSN-***-**-3134",
     "annual_revenue": 4630000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10199928",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-05-09T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000135-1111-4111-b111-111111111111",
@@ -2181,15 +2194,15 @@
     "last_name": "Vance",
     "email": "amanda.vance135@privatesavings.com",
     "phone": "+1-555-235-1945",
-    "national_id": "US-SSN-235-65-3135",
+    "national_id": "US-SSN-***-**-3135",
     "annual_revenue": 4705000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10201420",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-05-10T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000136-1111-4111-b111-111111111111",
@@ -2197,15 +2210,15 @@
     "last_name": "Patel",
     "email": "daniel.patel136@privatesavings.com",
     "phone": "+1-555-236-1952",
-    "national_id": "US-SSN-236-66-3136",
+    "national_id": "US-SSN-***-**-3136",
     "annual_revenue": 4780000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10202912",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-05-11T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000137-1111-4111-b111-111111111111",
@@ -2213,15 +2226,15 @@
     "last_name": "Johnson",
     "email": "sophia.johnson137@privatesavings.com",
     "phone": "+1-555-237-1959",
-    "national_id": "US-SSN-237-67-3137",
+    "national_id": "US-SSN-***-**-3137",
     "annual_revenue": 4855000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10204404",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-05-12T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000138-1111-4111-b111-111111111111",
@@ -2229,15 +2242,15 @@
     "last_name": "Brown",
     "email": "james.brown138@privatesavings.com",
     "phone": "+1-555-238-1966",
-    "national_id": "US-SSN-238-68-3138",
+    "national_id": "US-SSN-***-**-3138",
     "annual_revenue": 4930000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10205896",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-05-13T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000139-1111-4111-b111-111111111111",
@@ -2245,15 +2258,15 @@
     "last_name": "Miller",
     "email": "olivia.miller139@privatesavings.com",
     "phone": "+1-555-239-1973",
-    "national_id": "US-SSN-239-69-3139",
+    "national_id": "US-SSN-***-**-3139",
     "annual_revenue": 5005000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10207388",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-05-14T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000140-1111-4111-b111-111111111111",
@@ -2261,15 +2274,15 @@
     "last_name": "Martinez",
     "email": "ethan.martinez140@privatesavings.com",
     "phone": "+1-555-240-1980",
-    "national_id": "US-SSN-240-70-3140",
+    "national_id": "US-SSN-***-**-3140",
     "annual_revenue": 5080000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10208880",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-05-15T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000141-1111-4111-b111-111111111111",
@@ -2277,15 +2290,15 @@
     "last_name": "Gonzalez",
     "email": "isabella.gonzalez141@privatesavings.com",
     "phone": "+1-555-241-1987",
-    "national_id": "US-SSN-241-71-3141",
+    "national_id": "US-SSN-***-**-3141",
     "annual_revenue": 5155000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10210372",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-05-16T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000142-1111-4111-b111-111111111111",
@@ -2293,15 +2306,15 @@
     "last_name": "Thomas",
     "email": "william.thomas142@privatesavings.com",
     "phone": "+1-555-242-1994",
-    "national_id": "US-SSN-242-72-3142",
+    "national_id": "US-SSN-***-**-3142",
     "annual_revenue": 5230000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10211864",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-05-17T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000143-1111-4111-b111-111111111111",
@@ -2309,15 +2322,15 @@
     "last_name": "Jackson",
     "email": "ava.jackson143@privatesavings.com",
     "phone": "+1-555-243-2001",
-    "national_id": "US-SSN-243-73-3143",
+    "national_id": "US-SSN-***-**-3143",
     "annual_revenue": 5305000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10213356",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-05-18T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000144-1111-4111-b111-111111111111",
@@ -2325,15 +2338,15 @@
     "last_name": "Perez",
     "email": "benjamin.perez144@privatesavings.com",
     "phone": "+1-555-244-2008",
-    "national_id": "US-SSN-244-74-3144",
+    "national_id": "US-SSN-***-**-3144",
     "annual_revenue": 5380000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10214848",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-05-19T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000145-1111-4111-b111-111111111111",
@@ -2341,15 +2354,15 @@
     "last_name": "Harris",
     "email": "mia.harris145@privatesavings.com",
     "phone": "+1-555-245-2015",
-    "national_id": "US-SSN-245-75-3145",
+    "national_id": "US-SSN-***-**-3145",
     "annual_revenue": 5455000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10216340",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-05-20T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000146-1111-4111-b111-111111111111",
@@ -2357,15 +2370,15 @@
     "last_name": "Ramirez",
     "email": "lucas.ramirez146@privatesavings.com",
     "phone": "+1-555-246-2022",
-    "national_id": "US-SSN-246-76-3146",
+    "national_id": "US-SSN-***-**-3146",
     "annual_revenue": 5530000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10217832",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-05-21T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000147-1111-4111-b111-111111111111",
@@ -2373,15 +2386,15 @@
     "last_name": "Sterling",
     "email": "charlotte.sterling147@privatesavings.com",
     "phone": "+1-555-247-2029",
-    "national_id": "US-SSN-247-77-3147",
+    "national_id": "US-SSN-***-**-3147",
     "annual_revenue": 105000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10219324",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-05-22T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000148-1111-4111-b111-111111111111",
@@ -2389,15 +2402,15 @@
     "last_name": "Rostova",
     "email": "henry.rostova148@privatesavings.com",
     "phone": "+1-555-248-2036",
-    "national_id": "US-SSN-248-78-3148",
+    "national_id": "US-SSN-***-**-3148",
     "annual_revenue": 180000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10220816",
     "kyc_status": "pending",
     "kyc_notes": "Identity verification pending.",
-    "created_at": "2026-05-23T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000149-1111-4111-b111-111111111111",
@@ -2405,15 +2418,15 @@
     "last_name": "Sharma",
     "email": "amelia.sharma149@privatesavings.com",
     "phone": "+1-555-249-2043",
-    "national_id": "US-SSN-249-79-3149",
+    "national_id": "US-SSN-***-**-3149",
     "annual_revenue": 255000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10222308",
     "kyc_status": "flagged",
     "kyc_notes": "Requires compliance audit.",
-    "created_at": "2026-05-24T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000150-1111-4111-b111-111111111111",
@@ -2421,15 +2434,15 @@
     "last_name": "Mehta",
     "email": "alexander.mehta150@privatesavings.com",
     "phone": "+1-555-250-2050",
-    "national_id": "US-SSN-250-80-3150",
+    "national_id": "US-SSN-***-**-3150",
     "annual_revenue": 330000,
     "client_category": "private_savings",
     "account_type": "Private Standard Savings",
     "account_number": "KSBC-SAV-10223800",
     "kyc_status": "verified",
     "kyc_notes": "Automated SSN & Identity screening cleared.",
-    "created_at": "2026-05-25T10:56:08.015Z",
-    "updated_at": "2026-08-03T10:56:08.015Z"
+    "created_at": "2026-07-29T15:27:02.257754+00:00",
+    "updated_at": "2026-07-29T15:27:02.257754+00:00"
   },
   {
     "id": "b0000151-1111-4111-b111-111111111111",
@@ -3244,8 +3257,8 @@
     "account_number": "KSBC-CORP-90004912",
     "kyc_status": "verified",
     "kyc_notes": "Corporate Beneficial Ownership cleared.",
-    "created_at": "2026-07-15T10:56:08.016Z",
-    "updated_at": "2026-08-03T10:56:08.016Z"
+    "created_at": "2026-07-29T15:27:02.498356+00:00",
+    "updated_at": "2026-07-29T15:27:02.498356+00:00"
   },
   {
     "id": "b0000202-1111-4111-b111-111111111111",
@@ -3260,8 +3273,8 @@
     "account_number": "KSBC-CORP-90009824",
     "kyc_status": "verified",
     "kyc_notes": "Corporate Beneficial Ownership cleared.",
-    "created_at": "2026-07-16T10:56:08.016Z",
-    "updated_at": "2026-08-03T10:56:08.016Z"
+    "created_at": "2026-07-29T15:27:02.498356+00:00",
+    "updated_at": "2026-07-29T15:27:02.498356+00:00"
   },
   {
     "id": "b0000203-1111-4111-b111-111111111111",
@@ -3276,8 +3289,8 @@
     "account_number": "KSBC-CORP-90014736",
     "kyc_status": "pending",
     "kyc_notes": "Corporate Beneficial Ownership cleared.",
-    "created_at": "2026-07-17T10:56:08.016Z",
-    "updated_at": "2026-08-03T10:56:08.016Z"
+    "created_at": "2026-07-29T15:27:02.498356+00:00",
+    "updated_at": "2026-07-29T15:27:02.498356+00:00"
   },
   {
     "id": "b0000204-1111-4111-b111-111111111111",
@@ -3292,8 +3305,8 @@
     "account_number": "KSBC-CORP-90019648",
     "kyc_status": "flagged",
     "kyc_notes": "Corporate Beneficial Ownership cleared.",
-    "created_at": "2026-07-18T10:56:08.016Z",
-    "updated_at": "2026-08-03T10:56:08.016Z"
+    "created_at": "2026-07-29T15:27:02.498356+00:00",
+    "updated_at": "2026-07-29T15:27:02.498356+00:00"
   },
   {
     "id": "b0000205-1111-4111-b111-111111111111",
@@ -3308,8 +3321,8 @@
     "account_number": "KSBC-CORP-90024560",
     "kyc_status": "verified",
     "kyc_notes": "Corporate Beneficial Ownership cleared.",
-    "created_at": "2026-07-19T10:56:08.016Z",
-    "updated_at": "2026-08-03T10:56:08.016Z"
+    "created_at": "2026-07-29T15:27:02.498356+00:00",
+    "updated_at": "2026-07-29T15:27:02.498356+00:00"
   },
   {
     "id": "b0000206-1111-4111-b111-111111111111",
@@ -3324,8 +3337,8 @@
     "account_number": "KSBC-CORP-90029472",
     "kyc_status": "verified",
     "kyc_notes": "Corporate Beneficial Ownership cleared.",
-    "created_at": "2026-07-20T10:56:08.016Z",
-    "updated_at": "2026-08-03T10:56:08.016Z"
+    "created_at": "2026-07-29T15:27:02.498356+00:00",
+    "updated_at": "2026-07-29T15:27:02.498356+00:00"
   },
   {
     "id": "b0000207-1111-4111-b111-111111111111",
@@ -3340,8 +3353,8 @@
     "account_number": "KSBC-CORP-90034384",
     "kyc_status": "verified",
     "kyc_notes": "Corporate Beneficial Ownership cleared.",
-    "created_at": "2026-07-21T10:56:08.016Z",
-    "updated_at": "2026-08-03T10:56:08.016Z"
+    "created_at": "2026-07-29T15:27:02.498356+00:00",
+    "updated_at": "2026-07-29T15:27:02.498356+00:00"
   },
   {
     "id": "b0000208-1111-4111-b111-111111111111",
@@ -3356,8 +3369,8 @@
     "account_number": "KSBC-CORP-90039296",
     "kyc_status": "pending",
     "kyc_notes": "Corporate Beneficial Ownership cleared.",
-    "created_at": "2026-07-22T10:56:08.016Z",
-    "updated_at": "2026-08-03T10:56:08.016Z"
+    "created_at": "2026-07-29T15:27:02.498356+00:00",
+    "updated_at": "2026-07-29T15:27:02.498356+00:00"
   },
   {
     "id": "b0000209-1111-4111-b111-111111111111",
@@ -3372,8 +3385,8 @@
     "account_number": "KSBC-CORP-90044208",
     "kyc_status": "flagged",
     "kyc_notes": "Corporate Beneficial Ownership cleared.",
-    "created_at": "2026-07-23T10:56:08.016Z",
-    "updated_at": "2026-08-03T10:56:08.016Z"
+    "created_at": "2026-07-29T15:27:02.498356+00:00",
+    "updated_at": "2026-07-29T15:27:02.498356+00:00"
   },
   {
     "id": "b0000210-1111-4111-b111-111111111111",
@@ -3388,8 +3401,8 @@
     "account_number": "KSBC-CORP-90049120",
     "kyc_status": "verified",
     "kyc_notes": "Corporate Beneficial Ownership cleared.",
-    "created_at": "2026-07-24T10:56:08.016Z",
-    "updated_at": "2026-08-03T10:56:08.016Z"
+    "created_at": "2026-07-29T15:27:02.498356+00:00",
+    "updated_at": "2026-07-29T15:27:02.498356+00:00"
   },
   {
     "id": "b0000211-1111-4111-b111-111111111111",
@@ -3404,8 +3417,8 @@
     "account_number": "KSBC-CORP-90054032",
     "kyc_status": "verified",
     "kyc_notes": "Corporate Beneficial Ownership cleared.",
-    "created_at": "2026-07-25T10:56:08.016Z",
-    "updated_at": "2026-08-03T10:56:08.016Z"
+    "created_at": "2026-07-29T15:27:02.498356+00:00",
+    "updated_at": "2026-07-29T15:27:02.498356+00:00"
   },
   {
     "id": "b0000212-1111-4111-b111-111111111111",
@@ -3420,8 +3433,8 @@
     "account_number": "KSBC-CORP-90058944",
     "kyc_status": "verified",
     "kyc_notes": "Corporate Beneficial Ownership cleared.",
-    "created_at": "2026-07-26T10:56:08.016Z",
-    "updated_at": "2026-08-03T10:56:08.016Z"
+    "created_at": "2026-07-29T15:27:02.498356+00:00",
+    "updated_at": "2026-07-29T15:27:02.498356+00:00"
   },
   {
     "id": "b0000213-1111-4111-b111-111111111111",
@@ -3436,8 +3449,8 @@
     "account_number": "KSBC-CORP-90063856",
     "kyc_status": "pending",
     "kyc_notes": "Corporate Beneficial Ownership cleared.",
-    "created_at": "2026-07-27T10:56:08.016Z",
-    "updated_at": "2026-08-03T10:56:08.016Z"
+    "created_at": "2026-07-29T15:27:02.498356+00:00",
+    "updated_at": "2026-07-29T15:27:02.498356+00:00"
   },
   {
     "id": "b0000214-1111-4111-b111-111111111111",
@@ -3452,8 +3465,8 @@
     "account_number": "KSBC-CORP-90068768",
     "kyc_status": "flagged",
     "kyc_notes": "Corporate Beneficial Ownership cleared.",
-    "created_at": "2026-07-28T10:56:08.016Z",
-    "updated_at": "2026-08-03T10:56:08.016Z"
+    "created_at": "2026-07-29T15:27:02.498356+00:00",
+    "updated_at": "2026-07-29T15:27:02.498356+00:00"
   },
   {
     "id": "b0000215-1111-4111-b111-111111111111",
@@ -3468,8 +3481,8 @@
     "account_number": "KSBC-CORP-90073680",
     "kyc_status": "verified",
     "kyc_notes": "Corporate Beneficial Ownership cleared.",
-    "created_at": "2026-07-29T10:56:08.016Z",
-    "updated_at": "2026-08-03T10:56:08.016Z"
+    "created_at": "2026-07-29T15:27:02.498356+00:00",
+    "updated_at": "2026-07-29T15:27:02.498356+00:00"
   },
   {
     "id": "b0000216-1111-4111-b111-111111111111",
@@ -3484,8 +3497,8 @@
     "account_number": "KSBC-CORP-90078592",
     "kyc_status": "verified",
     "kyc_notes": "Corporate Beneficial Ownership cleared.",
-    "created_at": "2026-07-30T10:56:08.016Z",
-    "updated_at": "2026-08-03T10:56:08.016Z"
+    "created_at": "2026-07-29T15:27:02.498356+00:00",
+    "updated_at": "2026-07-29T15:27:02.498356+00:00"
   },
   {
     "id": "b0000217-1111-4111-b111-111111111111",
@@ -3500,8 +3513,8 @@
     "account_number": "KSBC-CORP-90083504",
     "kyc_status": "verified",
     "kyc_notes": "Corporate Beneficial Ownership cleared.",
-    "created_at": "2026-07-31T10:56:08.016Z",
-    "updated_at": "2026-08-03T10:56:08.016Z"
+    "created_at": "2026-07-29T15:27:02.498356+00:00",
+    "updated_at": "2026-07-29T15:27:02.498356+00:00"
   },
   {
     "id": "b0000218-1111-4111-b111-111111111111",
@@ -3516,8 +3529,8 @@
     "account_number": "KSBC-CORP-90088416",
     "kyc_status": "pending",
     "kyc_notes": "Corporate Beneficial Ownership cleared.",
-    "created_at": "2026-08-01T10:56:08.016Z",
-    "updated_at": "2026-08-03T10:56:08.016Z"
+    "created_at": "2026-07-29T15:27:02.498356+00:00",
+    "updated_at": "2026-07-29T15:27:02.498356+00:00"
   },
   {
     "id": "b0000219-1111-4111-b111-111111111111",
@@ -3532,8 +3545,8 @@
     "account_number": "KSBC-CORP-90093328",
     "kyc_status": "flagged",
     "kyc_notes": "Corporate Beneficial Ownership cleared.",
-    "created_at": "2026-08-02T10:56:08.016Z",
-    "updated_at": "2026-08-03T10:56:08.016Z"
+    "created_at": "2026-07-29T15:27:02.498356+00:00",
+    "updated_at": "2026-07-29T15:27:02.498356+00:00"
   },
   {
     "id": "b0000220-1111-4111-b111-111111111111",
@@ -3548,7 +3561,7 @@
     "account_number": "KSBC-CORP-90098240",
     "kyc_status": "verified",
     "kyc_notes": "Corporate Beneficial Ownership cleared.",
-    "created_at": "2026-08-03T10:56:08.016Z",
-    "updated_at": "2026-08-03T10:56:08.016Z"
+    "created_at": "2026-07-29T15:27:02.498356+00:00",
+    "updated_at": "2026-07-29T15:27:02.498356+00:00"
   }
 ]

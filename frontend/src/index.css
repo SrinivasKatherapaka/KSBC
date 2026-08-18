@@ -5,53 +5,53 @@
 @layer base {
   body {
     font-family: 'Inter', sans-serif;
-    background-color: #002b36;
-    color: #93a1a1;
+    background-color: #1b2827;
+    color: #a4b8b5;
   }
   h1, h2, h3, h4, .font-heading {
     font-family: 'Outfit', sans-serif;
   }
 }
 
-/* Solarized Green & Solid Gold Glassmorphism design tokens */
+/* KSBC Slate Pine & Champagne Gold Glassmorphism Design Tokens */
 .glass-panel {
-  background: rgba(7, 54, 66, 0.85);
+  background: rgba(32, 48, 47, 0.82);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(42, 161, 152, 0.25);
+  border: 1px solid rgba(223, 189, 132, 0.22);
 }
 
 .glass-card {
-  background: rgba(10, 68, 83, 0.65);
+  background: rgba(43, 63, 62, 0.65);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(42, 161, 152, 0.2);
+  border: 1px solid rgba(223, 189, 132, 0.18);
 }
 
 .glass-input {
-  background: rgba(0, 33, 42, 0.85);
-  border: 1px solid rgba(42, 161, 152, 0.35);
-  color: #fdf6e3;
+  background: rgba(24, 36, 35, 0.85);
+  border: 1px solid rgba(223, 189, 132, 0.25);
+  color: #f4eee2;
 }
 
 .glass-input:focus {
-  border-color: rgba(255, 215, 0, 0.9);
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.35);
+  border-color: rgba(223, 189, 132, 0.9);
+  box-shadow: 0 0 15px rgba(223, 189, 132, 0.35);
+  outline: none;
 }
 
-/* Custom Scrollbars */
+/* Custom Scrollbars in Slate Pine & Gold */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #002b36;
+  background: #182423;
 }
 ::-webkit-scrollbar-thumb {
-  background: #073642;
-  border: 1px solid rgba(42, 161, 152, 0.3);
+  background: #2b3f3e;
+  border: 1px solid rgba(223, 189, 132, 0.25);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2aa198;
+  background: #dfbd84;
 }
-

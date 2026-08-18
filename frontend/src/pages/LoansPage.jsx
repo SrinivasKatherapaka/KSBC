@@ -198,9 +198,9 @@ export const LoansPage = () => {
       return <span className="inline-flex items-center px-2 py-0.5 rounded text-[9px] font-bold bg-purple-500/10 text-purple-400 border border-purple-500/30">👤 Private Account</span>;
     }
     if (cat === 'sme') {
-      return <span className="inline-flex items-center px-2 py-0.5 rounded text-[9px] font-bold bg-[#073642] text-[#ffd700] border border-[#ffd700]/30">🏬 SME Business</span>;
+      return <span className="inline-flex items-center px-2 py-0.5 rounded text-[9px] font-bold bg-[#20302f] text-[#dfbd84] border border-[#dfbd84]/30">🏬 SME Business</span>;
     }
-    return <span className="inline-flex items-center px-2 py-0.5 rounded text-[9px] font-bold bg-[#073642] text-[#2aa198] border border-[#2aa198]/30">🏢 Corporate Enterprise</span>;
+    return <span className="inline-flex items-center px-2 py-0.5 rounded text-[9px] font-bold bg-[#20302f] text-[#dfbd84] border border-[#dfbd84]/30">🏢 Corporate Enterprise</span>;
   };
 
   const renderLoanCard = (loan) => {
@@ -210,56 +210,56 @@ export const LoansPage = () => {
     const category = loan.applicant_category || loan.customer?.client_category || 'corporate';
 
     return (
-      <div key={loan.id || Math.random()} className="p-4 bg-[#002129] rounded-2xl border border-[#2aa198]/30 space-y-3 shadow-lg hover:border-[#ffd700]/50 transition">
+      <div key={loan.id || Math.random()} className="p-4 bg-[#182423] rounded-2xl border border-[#dfbd84]/30 space-y-3 shadow-lg hover:border-[#dfbd84]/50 transition">
         <div className="flex justify-between items-start">
           <div>
-            <h4 className="font-extrabold text-[#fdf6e3] text-sm">{displayName}</h4>
+            <h4 className="font-extrabold text-[#f4eee2] text-sm">{displayName}</h4>
             <div className="flex items-center space-x-1.5 mt-1">
               {renderCategoryBadge(category)}
-              <span className="text-[10px] text-[#2aa198] font-mono">ID: #{loanIdStr}</span>
+              <span className="text-[10px] text-[#dfbd84] font-mono">ID: #{loanIdStr}</span>
             </div>
           </div>
           <RiskAssessmentBadge score={loan.risk_score || 35} level={loan.ai_risk_assessment?.riskLevel} />
         </div>
 
-        <div className="p-2.5 bg-[#002129]/80 rounded-xl border border-[#2aa198]/30 font-mono text-xs flex justify-between">
+        <div className="p-2.5 bg-[#182423]/80 rounded-xl border border-[#dfbd84]/30 font-mono text-xs flex justify-between">
           <div>
-            <span className="text-[9px] text-[#93a1a1] font-sans block">PRINCIPAL</span>
-            <span className="font-extrabold text-[#ffd700]">${Number(loan.principal_amount || 0).toLocaleString()}</span>
+            <span className="text-[9px] text-[#a4b8b5] font-sans block">PRINCIPAL</span>
+            <span className="font-extrabold text-[#dfbd84]">${Number(loan.principal_amount || 0).toLocaleString()}</span>
           </div>
           <div className="text-right">
-            <span className="text-[9px] text-[#93a1a1] font-sans block">RATE / TERM</span>
-            <span className="font-bold text-[#fdf6e3]">{loan.interest_rate || 6.5}% ({loan.term_months || 36}m)</span>
+            <span className="text-[9px] text-[#a4b8b5] font-sans block">RATE / TERM</span>
+            <span className="font-bold text-[#f4eee2]">{loan.interest_rate || 6.5}% ({loan.term_months || 36}m)</span>
           </div>
         </div>
 
-        <p className="text-[11px] text-[#93a1a1] line-clamp-2">
-          <span className="text-[#2aa198] font-semibold">Purpose:</span> {loan.purpose || 'Commercial Growth'}
+        <p className="text-[11px] text-[#a4b8b5] line-clamp-2">
+          <span className="text-[#dfbd84] font-semibold">Purpose:</span> {loan.purpose || 'Commercial Growth'}
         </p>
 
         {loan.ai_risk_assessment?.summaryAdvisory && (
-          <div className="p-2 bg-[#002b36]/80 rounded-lg text-[10px] italic text-[#93a1a1] border border-[#2aa198]/20">
+          <div className="p-2 bg-[#1b2827]/80 rounded-lg text-[10px] italic text-[#a4b8b5] border border-[#dfbd84]/20">
             🤖 "{loan.ai_risk_assessment.summaryAdvisory}"
           </div>
         )}
 
         {/* Action Triggers */}
-        <div className="pt-2 border-t border-[#2aa198]/20 flex flex-col space-y-1.5 text-xs">
+        <div className="pt-2 border-t border-[#dfbd84]/20 flex flex-col space-y-1.5 text-xs">
           {(loan.status === 'draft' || loan.status === 'applied' || loan.status === 'compliance_review' || loan.status === 'underwriting') && (
             <div className="grid grid-cols-2 gap-1.5">
               <button
                 onClick={() => handleAssessRisk(loan.id)}
                 disabled={processingId === loan.id}
-                className="w-full py-1.5 bg-gradient-to-r from-[#b58900] to-[#d4af37] hover:from-[#d4af37] hover:to-[#ffd700] text-[#002b36] text-[10px] font-black rounded-lg shadow transition flex items-center justify-center space-x-1 disabled:opacity-50"
+                className="w-full py-1.5 bg-gradient-to-r from-[#c59e5f] to-[#dfbd84] hover:from-[#dfbd84] hover:to-[#dfbd84] text-[#1b2827] text-[10px] font-black rounded-lg shadow transition flex items-center justify-center space-x-1 disabled:opacity-50"
               >
-                {processingId === loan.id ? <Loader2 className="w-3 h-3 animate-spin" /> : <Sparkles className="w-3 h-3 text-[#002b36]" />}
+                {processingId === loan.id ? <Loader2 className="w-3 h-3 animate-spin" /> : <Sparkles className="w-3 h-3 text-[#1b2827]" />}
                 <span>AI Risk</span>
               </button>
 
               <button
                 onClick={() => handleApproveLoan(loan.id)}
                 disabled={processingId === loan.id}
-                className="w-full py-1.5 bg-[#859900] hover:bg-emerald-500 text-[#002b36] text-[10px] font-black rounded-lg shadow transition flex items-center justify-center space-x-1 disabled:opacity-50"
+                className="w-full py-1.5 bg-[#58b388] hover:bg-emerald-500 text-[#1b2827] text-[10px] font-black rounded-lg shadow transition flex items-center justify-center space-x-1 disabled:opacity-50"
               >
                 <CheckCircle2 className="w-3 h-3" />
                 <span>Approve</span>
@@ -271,15 +271,15 @@ export const LoansPage = () => {
             <button
               onClick={() => handleDisburseLoan(loan.id)}
               disabled={processingId === loan.id}
-              className="w-full py-2 bg-gradient-to-r from-[#b58900] to-[#859900] hover:from-[#d4af37] hover:to-emerald-500 text-[#002b36] text-[11px] font-black rounded-xl shadow transition flex items-center justify-center space-x-1.5 disabled:opacity-50"
+              className="w-full py-2 bg-gradient-to-r from-[#c59e5f] to-[#58b388] hover:from-[#dfbd84] hover:to-emerald-500 text-[#1b2827] text-[11px] font-black rounded-xl shadow transition flex items-center justify-center space-x-1.5 disabled:opacity-50"
             >
-              {processingId === loan.id ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <DollarSign className="w-3.5 h-3.5 text-[#002b36]" />}
+              {processingId === loan.id ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <DollarSign className="w-3.5 h-3.5 text-[#1b2827]" />}
               <span>Authorize Treasury Payout</span>
             </button>
           )}
 
           {loan.status === 'disbursed' && (
-            <span className="w-full text-center py-1.5 bg-[#859900]/20 border border-[#859900]/40 text-[#859900] font-bold rounded-xl text-[10px]">
+            <span className="w-full text-center py-1.5 bg-[#58b388]/20 border border-[#58b388]/40 text-[#58b388] font-bold rounded-xl text-[10px]">
               Disbursed & Reconciled
             </span>
           )}
@@ -295,7 +295,7 @@ export const LoansPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#002b36] text-[#93a1a1]">
+    <div className="flex min-h-screen bg-[#1b2827] text-[#a4b8b5]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -304,11 +304,11 @@ export const LoansPage = () => {
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-extrabold text-[#fdf6e3] font-heading flex items-center space-x-2">
-                <Landmark className="w-6 h-6 text-[#ffd700]" />
+              <h1 className="text-2xl font-extrabold text-[#f4eee2] font-heading flex items-center space-x-2">
+                <Landmark className="w-6 h-6 text-[#dfbd84]" />
                 <span>Categorized Commercial Loans Portfolio Pipeline</span>
               </h1>
-              <p className="text-xs text-[#2aa198]">
+              <p className="text-xs text-[#dfbd84]">
                 Segregated Underwriting Pipeline & Portfolio Reconciliations ({loans.length} Total Loans)
               </p>
             </div>
@@ -316,33 +316,33 @@ export const LoansPage = () => {
             <div className="flex flex-wrap items-center gap-3">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="px-4 py-2.5 bg-gradient-to-r from-[#b58900] via-[#d4af37] to-[#b58900] hover:from-[#d4af37] hover:to-[#ffd700] text-[#002b36] text-xs font-black rounded-xl shadow-lg transition flex items-center space-x-2 border border-[#ffd700]/50"
+                className="px-4 py-2.5 bg-gradient-to-r from-[#c59e5f] via-[#dfbd84] to-[#c59e5f] hover:from-[#dfbd84] hover:to-[#dfbd84] text-[#1b2827] text-xs font-black rounded-xl shadow-lg transition flex items-center space-x-2 border border-[#dfbd84]/50"
               >
-                <Plus className="w-4 h-4 text-[#002b36]" />
+                <Plus className="w-4 h-4 text-[#1b2827]" />
                 <span>Intake Loan Application</span>
               </button>
             </div>
           </div>
 
           {/* Categorized Filter Controls Bar */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#002129] p-3.5 rounded-2xl border border-[#2aa198]/30 shadow-lg">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#182423] p-3.5 rounded-2xl border border-[#dfbd84]/30 shadow-lg">
             <div className="flex items-center space-x-2 w-full sm:w-80">
-              <Search className="w-4 h-4 text-[#ffd700]" />
+              <Search className="w-4 h-4 text-[#dfbd84]" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search Loan ID, Name, Account #, Purpose..."
-                className="w-full bg-transparent text-xs text-[#fdf6e3] placeholder-[#93a1a1] focus:outline-none"
+                className="w-full bg-transparent text-xs text-[#f4eee2] placeholder-[#a4b8b5] focus:outline-none"
               />
             </div>
 
             <div className="flex items-center space-x-2 w-full sm:w-auto text-xs">
-              <span className="text-[10px] text-[#2aa198] font-bold uppercase">FILTER BY CATEGORY:</span>
+              <span className="text-[10px] text-[#dfbd84] font-bold uppercase">FILTER BY CATEGORY:</span>
               <button
                 onClick={() => setCategoryFilter('all')}
                 className={`px-3 py-1.5 rounded-xl font-bold transition ${
-                  categoryFilter === 'all' ? 'bg-[#ffd700] text-[#002b36]' : 'bg-[#073642] text-[#93a1a1] hover:text-[#fdf6e3]'
+                  categoryFilter === 'all' ? 'bg-[#dfbd84] text-[#1b2827]' : 'bg-[#20302f] text-[#a4b8b5] hover:text-[#f4eee2]'
                 }`}
               >
                 All Categories ({loans.length})
@@ -350,7 +350,7 @@ export const LoansPage = () => {
               <button
                 onClick={() => setCategoryFilter('corporate')}
                 className={`px-3 py-1.5 rounded-xl font-bold transition ${
-                  categoryFilter === 'corporate' ? 'bg-[#2aa198] text-[#002b36]' : 'bg-[#073642] text-[#93a1a1] hover:text-[#fdf6e3]'
+                  categoryFilter === 'corporate' ? 'bg-[#dfbd84] text-[#1b2827]' : 'bg-[#20302f] text-[#a4b8b5] hover:text-[#f4eee2]'
                 }`}
               >
                 🏢 Corporate Enterprise
@@ -358,7 +358,7 @@ export const LoansPage = () => {
               <button
                 onClick={() => setCategoryFilter('sme')}
                 className={`px-3 py-1.5 rounded-xl font-bold transition ${
-                  categoryFilter === 'sme' ? 'bg-[#b58900] text-[#002b36]' : 'bg-[#073642] text-[#93a1a1] hover:text-[#fdf6e3]'
+                  categoryFilter === 'sme' ? 'bg-[#c59e5f] text-[#1b2827]' : 'bg-[#20302f] text-[#a4b8b5] hover:text-[#f4eee2]'
                 }`}
               >
                 🏬 SME Business
@@ -366,7 +366,7 @@ export const LoansPage = () => {
               <button
                 onClick={() => setCategoryFilter('private_individual')}
                 className={`px-3 py-1.5 rounded-xl font-bold transition ${
-                  categoryFilter === 'private_individual' ? 'bg-purple-500 text-white' : 'bg-[#073642] text-[#93a1a1] hover:text-[#fdf6e3]'
+                  categoryFilter === 'private_individual' ? 'bg-purple-500 text-white' : 'bg-[#20302f] text-[#a4b8b5] hover:text-[#f4eee2]'
                 }`}
               >
                 👤 Private Accounts
@@ -376,12 +376,12 @@ export const LoansPage = () => {
 
           {/* Success Banner */}
           {successMsg && (
-            <div className="p-3.5 bg-[#859900]/20 border border-[#859900]/50 rounded-xl text-xs text-[#859900] font-bold flex items-center justify-between shadow">
+            <div className="p-3.5 bg-[#58b388]/20 border border-[#58b388]/50 rounded-xl text-xs text-[#58b388] font-bold flex items-center justify-between shadow">
               <span className="flex items-center space-x-2">
                 <Check className="w-4 h-4" />
                 <span>{successMsg}</span>
               </span>
-              <button onClick={() => setSuccessMsg('')} className="text-[#859900] hover:text-white">
+              <button onClick={() => setSuccessMsg('')} className="text-[#58b388] hover:text-white">
                 <X className="w-4 h-4" />
               </button>
             </div>
@@ -395,23 +395,23 @@ export const LoansPage = () => {
             /* Categorized 5-Column Underwriting Lifecycle Kanban Pipeline */
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 items-start">
               {/* Column 1: Applied / Draft */}
-              <div className="glass-panel p-4 rounded-2xl border border-[#2aa198]/30 space-y-3 bg-[#073642]/50 shadow-xl">
-                <div className="pb-2 border-b border-[#2aa198]/20">
+              <div className="glass-panel p-4 rounded-2xl border border-[#dfbd84]/30 space-y-3 bg-[#20302f]/50 shadow-xl">
+                <div className="pb-2 border-b border-[#dfbd84]/20">
                   <div className="flex justify-between items-center">
                     <span className="font-extrabold text-white text-xs uppercase flex items-center space-x-1">
                       <span>1. Applied / Draft</span>
                     </span>
-                    <span className="px-2 py-0.5 bg-[#002129] text-[#ffd700] rounded-full text-[10px] font-mono font-bold">
+                    <span className="px-2 py-0.5 bg-[#182423] text-[#dfbd84] rounded-full text-[10px] font-mono font-bold">
                       {appliedLoans.length}
                     </span>
                   </div>
-                  <p className="text-[10px] text-[#2aa198] font-mono font-bold mt-1">
+                  <p className="text-[10px] text-[#dfbd84] font-mono font-bold mt-1">
                     Volume: ${calcGroupTotal(appliedLoans).toLocaleString()}
                   </p>
                 </div>
                 <div className="space-y-3 max-h-[650px] overflow-y-auto pr-1">
                   {appliedLoans.length === 0 ? (
-                    <div className="p-4 text-center text-[#93a1a1] text-xs italic bg-[#002129]/40 rounded-xl">
+                    <div className="p-4 text-center text-[#a4b8b5] text-xs italic bg-[#182423]/40 rounded-xl">
                       No applied applications in this category filter.
                     </div>
                   ) : (
@@ -421,23 +421,23 @@ export const LoansPage = () => {
               </div>
 
               {/* Column 2: In Process / Underwriting */}
-              <div className="glass-panel p-4 rounded-2xl border border-[#2aa198]/30 space-y-3 bg-[#073642]/50 shadow-xl">
-                <div className="pb-2 border-b border-[#2aa198]/20">
+              <div className="glass-panel p-4 rounded-2xl border border-[#dfbd84]/30 space-y-3 bg-[#20302f]/50 shadow-xl">
+                <div className="pb-2 border-b border-[#dfbd84]/20">
                   <div className="flex justify-between items-center">
                     <span className="font-extrabold text-white text-xs uppercase flex items-center space-x-1">
                       <span>2. Underwriting</span>
                     </span>
-                    <span className="px-2 py-0.5 bg-[#002129] text-[#ffd700] rounded-full text-[10px] font-mono font-bold">
+                    <span className="px-2 py-0.5 bg-[#182423] text-[#dfbd84] rounded-full text-[10px] font-mono font-bold">
                       {inProcessLoans.length}
                     </span>
                   </div>
-                  <p className="text-[10px] text-[#2aa198] font-mono font-bold mt-1">
+                  <p className="text-[10px] text-[#dfbd84] font-mono font-bold mt-1">
                     Volume: ${calcGroupTotal(inProcessLoans).toLocaleString()}
                   </p>
                 </div>
                 <div className="space-y-3 max-h-[650px] overflow-y-auto pr-1">
                   {inProcessLoans.length === 0 ? (
-                    <div className="p-4 text-center text-[#93a1a1] text-xs italic bg-[#002129]/40 rounded-xl">
+                    <div className="p-4 text-center text-[#a4b8b5] text-xs italic bg-[#182423]/40 rounded-xl">
                       No loans in underwriting review.
                     </div>
                   ) : (
@@ -447,23 +447,23 @@ export const LoansPage = () => {
               </div>
 
               {/* Column 3: Approved */}
-              <div className="glass-panel p-4 rounded-2xl border border-[#2aa198]/30 space-y-3 bg-[#073642]/50 shadow-xl">
-                <div className="pb-2 border-b border-[#2aa198]/20">
+              <div className="glass-panel p-4 rounded-2xl border border-[#dfbd84]/30 space-y-3 bg-[#20302f]/50 shadow-xl">
+                <div className="pb-2 border-b border-[#dfbd84]/20">
                   <div className="flex justify-between items-center">
                     <span className="font-extrabold text-white text-xs uppercase flex items-center space-x-1">
                       <span>3. Approved</span>
                     </span>
-                    <span className="px-2 py-0.5 bg-[#002129] text-[#859900] rounded-full text-[10px] font-mono font-bold">
+                    <span className="px-2 py-0.5 bg-[#182423] text-[#58b388] rounded-full text-[10px] font-mono font-bold">
                       {approvedLoans.length}
                     </span>
                   </div>
-                  <p className="text-[10px] text-[#859900] font-mono font-bold mt-1">
+                  <p className="text-[10px] text-[#58b388] font-mono font-bold mt-1">
                     Volume: ${calcGroupTotal(approvedLoans).toLocaleString()}
                   </p>
                 </div>
                 <div className="space-y-3 max-h-[650px] overflow-y-auto pr-1">
                   {approvedLoans.length === 0 ? (
-                    <div className="p-4 text-center text-[#93a1a1] text-xs italic bg-[#002129]/40 rounded-xl">
+                    <div className="p-4 text-center text-[#a4b8b5] text-xs italic bg-[#182423]/40 rounded-xl">
                       No approved loans pending payout.
                     </div>
                   ) : (
@@ -473,23 +473,23 @@ export const LoansPage = () => {
               </div>
 
               {/* Column 4: Disbursed Active Portfolio */}
-              <div className="glass-panel p-4 rounded-2xl border border-[#859900]/40 space-y-3 bg-[#073642]/70 shadow-2xl">
-                <div className="pb-2 border-b border-[#859900]/30">
+              <div className="glass-panel p-4 rounded-2xl border border-[#58b388]/40 space-y-3 bg-[#20302f]/70 shadow-2xl">
+                <div className="pb-2 border-b border-[#58b388]/30">
                   <div className="flex justify-between items-center">
-                    <span className="font-extrabold text-[#859900] text-xs uppercase flex items-center space-x-1">
+                    <span className="font-extrabold text-[#58b388] text-xs uppercase flex items-center space-x-1">
                       <span>4. Disbursed</span>
                     </span>
-                    <span className="px-2 py-0.5 bg-[#002129] text-[#859900] rounded-full text-[10px] font-mono font-bold">
+                    <span className="px-2 py-0.5 bg-[#182423] text-[#58b388] rounded-full text-[10px] font-mono font-bold">
                       {disbursedLoans.length}
                     </span>
                   </div>
-                  <p className="text-[10px] text-[#859900] font-mono font-bold mt-1">
+                  <p className="text-[10px] text-[#58b388] font-mono font-bold mt-1">
                     Volume: ${calcGroupTotal(disbursedLoans).toLocaleString()}
                   </p>
                 </div>
                 <div className="space-y-3 max-h-[650px] overflow-y-auto pr-1">
                   {disbursedLoans.length === 0 ? (
-                    <div className="p-4 text-center text-[#93a1a1] text-xs italic bg-[#002129]/40 rounded-xl">
+                    <div className="p-4 text-center text-[#a4b8b5] text-xs italic bg-[#182423]/40 rounded-xl">
                       No disbursed loans.
                     </div>
                   ) : (
@@ -499,13 +499,13 @@ export const LoansPage = () => {
               </div>
 
               {/* Column 5: Rejected Applications */}
-              <div className="glass-panel p-4 rounded-2xl border border-red-500/30 space-y-3 bg-[#073642]/40 shadow-xl">
+              <div className="glass-panel p-4 rounded-2xl border border-red-500/30 space-y-3 bg-[#20302f]/40 shadow-xl">
                 <div className="pb-2 border-b border-red-500/20">
                   <div className="flex justify-between items-center">
                     <span className="font-extrabold text-red-400 text-xs uppercase flex items-center space-x-1">
                       <span>5. Rejected</span>
                     </span>
-                    <span className="px-2 py-0.5 bg-[#002129] text-red-400 rounded-full text-[10px] font-mono font-bold">
+                    <span className="px-2 py-0.5 bg-[#182423] text-red-400 rounded-full text-[10px] font-mono font-bold">
                       {rejectedLoans.length}
                     </span>
                   </div>
@@ -515,7 +515,7 @@ export const LoansPage = () => {
                 </div>
                 <div className="space-y-3 max-h-[650px] overflow-y-auto pr-1">
                   {rejectedLoans.length === 0 ? (
-                    <div className="p-4 text-center text-[#93a1a1] text-xs italic bg-[#002129]/40 rounded-xl">
+                    <div className="p-4 text-center text-[#a4b8b5] text-xs italic bg-[#182423]/40 rounded-xl">
                       No rejected applications.
                     </div>
                   ) : (

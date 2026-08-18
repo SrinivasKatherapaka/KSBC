@@ -58,7 +58,7 @@ export const CustomerServicePage = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#002b36] text-[#93a1a1]">
+    <div className="flex min-h-screen bg-[#1b2827] text-[#a4b8b5]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -67,7 +67,7 @@ export const CustomerServicePage = () => {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-extrabold text-white font-heading">KSBC 24/7 AI Customer Service</h1>
-              <p className="text-xs text-rose-300/60">Powered by Gemini 2.5 Flash Banking Assistant</p>
+              <p className="text-xs text-[#dfbd84]/70">Powered by Gemini 2.5 Flash Banking Assistant</p>
             </div>
             <div className="flex items-center space-x-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded-full text-xs text-emerald-400 font-bold">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -78,15 +78,15 @@ export const CustomerServicePage = () => {
           <ErrorAlert message={error} onClose={() => setError('')} />
 
           {/* Chat Container */}
-          <div className="flex-1 glass-panel rounded-2xl border border-rose-900/30 flex flex-col h-[600px] overflow-hidden">
-            <div className="p-4 border-b border-rose-900/30 bg-rose-950/40 flex items-center justify-between">
+          <div className="flex-1 glass-panel rounded-2xl border border-[#dfbd84]/25 flex flex-col h-[600px] overflow-hidden">
+            <div className="p-4 border-b border-[#dfbd84]/25 bg-[#182423]/60 flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <div className="w-9 h-9 rounded-2xl bg-gradient-to-br from-rose-700 to-amber-600 flex items-center justify-center shadow-lg">
                   <Bot className="w-5 h-5 text-white" />
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-white">KSBC Virtual Representative</h3>
-                  <p className="text-[10px] text-rose-300/60 font-mono">Gemini 2.5 Flash Neural Support</p>
+                  <p className="text-[10px] text-[#dfbd84]/70 font-mono">Gemini 2.5 Flash Neural Support</p>
                 </div>
               </div>
             </div>
@@ -100,10 +100,10 @@ export const CustomerServicePage = () => {
                 >
                   <div className={`max-w-xl p-4 rounded-2xl text-xs space-y-2 ${
                     m.sender === 'user'
-                      ? 'bg-rose-800 text-white rounded-tr-none shadow-lg border border-rose-600/40'
-                      : 'bg-rose-950/80 text-slate-200 rounded-tl-none border border-rose-900/40 shadow-lg'
+                      ? 'bg-[#273a39] text-white rounded-tr-none shadow-lg border border-[#dfbd84]/50'
+                      : 'bg-rose-950/80 text-slate-200 rounded-tl-none border border-[#dfbd84]/30 shadow-lg'
                   }`}>
-                    <div className="flex items-center space-x-2 font-bold text-[10px] text-rose-300/80 uppercase">
+                    <div className="flex items-center space-x-2 font-bold text-[10px] text-[#dfbd84]/80 uppercase">
                       {m.sender === 'user' ? <User className="w-3.5 h-3.5" /> : <Bot className="w-3.5 h-3.5 text-amber-400" />}
                       <span>{m.sender === 'user' ? 'You' : 'KSBC AI Assistant'}</span>
                     </div>
@@ -117,7 +117,7 @@ export const CustomerServicePage = () => {
                           <button
                             key={tIdx}
                             onClick={() => handleSendMessage(topic)}
-                            className="px-2.5 py-1 bg-rose-900/60 hover:bg-rose-800 text-amber-300 rounded-lg text-[10px] font-semibold transition border border-rose-700/50 flex items-center space-x-1"
+                            className="px-2.5 py-1 bg-[#324846] hover:bg-[#273a39] text-amber-300 rounded-lg text-[10px] font-semibold transition border border-rose-700/50 flex items-center space-x-1"
                           >
                             <span>{topic}</span>
                             <ArrowRight className="w-3 h-3 text-amber-400" />
@@ -131,7 +131,7 @@ export const CustomerServicePage = () => {
 
               {loading && (
                 <div className="flex justify-start">
-                  <div className="bg-rose-950/80 p-4 rounded-2xl rounded-tl-none border border-rose-900/40">
+                  <div className="bg-rose-950/80 p-4 rounded-2xl rounded-tl-none border border-[#dfbd84]/30">
                     <LoadingSpinner text="KSBC AI is generating support response..." />
                   </div>
                 </div>
@@ -140,18 +140,18 @@ export const CustomerServicePage = () => {
             </div>
 
             {/* Input Bar */}
-            <form onSubmit={(e) => { e.preventDefault(); handleSendMessage(); }} className="p-3 border-t border-rose-900/30 bg-rose-950/60 flex items-center space-x-2">
+            <form onSubmit={(e) => { e.preventDefault(); handleSendMessage(); }} className="p-3 border-t border-[#dfbd84]/25 bg-[#182423] flex items-center space-x-2">
               <input
                 type="text"
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 placeholder="Ask about accounts, commercial loans, interest rates, or clearance..."
-                className="flex-1 glass-input bg-[#1a030b] border border-rose-900/40 text-xs rounded-xl p-3 text-white focus:outline-none focus:ring-2 focus:ring-rose-600"
+                className="flex-1 glass-input bg-[#1a030b] border border-[#dfbd84]/30 text-xs rounded-xl p-3 text-white focus:outline-none focus:ring-2 focus:ring-rose-600"
               />
               <button
                 type="submit"
                 disabled={loading || !inputMessage.trim()}
-                className="px-4 py-3 bg-gradient-to-r from-rose-800 to-rose-950 hover:from-rose-700 hover:to-rose-900 text-white font-bold rounded-xl shadow-lg transition flex items-center justify-center space-x-1 disabled:opacity-50 border border-rose-600/40"
+                className="px-4 py-3 bg-gradient-to-r from-[#c59e5f] via-[#dfbd84] to-[#c59e5f] hover:from-[#dfbd84] hover:to-[#eed29e] text-white font-bold rounded-xl shadow-lg transition flex items-center justify-center space-x-1 disabled:opacity-50 border border-[#dfbd84]/50"
               >
                 <Send className="w-4 h-4 text-amber-300" />
               </button>

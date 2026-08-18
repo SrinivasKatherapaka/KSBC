@@ -265,13 +265,13 @@ export const LoansDatabasePage = () => {
       return <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-purple-500/10 text-purple-400 border border-purple-500/30">👤 Private Account</span>;
     }
     if (cat === 'sme') {
-      return <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-[#073642] text-[#ffd700] border border-[#ffd700]/30">🏬 SME Business</span>;
+      return <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-[#20302f] text-[#dfbd84] border border-[#dfbd84]/30">🏬 SME Business</span>;
     }
-    return <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-[#073642] text-[#2aa198] border border-[#2aa198]/30">🏢 Corporate</span>;
+    return <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-[#20302f] text-[#dfbd84] border border-[#dfbd84]/30">🏢 Corporate</span>;
   };
 
   return (
-    <div className="flex min-h-screen bg-[#002b36] text-[#93a1a1]">
+    <div className="flex min-h-screen bg-[#1b2827] text-[#a4b8b5]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -280,11 +280,11 @@ export const LoansDatabasePage = () => {
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-extrabold text-[#fdf6e3] font-heading flex items-center space-x-2">
-                <Database className="w-6 h-6 text-[#ffd700]" />
+              <h1 className="text-2xl font-extrabold text-[#f4eee2] font-heading flex items-center space-x-2">
+                <Database className="w-6 h-6 text-[#dfbd84]" />
                 <span>KSBC Commercial Loans Master Database</span>
               </h1>
-              <p className="text-xs text-[#2aa198]">
+              <p className="text-xs text-[#dfbd84]">
                 Master Record Repository, Multi-Row Operations & Underwriting Reconciliations ({loans.length} Total Loans)
               </p>
             </div>
@@ -292,7 +292,7 @@ export const LoansDatabasePage = () => {
             <div className="flex items-center space-x-3">
               <Link
                 to="/loans?view=SEGREGATED"
-                className="px-3.5 py-2 bg-[#002129] border border-[#2aa198]/30 text-[#2aa198] hover:text-[#ffd700] text-xs font-bold rounded-xl transition flex items-center space-x-1.5"
+                className="px-3.5 py-2 bg-[#182423] border border-[#dfbd84]/30 text-[#dfbd84] hover:text-[#dfbd84] text-xs font-bold rounded-xl transition flex items-center space-x-1.5"
               >
                 <LayoutGrid className="w-4 h-4" />
                 <span>View Kanban Pipeline</span>
@@ -300,9 +300,9 @@ export const LoansDatabasePage = () => {
 
               <button
                 onClick={() => setIsIntakeModalOpen(true)}
-                className="px-4 py-2.5 bg-gradient-to-r from-[#b58900] via-[#d4af37] to-[#b58900] hover:from-[#d4af37] hover:to-[#ffd700] text-[#002b36] text-xs font-black rounded-xl shadow-lg transition flex items-center space-x-2 border border-[#ffd700]/50"
+                className="px-4 py-2.5 bg-gradient-to-r from-[#c59e5f] via-[#dfbd84] to-[#c59e5f] hover:from-[#dfbd84] hover:to-[#dfbd84] text-[#1b2827] text-xs font-black rounded-xl shadow-lg transition flex items-center space-x-2 border border-[#dfbd84]/50"
               >
-                <Plus className="w-4 h-4 text-[#002b36]" />
+                <Plus className="w-4 h-4 text-[#1b2827]" />
                 <span>Intake Loan Application</span>
               </button>
             </div>
@@ -310,12 +310,12 @@ export const LoansDatabasePage = () => {
 
           {/* Success Banner */}
           {successMsg && (
-            <div className="p-3.5 bg-[#859900]/20 border border-[#859900]/50 rounded-xl text-xs text-[#859900] font-bold flex items-center justify-between shadow-md">
+            <div className="p-3.5 bg-[#58b388]/20 border border-[#58b388]/50 rounded-xl text-xs text-[#58b388] font-bold flex items-center justify-between shadow-md">
               <span className="flex items-center space-x-2">
                 <Check className="w-4 h-4" />
                 <span>{successMsg}</span>
               </span>
-              <button onClick={() => setSuccessMsg('')} className="text-[#859900] hover:text-white">
+              <button onClick={() => setSuccessMsg('')} className="text-[#58b388] hover:text-white">
                 <X className="w-4 h-4" />
               </button>
             </div>
@@ -325,36 +325,36 @@ export const LoansDatabasePage = () => {
 
           {/* Executive Metrics Bar */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="p-4 bg-[#073642]/60 rounded-2xl border border-[#2aa198]/30 space-y-1">
-              <span className="text-[10px] font-bold text-[#2aa198] uppercase block">TOTAL PORTFOLIO VOLUME</span>
-              <span className="text-xl font-black text-[#fdf6e3] font-mono">
+            <div className="p-4 bg-[#20302f]/60 rounded-2xl border border-[#dfbd84]/30 space-y-1">
+              <span className="text-[10px] font-bold text-[#dfbd84] uppercase block">TOTAL PORTFOLIO VOLUME</span>
+              <span className="text-xl font-black text-[#f4eee2] font-mono">
                 ${totalPrincipalSum.toLocaleString('en-US', { minimumFractionDigits: 2 })}
               </span>
-              <span className="text-[10px] text-[#93a1a1] block font-medium">{loans.length} Total Master Database Records</span>
+              <span className="text-[10px] text-[#a4b8b5] block font-medium">{loans.length} Total Master Database Records</span>
             </div>
 
-            <div className="p-4 bg-[#073642]/80 rounded-2xl border border-[#859900]/50 space-y-1 shadow-lg">
-              <span className="text-[10px] font-bold text-[#859900] uppercase block">DISBURSED EARNING ASSETS</span>
-              <span className="text-xl font-black text-[#859900] font-mono">
+            <div className="p-4 bg-[#20302f]/80 rounded-2xl border border-[#58b388]/50 space-y-1 shadow-lg">
+              <span className="text-[10px] font-bold text-[#58b388] uppercase block">DISBURSED EARNING ASSETS</span>
+              <span className="text-xl font-black text-[#58b388] font-mono">
                 ${totalDisbursedSum.toLocaleString('en-US', { minimumFractionDigits: 2 })}
               </span>
-              <span className="text-[10px] text-[#859900] block font-bold">Reconciled in General Ledger (1200)</span>
+              <span className="text-[10px] text-[#58b388] block font-bold">Reconciled in General Ledger (1200)</span>
             </div>
 
-            <div className="p-4 bg-[#073642]/60 rounded-2xl border border-[#2aa198]/30 space-y-1">
-              <span className="text-[10px] font-bold text-[#2aa198] uppercase block">APPROVED AWAITING DISBURSEMENT</span>
+            <div className="p-4 bg-[#20302f]/60 rounded-2xl border border-[#dfbd84]/30 space-y-1">
+              <span className="text-[10px] font-bold text-[#dfbd84] uppercase block">APPROVED AWAITING DISBURSEMENT</span>
               <span className="text-xl font-black text-[#268bd2] font-mono">
                 ${totalApprovedSum.toLocaleString('en-US', { minimumFractionDigits: 2 })}
               </span>
               <span className="text-[10px] text-[#268bd2] block font-bold">Ready for Treasury Authorization</span>
             </div>
 
-            <div className="p-4 bg-[#073642]/60 rounded-2xl border border-[#ffd700]/40 space-y-1">
-              <span className="text-[10px] font-bold text-[#ffd700] uppercase block">PENDING PIPELINE VOLUME</span>
-              <span className="text-xl font-black text-[#ffd700] font-mono">
+            <div className="p-4 bg-[#20302f]/60 rounded-2xl border border-[#dfbd84]/40 space-y-1">
+              <span className="text-[10px] font-bold text-[#dfbd84] uppercase block">PENDING PIPELINE VOLUME</span>
+              <span className="text-xl font-black text-[#dfbd84] font-mono">
                 ${totalPendingSum.toLocaleString('en-US', { minimumFractionDigits: 2 })}
               </span>
-              <span className="text-[10px] text-[#ffd700]/80 block font-bold">In Underwriting Review</span>
+              <span className="text-[10px] text-[#dfbd84]/80 block font-bold">In Underwriting Review</span>
             </div>
           </div>
 
@@ -364,17 +364,17 @@ export const LoansDatabasePage = () => {
             /* ========================================================================= */
             /* 🗄️ FULL MASTER LOANS DATABASE TABLE WITH SELECTION, EDIT & DELETE         */
             /* ========================================================================= */
-            <div className="glass-panel p-6 rounded-2xl border border-[#2aa198]/30 space-y-4 bg-[#073642]/60 shadow-2xl">
+            <div className="glass-panel p-6 rounded-2xl border border-[#dfbd84]/30 space-y-4 bg-[#20302f]/60 shadow-2xl">
               {/* Search & Filter Bar */}
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#002129] p-3.5 rounded-xl border border-[#2aa198]/30">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#182423] p-3.5 rounded-xl border border-[#dfbd84]/30">
                 <div className="flex items-center space-x-2 w-full sm:w-96">
-                  <Search className="w-4 h-4 text-[#ffd700]" />
+                  <Search className="w-4 h-4 text-[#dfbd84]" />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search Loan Ref #, Applicant Name, Account #, Purpose..."
-                    className="w-full bg-transparent text-xs text-[#fdf6e3] placeholder-[#93a1a1] focus:outline-none"
+                    className="w-full bg-transparent text-xs text-[#f4eee2] placeholder-[#a4b8b5] focus:outline-none"
                   />
                 </div>
 
@@ -382,30 +382,30 @@ export const LoansDatabasePage = () => {
                   <select
                     value={statusFilter}
                     onChange={(e) => setStatusFilter(e.target.value)}
-                    className="bg-[#073642] text-[#fdf6e3] border border-[#2aa198]/40 rounded-lg p-2 font-semibold cursor-pointer"
+                    className="bg-[#20302f] text-[#f4eee2] border border-[#dfbd84]/40 rounded-lg p-2 font-semibold cursor-pointer"
                   >
-                    <option value="all" className="bg-[#002129]">All Loan Statuses</option>
-                    <option value="draft" className="bg-[#002129]">Applied / Draft</option>
-                    <option value="underwriting" className="bg-[#002129]">In Underwriting</option>
-                    <option value="approved" className="bg-[#002129]">Approved</option>
-                    <option value="disbursed" className="bg-[#002129]">Disbursed</option>
-                    <option value="rejected" className="bg-[#002129]">Rejected</option>
+                    <option value="all" className="bg-[#182423]">All Loan Statuses</option>
+                    <option value="draft" className="bg-[#182423]">Applied / Draft</option>
+                    <option value="underwriting" className="bg-[#182423]">In Underwriting</option>
+                    <option value="approved" className="bg-[#182423]">Approved</option>
+                    <option value="disbursed" className="bg-[#182423]">Disbursed</option>
+                    <option value="rejected" className="bg-[#182423]">Rejected</option>
                   </select>
 
                   <select
                     value={categoryFilter}
                     onChange={(e) => setCategoryFilter(e.target.value)}
-                    className="bg-[#073642] text-[#fdf6e3] border border-[#2aa198]/40 rounded-lg p-2 font-semibold cursor-pointer"
+                    className="bg-[#20302f] text-[#f4eee2] border border-[#dfbd84]/40 rounded-lg p-2 font-semibold cursor-pointer"
                   >
-                    <option value="all" className="bg-[#002129]">All Categories</option>
-                    <option value="corporate" className="bg-[#002129]">Corporate Enterprise</option>
-                    <option value="sme" className="bg-[#002129]">SME Business</option>
-                    <option value="private_individual" className="bg-[#002129]">Private Individual</option>
+                    <option value="all" className="bg-[#182423]">All Categories</option>
+                    <option value="corporate" className="bg-[#182423]">Corporate Enterprise</option>
+                    <option value="sme" className="bg-[#182423]">SME Business</option>
+                    <option value="private_individual" className="bg-[#182423]">Private Individual</option>
                   </select>
 
                   <button
                     onClick={handleExportCSV}
-                    className="px-3 py-2 bg-[#002129] hover:bg-[#073642] text-[#ffd700] rounded-lg border border-[#ffd700]/40 font-bold transition flex items-center space-x-1"
+                    className="px-3 py-2 bg-[#182423] hover:bg-[#20302f] text-[#dfbd84] rounded-lg border border-[#dfbd84]/40 font-bold transition flex items-center space-x-1"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span>Export CSV</span>
@@ -415,16 +415,16 @@ export const LoansDatabasePage = () => {
 
               {/* Bulk Operations Bar */}
               {selectedLoanIds.length > 0 && (
-                <div className="p-3 bg-[#b58900]/20 border border-[#ffd700]/50 rounded-xl flex items-center justify-between text-xs text-[#ffd700] shadow-lg">
+                <div className="p-3 bg-[#c59e5f]/20 border border-[#dfbd84]/50 rounded-xl flex items-center justify-between text-xs text-[#dfbd84] shadow-lg">
                   <span className="font-bold flex items-center space-x-2">
-                    <CheckSquare className="w-4 h-4 text-[#ffd700]" />
+                    <CheckSquare className="w-4 h-4 text-[#dfbd84]" />
                     <span>{selectedLoanIds.length} Loan Record(s) Selected</span>
                   </span>
 
                   <div className="flex items-center space-x-2">
                     <button
                       onClick={handleBulkApprove}
-                      className="px-3 py-1.5 bg-[#859900] text-[#002b36] font-black rounded-lg hover:bg-emerald-400 transition"
+                      className="px-3 py-1.5 bg-[#58b388] text-[#1b2827] font-black rounded-lg hover:bg-emerald-400 transition"
                     >
                       Approve Selected ({selectedLoanIds.length})
                     </button>
@@ -442,13 +442,13 @@ export const LoansDatabasePage = () => {
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
                   <thead>
-                    <tr className="border-b border-[#2aa198]/30 text-[#2aa198] uppercase tracking-wider text-[10px] bg-[#002129]">
+                    <tr className="border-b border-[#dfbd84]/30 text-[#dfbd84] uppercase tracking-wider text-[10px] bg-[#182423]">
                       <th className="py-3 px-3 w-10 text-center">
-                        <button onClick={handleToggleSelectAll} className="text-[#ffd700]" title="Select All">
+                        <button onClick={handleToggleSelectAll} className="text-[#dfbd84]" title="Select All">
                           {selectedLoanIds.length === filteredDatabaseLoans.length && filteredDatabaseLoans.length > 0 ? (
-                            <CheckSquare className="w-4 h-4 text-[#ffd700]" />
+                            <CheckSquare className="w-4 h-4 text-[#dfbd84]" />
                           ) : (
-                            <Square className="w-4 h-4 text-[#93a1a1]" />
+                            <Square className="w-4 h-4 text-[#a4b8b5]" />
                           )}
                         </button>
                       </th>
@@ -463,10 +463,10 @@ export const LoansDatabasePage = () => {
                       <th className="py-3.5 px-3 text-center">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#2aa198]/15">
+                  <tbody className="divide-y divide-[#dfbd84]/15">
                     {filteredDatabaseLoans.length === 0 ? (
                       <tr>
-                        <td colSpan="10" className="py-8 text-center text-[#93a1a1] text-xs">
+                        <td colSpan="10" className="py-8 text-center text-[#a4b8b5] text-xs">
                           No loan records matching selected search query or filters.
                         </td>
                       </tr>
@@ -479,27 +479,27 @@ export const LoansDatabasePage = () => {
                         const accNum = l.customer?.account_number || `KSBC-ACC-${loanIdStr.slice(0, 6)}`;
 
                         return (
-                          <tr key={l.id || Math.random()} className={`hover:bg-[#002129]/60 transition ${isSelected ? 'bg-[#002129]/80 border-l-4 border-l-[#ffd700]' : ''}`}>
+                          <tr key={l.id || Math.random()} className={`hover:bg-[#182423]/60 transition ${isSelected ? 'bg-[#182423]/80 border-l-4 border-l-[#dfbd84]' : ''}`}>
                             <td className="py-3.5 px-3 text-center">
-                              <button onClick={() => handleToggleSelectRow(l.id)} className="text-[#ffd700]">
-                                {isSelected ? <CheckSquare className="w-4 h-4 text-[#ffd700]" /> : <Square className="w-4 h-4 text-[#93a1a1]" />}
+                              <button onClick={() => handleToggleSelectRow(l.id)} className="text-[#dfbd84]">
+                                {isSelected ? <CheckSquare className="w-4 h-4 text-[#dfbd84]" /> : <Square className="w-4 h-4 text-[#a4b8b5]" />}
                               </button>
                             </td>
 
-                            <td className="py-3.5 px-3 font-mono font-bold text-[#ffd700]">
+                            <td className="py-3.5 px-3 font-mono font-bold text-[#dfbd84]">
                               #{loanIdStr}
                             </td>
 
                             <td className="py-3.5 px-3 space-y-0.5">
-                              <span className="font-bold text-[#fdf6e3] block">{name}</span>
-                              <span className="text-[10px] text-[#2aa198] font-mono block">{accNum}</span>
+                              <span className="font-bold text-[#f4eee2] block">{name}</span>
+                              <span className="text-[10px] text-[#dfbd84] font-mono block">{accNum}</span>
                             </td>
 
                             <td className="py-3.5 px-3">
                               {renderCategoryBadge(l.applicant_category || l.customer?.client_category)}
                             </td>
 
-                            <td className="py-3.5 px-3 text-right font-mono font-extrabold text-[#fdf6e3]">
+                            <td className="py-3.5 px-3 text-right font-mono font-extrabold text-[#f4eee2]">
                               ${Number(l.principal_amount).toLocaleString('en-US', { minimumFractionDigits: 2 })}
                             </td>
 
@@ -507,26 +507,26 @@ export const LoansDatabasePage = () => {
                               {l.interest_rate}% ({l.term_months}m)
                             </td>
 
-                            <td className="py-3.5 px-3 text-[11px] text-[#93a1a1] max-w-xs truncate">
+                            <td className="py-3.5 px-3 text-[11px] text-[#a4b8b5] max-w-xs truncate">
                               {l.purpose}
                             </td>
 
                             <td className="py-3.5 px-3 text-center">
                               <span className={`px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase border ${
                                 l.status === 'disbursed'
-                                  ? 'bg-[#859900]/20 text-[#859900] border-[#859900]/40'
+                                  ? 'bg-[#58b388]/20 text-[#58b388] border-[#58b388]/40'
                                   : l.status === 'approved'
                                   ? 'bg-[#268bd2]/20 text-[#268bd2] border-[#268bd2]/40'
                                   : l.status === 'rejected'
                                   ? 'bg-red-500/10 text-red-400 border-red-500/30'
-                                  : 'bg-[#b58900]/20 text-[#ffd700] border-[#ffd700]/40'
+                                  : 'bg-[#c59e5f]/20 text-[#dfbd84] border-[#dfbd84]/40'
                               }`}>
                                 {l.status}
                               </span>
                             </td>
 
                             <td className="py-3.5 px-3 text-center font-mono font-bold">
-                              <span className={l.risk_score > 70 ? 'text-red-400' : l.risk_score > 40 ? 'text-[#ffd700]' : 'text-[#859900]'}>
+                              <span className={l.risk_score > 70 ? 'text-red-400' : l.risk_score > 40 ? 'text-[#dfbd84]' : 'text-[#58b388]'}>
                                 {l.risk_score || 35}/100
                               </span>
                             </td>
@@ -536,7 +536,7 @@ export const LoansDatabasePage = () => {
                                 {/* Modify Button */}
                                 <button
                                   onClick={() => setEditingLoan(l)}
-                                  className="p-1.5 bg-[#073642] text-[#ffd700] hover:bg-[#ffd700] hover:text-[#002b36] rounded-lg transition border border-[#ffd700]/30"
+                                  className="p-1.5 bg-[#20302f] text-[#dfbd84] hover:bg-[#dfbd84] hover:text-[#1b2827] rounded-lg transition border border-[#dfbd84]/30"
                                   title="Modify Loan Record"
                                 >
                                   <Edit className="w-3.5 h-3.5" />
@@ -554,7 +554,7 @@ export const LoansDatabasePage = () => {
                                 {/* Run AI Risk Button */}
                                 <button
                                   onClick={() => handleAssessRisk(l.id)}
-                                  className="p-1.5 bg-[#2aa198]/20 text-[#2aa198] hover:bg-[#2aa198] hover:text-[#002b36] rounded-lg transition border border-[#2aa198]/30"
+                                  className="p-1.5 bg-[#dfbd84]/20 text-[#dfbd84] hover:bg-[#dfbd84] hover:text-[#1b2827] rounded-lg transition border border-[#dfbd84]/30"
                                   title="Run Gemini AI Risk Model"
                                 >
                                   <Sparkles className="w-3.5 h-3.5" />
@@ -584,52 +584,52 @@ export const LoansDatabasePage = () => {
       {/* Modify Loan Record Modal */}
       {editingLoan && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="glass-panel w-full max-w-lg p-6 rounded-2xl border border-[#ffd700]/40 bg-[#073642] shadow-2xl space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-[#2aa198]/20">
+          <div className="glass-panel w-full max-w-lg p-6 rounded-2xl border border-[#dfbd84]/40 bg-[#20302f] shadow-2xl space-y-4">
+            <div className="flex items-center justify-between pb-3 border-b border-[#dfbd84]/20">
               <div className="flex items-center space-x-2">
-                <Edit className="w-5 h-5 text-[#ffd700]" />
+                <Edit className="w-5 h-5 text-[#dfbd84]" />
                 <div>
-                  <h3 className="text-base font-bold text-[#fdf6e3]">Modify Loan Database Record</h3>
-                  <p className="text-[11px] text-[#2aa198]">Loan Ref: #{editingLoan.id.slice(0, 8)}</p>
+                  <h3 className="text-base font-bold text-[#f4eee2]">Modify Loan Database Record</h3>
+                  <p className="text-[11px] text-[#dfbd84]">Loan Ref: #{editingLoan.id.slice(0, 8)}</p>
                 </div>
               </div>
-              <button onClick={() => setEditingLoan(null)} className="text-[#93a1a1] hover:text-white">
+              <button onClick={() => setEditingLoan(null)} className="text-[#a4b8b5] hover:text-white">
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <form onSubmit={handleUpdateLoanRecord} className="space-y-3 text-xs">
               <div>
-                <label className="block text-[#2aa198] font-bold mb-1 uppercase text-[10px]">Applicant Full Name</label>
+                <label className="block text-[#dfbd84] font-bold mb-1 uppercase text-[10px]">Applicant Full Name</label>
                 <input
                   type="text"
                   value={editingLoan.applicant_name || ''}
                   onChange={(e) => setEditingLoan({ ...editingLoan, applicant_name: e.target.value })}
-                  className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3] font-bold"
+                  className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2] font-bold"
                   required
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[#2aa198] font-bold mb-1 uppercase text-[10px]">Principal Amount ($)</label>
+                  <label className="block text-[#dfbd84] font-bold mb-1 uppercase text-[10px]">Principal Amount ($)</label>
                   <input
                     type="number"
                     value={editingLoan.principal_amount || 0}
                     onChange={(e) => setEditingLoan({ ...editingLoan, principal_amount: e.target.value })}
-                    className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#ffd700] font-mono font-bold"
+                    className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#dfbd84] font-mono font-bold"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[#2aa198] font-bold mb-1 uppercase text-[10px]">Interest Rate (%)</label>
+                  <label className="block text-[#dfbd84] font-bold mb-1 uppercase text-[10px]">Interest Rate (%)</label>
                   <input
                     type="number"
                     step="0.1"
                     value={editingLoan.interest_rate || 6.5}
                     onChange={(e) => setEditingLoan({ ...editingLoan, interest_rate: e.target.value })}
-                    className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3] font-mono"
+                    className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2] font-mono"
                     required
                   />
                 </div>
@@ -637,55 +637,55 @@ export const LoansDatabasePage = () => {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[#2aa198] font-bold mb-1 uppercase text-[10px]">Term (Months)</label>
+                  <label className="block text-[#dfbd84] font-bold mb-1 uppercase text-[10px]">Term (Months)</label>
                   <input
                     type="number"
                     value={editingLoan.term_months || 36}
                     onChange={(e) => setEditingLoan({ ...editingLoan, term_months: e.target.value })}
-                    className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3] font-mono"
+                    className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2] font-mono"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[#2aa198] font-bold mb-1 uppercase text-[10px]">Loan Status</label>
+                  <label className="block text-[#dfbd84] font-bold mb-1 uppercase text-[10px]">Loan Status</label>
                   <select
                     value={editingLoan.status || 'draft'}
                     onChange={(e) => setEditingLoan({ ...editingLoan, status: e.target.value })}
-                    className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#ffd700] font-bold"
+                    className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#dfbd84] font-bold"
                   >
-                    <option value="draft" className="bg-[#002129]">Draft / Applied</option>
-                    <option value="underwriting" className="bg-[#002129]">In Underwriting</option>
-                    <option value="approved" className="bg-[#002129]">Approved</option>
-                    <option value="disbursed" className="bg-[#002129]">Disbursed</option>
-                    <option value="rejected" className="bg-[#002129]">Rejected</option>
+                    <option value="draft" className="bg-[#182423]">Draft / Applied</option>
+                    <option value="underwriting" className="bg-[#182423]">In Underwriting</option>
+                    <option value="approved" className="bg-[#182423]">Approved</option>
+                    <option value="disbursed" className="bg-[#182423]">Disbursed</option>
+                    <option value="rejected" className="bg-[#182423]">Rejected</option>
                   </select>
                 </div>
               </div>
 
               <div>
-                <label className="block text-[#2aa198] font-bold mb-1 uppercase text-[10px]">Requisition Purpose</label>
+                <label className="block text-[#dfbd84] font-bold mb-1 uppercase text-[10px]">Requisition Purpose</label>
                 <input
                   type="text"
                   value={editingLoan.purpose || ''}
                   onChange={(e) => setEditingLoan({ ...editingLoan, purpose: e.target.value })}
-                  className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
+                  className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2]"
                   required
                 />
               </div>
 
-              <div className="pt-3 flex justify-end space-x-2 border-t border-[#2aa198]/20">
+              <div className="pt-3 flex justify-end space-x-2 border-t border-[#dfbd84]/20">
                 <button
                   type="button"
                   onClick={() => setEditingLoan(null)}
-                  className="px-4 py-2 bg-[#002129] text-[#93a1a1] rounded-xl font-semibold hover:bg-[#073642]"
+                  className="px-4 py-2 bg-[#182423] text-[#a4b8b5] rounded-xl font-semibold hover:bg-[#20302f]"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={processingId === editingLoan.id}
-                  className="px-5 py-2 bg-gradient-to-r from-[#b58900] via-[#d4af37] to-[#b58900] hover:from-[#d4af37] hover:to-[#ffd700] text-[#002b36] font-black rounded-xl shadow-lg transition disabled:opacity-50"
+                  className="px-5 py-2 bg-gradient-to-r from-[#c59e5f] via-[#dfbd84] to-[#c59e5f] hover:from-[#dfbd84] hover:to-[#dfbd84] text-[#1b2827] font-black rounded-xl shadow-lg transition disabled:opacity-50"
                 >
                   {processingId === editingLoan.id ? 'Saving Record...' : 'Save Database Modifications'}
                 </button>

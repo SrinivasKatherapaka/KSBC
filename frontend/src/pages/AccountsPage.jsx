@@ -281,7 +281,7 @@ export const AccountsPage = () => {
   const calcTotalDeposits = (accList) => accList.reduce((sum, a) => sum + Number(a.annual_revenue || 0), 0);
 
   return (
-    <div className="flex min-h-screen bg-[#002b36] text-[#93a1a1]">
+    <div className="flex min-h-screen bg-[#1b2827] text-[#a4b8b5]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -290,8 +290,8 @@ export const AccountsPage = () => {
           {/* Header & Intake Buttons */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-black text-[#fdf6e3] font-heading">KSBC Accounts Database</h1>
-              <p className="text-xs text-[#2aa198]">
+              <h1 className="text-2xl font-black text-[#f4eee2] font-heading">KSBC Accounts Database</h1>
+              <p className="text-xs text-[#dfbd84]">
                 Authenticated Master Ledger ({customers.length} Accounts: {privateSavingsCount} Private Savings, {hnwiCount} HNWI & {corporateCount} Corporate)
               </p>
             </div>
@@ -299,17 +299,17 @@ export const AccountsPage = () => {
             <div className="flex items-center space-x-3">
               <button
                 onClick={handleOpenCreateModal}
-                className="px-4 py-2.5 bg-gradient-to-r from-[#b58900] via-[#d4af37] to-[#b58900] hover:from-[#d4af37] hover:to-[#ffd700] text-[#002b36] text-xs font-black rounded-xl shadow-lg transition flex items-center space-x-2"
+                className="px-4 py-2.5 bg-gradient-to-r from-[#c59e5f] via-[#dfbd84] to-[#c59e5f] hover:from-[#dfbd84] hover:to-[#dfbd84] text-[#1b2827] text-xs font-black rounded-xl shadow-lg transition flex items-center space-x-2"
               >
-                <UserPlus className="w-4 h-4 text-[#002b36]" />
+                <UserPlus className="w-4 h-4 text-[#1b2827]" />
                 <span>Create New Account</span>
               </button>
 
               <button
                 onClick={() => setIsAuthModalOpen(true)}
-                className="px-4 py-2.5 bg-[#073642] hover:bg-[#002129] text-[#ffd700] text-xs font-bold rounded-xl border border-[#ffd700]/40 transition flex items-center space-x-2 shadow-lg"
+                className="px-4 py-2.5 bg-[#20302f] hover:bg-[#182423] text-[#dfbd84] text-xs font-bold rounded-xl border border-[#dfbd84]/40 transition flex items-center space-x-2 shadow-lg"
               >
-                <KeyRound className="w-4 h-4 text-[#ffd700]" />
+                <KeyRound className="w-4 h-4 text-[#dfbd84]" />
                 <span>Re-Verify Password Clearance</span>
               </button>
             </div>
@@ -318,37 +318,37 @@ export const AccountsPage = () => {
           {/* Authorization Status Banner */}
           <div className={`glass-panel p-4 rounded-2xl border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs ${
             canCreateAccount
-              ? 'border-[#859900]/40 bg-[#073642]/80 text-[#859900]'
-              : 'border-amber-500/40 bg-[#002129]/80 text-amber-300'
+              ? 'border-[#58b388]/40 bg-[#20302f]/80 text-[#58b388]'
+              : 'border-amber-500/40 bg-[#182423]/80 text-amber-300'
           }`}>
             <div className="flex items-center space-x-3 font-bold">
-              <ShieldCheck className="w-5 h-5 flex-shrink-0 text-[#ffd700]" />
+              <ShieldCheck className="w-5 h-5 flex-shrink-0 text-[#dfbd84]" />
               <div>
-                <span className="text-[#fdf6e3]">
+                <span className="text-[#f4eee2]">
                   {canCreateAccount
                     ? '🔐 Executive Intake Clearance Authenticated: CFO, Compliance & Admin Account Creation Unlocked'
                     : '👁️ Read-Only Operational View: Creating / Modifying Accounts Requires CFO, Compliance or Admin Clearance'}
                 </span>
-                <p className="text-[11px] text-[#93a1a1] font-normal mt-0.5">
-                  Active Persona: <strong className="text-[#ffd700]">{user?.first_name} {user?.last_name}</strong> ({user?.email}) — Role: <span className="uppercase text-[#2aa198]">{user?.role}</span>
+                <p className="text-[11px] text-[#a4b8b5] font-normal mt-0.5">
+                  Active Persona: <strong className="text-[#dfbd84]">{user?.first_name} {user?.last_name}</strong> ({user?.email}) — Role: <span className="uppercase text-[#dfbd84]">{user?.role}</span>
                 </p>
               </div>
             </div>
 
             <div className="font-mono text-xs text-right">
-              <span className="text-[10px] text-[#93a1a1] block font-sans">TOTAL DEPOSITS IN DATABASE</span>
-              <span className="font-extrabold text-[#ffd700] text-base">${calcTotalDeposits(customers).toLocaleString()}</span>
+              <span className="text-[10px] text-[#a4b8b5] block font-sans">TOTAL DEPOSITS IN DATABASE</span>
+              <span className="font-extrabold text-[#dfbd84] text-base">${calcTotalDeposits(customers).toLocaleString()}</span>
             </div>
           </div>
 
           {/* Success Banner */}
           {successMsg && (
-            <div className="p-3.5 bg-[#859900]/20 border border-[#859900]/50 rounded-xl text-xs text-[#859900] font-bold flex items-center justify-between">
+            <div className="p-3.5 bg-[#58b388]/20 border border-[#58b388]/50 rounded-xl text-xs text-[#58b388] font-bold flex items-center justify-between">
               <span className="flex items-center space-x-2">
                 <Check className="w-4 h-4" />
                 <span>{successMsg}</span>
               </span>
-              <button onClick={() => setSuccessMsg('')} className="text-[#859900] hover:text-white">
+              <button onClick={() => setSuccessMsg('')} className="text-[#58b388] hover:text-white">
                 <X className="w-4 h-4" />
               </button>
             </div>
@@ -357,7 +357,7 @@ export const AccountsPage = () => {
           <ErrorAlert message={error} onClose={() => setError('')} />
 
           {/* Category Filter & Search Bar */}
-          <div className="glass-panel p-3.5 rounded-2xl border border-[#2aa198]/30 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-[#073642]/60">
+          <div className="glass-panel p-3.5 rounded-2xl border border-[#dfbd84]/30 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-[#20302f]/60">
             <div className="flex space-x-2 font-mono text-xs overflow-x-auto">
               {[
                 { id: 'ALL', label: `All Accounts (${customers.length})` },
@@ -370,8 +370,8 @@ export const AccountsPage = () => {
                   onClick={() => setCategoryFilter(f.id)}
                   className={`px-3.5 py-2 rounded-xl font-semibold transition text-xs flex-shrink-0 ${
                     categoryFilter === f.id
-                      ? 'bg-[#002129] text-[#ffd700] border border-[#ffd700]/50 shadow-md font-bold'
-                      : 'bg-[#073642]/60 text-[#93a1a1] hover:text-[#fdf6e3] border border-[#2aa198]/20'
+                      ? 'bg-[#182423] text-[#dfbd84] border border-[#dfbd84]/50 shadow-md font-bold'
+                      : 'bg-[#20302f]/60 text-[#a4b8b5] hover:text-[#f4eee2] border border-[#dfbd84]/20'
                   }`}
                 >
                   {f.label}
@@ -381,22 +381,22 @@ export const AccountsPage = () => {
 
             {/* Search Bar */}
             <div className="relative w-full md:w-72">
-              <Search className="absolute left-3 top-2.5 w-4 h-4 text-[#2aa198]" />
+              <Search className="absolute left-3 top-2.5 w-4 h-4 text-[#dfbd84]" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search account, name, or SSN/EIN..."
-                className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 text-xs rounded-xl p-2 pl-9 text-[#fdf6e3] focus:outline-none focus:ring-2 focus:ring-[#ffd700]"
+                className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 text-xs rounded-xl p-2 pl-9 text-[#f4eee2] focus:outline-none focus:ring-2 focus:ring-[#dfbd84]"
               />
             </div>
           </div>
 
           {/* Bulk Selection Operations Bar */}
           {selectedIds.length > 0 && (
-            <div className="p-3.5 bg-[#002129] border border-[#ffd700]/40 rounded-2xl flex items-center justify-between text-xs text-[#fdf6e3] shadow-xl">
+            <div className="p-3.5 bg-[#182423] border border-[#dfbd84]/40 rounded-2xl flex items-center justify-between text-xs text-[#f4eee2] shadow-xl">
               <div className="flex items-center space-x-2 font-bold">
-                <CheckSquare className="w-4 h-4 text-[#ffd700]" />
+                <CheckSquare className="w-4 h-4 text-[#dfbd84]" />
                 <span>Selected {selectedIds.length} Accounts</span>
               </div>
 
@@ -411,7 +411,7 @@ export const AccountsPage = () => {
                 </button>
                 <button
                   onClick={() => setSelectedIds([])}
-                  className="px-3 py-1.5 bg-[#073642] text-[#93a1a1] hover:text-white rounded-xl font-semibold"
+                  className="px-3 py-1.5 bg-[#20302f] text-[#a4b8b5] hover:text-white rounded-xl font-semibold"
                 >
                   Deselect All
                 </button>
@@ -423,21 +423,21 @@ export const AccountsPage = () => {
           {loading ? (
             <LoadingSpinner text="Retrieving authenticated master accounts database..." />
           ) : (
-            <div className="glass-panel rounded-2xl border border-[#2aa198]/30 overflow-hidden p-5 space-y-4 bg-[#073642]/60 shadow-xl">
+            <div className="glass-panel rounded-2xl border border-[#dfbd84]/30 overflow-hidden p-5 space-y-4 bg-[#20302f]/60 shadow-xl">
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
                   <thead>
-                    <tr className="border-b border-[#2aa198]/20 text-[#2aa198] uppercase tracking-wider text-[10px] bg-[#002129]">
+                    <tr className="border-b border-[#dfbd84]/20 text-[#dfbd84] uppercase tracking-wider text-[10px] bg-[#182423]">
                       <th className="py-3.5 px-4 text-center">
                         <button
                           onClick={() => handleToggleSelectAll(filteredAccounts)}
-                          className="text-[#ffd700] hover:text-white transition"
+                          className="text-[#dfbd84] hover:text-white transition"
                           title="Select All Accounts"
                         >
                           {selectedIds.length > 0 && selectedIds.length === filteredAccounts.length ? (
-                            <CheckSquare className="w-4 h-4 text-[#ffd700]" />
+                            <CheckSquare className="w-4 h-4 text-[#dfbd84]" />
                           ) : (
-                            <Square className="w-4 h-4 text-[#2aa198]" />
+                            <Square className="w-4 h-4 text-[#dfbd84]" />
                           )}
                         </button>
                       </th>
@@ -447,10 +447,10 @@ export const AccountsPage = () => {
                       <th className="py-3.5 px-4">Tax / SSN / EIN ID</th>
                       <th className="py-3.5 px-4 text-right">Deposit Balance ($)</th>
                       <th className="py-3.5 px-4 text-center">KYC Status</th>
-                      <th className="py-3.5 px-4 text-center font-bold text-[#ffd700]">Actions / Modify</th>
+                      <th className="py-3.5 px-4 text-center font-bold text-[#dfbd84]">Actions / Modify</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#2aa198]/15">
+                  <tbody className="divide-y divide-[#dfbd84]/15">
                     {filteredAccounts.map((c) => {
                       const isSelected = selectedIds.includes(c.id);
                       const isHnwi = c.client_category === 'hnwi';
@@ -460,25 +460,25 @@ export const AccountsPage = () => {
                         <tr
                           key={c.id}
                           onClick={() => { setViewingCustomer(c); navigate(`/accounts/${c.id}`); }}
-                          className={`transition cursor-pointer ${isSelected ? 'bg-[#002129]/90' : 'hover:bg-[#002129]/70 hover:shadow-inner'}`}
+                          className={`transition cursor-pointer ${isSelected ? 'bg-[#182423]/90' : 'hover:bg-[#182423]/70 hover:shadow-inner'}`}
                           title="Click row to view detailed customer account information"
                         >
                           {/* Selection Checkbox Cell */}
                           <td className="py-3.5 px-4 text-center" onClick={(e) => e.stopPropagation()}>
                             <button
                               onClick={() => handleToggleSelectRow(c.id)}
-                              className="text-[#ffd700] hover:text-white"
+                              className="text-[#dfbd84] hover:text-white"
                             >
                               {isSelected ? (
-                                <CheckSquare className="w-4 h-4 text-[#ffd700]" />
+                                <CheckSquare className="w-4 h-4 text-[#dfbd84]" />
                               ) : (
-                                <Square className="w-4 h-4 text-[#93a1a1]" />
+                                <Square className="w-4 h-4 text-[#a4b8b5]" />
                               )}
                             </button>
                           </td>
 
                           {/* Account Number */}
-                          <td className="py-3.5 px-4 font-mono font-bold text-[#ffd700]">
+                          <td className="py-3.5 px-4 font-mono font-bold text-[#dfbd84]">
                             <span onClick={(e) => { e.stopPropagation(); navigate(`/accounts/${c.id}`); }} className="hover:underline cursor-pointer">
                               {c.account_number || `KSBC-ACC-${c.id.slice(0, 8)}`}
                             </span>
@@ -486,27 +486,27 @@ export const AccountsPage = () => {
 
                           {/* Client Name & Category Badge */}
                           <td className="py-3.5 px-4">
-                            <span onClick={(e) => { e.stopPropagation(); navigate(`/accounts/${c.id}`); }} className="font-bold text-[#fdf6e3] hover:underline cursor-pointer block">
+                            <span onClick={(e) => { e.stopPropagation(); navigate(`/accounts/${c.id}`); }} className="font-bold text-[#f4eee2] hover:underline cursor-pointer block">
                               {c.first_name} {c.last_name}
                             </span>
                             <span className={`inline-flex items-center px-2 py-0.5 rounded text-[9px] font-bold border uppercase mt-1 ${
                               isHnwi
-                                ? 'bg-[#ffd700]/10 text-[#ffd700] border-[#ffd700]/30'
+                                ? 'bg-[#dfbd84]/10 text-[#dfbd84] border-[#dfbd84]/30'
                                 : isCorporate
-                                ? 'bg-[#2aa198]/10 text-[#2aa198] border-[#2aa198]/30'
-                                : 'bg-[#073642] text-purple-300 border-purple-500/30'
+                                ? 'bg-[#dfbd84]/10 text-[#dfbd84] border-[#dfbd84]/30'
+                                : 'bg-[#20302f] text-purple-300 border-purple-500/30'
                             }`}>
                               {isHnwi ? '💎 High Net-Worth (HNWI)' : isCorporate ? '🏢 Corporate Client' : '👤 Private Savings Account'}
                             </span>
                           </td>
 
                           {/* Account Type */}
-                          <td className="py-3.5 px-4 text-[#93a1a1] font-medium">
+                          <td className="py-3.5 px-4 text-[#a4b8b5] font-medium">
                             {c.account_type || (isHnwi ? 'Private High-Net-Worth Reserve' : isCorporate ? 'Corporate Treasury Checking' : 'Private Standard Savings')}
                           </td>
 
                           {/* SSN / EIN (Displays last 4 digits, rest masked under *) */}
-                          <td className="py-3.5 px-4 font-mono text-[#93a1a1]">
+                          <td className="py-3.5 px-4 font-mono text-[#a4b8b5]">
                             {isUnlocked
                               ? (c.national_id || 'US-SSN-648-92-9918')
                               : (c.national_id && c.national_id.length >= 4
@@ -515,7 +515,7 @@ export const AccountsPage = () => {
                           </td>
 
                           {/* Deposit Balance */}
-                          <td className="py-3.5 px-4 text-right font-mono font-extrabold text-[#859900]">
+                          <td className="py-3.5 px-4 text-right font-mono font-extrabold text-[#58b388]">
                             ${Number(c.annual_revenue || 0).toLocaleString()}
                           </td>
 
@@ -523,10 +523,10 @@ export const AccountsPage = () => {
                           <td className="py-3.5 px-4 text-center">
                             <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold border uppercase ${
                               c.kyc_status === 'verified'
-                                ? 'bg-[#859900]/20 text-[#859900] border-[#859900]/40'
+                                ? 'bg-[#58b388]/20 text-[#58b388] border-[#58b388]/40'
                                 : c.kyc_status === 'flagged'
                                 ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
-                                : 'bg-[#002129] text-[#93a1a1] border-[#2aa198]/30'
+                                : 'bg-[#182423] text-[#a4b8b5] border-[#dfbd84]/30'
                             }`}>
                               {c.kyc_status}
                             </span>
@@ -537,18 +537,18 @@ export const AccountsPage = () => {
                             <div className="flex items-center justify-center space-x-1.5">
                               <button
                                 onClick={() => { setViewingCustomer(c); navigate(`/accounts/${c.id}`); }}
-                                className="px-2.5 py-1 bg-[#073642] hover:bg-[#002129] text-[#2aa198] hover:text-white border border-[#2aa198]/40 rounded-lg text-[10px] font-bold transition flex items-center space-x-1 shadow"
+                                className="px-2.5 py-1 bg-[#20302f] hover:bg-[#182423] text-[#dfbd84] hover:text-white border border-[#dfbd84]/40 rounded-lg text-[10px] font-bold transition flex items-center space-x-1 shadow"
                                 title="View Detailed Account Information"
                               >
-                                <Eye className="w-3 h-3 text-[#2aa198]" />
+                                <Eye className="w-3 h-3 text-[#dfbd84]" />
                                 <span>Details</span>
                               </button>
                               <button
                                 onClick={() => handleOpenEdit(c)}
-                                className="px-2.5 py-1 bg-[#002129] hover:bg-[#073642] text-[#ffd700] border border-[#ffd700]/30 rounded-lg text-[10px] font-bold transition flex items-center space-x-1 shadow"
+                                className="px-2.5 py-1 bg-[#182423] hover:bg-[#20302f] text-[#dfbd84] border border-[#dfbd84]/30 rounded-lg text-[10px] font-bold transition flex items-center space-x-1 shadow"
                                 title="Modify Account Details (CFO / Admin Only)"
                               >
-                                <Edit className="w-3 h-3 text-[#ffd700]" />
+                                <Edit className="w-3 h-3 text-[#dfbd84]" />
                                 <span>Modify</span>
                               </button>
                               <button
@@ -575,18 +575,18 @@ export const AccountsPage = () => {
       {/* Create New Account Modal (All 10 Fields - CFO, Compliance & Admin Only) */}
       {isCreateModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="glass-panel w-full max-w-2xl p-6 rounded-2xl border border-[#ffd700]/40 bg-[#073642] shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between pb-3 border-b border-[#2aa198]/20">
+          <div className="glass-panel w-full max-w-2xl p-6 rounded-2xl border border-[#dfbd84]/40 bg-[#20302f] shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between pb-3 border-b border-[#dfbd84]/20">
               <div className="flex items-center space-x-2">
-                <div className="p-2 bg-[#002129] text-[#ffd700] rounded-xl border border-[#ffd700]/30">
-                  <UserPlus className="w-5 h-5 text-[#ffd700]" />
+                <div className="p-2 bg-[#182423] text-[#dfbd84] rounded-xl border border-[#dfbd84]/30">
+                  <UserPlus className="w-5 h-5 text-[#dfbd84]" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-[#fdf6e3]">Create New Customer Account</h3>
-                  <p className="text-[11px] text-[#2aa198]">CFO, Compliance & Admin Executive Intake Clearance</p>
+                  <h3 className="text-base font-bold text-[#f4eee2]">Create New Customer Account</h3>
+                  <p className="text-[11px] text-[#dfbd84]">CFO, Compliance & Admin Executive Intake Clearance</p>
                 </div>
               </div>
-              <button onClick={() => setIsCreateModalOpen(false)} className="text-[#93a1a1] hover:text-white">
+              <button onClick={() => setIsCreateModalOpen(false)} className="text-[#a4b8b5] hover:text-white">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -594,24 +594,24 @@ export const AccountsPage = () => {
             <form onSubmit={handleCreateAccount} className="space-y-4 text-xs">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[#2aa198] font-bold mb-1 uppercase text-[10px]">1. First Name / Corporate Entity *</label>
+                  <label className="block text-[#dfbd84] font-bold mb-1 uppercase text-[10px]">1. First Name / Corporate Entity *</label>
                   <input
                     type="text"
                     value={createForm.firstName}
                     onChange={(e) => setCreateForm({ ...createForm, firstName: e.target.value })}
                     placeholder="e.g. Apex Global"
-                    className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
+                    className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2]"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-[#2aa198] font-bold mb-1 uppercase text-[10px]">2. Last Name / Suffix *</label>
+                  <label className="block text-[#dfbd84] font-bold mb-1 uppercase text-[10px]">2. Last Name / Suffix *</label>
                   <input
                     type="text"
                     value={createForm.lastName}
                     onChange={(e) => setCreateForm({ ...createForm, lastName: e.target.value })}
                     placeholder="e.g. Enterprises LLC"
-                    className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
+                    className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2]"
                     required
                   />
                 </div>
@@ -619,46 +619,46 @@ export const AccountsPage = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[#2aa198] font-bold mb-1 uppercase text-[10px]">3. Contact Email Address *</label>
+                  <label className="block text-[#dfbd84] font-bold mb-1 uppercase text-[10px]">3. Contact Email Address *</label>
                   <input
                     type="email"
                     value={createForm.email}
                     onChange={(e) => setCreateForm({ ...createForm, email: e.target.value })}
                     placeholder="e.g. treasury@apexglobal.com"
-                    className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
+                    className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2]"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-[#2aa198] font-bold mb-1 uppercase text-[10px]">4. Contact Phone Number</label>
+                  <label className="block text-[#dfbd84] font-bold mb-1 uppercase text-[10px]">4. Contact Phone Number</label>
                   <input
                     type="text"
                     value={createForm.phone}
                     onChange={(e) => setCreateForm({ ...createForm, phone: e.target.value })}
                     placeholder="e.g. +1-555-849-3012"
-                    className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
+                    className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2]"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[#2aa198] font-bold mb-1 uppercase text-[10px]">5. Tax ID / SSN / EIN</label>
+                  <label className="block text-[#dfbd84] font-bold mb-1 uppercase text-[10px]">5. Tax ID / SSN / EIN</label>
                   <input
                     type="text"
                     value={createForm.nationalId}
                     onChange={(e) => setCreateForm({ ...createForm, nationalId: e.target.value })}
                     placeholder="e.g. US-EIN-9481903"
-                    className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3] font-mono"
+                    className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2] font-mono"
                   />
                 </div>
                 <div>
-                  <label className="block text-[#2aa198] font-bold mb-1 uppercase text-[10px]">6. Initial Deposit Balance ($) *</label>
+                  <label className="block text-[#dfbd84] font-bold mb-1 uppercase text-[10px]">6. Initial Deposit Balance ($) *</label>
                   <input
                     type="number"
                     value={createForm.annualRevenue}
                     onChange={(e) => setCreateForm({ ...createForm, annualRevenue: e.target.value })}
-                    className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#ffd700] font-mono font-bold"
+                    className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#dfbd84] font-mono font-bold"
                     required
                   />
                 </div>
@@ -666,7 +666,7 @@ export const AccountsPage = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[#2aa198] font-bold mb-1 uppercase text-[10px]">7. Client Category</label>
+                  <label className="block text-[#dfbd84] font-bold mb-1 uppercase text-[10px]">7. Client Category</label>
                   <select
                     value={createForm.clientCategory}
                     onChange={(e) => {
@@ -674,7 +674,7 @@ export const AccountsPage = () => {
                       const defaultType = cat === 'hnwi' ? 'Private High-Net-Worth Reserve' : cat === 'corporate' ? 'Corporate Treasury Checking' : 'Private Standard Savings';
                       setCreateForm({ ...createForm, clientCategory: cat, accountType: defaultType });
                     }}
-                    className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
+                    className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2]"
                   >
                     <option value="private_savings">👤 Private Savings</option>
                     <option value="hnwi">💎 High Net-Worth (HNWI)</option>
@@ -682,23 +682,23 @@ export const AccountsPage = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-[#2aa198] font-bold mb-1 uppercase text-[10px]">8. Account Product Type</label>
+                  <label className="block text-[#dfbd84] font-bold mb-1 uppercase text-[10px]">8. Account Product Type</label>
                   <input
                     type="text"
                     value={createForm.accountType}
                     onChange={(e) => setCreateForm({ ...createForm, accountType: e.target.value })}
-                    className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
+                    className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2]"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[#2aa198] font-bold mb-1 uppercase text-[10px]">9. KYC Clearance Status</label>
+                  <label className="block text-[#dfbd84] font-bold mb-1 uppercase text-[10px]">9. KYC Clearance Status</label>
                   <select
                     value={createForm.kycStatus}
                     onChange={(e) => setCreateForm({ ...createForm, kycStatus: e.target.value })}
-                    className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
+                    className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2]"
                   >
                     <option value="verified">Verified</option>
                     <option value="pending">Pending Audit</option>
@@ -706,28 +706,28 @@ export const AccountsPage = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-[#2aa198] font-bold mb-1 uppercase text-[10px]">10. KYC & Audit Notes</label>
+                  <label className="block text-[#dfbd84] font-bold mb-1 uppercase text-[10px]">10. KYC & Audit Notes</label>
                   <input
                     type="text"
                     value={createForm.kycNotes}
                     onChange={(e) => setCreateForm({ ...createForm, kycNotes: e.target.value })}
-                    className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
+                    className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2]"
                   />
                 </div>
               </div>
 
-              <div className="pt-3 flex justify-end space-x-2 border-t border-[#2aa198]/20">
+              <div className="pt-3 flex justify-end space-x-2 border-t border-[#dfbd84]/20">
                 <button
                   type="button"
                   onClick={() => setIsCreateModalOpen(false)}
-                  className="px-4 py-2 bg-[#002129] text-[#93a1a1] rounded-xl font-semibold hover:bg-[#073642]"
+                  className="px-4 py-2 bg-[#182423] text-[#a4b8b5] rounded-xl font-semibold hover:bg-[#20302f]"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="px-5 py-2 bg-gradient-to-r from-[#b58900] via-[#d4af37] to-[#b58900] hover:from-[#d4af37] hover:to-[#ffd700] text-[#002b36] font-black rounded-xl shadow-lg transition disabled:opacity-50"
+                  className="px-5 py-2 bg-gradient-to-r from-[#c59e5f] via-[#dfbd84] to-[#c59e5f] hover:from-[#dfbd84] hover:to-[#dfbd84] text-[#1b2827] font-black rounded-xl shadow-lg transition disabled:opacity-50"
                 >
                   {submitting ? 'Creating Account...' : 'Create Account'}
                 </button>
@@ -740,18 +740,18 @@ export const AccountsPage = () => {
       {/* Modify Account Modal */}
       {editingCustomer && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="glass-panel w-full max-w-lg p-6 rounded-2xl border border-[#ffd700]/40 bg-[#073642] shadow-2xl space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-[#2aa198]/20">
+          <div className="glass-panel w-full max-w-lg p-6 rounded-2xl border border-[#dfbd84]/40 bg-[#20302f] shadow-2xl space-y-4">
+            <div className="flex items-center justify-between pb-3 border-b border-[#dfbd84]/20">
               <div className="flex items-center space-x-2">
-                <div className="p-2 bg-[#002129] text-[#ffd700] rounded-xl border border-[#ffd700]/30">
-                  <Edit className="w-5 h-5 text-[#ffd700]" />
+                <div className="p-2 bg-[#182423] text-[#dfbd84] rounded-xl border border-[#dfbd84]/30">
+                  <Edit className="w-5 h-5 text-[#dfbd84]" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-[#fdf6e3]">Modify Customer Account Details</h3>
-                  <p className="text-[11px] text-[#2aa198]">CFO & System Admin Executive Modification Clearance</p>
+                  <h3 className="text-base font-bold text-[#f4eee2]">Modify Customer Account Details</h3>
+                  <p className="text-[11px] text-[#dfbd84]">CFO & System Admin Executive Modification Clearance</p>
                 </div>
               </div>
-              <button onClick={() => setEditingCustomer(null)} className="text-[#93a1a1] hover:text-white">
+              <button onClick={() => setEditingCustomer(null)} className="text-[#a4b8b5] hover:text-white">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -759,45 +759,45 @@ export const AccountsPage = () => {
             <form onSubmit={handleSaveEdit} className="space-y-4 text-xs">
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[#2aa198] font-bold mb-1 uppercase text-[10px]">First Name / Entity</label>
+                  <label className="block text-[#dfbd84] font-bold mb-1 uppercase text-[10px]">First Name / Entity</label>
                   <input
                     type="text"
                     value={editForm.firstName}
                     onChange={(e) => setEditForm({ ...editForm, firstName: e.target.value })}
-                    className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
+                    className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2]"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-[#2aa198] font-bold mb-1 uppercase text-[10px]">Last Name / Suffix</label>
+                  <label className="block text-[#dfbd84] font-bold mb-1 uppercase text-[10px]">Last Name / Suffix</label>
                   <input
                     type="text"
                     value={editForm.lastName}
                     onChange={(e) => setEditForm({ ...editForm, lastName: e.target.value })}
-                    className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
+                    className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2]"
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-[#2aa198] font-bold mb-1 uppercase text-[10px]">Deposit Balance ($)</label>
+                <label className="block text-[#dfbd84] font-bold mb-1 uppercase text-[10px]">Deposit Balance ($)</label>
                 <input
                   type="number"
                   value={editForm.annualRevenue}
                   onChange={(e) => setEditForm({ ...editForm, annualRevenue: e.target.value })}
-                  className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#ffd700] font-mono font-bold"
+                  className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#dfbd84] font-mono font-bold"
                   required
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[#2aa198] font-bold mb-1 uppercase text-[10px]">Account Category</label>
+                  <label className="block text-[#dfbd84] font-bold mb-1 uppercase text-[10px]">Account Category</label>
                   <select
                     value={editForm.clientCategory}
                     onChange={(e) => setEditForm({ ...editForm, clientCategory: e.target.value })}
-                    className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
+                    className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2]"
                   >
                     <option value="private_savings">Private Savings</option>
                     <option value="hnwi">High Net-Worth (HNWI)</option>
@@ -806,11 +806,11 @@ export const AccountsPage = () => {
                 </div>
 
                 <div>
-                  <label className="block text-[#2aa198] font-bold mb-1 uppercase text-[10px]">KYC Clearance Status</label>
+                  <label className="block text-[#dfbd84] font-bold mb-1 uppercase text-[10px]">KYC Clearance Status</label>
                   <select
                     value={editForm.kycStatus}
                     onChange={(e) => setEditForm({ ...editForm, kycStatus: e.target.value })}
-                    className="w-full glass-input bg-[#002129] border border-[#2aa198]/40 rounded-xl p-2.5 text-[#fdf6e3]"
+                    className="w-full glass-input bg-[#182423] border border-[#dfbd84]/40 rounded-xl p-2.5 text-[#f4eee2]"
                   >
                     <option value="verified">Verified</option>
                     <option value="pending">Pending</option>
@@ -819,18 +819,18 @@ export const AccountsPage = () => {
                 </div>
               </div>
 
-              <div className="pt-3 flex justify-end space-x-2 border-t border-[#2aa198]/20">
+              <div className="pt-3 flex justify-end space-x-2 border-t border-[#dfbd84]/20">
                 <button
                   type="button"
                   onClick={() => setEditingCustomer(null)}
-                  className="px-4 py-2 bg-[#002129] text-[#93a1a1] rounded-xl font-semibold hover:bg-[#073642]"
+                  className="px-4 py-2 bg-[#182423] text-[#a4b8b5] rounded-xl font-semibold hover:bg-[#20302f]"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="px-5 py-2 bg-gradient-to-r from-[#b58900] via-[#d4af37] to-[#b58900] hover:from-[#d4af37] hover:to-[#ffd700] text-[#002b36] font-black rounded-xl shadow-lg transition disabled:opacity-50"
+                  className="px-5 py-2 bg-gradient-to-r from-[#c59e5f] via-[#dfbd84] to-[#c59e5f] hover:from-[#dfbd84] hover:to-[#dfbd84] text-[#1b2827] font-black rounded-xl shadow-lg transition disabled:opacity-50"
                 >
                   {submitting ? 'Saving Changes...' : 'Save Account Modifications'}
                 </button>
@@ -843,7 +843,7 @@ export const AccountsPage = () => {
       {/* Confirm Delete Account Modal */}
       {deletingCustomer && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="glass-panel w-full max-w-md p-6 rounded-2xl border border-red-500/40 bg-[#073642] shadow-2xl space-y-4">
+          <div className="glass-panel w-full max-w-md p-6 rounded-2xl border border-red-500/40 bg-[#20302f] shadow-2xl space-y-4">
             <div className="flex items-center space-x-3 text-red-400 border-b border-red-500/20 pb-3">
               <div className="p-2 bg-red-950/60 rounded-xl border border-red-500/40">
                 <AlertTriangle className="w-6 h-6 text-red-400" />
@@ -854,15 +854,15 @@ export const AccountsPage = () => {
               </div>
             </div>
 
-            <p className="text-xs text-[#fdf6e3] leading-relaxed">
-              Are you sure you want to permanently delete the account of <strong className="text-[#ffd700]">{deletingCustomer.first_name} {deletingCustomer.last_name}</strong> ({deletingCustomer.account_number || deletingCustomer.id.slice(0, 8)})?
+            <p className="text-xs text-[#f4eee2] leading-relaxed">
+              Are you sure you want to permanently delete the account of <strong className="text-[#dfbd84]">{deletingCustomer.first_name} {deletingCustomer.last_name}</strong> ({deletingCustomer.account_number || deletingCustomer.id.slice(0, 8)})?
             </p>
 
-            <div className="pt-3 flex justify-end space-x-2 border-t border-[#2aa198]/20">
+            <div className="pt-3 flex justify-end space-x-2 border-t border-[#dfbd84]/20">
               <button
                 type="button"
                 onClick={() => setDeletingCustomer(null)}
-                className="px-4 py-2 bg-[#002129] text-[#93a1a1] rounded-xl font-semibold"
+                className="px-4 py-2 bg-[#182423] text-[#a4b8b5] rounded-xl font-semibold"
               >
                 Cancel
               </button>
@@ -882,36 +882,36 @@ export const AccountsPage = () => {
       {/* Access Denied Warning Modal */}
       {accessDeniedMsg && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="glass-panel w-full max-w-md p-6 rounded-2xl border border-amber-500/40 bg-[#073642] shadow-2xl space-y-4">
+          <div className="glass-panel w-full max-w-md p-6 rounded-2xl border border-amber-500/40 bg-[#20302f] shadow-2xl space-y-4">
             <div className="flex items-center space-x-3 text-amber-400 border-b border-amber-500/20 pb-3">
-              <div className="p-2 bg-[#002129] rounded-xl border border-amber-500/40">
+              <div className="p-2 bg-[#182423] rounded-xl border border-amber-500/40">
                 <Lock className="w-6 h-6 text-amber-400" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-[#fdf6e3]">Executive Security Clearance Required</h3>
+                <h3 className="text-base font-bold text-[#f4eee2]">Executive Security Clearance Required</h3>
                 <p className="text-[11px] text-amber-300/80">CFO, Compliance & Admin Access Privilege Only</p>
               </div>
             </div>
 
-            <p className="text-xs text-[#93a1a1] leading-relaxed">{accessDeniedMsg}</p>
+            <p className="text-xs text-[#a4b8b5] leading-relaxed">{accessDeniedMsg}</p>
 
-            <div className="p-3 bg-[#002129] rounded-xl border border-[#2aa198]/30 text-xs space-y-1">
-              <span className="text-[10px] text-[#2aa198] font-bold uppercase block">Authorized Clearance Personas:</span>
-              <p className="font-mono text-[#ffd700] text-[11px] font-bold">1. CFO Executive: cfo@banking.com (password123)</p>
-              <p className="font-mono text-[#ffd700] text-[11px] font-bold">2. Compliance Officer: compliance@banking.com (password123)</p>
-              <p className="font-mono text-[#ffd700] text-[11px] font-bold">3. System Admin: admin@banking.com (password123)</p>
+            <div className="p-3 bg-[#182423] rounded-xl border border-[#dfbd84]/30 text-xs space-y-1">
+              <span className="text-[10px] text-[#dfbd84] font-bold uppercase block">Authorized Clearance Personas:</span>
+              <p className="font-mono text-[#dfbd84] text-[11px] font-bold">1. CFO Executive: cfo@banking.com (password123)</p>
+              <p className="font-mono text-[#dfbd84] text-[11px] font-bold">2. Compliance Officer: compliance@banking.com (password123)</p>
+              <p className="font-mono text-[#dfbd84] text-[11px] font-bold">3. System Admin: admin@banking.com (password123)</p>
             </div>
 
             <div className="pt-2 flex justify-end space-x-2">
               <button
                 onClick={() => { setAccessDeniedMsg(''); setIsAuthModalOpen(true); }}
-                className="px-4 py-2 bg-[#002129] hover:bg-[#073642] text-[#ffd700] font-bold rounded-xl text-xs border border-[#ffd700]/30"
+                className="px-4 py-2 bg-[#182423] hover:bg-[#20302f] text-[#dfbd84] font-bold rounded-xl text-xs border border-[#dfbd84]/30"
               >
                 Switch Credentials Persona
               </button>
               <button
                 onClick={() => setAccessDeniedMsg('')}
-                className="px-4 py-2 bg-gradient-to-r from-[#b58900] to-[#d4af37] text-[#002b36] font-bold rounded-xl text-xs"
+                className="px-4 py-2 bg-gradient-to-r from-[#c59e5f] to-[#dfbd84] text-[#1b2827] font-bold rounded-xl text-xs"
               >
                 Dismiss
               </button>
