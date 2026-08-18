@@ -57,38 +57,38 @@ export const PortfolioYieldChart = ({
   const areaPathD = `${smoothPathD} L ${getX(months.length - 1)} ${viewBoxHeight - paddingY + 10} L ${getX(0)} ${viewBoxHeight - paddingY + 10} Z`;
 
   return (
-    <div className="glass-card p-6 rounded-2xl border border-[#DFBD84]/20 flex flex-col justify-between bg-[#15203B]/85 shadow-2xl space-y-5 text-[#FAF7E6]">
+    <div className="glass-card p-6 rounded-2xl border border-[#1E2748]/15 flex flex-col justify-between bg-[#F6F2E3] shadow-xl space-y-5 text-[#1E2748]">
       {/* Header & Growth Yield Badge */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h3 
-            className="text-base font-black text-[#FAF7E6] flex items-center space-x-2"
+            className="text-base font-black text-[#1E2748] flex items-center space-x-2"
             style={{ fontFamily: "'Archivo Black', sans-serif" }}
           >
-            <TrendingUp className="w-5 h-5 text-[#DFBD84]" />
+            <TrendingUp className="w-5 h-5 text-[#1E2748]" />
             <span>Commercial Loan Portfolio Yield & Asset Trajectory</span>
           </h3>
-          <p className="text-xs text-[#94A3B8] font-medium">
+          <p className="text-xs text-[#53627C] font-medium">
             Live accrued interest & balance sheet capital growth ({effectiveCount} Master Accounts)
           </p>
         </div>
 
         <div className="flex items-center space-x-2 self-start sm:self-auto">
-          <div className="flex items-center space-x-1.5 px-3.5 py-1.5 bg-emerald-950/60 border border-emerald-500/40 text-emerald-400 rounded-xl text-xs font-extrabold shadow-sm">
-            <TrendingUp className="w-4 h-4 text-emerald-400" />
+          <div className="flex items-center space-x-1.5 px-3.5 py-1.5 bg-emerald-100/80 border border-emerald-300 text-emerald-800 rounded-xl text-xs font-extrabold shadow-sm">
+            <TrendingUp className="w-4 h-4 text-emerald-700" />
             <span>+{growthRate}% YoY Growth (+{yieldPercentage}% APR Yield)</span>
           </div>
         </div>
       </div>
 
       {/* Interactive SVG Chart Container */}
-      <div className="relative w-full bg-[#0F172A] rounded-2xl p-4 border border-[#DFBD84]/15 shadow-inner">
+      <div className="relative w-full bg-[#EBE4CD] rounded-2xl p-4 border border-[#1E2748]/15 shadow-inner">
         <svg className="w-full h-44 overflow-visible" viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}>
           <defs>
             <linearGradient id="yieldAreaGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#DFBD84" stopOpacity="0.35" />
-              <stop offset="60%" stopColor="#DFBD84" stopOpacity="0.10" />
-              <stop offset="100%" stopColor="#0F172A" stopOpacity="0.0" />
+              <stop offset="0%" stopColor="#1E2748" stopOpacity="0.20" />
+              <stop offset="60%" stopColor="#1E2748" stopOpacity="0.06" />
+              <stop offset="100%" stopColor="#EBE4CD" stopOpacity="0.0" />
             </linearGradient>
           </defs>
 
@@ -102,8 +102,8 @@ export const PortfolioYieldChart = ({
                 y1={yPos}
                 x2={viewBoxWidth - paddingX}
                 y2={yPos}
-                stroke="#DFBD84"
-                strokeOpacity="0.15"
+                stroke="#1E2748"
+                strokeOpacity="0.12"
                 strokeDasharray="4 4"
               />
             );
@@ -112,11 +112,11 @@ export const PortfolioYieldChart = ({
           {/* Area Fill */}
           <path d={areaPathD} fill="url(#yieldAreaGradient)" />
 
-          {/* Smooth Line Curve in KSBC Gold */}
+          {/* Smooth Line Curve in KSBC Navy */}
           <path
             d={smoothPathD}
             fill="none"
-            stroke="#DFBD84"
+            stroke="#1E2748"
             strokeWidth="3.5"
             strokeLinecap="round"
           />
@@ -136,8 +136,8 @@ export const PortfolioYieldChart = ({
                     y1={paddingY}
                     x2={cx}
                     y2={viewBoxHeight - paddingY + 5}
-                    stroke="#DFBD84"
-                    strokeOpacity="0.4"
+                    stroke="#1E2748"
+                    strokeOpacity="0.35"
                     strokeDasharray="3 3"
                   />
                 )}
@@ -148,7 +148,7 @@ export const PortfolioYieldChart = ({
                   cy={cy}
                   r={isHovered ? '7' : '4.5'}
                   className={`transition-all duration-200 cursor-pointer ${
-                    isHovered ? 'fill-[#DFBD84] stroke-[#FAF7E6] stroke-2' : 'fill-[#0F172A] stroke-[#DFBD84] stroke-2'
+                    isHovered ? 'fill-[#1E2748] stroke-[#FAF7E6] stroke-2' : 'fill-[#EBE4CD] stroke-[#1E2748] stroke-2'
                   }`}
                   onMouseEnter={() => setHoveredIdx(idx)}
                   onMouseLeave={() => setHoveredIdx(null)}
@@ -160,7 +160,7 @@ export const PortfolioYieldChart = ({
                   y={viewBoxHeight - 5}
                   textAnchor="middle"
                   className={`text-[11px] font-mono font-bold transition ${
-                    isHovered ? 'fill-[#DFBD84]' : 'fill-[#94A3B8]'
+                    isHovered ? 'fill-[#1E2748]' : 'fill-[#53627C]'
                   }`}
                 >
                   {months[idx]}
@@ -173,13 +173,13 @@ export const PortfolioYieldChart = ({
         {/* Hover Tooltip Overlay */}
         {hoveredIdx !== null && (
           <div
-            className="absolute top-3 left-1/2 -translate-x-1/2 bg-[#0B1120] text-[#FAF7E6] border border-[#DFBD84]/40 p-2.5 rounded-xl shadow-2xl text-xs flex items-center space-x-3 pointer-events-none z-10 animate-fade-in"
+            className="absolute top-3 left-1/2 -translate-x-1/2 bg-[#141C33] text-[#FAF7E6] border border-[#141C33] p-2.5 rounded-xl shadow-2xl text-xs flex items-center space-x-3 pointer-events-none z-10 animate-fade-in"
           >
-            <div className="p-1.5 bg-[#15203B] rounded-lg text-[#DFBD84]">
+            <div className="p-1.5 bg-[#1E2748] rounded-lg text-[#C59E5F]">
               <TrendingUp className="w-4 h-4" />
             </div>
             <div>
-              <span className="text-[10px] text-[#DFBD84] font-bold uppercase block">{months[hoveredIdx]} Portfolio Trajectory</span>
+              <span className="text-[10px] text-[#C59E5F] font-bold uppercase block">{months[hoveredIdx]} Portfolio Trajectory</span>
               <p className="font-mono font-extrabold text-[#FAF7E6]">
                 ${monthValues[hoveredIdx].toLocaleString()} <span className="text-emerald-400 text-[11px] font-semibold">(+{((trajectoryFractions[hoveredIdx] - 0.68) * 100 / 0.68).toFixed(1)}%)</span>
               </p>
@@ -189,30 +189,30 @@ export const PortfolioYieldChart = ({
       </div>
 
       {/* Live Financial Metrics Bar */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 border-t border-[#DFBD84]/15 text-xs">
-        <div className="p-3 bg-[#0F172A] rounded-xl border border-[#DFBD84]/15">
-          <span className="text-[#94A3B8] block text-[10px] font-bold uppercase">TOTAL DISBURSED PORTFOLIO</span>
-          <span className="text-base font-extrabold text-[#DFBD84] font-mono">${effectivePortfolio.toLocaleString()}</span>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 border-t border-[#1E2748]/15 text-xs">
+        <div className="p-3 bg-[#EBE4CD] rounded-xl border border-[#1E2748]/15">
+          <span className="text-[#53627C] block text-[10px] font-bold uppercase">TOTAL DISBURSED PORTFOLIO</span>
+          <span className="text-base font-extrabold text-[#1E2748] font-mono">${effectivePortfolio.toLocaleString()}</span>
         </div>
 
-        <div className="p-3 bg-[#0F172A] rounded-xl border border-[#DFBD84]/15">
-          <span className="text-[#94A3B8] block text-[10px] font-bold uppercase">MONTHLY INTEREST REVENUE</span>
-          <span className="text-base font-extrabold text-emerald-400 font-mono">
-            ${monthlyRevenue.toLocaleString()} <span className="text-[10px] text-[#94A3B8]">/ mo</span>
+        <div className="p-3 bg-[#EBE4CD] rounded-xl border border-[#1E2748]/15">
+          <span className="text-[#53627C] block text-[10px] font-bold uppercase">MONTHLY INTEREST REVENUE</span>
+          <span className="text-base font-extrabold text-emerald-800 font-mono">
+            ${monthlyRevenue.toLocaleString()} <span className="text-[10px] text-[#53627C]">/ mo</span>
           </span>
         </div>
 
-        <div className="p-3 bg-[#0F172A] rounded-xl border border-[#DFBD84]/15">
-          <span className="text-[#94A3B8] block text-[10px] font-bold uppercase">MASTER CUSTOMER DEPOSITS</span>
-          <span className="text-base font-extrabold text-[#FAF7E6] font-mono">
+        <div className="p-3 bg-[#EBE4CD] rounded-xl border border-[#1E2748]/15">
+          <span className="text-[#53627C] block text-[10px] font-bold uppercase">MASTER CUSTOMER DEPOSITS</span>
+          <span className="text-base font-extrabold text-[#1E2748] font-mono">
             ${effectiveDeposits.toLocaleString()}
           </span>
         </div>
 
-        <div className="p-3 bg-[#0F172A] rounded-xl border border-[#DFBD84]/15">
-          <span className="text-[#94A3B8] block text-[10px] font-bold uppercase">LIVE ACCOUNTS & YIELD</span>
-          <span className="text-base font-extrabold text-[#DFBD84] font-mono">
-            {effectiveCount} <span className="text-xs text-[#94A3B8] font-semibold">Accounts ({yieldPercentage}% APR)</span>
+        <div className="p-3 bg-[#EBE4CD] rounded-xl border border-[#1E2748]/15">
+          <span className="text-[#53627C] block text-[10px] font-bold uppercase">LIVE ACCOUNTS & YIELD</span>
+          <span className="text-base font-extrabold text-[#1E2748] font-mono">
+            {effectiveCount} <span className="text-xs text-[#53627C] font-semibold">Accounts ({yieldPercentage}% APR)</span>
           </span>
         </div>
       </div>
@@ -221,5 +221,6 @@ export const PortfolioYieldChart = ({
 };
 
 export default PortfolioYieldChart;
+
 
 

@@ -13,30 +13,32 @@ export default {
       },
       colors: {
         ksbc: {
-          50: '#FAF7E6',  // Warm Ivory Text Accent
+          50: '#FAF7E6',  // Warm Ivory / Cream Logo Background (Primary Theme)
           100: '#F5F1DA',
-          200: '#DFBD84', // KSBC Champagne Gold
-          300: '#C59E5F',
-          400: '#A68249',
-          500: '#876735',
-          600: '#684D24',
-          700: '#4A3516',
-          800: '#182442',
-          900: '#0F172A', // Deep Midnight Navy
-          950: '#0B1120', // Base Midnight Navy Background
-          bg: '#0B1120',
-          'bg-dark': '#070C18',
-          navy: '#0F172A',
-          'navy-card': '#15203B',
-          'navy-surface': '#182442',
-          'navy-border': 'rgba(223, 189, 132, 0.2)',
-          gold: '#DFBD84',
-          'gold-light': '#EED29E',
-          'gold-dark': '#C59E5F',
-          'text-primary': '#FAF7E6',
-          'text-secondary': '#94A3B8',
-          'text-gold': '#DFBD84',
-          'text-muted': '#64748B'
+          200: '#EAE3C2',
+          300: '#D5C99B',
+          400: '#B8A66E',
+          500: '#9C884B',
+          600: '#7E6B34',
+          700: '#5F4F24',
+          800: '#2E3B5E',
+          900: '#1E2748', // Deep KSBC Brand Navy
+          950: '#141C33', // Deepest Obsidian Navy
+          bg: '#FAF7E6',
+          'bg-dark': '#EFE7D0',
+          navy: '#1E2748',
+          'navy-dark': '#141C33',
+          'navy-light': '#2A3B66',
+          'navy-border': 'rgba(30, 39, 72, 0.16)',
+          card: '#F3EEDC',
+          'card-inner': '#EBE4CD',
+          gold: '#C59E5F',
+          'gold-light': '#DFBD84',
+          'gold-dark': '#A68249',
+          'text-primary': '#1E2748',
+          'text-secondary': '#53627C',
+          'text-muted': '#7E8DA4',
+          'text-navy': '#1E2748'
         }
       }
     },

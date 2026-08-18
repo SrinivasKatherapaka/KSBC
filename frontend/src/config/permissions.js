@@ -36,8 +36,8 @@ export const PORTAL_PERMISSIONS = {
   // 10. AI Customer Support - Customer Ops, Admin, CFO
   '/customer-service': ['customer_ops', 'admin', 'cfo_executive'],
   
-  // 11. Customer Operations - Customer Ops, Admin, CFO
-  '/customers': ['customer_ops', 'admin', 'cfo_executive'],
+  // 11. Customer Master Database - Available to all authenticated roles
+  '/customers': ['cfo_executive', 'admin', 'loan_officer', 'treasury_manager', 'compliance_officer', 'finance_manager', 'customer_ops'],
   
   // 12. Compliance & KYC Hub - Compliance Officer, Admin, CFO
   '/compliance': ['compliance_officer', 'admin', 'cfo_executive'],

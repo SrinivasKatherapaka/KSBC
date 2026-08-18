@@ -39,7 +39,7 @@ export const AdvisoryHistoryPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#0B1120] text-[#FAF7E6] text-[#94A3B8]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />

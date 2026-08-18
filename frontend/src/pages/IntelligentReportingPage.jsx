@@ -51,7 +51,7 @@ export const IntelligentReportingPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#0B1120] text-[#FAF7E6] text-[#94A3B8]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -60,11 +60,11 @@ export const IntelligentReportingPage = () => {
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-black text-[#FAF7E6] font-heading flex items-center space-x-2">
-                <FileText className="w-6 h-6 text-[#FAF7E6]" />
+              <h1 className="text-2xl font-black text-[#1E2748] font-heading flex items-center space-x-2">
+                <FileText className="w-6 h-6 text-[#1E2748]" />
                 <span>KSBC AI Intelligent Reporting Engine</span>
               </h1>
-              <p className="text-xs text-[#FAF7E6]">
+              <p className="text-xs text-[#1E2748]">
                 Automated Publication-Ready Financial Summaries, Regulatory Audits & Stress Test Reports
               </p>
             </div>
@@ -73,17 +73,17 @@ export const IntelligentReportingPage = () => {
             <div className="flex items-center space-x-2 self-start md:self-auto">
               <button
                 onClick={handleCopyMarkdown}
-                className="px-3.5 py-2 bg-[#15203B]/85 text-[#FAF7E6] hover:bg-[#15203B]/85 text-[#FAF7E6] text-[#FAF7E6] text-xs font-bold rounded-xl border border-[#DFBD84]/15 transition flex items-center space-x-1.5"
+                className="px-3.5 py-2 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] text-xs font-bold rounded-xl border border-[#1E2748]/15 transition flex items-center space-x-1.5"
               >
-                {copied ? <Check className="w-4 h-4 text-[#58b388]" /> : <Copy className="w-4 h-4 text-[#FAF7E6]" />}
+                {copied ? <Check className="w-4 h-4 text-[#58b388]" /> : <Copy className="w-4 h-4 text-[#1E2748]" />}
                 <span>{copied ? 'Copied Markdown!' : 'Copy Markdown Report'}</span>
               </button>
 
               <button
                 onClick={handlePrintReport}
-                className="px-4 py-2 bg-gradient-to-r from-[#C59E5F] via-[#DFBD84] to-[#C59E5F] hover:from-[#DFBD84] hover:to-[#EED29E] text-[#0B1120] font-black text-xs font-black rounded-xl shadow-lg transition flex items-center space-x-1.5"
+                className="px-4 py-2 bg-[#1E2748] hover:bg-[#141C33] text-[#FAF7E6] font-archivo font-extrabold text-xs font-black rounded-xl shadow-lg transition flex items-center space-x-1.5"
               >
-                <Printer className="w-4 h-4 text-[#FAF7E6]" />
+                <Printer className="w-4 h-4 text-[#1E2748]" />
                 <span>Export / Print PDF</span>
               </button>
             </div>
@@ -92,13 +92,13 @@ export const IntelligentReportingPage = () => {
           <ErrorAlert message={error} onClose={() => setError('')} />
 
           {/* Controls Bar */}
-          <div className="glass-panel p-4 rounded-2xl border border-[#DFBD84]/15 bg-[#15203B]/85 text-[#FAF7E6]/60 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
+          <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/60 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
             <div className="flex items-center space-x-2">
-              <span className="text-[10px] font-bold text-[#FAF7E6] uppercase">Select Report Module:</span>
+              <span className="text-[10px] font-bold text-[#1E2748] uppercase">Select Report Module:</span>
               <select
                 value={reportType}
                 onChange={(e) => setReportType(e.target.value)}
-                className="glass-input bg-[#15203B]/85 text-[#FAF7E6] border border-[#DFBD84]/15 rounded-xl p-2 text-[#FAF7E6] font-bold"
+                className="glass-input bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15 rounded-xl p-2 text-[#1E2748] font-bold"
               >
                 <option value="EXECUTIVE_FINANCIAL_SUMMARY">📋 Board Executive Financial Summary</option>
                 <option value="BASEL_III_REGULATORY_AUDIT">🏛️ Basel III Regulatory Compliance Audit</option>
@@ -107,11 +107,11 @@ export const IntelligentReportingPage = () => {
             </div>
 
             <div className="flex items-center space-x-2">
-              <span className="text-[10px] font-bold text-[#FAF7E6] uppercase">Audit Period:</span>
+              <span className="text-[10px] font-bold text-[#1E2748] uppercase">Audit Period:</span>
               <select
                 value={period}
                 onChange={(e) => setPeriod(e.target.value)}
-                className="glass-input bg-[#15203B]/85 text-[#FAF7E6] border border-[#DFBD84]/15 rounded-xl p-2 text-[#FAF7E6] font-mono font-bold"
+                className="glass-input bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15 rounded-xl p-2 text-[#1E2748] font-mono font-bold"
               >
                 <option value="Q3 2026">Q3 2026 (Current Period)</option>
                 <option value="Q2 2026">Q2 2026</option>
@@ -124,24 +124,24 @@ export const IntelligentReportingPage = () => {
           {loading ? (
             <LoadingSpinner text="Synthesizing publication-ready Gemini AI intelligent report..." />
           ) : reportData ? (
-            <div className="glass-panel p-8 rounded-2xl border border-[#DFBD84]/15 bg-[#15203B]/85 text-[#FAF7E6]/70 shadow-2xl space-y-6 text-xs leading-relaxed font-sans">
-              <div className="flex items-center justify-between border-b border-[#DFBD84]/15 pb-4">
+            <div className="glass-panel p-8 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/70 shadow-2xl space-y-6 text-xs leading-relaxed font-sans">
+              <div className="flex items-center justify-between border-b border-[#1E2748]/15 pb-4">
                 <div className="space-y-1">
-                  <span className="text-[10px] font-mono text-[#FAF7E6] font-bold uppercase px-2 py-0.5 bg-[#15203B]/85 text-[#FAF7E6] rounded border border-[#DFBD84]/15">
+                  <span className="text-[10px] font-mono text-[#1E2748] font-bold uppercase px-2 py-0.5 bg-[#F6F2E3] text-[#1E2748] rounded border border-[#1E2748]/15">
                     AUTOMATED AI REPORT SYNTHESIS
                   </span>
-                  <h2 className="text-xl font-extrabold text-[#FAF7E6] mt-2">{reportData.title}</h2>
-                  <p className="text-[11px] text-[#FAF7E6]">Generated on {new Date(reportData.generatedAt).toLocaleString()}</p>
+                  <h2 className="text-xl font-extrabold text-[#1E2748] mt-2">{reportData.title}</h2>
+                  <p className="text-[11px] text-[#1E2748]">Generated on {new Date(reportData.generatedAt).toLocaleString()}</p>
                 </div>
                 <div className="text-right font-mono text-xs">
-                  <span className="text-[10px] text-[#94A3B8] block font-sans uppercase">Security Clearance</span>
+                  <span className="text-[10px] text-[#53627C] block font-sans uppercase">Security Clearance</span>
                   <span className="text-[#58b388] font-bold">RESTRICTED EXECUTIVE</span>
                 </div>
               </div>
 
               {/* Formatted Markdown Content Render */}
-              <div className="prose prose-invert max-w-none text-[#FAF7E6] space-y-4 font-sans text-xs">
-                <div className="p-5 bg-[#15203B]/85 text-[#FAF7E6] rounded-2xl border border-[#DFBD84]/15 space-y-3 whitespace-pre-line">
+              <div className="prose prose-invert max-w-none text-[#1E2748] space-y-4 font-sans text-xs">
+                <div className="p-5 bg-[#F6F2E3] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 space-y-3 whitespace-pre-line">
                   {reportData.contentMarkdown}
                 </div>
               </div>

@@ -5,8 +5,8 @@
 @layer base {
   body {
     font-family: 'Inter', 'Archivo', sans-serif;
-    background-color: #0B1120;
-    color: #FAF7E6;
+    background-color: #FAF7E6;
+    color: #1E2748;
   }
   h1, h2, h3, h4, h5, h6, .font-heading, .font-archivo {
     font-family: 'Archivo Black', sans-serif;
@@ -14,20 +14,20 @@
   }
 }
 
-/* KSBC Brand Colors Glassmorphism Design Tokens */
+/* KSBC Logo Ivory Cream & Deep Navy Design Tokens (No Stark White Boxes) */
 .glass-panel {
-  background: rgba(21, 32, 59, 0.85);
+  background: rgba(243, 238, 220, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(223, 189, 132, 0.22);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(30, 39, 72, 0.16);
+  box-shadow: 0 8px 30px -4px rgba(30, 39, 72, 0.08), 0 2px 6px -1px rgba(30, 39, 72, 0.04);
 }
 
 .glass-card {
-  background: rgba(24, 36, 66, 0.75);
+  background: rgba(246, 242, 227, 0.96);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(223, 189, 132, 0.18);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(30, 39, 72, 0.14);
+  box-shadow: 0 4px 18px -2px rgba(30, 39, 72, 0.06);
 }
 
 .glass-card-hover {
@@ -35,43 +35,44 @@
 }
 .glass-card-hover:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.6), 0 0 20px rgba(223, 189, 132, 0.2);
-  border-color: rgba(223, 189, 132, 0.5);
+  box-shadow: 0 12px 28px -4px rgba(30, 39, 72, 0.14), 0 4px 12px -2px rgba(30, 39, 72, 0.08);
+  border-color: rgba(30, 39, 72, 0.30);
 }
 
 .glass-input {
-  background: rgba(15, 24, 44, 0.85);
-  border: 1px solid rgba(223, 189, 132, 0.25);
-  color: #FAF7E6;
+  background: #EBE4CD;
+  border: 1px solid rgba(30, 39, 72, 0.22);
+  color: #1E2748;
 }
 
 .glass-input:focus {
-  border-color: #DFBD84;
-  box-shadow: 0 0 15px rgba(223, 189, 132, 0.35);
+  border-color: #1E2748;
+  box-shadow: 0 0 0 3px rgba(30, 39, 72, 0.15);
+  background: #F3EEDC;
   outline: none;
 }
 
 .navy-card {
-  background: #15203B;
+  background: #141C33;
   color: #FAF7E6;
-  border: 1px solid rgba(223, 189, 132, 0.25);
+  border: 1px solid rgba(197, 158, 95, 0.3);
 }
 
-/* Custom Scrollbars in KSBC Gold & Midnight Navy */
+/* Custom Scrollbars in KSBC Deep Navy & Ivory */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0B1120;
+  background: #FAF7E6;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1E2D4A;
-  border: 1px solid rgba(223, 189, 132, 0.25);
+  background: #D5C9A8;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #DFBD84;
+  background: #1E2748;
 }
+
 
 

@@ -67,7 +67,7 @@ export const WorkflowAutomationPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#0B1120] text-[#FAF7E6] text-[#94A3B8]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -76,11 +76,11 @@ export const WorkflowAutomationPage = () => {
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-black text-[#FAF7E6] font-heading flex items-center space-x-2">
-                <Zap className="w-6 h-6 text-[#FAF7E6]" />
+              <h1 className="text-2xl font-black text-[#1E2748] font-heading flex items-center space-x-2">
+                <Zap className="w-6 h-6 text-[#1E2748]" />
                 <span>KSBC AI Workflow Automation Engine</span>
               </h1>
-              <p className="text-xs text-[#FAF7E6]">
+              <p className="text-xs text-[#1E2748]">
                 Autonomous Enterprise Execution across Loans, Treasury, General Ledger & BSA/AML Compliance
               </p>
             </div>
@@ -102,33 +102,33 @@ export const WorkflowAutomationPage = () => {
               return (
                 <div
                   key={wf.id}
-                  className="glass-panel p-6 rounded-2xl border border-[#DFBD84]/15 bg-[#15203B]/85 text-[#FAF7E6]/60 shadow-xl flex flex-col justify-between space-y-4 hover:border-[#DFBD84]/15 transition"
+                  className="glass-panel p-6 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/60 shadow-xl flex flex-col justify-between space-y-4 hover:border-[#1E2748]/15 transition"
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="px-2.5 py-0.5 rounded text-[9px] font-bold border uppercase bg-[#15203B]/85 text-[#FAF7E6] text-[#FAF7E6] border-[#DFBD84]/15 font-mono">
+                      <span className="px-2.5 py-0.5 rounded text-[9px] font-bold border uppercase bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border-[#1E2748]/15 font-mono">
                         {wf.category}
                       </span>
-                      <Icon className="w-5 h-5 text-[#FAF7E6]" />
+                      <Icon className="w-5 h-5 text-[#1E2748]" />
                     </div>
 
-                    <h3 className="text-base font-bold text-[#FAF7E6] leading-snug">{wf.title}</h3>
-                    <p className="text-xs text-[#94A3B8] leading-relaxed">{wf.description}</p>
+                    <h3 className="text-base font-bold text-[#1E2748] leading-snug">{wf.title}</h3>
+                    <p className="text-xs text-[#53627C] leading-relaxed">{wf.description}</p>
                   </div>
 
                   <button
                     onClick={() => handleTriggerWorkflow(wf.id)}
                     disabled={isRunning}
-                    className="w-full py-2.5 bg-gradient-to-r from-[#C59E5F] via-[#DFBD84] to-[#C59E5F] hover:from-[#DFBD84] hover:to-[#EED29E] text-[#0B1120] font-black font-black text-xs rounded-xl shadow-lg transition flex items-center justify-center space-x-2 disabled:opacity-50"
+                    className="w-full py-2.5 bg-[#1E2748] hover:bg-[#141C33] text-[#FAF7E6] font-archivo font-extrabold font-black text-xs rounded-xl shadow-lg transition flex items-center justify-center space-x-2 disabled:opacity-50"
                   >
                     {isRunning ? (
                       <>
-                        <RefreshCw className="w-4 h-4 animate-spin text-[#FAF7E6]" />
+                        <RefreshCw className="w-4 h-4 animate-spin text-[#1E2748]" />
                         <span>Executing Autonomous AI Steps...</span>
                       </>
                     ) : (
                       <>
-                        <Play className="w-4 h-4 text-[#FAF7E6] fill-current" />
+                        <Play className="w-4 h-4 text-[#1E2748] fill-current" />
                         <span>Trigger AI Workflow Execution</span>
                       </>
                     )}
@@ -140,28 +140,28 @@ export const WorkflowAutomationPage = () => {
 
           {/* Execution Results Feedback Window */}
           {executionResult && (
-            <div className="glass-panel p-6 rounded-2xl border border-[#58b388]/40 bg-[#15203B]/85 text-[#FAF7E6] shadow-2xl space-y-4 animate-fade-in">
-              <div className="flex items-center justify-between border-b border-[#DFBD84]/15 pb-3">
+            <div className="glass-panel p-6 rounded-2xl border border-[#58b388]/40 bg-[#F6F2E3] text-[#1E2748] shadow-2xl space-y-4 animate-fade-in">
+              <div className="flex items-center justify-between border-b border-[#1E2748]/15 pb-3">
                 <div className="flex items-center space-x-2 text-[#58b388]">
                   <CheckCircle2 className="w-5 h-5" />
-                  <h3 className="text-base font-bold text-[#FAF7E6]">Workflow Execution Log Output</h3>
+                  <h3 className="text-base font-bold text-[#1E2748]">Workflow Execution Log Output</h3>
                 </div>
-                <span className="text-[10px] font-mono text-[#FAF7E6] uppercase font-bold px-2 py-0.5 bg-[#15203B]/85 text-[#FAF7E6] rounded border border-[#DFBD84]/15">
+                <span className="text-[10px] font-mono text-[#1E2748] uppercase font-bold px-2 py-0.5 bg-[#F6F2E3] text-[#1E2748] rounded border border-[#1E2748]/15">
                   {executionResult.status}
                 </span>
               </div>
 
-              <p className="text-xs text-[#FAF7E6] font-medium leading-relaxed bg-[#15203B]/85 text-[#FAF7E6]/60 p-3 rounded-xl border border-[#DFBD84]/15">
+              <p className="text-xs text-[#1E2748] font-medium leading-relaxed bg-[#F6F2E3] text-[#1E2748]/60 p-3 rounded-xl border border-[#1E2748]/15">
                 {executionResult.summary}
               </p>
 
               {/* Execution Steps Stepper */}
               <div className="space-y-2 pt-2">
-                <span className="text-[10px] font-bold text-[#FAF7E6] uppercase block">Executed Automation Pipeline Steps:</span>
+                <span className="text-[10px] font-bold text-[#1E2748] uppercase block">Executed Automation Pipeline Steps:</span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                   {executionResult.executionSteps?.map((s, idx) => (
-                    <div key={idx} className="p-3 bg-[#15203B]/85 text-[#FAF7E6] rounded-xl border border-[#DFBD84]/15 text-xs space-y-1">
-                      <span className="text-[9px] text-[#FAF7E6] font-mono font-bold block">STEP {s.step}</span>
+                    <div key={idx} className="p-3 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15 text-xs space-y-1">
+                      <span className="text-[9px] text-[#1E2748] font-mono font-bold block">STEP {s.step}</span>
                       <p className="font-bold text-white text-[11px]">{s.action}</p>
                       <span className="text-[10px] text-[#58b388] font-mono block font-bold">{s.status}</span>
                     </div>
