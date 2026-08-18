@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Sidebar from '../components/common/Sidebar';
 import Navbar from '../components/common/Navbar';
 import LoanApplicationModal from '../components/loans/LoanApplicationModal';
+import LoanDetailsModal from '../components/loans/LoanDetailsModal';
 import RiskAssessmentBadge from '../components/loans/RiskAssessmentBadge';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 import ErrorAlert from '../components/common/ErrorAlert';
@@ -11,7 +12,8 @@ import { Link } from 'react-router-dom';
 import {
   Database, Plus, Sparkles, CheckCircle2, DollarSign, Filter, LayoutGrid, List,
   Loader2, User, Building, Store, Trash2, Edit, Search, CheckSquare, Square,
-  X, Check, Download, AlertTriangle, ShieldCheck, ArrowRight, RefreshCw, FileText
+  X, Check, Download, AlertTriangle, ShieldCheck, ArrowRight, RefreshCw, FileText,
+  Eye, ArrowUpRight
 } from 'lucide-react';
 
 export const LoansDatabasePage = () => {
@@ -21,6 +23,7 @@ export const LoansDatabasePage = () => {
   const [error, setError] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
   const [isIntakeModalOpen, setIsIntakeModalOpen] = useState(false);
+  const [selectedDetailLoan, setSelectedDetailLoan] = useState(null);
 
   // Search & Filter States
   const [searchQuery, setSearchQuery] = useState('');
@@ -84,6 +87,26 @@ export const LoansDatabasePage = () => {
       setError(err.response?.data?.error || 'Loan approval failed');
     } finally {
       setProcessingId(null);
+    }
+  };
+
+  const handleStatusUpdate = async (loanId, targetStatus, reasonNotes) => {
+    try {
+      const res = await apiClient.patch(`/loans/${loanId}/status`, {
+        status: targetStatus,
+        action: targetStatus,
+        notes: reasonNotes
+      });
+      if (res.data?.success) {
+        setSuccessMsg(`✅ Action Recorded: Loan #${loanId.slice(0, 8)} status set to "${targetStatus.toUpperCase()}".`);
+        fetchData();
+        if (selectedDetailLoan && selectedDetailLoan.id === loanId) {
+          setSelectedDetailLoan(res.data.loan || { ...selectedDetailLoan, status: targetStatus, decision_notes: reasonNotes });
+        }
+        setTimeout(() => setSuccessMsg(''), 4000);
+      }
+    } catch (err) {
+      setError(err.response?.data?.error || 'Failed to update loan status');
     }
   };
 
@@ -487,12 +510,24 @@ export const LoansDatabasePage = () => {
                               </button>
                             </td>
 
-                            <td className="py-3.5 px-3 font-mono font-bold text-[#dfbd84]">
-                              #{loanIdStr}
+                            <td className="py-3.5 px-3 font-mono font-bold">
+                              <button
+                                onClick={() => setSelectedDetailLoan(l)}
+                                className="text-[#dfbd84] hover:text-[#eed29e] hover:underline flex items-center space-x-1 cursor-pointer group"
+                                title="Click to view complete loan details and outcome actions"
+                              >
+                                <span>#{loanIdStr}</span>
+                                <ArrowUpRight className="w-3 h-3 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition" />
+                              </button>
                             </td>
 
                             <td className="py-3.5 px-3 space-y-0.5">
-                              <span className="font-bold text-[#f4eee2] block">{name}</span>
+                              <button
+                                onClick={() => setSelectedDetailLoan(l)}
+                                className="font-bold text-[#f4eee2] hover:text-[#dfbd84] text-left block cursor-pointer transition"
+                              >
+                                {name}
+                              </button>
                               <span className="text-[10px] text-[#dfbd84] font-mono block">{accNum}</span>
                             </td>
 
@@ -536,10 +571,19 @@ export const LoansDatabasePage = () => {
 
                             <td className="py-3.5 px-3 text-center">
                               <div className="flex items-center justify-center space-x-1.5">
+                                {/* View Details Modal Button */}
+                                <button
+                                  onClick={() => setSelectedDetailLoan(l)}
+                                  className="p-1.5 bg-[#182423] text-[#dfbd84] hover:bg-[#dfbd84] hover:text-[#1b2827] rounded-lg transition border border-[#dfbd84]/30 cursor-pointer"
+                                  title="View Full Loan Details & Outcome Actions"
+                                >
+                                  <Eye className="w-3.5 h-3.5" />
+                                </button>
+
                                 {/* Modify Button */}
                                 <button
                                   onClick={() => setEditingLoan(l)}
-                                  className="p-1.5 bg-[#20302f] text-[#dfbd84] hover:bg-[#dfbd84] hover:text-[#1b2827] rounded-lg transition border border-[#dfbd84]/30"
+                                  className="p-1.5 bg-[#20302f] text-[#dfbd84] hover:bg-[#dfbd84] hover:text-[#1b2827] rounded-lg transition border border-[#dfbd84]/30 cursor-pointer"
                                   title="Modify Loan Record"
                                 >
                                   <Edit className="w-3.5 h-3.5" />
@@ -548,7 +592,7 @@ export const LoansDatabasePage = () => {
                                 {/* Delete Button */}
                                 <button
                                   onClick={() => handleDeleteLoanRecord(l.id, name)}
-                                  className="p-1.5 bg-red-950/60 text-red-400 hover:bg-red-600 hover:text-white rounded-lg transition border border-red-500/30"
+                                  className="p-1.5 bg-red-950/60 text-red-400 hover:bg-red-600 hover:text-white rounded-lg transition border border-red-500/30 cursor-pointer"
                                   title="Delete Loan Record"
                                 >
                                   <Trash2 className="w-3.5 h-3.5" />
@@ -557,7 +601,7 @@ export const LoansDatabasePage = () => {
                                 {/* Run AI Risk Button */}
                                 <button
                                   onClick={() => handleAssessRisk(l.id)}
-                                  className="p-1.5 bg-[#dfbd84]/20 text-[#dfbd84] hover:bg-[#dfbd84] hover:text-[#1b2827] rounded-lg transition border border-[#dfbd84]/30"
+                                  className="p-1.5 bg-[#dfbd84]/20 text-[#dfbd84] hover:bg-[#dfbd84] hover:text-[#1b2827] rounded-lg transition border border-[#dfbd84]/30 cursor-pointer"
                                   title="Run Gemini AI Risk Model"
                                 >
                                   <Sparkles className="w-3.5 h-3.5" />
@@ -688,7 +732,7 @@ export const LoansDatabasePage = () => {
                 <button
                   type="submit"
                   disabled={processingId === editingLoan.id}
-                  className="px-5 py-2 bg-gradient-to-r from-[#c59e5f] via-[#dfbd84] to-[#c59e5f] hover:from-[#dfbd84] hover:to-[#dfbd84] text-[#1b2827] font-black rounded-xl shadow-lg transition disabled:opacity-50"
+                  className="px-5 py-2 bg-gradient-to-r from-[#c59e5f] via-[#dfbd84] to-[#c59e5f] hover:from-[#dfbd84] hover:to-[#dfbd84] text-[#1b2827] font-black rounded-xl shadow-lg transition disabled:opacity-50 cursor-pointer"
                 >
                   {processingId === editingLoan.id ? 'Saving Record...' : 'Save Database Modifications'}
                 </button>
@@ -696,6 +740,19 @@ export const LoansDatabasePage = () => {
             </form>
           </div>
         </div>
+      )}
+
+      {/* Loan Full Details & Outcome Actions Modal */}
+      {selectedDetailLoan && (
+        <LoanDetailsModal
+          isOpen={!!selectedDetailLoan}
+          onClose={() => setSelectedDetailLoan(null)}
+          loan={selectedDetailLoan}
+          onStatusUpdate={handleStatusUpdate}
+          onAssessRisk={handleAssessRisk}
+          onDisburse={handleDisburseLoan}
+          onDelete={handleDeleteLoanRecord}
+        />
       )}
     </div>
   );

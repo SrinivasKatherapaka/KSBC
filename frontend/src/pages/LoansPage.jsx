@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Sidebar from '../components/common/Sidebar';
 import Navbar from '../components/common/Navbar';
 import LoanApplicationModal from '../components/loans/LoanApplicationModal';
+import LoanDetailsModal from '../components/loans/LoanDetailsModal';
 import RiskAssessmentBadge from '../components/loans/RiskAssessmentBadge';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 import ErrorAlert from '../components/common/ErrorAlert';
@@ -11,7 +12,7 @@ import { useLocation } from 'react-router-dom';
 import {
   Landmark, Plus, Sparkles, CheckCircle2, DollarSign, Filter, LayoutGrid, List,
   Loader2, User, Building, Store, Database, Trash2, Edit, Search, CheckSquare, Square,
-  X, Check, Download, AlertTriangle, ShieldCheck
+  X, Check, Download, AlertTriangle, ShieldCheck, Eye, ArrowUpRight
 } from 'lucide-react';
 
 export const LoansPage = () => {
@@ -25,6 +26,7 @@ export const LoansPage = () => {
   const [error, setError] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedDetailLoan, setSelectedDetailLoan] = useState(null);
   const [viewMode, setViewMode] = useState(initialView);
 
   // Category & Status Filters
@@ -89,13 +91,33 @@ export const LoansPage = () => {
     setProcessingId(loanId);
     try {
       await apiClient.patch(`/loans/${loanId}/approve`);
-      setSuccessMsg(`✅ Loan #${loanId.slice(0, 8)} approved in underwriting pipeline!`);
+      setSuccessMsg(`✅ Loan record #${loanId.slice(0, 8)} approved by Underwriting.`);
       fetchData();
       setTimeout(() => setSuccessMsg(''), 4000);
     } catch (err) {
       setError(err.response?.data?.error || 'Loan approval failed');
     } finally {
       setProcessingId(null);
+    }
+  };
+
+  const handleStatusUpdate = async (loanId, targetStatus, reasonNotes) => {
+    try {
+      const res = await apiClient.patch(`/loans/${loanId}/status`, {
+        status: targetStatus,
+        action: targetStatus,
+        notes: reasonNotes
+      });
+      if (res.data?.success) {
+        setSuccessMsg(`✅ Action Recorded: Loan #${loanId.slice(0, 8)} status set to "${targetStatus.toUpperCase()}".`);
+        fetchData();
+        if (selectedDetailLoan && selectedDetailLoan.id === loanId) {
+          setSelectedDetailLoan(res.data.loan || { ...selectedDetailLoan, status: targetStatus, decision_notes: reasonNotes });
+        }
+        setTimeout(() => setSuccessMsg(''), 4000);
+      }
+    } catch (err) {
+      setError(err.response?.data?.error || 'Failed to update loan status');
     }
   };
 
@@ -214,10 +236,23 @@ export const LoansPage = () => {
       <div key={loan.id || Math.random()} className="p-4 bg-[#182423] rounded-2xl border border-[#dfbd84]/30 space-y-3 shadow-lg hover:border-[#dfbd84]/50 transition">
         <div className="flex justify-between items-start">
           <div>
-            <h4 className="font-extrabold text-[#f4eee2] text-sm">{displayName}</h4>
+            <button
+              onClick={() => setSelectedDetailLoan(loan)}
+              className="font-extrabold text-[#f4eee2] hover:text-[#dfbd84] text-sm text-left line-clamp-1 cursor-pointer transition"
+              title="Click to view full loan details modal"
+            >
+              {displayName}
+            </button>
             <div className="flex items-center space-x-1.5 mt-1">
               {renderCategoryBadge(category)}
-              <span className="text-[10px] text-[#dfbd84] font-mono">ID: #{loanIdStr}</span>
+              <button
+                onClick={() => setSelectedDetailLoan(loan)}
+                className="text-[10px] text-[#dfbd84] hover:text-[#eed29e] hover:underline font-mono font-bold flex items-center space-x-1 cursor-pointer group"
+                title="Click to view full loan details modal"
+              >
+                <span>ID: #{loanIdStr}</span>
+                <ArrowUpRight className="w-3 h-3 opacity-60 group-hover:opacity-100 transition" />
+              </button>
             </div>
           </div>
           <RiskAssessmentBadge score={loan.risk_score || 35} level={loan.ai_risk_assessment?.riskLevel} />
@@ -563,6 +598,19 @@ export const LoansPage = () => {
         onSubmit={handleCreateLoan}
         customers={customers}
       />
+
+      {/* Full Loan Details & Outcome Actions Modal */}
+      {selectedDetailLoan && (
+        <LoanDetailsModal
+          isOpen={!!selectedDetailLoan}
+          onClose={() => setSelectedDetailLoan(null)}
+          loan={selectedDetailLoan}
+          onStatusUpdate={handleStatusUpdate}
+          onAssessRisk={handleAssessRisk}
+          onDisburse={handleDisburseLoan}
+          onDelete={handleDeleteLoan}
+        />
+      )}
     </div>
   );
 };
