@@ -73,7 +73,7 @@ export const CfoAiAssistantPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#1b2827] text-[#a4b8b5]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#53627C]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -82,45 +82,45 @@ export const CfoAiAssistantPage = () => {
           {/* Header */}
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-black text-[#f4eee2] font-heading flex items-center space-x-2">
+              <h1 className="text-2xl font-black text-[#1E2748] font-heading flex items-center space-x-2">
                 <span>KSBC Executive CFO AI Chatbot</span>
-                <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#dfbd84]/20 text-[#dfbd84] border border-[#dfbd84]/40 font-mono font-bold">
+                <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#1E2748]/10 text-[#1E2748] border border-[#1E2748]/15 font-mono font-bold">
                   CFO Clearance Only
                 </span>
               </h1>
-              <p className="text-xs text-[#dfbd84]">Gemini 2.5 Flash Executive Balance Sheet & Liquidity Intelligence</p>
+              <p className="text-xs text-[#1E2748]">Gemini 2.5 Flash Executive Balance Sheet & Liquidity Intelligence</p>
             </div>
 
-            <div className="flex items-center space-x-2 px-3 py-1.5 bg-[#20302f] border border-[#dfbd84]/30 rounded-xl text-xs text-[#dfbd84] font-bold">
-              <span className="w-2 h-2 rounded-full bg-[#dfbd84] animate-pulse"></span>
+            <div className="flex items-center space-x-2 px-3 py-1.5 bg-[#FFFFFF] border border-[#1E2748]/15 rounded-xl text-xs text-[#1E2748] font-bold">
+              <span className="w-2 h-2 rounded-full bg-[#1E2748] animate-pulse"></span>
               <span>Gemini Telemetry Active</span>
             </div>
           </div>
 
           {/* Executive Metrics Bar */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div className="glass-panel p-4 rounded-2xl border border-[#dfbd84]/20 bg-[#20302f]/60 space-y-1">
-              <span className="text-[10px] uppercase font-bold text-[#dfbd84] flex items-center space-x-1">
-                <Vault className="w-3.5 h-3.5 text-[#dfbd84]" />
+            <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/10 bg-[#FFFFFF]/60 space-y-1">
+              <span className="text-[10px] uppercase font-bold text-[#1E2748] flex items-center space-x-1">
+                <Vault className="w-3.5 h-3.5 text-[#1E2748]" />
                 <span>Vault Reserves (1010)</span>
               </span>
-              <p className="text-lg font-mono font-extrabold text-[#dfbd84]">
+              <p className="text-lg font-mono font-extrabold text-[#1E2748]">
                 ${Number(metrics.vaultReserves).toLocaleString()}
               </p>
             </div>
 
-            <div className="glass-panel p-4 rounded-2xl border border-[#dfbd84]/20 bg-[#20302f]/60 space-y-1">
-              <span className="text-[10px] uppercase font-bold text-[#dfbd84] flex items-center space-x-1">
-                <Landmark className="w-3.5 h-3.5 text-[#dfbd84]" />
+            <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/10 bg-[#FFFFFF]/60 space-y-1">
+              <span className="text-[10px] uppercase font-bold text-[#1E2748] flex items-center space-x-1">
+                <Landmark className="w-3.5 h-3.5 text-[#1E2748]" />
                 <span>Loan Portfolio (1200)</span>
               </span>
-              <p className="text-lg font-mono font-extrabold text-[#f4eee2]">
+              <p className="text-lg font-mono font-extrabold text-[#1E2748]">
                 ${Number(metrics.loanPortfolio).toLocaleString()}
               </p>
             </div>
 
-            <div className="glass-panel p-4 rounded-2xl border border-[#dfbd84]/20 bg-[#20302f]/60 space-y-1">
-              <span className="text-[10px] uppercase font-bold text-[#dfbd84] flex items-center space-x-1">
+            <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/10 bg-[#FFFFFF]/60 space-y-1">
+              <span className="text-[10px] uppercase font-bold text-[#1E2748] flex items-center space-x-1">
                 <Shield className="w-3.5 h-3.5 text-[#58b388]" />
                 <span>Capital Adequacy (CAR)</span>
               </span>
@@ -129,8 +129,8 @@ export const CfoAiAssistantPage = () => {
               </p>
             </div>
 
-            <div className="glass-panel p-4 rounded-2xl border border-[#dfbd84]/20 bg-[#20302f]/60 space-y-1">
-              <span className="text-[10px] uppercase font-bold text-[#dfbd84] flex items-center space-x-1">
+            <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/10 bg-[#FFFFFF]/60 space-y-1">
+              <span className="text-[10px] uppercase font-bold text-[#1E2748] flex items-center space-x-1">
                 <TrendingUp className="w-3.5 h-3.5 text-amber-400" />
                 <span>Net NPA Watchlist</span>
               </span>
@@ -143,17 +143,17 @@ export const CfoAiAssistantPage = () => {
           <ErrorAlert message={error} onClose={() => setError('')} />
 
           {/* Interactive Chat Container */}
-          <div className="flex-1 glass-panel rounded-2xl border border-[#dfbd84]/30 flex flex-col h-[550px] overflow-hidden bg-[#20302f]/80 shadow-2xl">
-            <div className="p-4 border-b border-[#dfbd84]/20 bg-[#182423]/90 flex items-center justify-between">
+          <div className="flex-1 glass-panel rounded-2xl border border-[#1E2748]/15 flex flex-col h-[550px] overflow-hidden bg-[#FFFFFF]/80 shadow-2xl">
+            <div className="p-4 border-b border-[#1E2748]/10 bg-[#FFFFFF]/90 flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <div className="w-9 h-9 rounded-2xl bg-gradient-to-br from-[#dfbd84] via-[#dfbd84] to-[#c59e5f] flex items-center justify-center shadow-lg p-0.5">
-                  <div className="w-full h-full bg-[#1b2827] rounded-[14px] flex items-center justify-center">
-                    <Bot className="w-5 h-5 text-[#dfbd84]" />
+                <div className="w-9 h-9 rounded-2xl bg-gradient-to-br from-[#1E2748] via-[#1E2748] to-[#1E2748] flex items-center justify-center shadow-lg p-0.5">
+                  <div className="w-full h-full bg-[#FAF7E6] rounded-[14px] flex items-center justify-center">
+                    <Bot className="w-5 h-5 text-[#1E2748]" />
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-[#f4eee2]">CFO Executive Intelligence AI</h3>
-                  <p className="text-[10px] text-[#dfbd84] font-mono">Gemini 2.5 Flash Financial Advisory Agent</p>
+                  <h3 className="text-sm font-bold text-[#1E2748]">CFO Executive Intelligence AI</h3>
+                  <p className="text-[10px] text-[#1E2748] font-mono">Gemini 2.5 Flash Financial Advisory Agent</p>
                 </div>
               </div>
             </div>
@@ -167,18 +167,18 @@ export const CfoAiAssistantPage = () => {
                 >
                   <div className={`max-w-xl p-4 rounded-2xl text-xs space-y-2 ${
                     m.sender === 'user'
-                      ? 'bg-[#182423] text-[#f4eee2] rounded-tr-none shadow-lg border border-[#dfbd84]/40'
-                      : 'bg-[#1b2827]/90 text-[#f4eee2] rounded-tl-none border border-[#dfbd84]/30 shadow-lg'
+                      ? 'bg-[#FFFFFF] text-[#1E2748] rounded-tr-none shadow-lg border border-[#1E2748]/15'
+                      : 'bg-[#FAF7E6]/90 text-[#1E2748] rounded-tl-none border border-[#1E2748]/15 shadow-lg'
                   }`}>
                     <div className="flex items-center space-x-2 font-bold text-[10px] uppercase">
                       {m.sender === 'user' ? (
-                        <span className="text-[#dfbd84] flex items-center space-x-1">
+                        <span className="text-[#1E2748] flex items-center space-x-1">
                           <User className="w-3.5 h-3.5" />
                           <span>CFO Executive</span>
                         </span>
                       ) : (
-                        <span className="text-[#dfbd84] flex items-center space-x-1">
-                          <Bot className="w-3.5 h-3.5 text-[#dfbd84]" />
+                        <span className="text-[#1E2748] flex items-center space-x-1">
+                          <Bot className="w-3.5 h-3.5 text-[#1E2748]" />
                           <span>KSBC AI Financial Advisor</span>
                         </span>
                       )}
@@ -190,15 +190,15 @@ export const CfoAiAssistantPage = () => {
 
                     {/* Suggested Query Buttons */}
                     {m.suggestedQueries && m.suggestedQueries.length > 0 && (
-                      <div className="pt-3 flex flex-wrap gap-1.5 border-t border-[#dfbd84]/20 mt-2">
+                      <div className="pt-3 flex flex-wrap gap-1.5 border-t border-[#1E2748]/10 mt-2">
                         {m.suggestedQueries.map((query, qIdx) => (
                           <button
                             key={qIdx}
                             onClick={() => handleSendMessage(query)}
-                            className="px-2.5 py-1.5 bg-[#182423] hover:bg-[#20302f] text-[#dfbd84] rounded-xl text-[10px] font-semibold transition border border-[#dfbd84]/40 flex items-center space-x-1.5 text-left"
+                            className="px-2.5 py-1.5 bg-[#FFFFFF] hover:bg-[#FFFFFF] text-[#1E2748] rounded-xl text-[10px] font-semibold transition border border-[#1E2748]/15 flex items-center space-x-1.5 text-left"
                           >
                             <span>{query}</span>
-                            <ArrowRight className="w-3 h-3 text-[#dfbd84] flex-shrink-0" />
+                            <ArrowRight className="w-3 h-3 text-[#1E2748] flex-shrink-0" />
                           </button>
                         ))}
                       </div>
@@ -209,7 +209,7 @@ export const CfoAiAssistantPage = () => {
 
               {loading && (
                 <div className="flex justify-start">
-                  <div className="bg-[#1b2827] p-4 rounded-2xl rounded-tl-none border border-[#dfbd84]/40">
+                  <div className="bg-[#FAF7E6] p-4 rounded-2xl rounded-tl-none border border-[#1E2748]/15">
                     <LoadingSpinner text="Gemini AI analyzing financial telemetry & GL balances..." />
                   </div>
                 </div>
@@ -218,20 +218,20 @@ export const CfoAiAssistantPage = () => {
             </div>
 
             {/* Input Form */}
-            <form onSubmit={(e) => { e.preventDefault(); handleSendMessage(); }} className="p-3 border-t border-[#dfbd84]/20 bg-[#182423]/90 flex items-center space-x-2">
+            <form onSubmit={(e) => { e.preventDefault(); handleSendMessage(); }} className="p-3 border-t border-[#1E2748]/10 bg-[#FFFFFF]/90 flex items-center space-x-2">
               <input
                 type="text"
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 placeholder="Ask about Vault Reserves, Loan Portfolio Yield, CAR, or NPA provisions..."
-                className="flex-1 glass-input bg-[#1b2827] border border-[#dfbd84]/40 text-xs rounded-xl p-3 text-[#f4eee2] focus:outline-none focus:ring-2 focus:ring-[#dfbd84]"
+                className="flex-1 glass-input bg-[#FAF7E6] border border-[#1E2748]/15 text-xs rounded-xl p-3 text-[#1E2748] focus:outline-none focus:ring-2 focus:ring-[#1E2748]"
               />
               <button
                 type="submit"
                 disabled={loading || !inputMessage.trim()}
-                className="px-5 py-3 bg-gradient-to-r from-[#c59e5f] via-[#dfbd84] to-[#c59e5f] hover:from-[#dfbd84] hover:to-[#dfbd84] text-[#1b2827] font-black rounded-xl shadow-lg transition flex items-center justify-center space-x-1 disabled:opacity-50 border border-[#dfbd84]/50"
+                className="px-5 py-3 bg-[#1E2748] hover:bg-[#141C33] text-[#FAF7E6] font-black rounded-xl shadow-lg transition flex items-center justify-center space-x-1 disabled:opacity-50 border border-[#1E2748]/20"
               >
-                <Send className="w-4 h-4 text-[#1b2827]" />
+                <Send className="w-4 h-4 text-[#FAF7E6]" />
               </button>
             </form>
           </div>

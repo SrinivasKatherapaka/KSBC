@@ -1,5 +1,58 @@
 [
   {
+    "id": "9d09d1e5-4586-4884-bac0-ecfd32a82203",
+    "status": "approved",
+    "risk_score": 35,
+    "ai_risk_assessment": {
+      "applicantName": "Srinivas Katherapaka Enterprise AI",
+      "accountNumber": "KSBC-CORP-37678590",
+      "taxId": "US-TAX-7678590",
+      "customerEmail": "srinivas.678590@ksbc-client.com",
+      "riskScore": 35,
+      "riskLevel": "LOW",
+      "defaultProbability": 3.2,
+      "dtiRatio": 0.28,
+      "maxRecommendedLoan": 6000000,
+      "recommendation": "APPROVE",
+      "keyRisks": [
+        "Macroeconomic rate sensitivity"
+      ],
+      "mitigatingFactors": [
+        "Verified bank deposits",
+        "Established KSBC account history"
+      ],
+      "summaryAdvisory": "Applicant Srinivas Katherapaka Enterprise AI (Account: KSBC-CORP-37678590) evaluated under baseline AI underwriting parameters."
+    },
+    "approved_by": "a4444444-4444-4444-a444-444444444444",
+    "disbursed_by": null,
+    "decision_notes": "Collateral verified. Approved for full disbursement facility.",
+    "action_logs": [
+      {
+        "action": "approved",
+        "notes": "Collateral verified. Approved for full disbursement facility.",
+        "timestamp": "2026-08-18T07:21:19.915Z",
+        "user_id": "a4444444-4444-4444-a444-444444444444"
+      },
+      {
+        "action": "on_hold",
+        "notes": "Pending final review of multi-cloud architecture certifications",
+        "timestamp": "2026-08-18T07:21:19.016Z",
+        "user_id": "a4444444-4444-4444-a444-444444444444",
+        "risk_score": 35
+      }
+    ],
+    "customer_id": "c3275370-17ec-4cde-8e40-151ee29bcc75",
+    "applicant_name": "Srinivas Katherapaka Enterprise AI",
+    "applicant_category": "corporate",
+    "principal_amount": 4800000,
+    "interest_rate": 6.75,
+    "term_months": 48,
+    "purpose": "AI Banking Automation & Cloud Infrastructure",
+    "created_by": "a4444444-4444-4444-a444-444444444444",
+    "created_at": "2026-08-18T07:21:19.016Z",
+    "updated_at": "2026-08-18T07:21:19.915Z"
+  },
+  {
     "id": "cbf1e596-d706-40c5-aa0c-b6e0f514ce3f",
     "status": "rejected",
     "risk_score": 35,
@@ -23,7 +76,7 @@
       ],
       "summaryAdvisory": "Applicant Srinivas Tech Innovations Corp (Account: KSBC-APP-161781) evaluated under baseline AI underwriting parameters."
     },
-    "approved_by": "a1111111-1111-4111-a111-111111111111",
+    "approved_by": null,
     "disbursed_by": null,
     "decision_notes": "Adverse action decision test: Exceeds leverage concentration threshold.",
     "action_logs": [
@@ -56,7 +109,7 @@
     "purpose": "Equipment Purchase & Automation",
     "created_by": "a1111111-1111-4111-a111-111111111111",
     "created_at": "2026-08-18T06:39:21.977Z",
-    "updated_at": "2026-08-18T06:39:22.344Z"
+    "updated_at": "2026-08-18T07:15:54.822Z"
   },
   {
     "id": "c0000001-1111-4111-c111-111111111111",

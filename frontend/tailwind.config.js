@@ -6,29 +6,39 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        heading: ['"Archivo Black"', 'sans-serif'],
+        archivo: ['"Archivo Black"', 'sans-serif'],
+        sans: ['Inter', 'Archivo', 'sans-serif'],
+      },
       colors: {
         ksbc: {
-          50: '#f7f5ef',
-          100: '#ede8d9',
-          200: '#dfbd84', // Primary Champagne Brand Gold
-          300: '#c59e5f',
-          400: '#a68249',
-          500: '#876735',
-          600: '#684d24',
-          700: '#4a3516',
-          800: '#2b1e0b',
-          900: '#1b2827', // Deep Slate Pine
-          950: '#131d1c', // Deepest Obsidian Pine
-          gold: '#dfbd84',
-          'gold-light': '#eed29e',
-          'gold-dark': '#c59e5f',
-          pine: '#20302f',
-          'pine-dark': '#182423',
-          'pine-light': '#2b3f3e',
-          'pine-border': '#3d5654',
-          'text-primary': '#f4eee2',
-          'text-secondary': '#a4b8b5',
-          'text-gold': '#dfbd84'
+          50: '#FAF7E6',  // Warm Ivory / Cream Brand Background
+          100: '#F5F1DA',
+          200: '#EAE3C2',
+          300: '#D5C99B',
+          400: '#B8A66E',
+          500: '#9C884B',
+          600: '#7E6B34',
+          700: '#5F4F24',
+          800: '#2E3B5E',
+          900: '#1E2748', // Deep KSBC Brand Navy
+          950: '#141C33', // Deepest Obsidian Navy
+          bg: '#FAF7E6',
+          navy: '#1E2748',
+          'navy-dark': '#141C33',
+          'navy-light': '#2A3B66',
+          'navy-border': 'rgba(30, 39, 72, 0.15)',
+          surface: '#FFFFFF',
+          'surface-card': '#FFFDF9',
+          'surface-soft': '#F7F4E9',
+          gold: '#C59E5F',
+          'gold-light': '#DFBD84',
+          'gold-dark': '#A68249',
+          'text-primary': '#1E2748',
+          'text-secondary': '#53627C',
+          'text-muted': '#7E8DA4',
+          'text-navy': '#1E2748'
         }
       }
     },

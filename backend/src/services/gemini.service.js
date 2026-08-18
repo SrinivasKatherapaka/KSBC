@@ -93,7 +93,7 @@ export async function calculateLoanRisk(params) {
     `;
 
     const response = await aiClient.models.generateContent({
-      model: 'gemini-2.0-flash',
+      model: 'gemini-2.5-flash',
       contents: prompt,
       config: { responseMimeType: 'application/json' }
     });
@@ -176,7 +176,7 @@ export async function analyzeDefaulterRisk(defaulterData) {
     `;
 
     const response = await aiClient.models.generateContent({
-      model: 'gemini-2.0-flash',
+      model: 'gemini-2.5-flash',
       contents: prompt,
       config: { responseMimeType: 'application/json' }
     });
@@ -244,7 +244,7 @@ export async function detectTransactionFraud(transaction) {
     `;
 
     const response = await aiClient.models.generateContent({
-      model: 'gemini-2.0-flash',
+      model: 'gemini-2.5-flash',
       contents: prompt,
       config: { responseMimeType: 'application/json' }
     });
@@ -426,7 +426,7 @@ export async function customerServiceChat(userMessage, chatHistory = [], custome
     `;
 
     const response = await aiClient.models.generateContent({
-      model: 'gemini-2.0-flash',
+      model: 'gemini-2.5-flash',
       contents: systemPrompt,
       config: { responseMimeType: 'application/json' }
     });
@@ -735,7 +735,7 @@ export async function cfoExecutiveChat(userMessage, chatHistory = [], financialC
       `;
 
       const response = await aiClient.models.generateContent({
-        model: 'gemini-2.0-flash',
+        model: 'gemini-2.5-flash',
         contents: prompt,
         config: { responseMimeType: 'application/json' }
       });
@@ -864,7 +864,7 @@ export async function generatePredictiveAnalytics({ forecastMonths = 12, scenari
   if (aiClient) {
     try {
       const response = await aiClient.models.generateContent({
-        model: 'gemini-2.0-flash',
+        model: 'gemini-2.5-flash',
         contents: reportPrompt,
         config: { responseMimeType: 'application/json' }
       });

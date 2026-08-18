@@ -8,7 +8,7 @@ export const ProfilePage = () => {
   const { user, logout } = useAuth();
 
   return (
-    <div className="flex min-h-screen bg-[#1b2827] text-[#a4b8b5]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#53627C]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />

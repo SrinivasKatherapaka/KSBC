@@ -54,7 +54,7 @@ export const FraudDetectionPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#1b2827] text-[#a4b8b5]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#53627C]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -63,7 +63,7 @@ export const FraudDetectionPage = () => {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h1 className="text-2xl font-extrabold text-white font-heading">AI Fraudulent Transaction Engine</h1>
-              <p className="text-xs text-[#dfbd84]/70">Real-Time Gemini 2.5 Anomaly Scoring & Anti-Money Laundering (AML) Sentinel</p>
+              <p className="text-xs text-[#1E2748]/70">Real-Time Gemini 2.5 Anomaly Scoring & Anti-Money Laundering (AML) Sentinel</p>
             </div>
             <div className="flex items-center space-x-2 px-3 py-1 bg-red-500/10 border border-red-500/30 rounded-full text-xs text-red-400 font-bold">
               <ShieldAlert className="w-4 h-4 text-red-400 animate-pulse" />
@@ -78,8 +78,8 @@ export const FraudDetectionPage = () => {
           ) : (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
               {/* Suspicious Transactions Feed */}
-              <div className="lg:col-span-7 glass-panel p-5 rounded-2xl border border-[#dfbd84]/25 space-y-4">
-                <h3 className="text-sm font-bold text-white flex items-center space-x-2 pb-2 border-b border-[#dfbd84]/25">
+              <div className="lg:col-span-7 glass-panel p-5 rounded-2xl border border-[#1E2748]/15 space-y-4">
+                <h3 className="text-sm font-bold text-white flex items-center space-x-2 pb-2 border-b border-[#1E2748]/15">
                   <AlertTriangle className="w-4 h-4 text-amber-400" />
                   <span>Flagged Suspicious Transactions ({fraudAlerts.length})</span>
                 </h3>
@@ -88,7 +88,7 @@ export const FraudDetectionPage = () => {
                   {fraudAlerts.map((tx) => {
                     const isFrozen = frozenAccounts.includes(tx.accountNumber);
                     return (
-                      <div key={tx.transactionId} className="p-4 bg-[#182423]/60 rounded-xl border border-[#dfbd84]/30 space-y-3 hover:border-rose-600/50 transition">
+                      <div key={tx.transactionId} className="p-4 bg-[#FFFFFF]/60 rounded-xl border border-[#1E2748]/15 space-y-3 hover:border-rose-600/50 transition">
                         <div className="flex justify-between items-start">
                           <div>
                             <h4 className="font-bold text-white text-sm">{tx.accountHolder}</h4>
@@ -108,7 +108,7 @@ export const FraudDetectionPage = () => {
                           </div>
                         </div>
 
-                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs font-mono p-2.5 bg-[#182423] rounded-lg">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs font-mono p-2.5 bg-[#FFFFFF] rounded-lg">
                           <div>
                             <span className="text-[9px] text-slate-400 font-sans block">AMOUNT</span>
                             <span className="font-extrabold text-red-400">${Number(tx.amount).toLocaleString()}</span>
@@ -124,7 +124,7 @@ export const FraudDetectionPage = () => {
                         </div>
 
                         {/* Action buttons */}
-                        <div className="pt-2 border-t border-[#dfbd84]/25 flex items-center justify-between">
+                        <div className="pt-2 border-t border-[#1E2748]/15 flex items-center justify-between">
                           {isFrozen ? (
                             <span className="px-3 py-1 bg-red-500/20 text-red-400 font-bold rounded-lg text-xs flex items-center space-x-1 border border-red-500/40">
                               <Lock className="w-3.5 h-3.5" />
@@ -142,7 +142,7 @@ export const FraudDetectionPage = () => {
                           <button
                             onClick={() => handleAnalyzeFraud(tx)}
                             disabled={analyzingTxId === tx.transactionId}
-                            className="px-3.5 py-1.5 bg-gradient-to-r from-[#c59e5f] via-[#dfbd84] to-[#c59e5f] hover:from-[#dfbd84] hover:to-[#eed29e] text-white text-xs font-bold rounded-xl shadow transition flex items-center space-x-1.5 disabled:opacity-50 border border-[#dfbd84]/50"
+                            className="px-3.5 py-1.5 bg-[#1E2748] hover:bg-[#141C33] text-white text-xs font-bold rounded-xl shadow transition flex items-center space-x-1.5 disabled:opacity-50 border border-[#1E2748]/20"
                           >
                             {analyzingTxId === tx.transactionId ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Sparkles className="w-3.5 h-3.5 text-amber-300" />}
                             <span>Run AI Fraud Audit</span>
@@ -157,8 +157,8 @@ export const FraudDetectionPage = () => {
               {/* AI Fraud Analysis Result Box */}
               <div className="lg:col-span-5 space-y-4">
                 {analysisResult ? (
-                  <div className="glass-panel p-6 rounded-2xl border border-[#dfbd84]/30 space-y-4 shadow-2xl bg-rose-950/20">
-                    <div className="flex justify-between items-center pb-3 border-b border-[#dfbd84]/25">
+                  <div className="glass-panel p-6 rounded-2xl border border-[#1E2748]/15 space-y-4 shadow-2xl bg-rose-950/20">
+                    <div className="flex justify-between items-center pb-3 border-b border-[#1E2748]/15">
                       <h3 className="text-base font-bold text-white flex items-center space-x-2">
                         <Sparkles className="w-4 h-4 text-amber-400" />
                         <span>Gemini AI Fraud Audit</span>
@@ -168,14 +168,14 @@ export const FraudDetectionPage = () => {
                       </span>
                     </div>
 
-                    <div className="p-3 bg-[#182423] rounded-xl border border-[#dfbd84]/30 text-xs font-mono space-y-1">
+                    <div className="p-3 bg-[#FFFFFF] rounded-xl border border-[#1E2748]/15 text-xs font-mono space-y-1">
                       <span className="text-slate-400 font-sans text-[10px] block">TRANSACTION AUDIT VERDICT</span>
                       <span className="font-bold text-white text-sm block">{analysisResult.transactionId}</span>
                       <span className="text-red-400 block font-bold">Risk Tag: {analysisResult.riskTag}</span>
                     </div>
 
                     <div className="space-y-2 text-xs">
-                      <span className="font-bold text-[#dfbd84] block text-[11px] uppercase tracking-wider">Detected Anomaly Signals:</span>
+                      <span className="font-bold text-[#1E2748] block text-[11px] uppercase tracking-wider">Detected Anomaly Signals:</span>
                       {analysisResult.anomalyFactors?.map((f, i) => (
                         <div key={i} className="p-2 bg-red-950/40 rounded-lg border border-red-900/30 text-red-300 flex items-center space-x-2">
                           <AlertTriangle className="w-3.5 h-3.5 text-red-400 flex-shrink-0" />
@@ -190,7 +190,7 @@ export const FraudDetectionPage = () => {
                     </div>
                   </div>
                 ) : (
-                  <div className="glass-panel p-8 rounded-2xl border border-[#dfbd84]/25 text-center text-slate-400 text-xs space-y-2">
+                  <div className="glass-panel p-8 rounded-2xl border border-[#1E2748]/15 text-center text-slate-400 text-xs space-y-2">
                     <ShieldAlert className="w-8 h-8 text-rose-500/40 mx-auto" />
                     <p>Click "Run AI Fraud Audit" on any flagged transaction to generate deep Gemini anomaly diagnostic signals.</p>
                   </div>

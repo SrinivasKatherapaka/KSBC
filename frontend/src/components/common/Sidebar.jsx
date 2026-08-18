@@ -21,6 +21,7 @@ import {
   UserCheck 
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { hasPortalAccess } from '../../config/permissions';
 import FlyingMatLogo from './FlyingMatLogo';
 
 export const Sidebar = () => {
@@ -50,17 +51,25 @@ export const Sidebar = () => {
     { label: 'User Security Profile', path: '/profile', icon: UserCheck, roleTag: 'Security' }
   ];
 
+  // Dynamically filter navigation items based on active role permissions
+  const visibleNavItems = navItems.filter((item) => hasPortalAccess(user?.role, item.path));
+
   return (
-    <aside className="w-64 glass-panel border-r border-[#dfbd84]/20 flex flex-col h-screen sticky top-0 z-30 bg-[#1b2827]/90 backdrop-blur-xl">
+    <aside className="w-64 bg-[#141C33] border-r border-[#232E52] flex flex-col h-screen sticky top-0 z-30 shadow-2xl text-[#FAF7E6]">
       {/* KSBC Brand Header with Temple Logo */}
-      <div className="p-4 border-b border-[#dfbd84]/20 bg-[#20302f]/70 flex items-center justify-between">
-        <FlyingMatLogo size="lg" />
+      <div className="p-4 border-b border-[#232E52] bg-[#10172B] flex items-center justify-between">
+        <FlyingMatLogo size="lg" light={true} />
       </div>
 
       {/* Navigation items */}
-      <div className="flex-1 overflow-y-auto py-4 px-3 space-y-1">
-        <div className="px-3 pb-2 text-[10px] font-bold uppercase tracking-wider text-[#dfbd84]">KSBC Enterprise Modules</div>
-        {navItems.map((item) => {
+      <div className="flex-1 overflow-y-auto py-4 px-3 space-y-1.5 custom-sidebar-scroll">
+        <div className="px-3 pb-2 flex items-center justify-between">
+          <span className="text-[10px] font-archivo font-extrabold uppercase tracking-wider text-[#C59E5F]">KSBC Portals</span>
+          <span className="text-[9px] font-mono px-1.5 py-0.5 bg-[#1E2748] text-[#FAF7E6]/80 rounded border border-[#2E3C66]">
+            {visibleNavItems.length} Active
+          </span>
+        </div>
+        {visibleNavItems.map((item) => {
           const Icon = item.icon;
           return (
             <NavLink
@@ -69,16 +78,16 @@ export const Sidebar = () => {
               className={({ isActive }) =>
                 `flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 ${
                   isActive
-                    ? 'bg-[#273a39] text-[#dfbd84] border border-[#dfbd84]/50 shadow-md shadow-[#182423]'
-                    : 'text-[#a4b8b5] hover:text-[#f4eee2] hover:bg-[#273a39]/50'
+                    ? 'bg-[#1E2748] text-[#FFFFFF] border border-[#3A4E82] shadow-md shadow-black/20 font-bold'
+                    : 'text-[#9CB0D4] hover:text-[#FFFFFF] hover:bg-[#1A2544]'
                 }`
               }
             >
-              <div className="flex items-center space-x-3">
-                <Icon className="w-4 h-4 flex-shrink-0 text-[#dfbd84]" />
+              <div className="flex items-center space-x-3 truncate mr-2">
+                <Icon className="w-4 h-4 flex-shrink-0 text-[#C59E5F]" />
                 <span className="truncate">{item.label}</span>
               </div>
-              <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-[#182423] text-[#dfbd84] font-mono border border-[#dfbd84]/25">
+              <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-[#10172B] text-[#C59E5F] font-mono border border-[#2E3C66] flex-shrink-0">
                 {item.roleTag}
               </span>
             </NavLink>
@@ -87,14 +96,14 @@ export const Sidebar = () => {
       </div>
 
       {/* Active User Persona Footer */}
-      <div className="p-4 border-t border-[#dfbd84]/20 bg-[#182423]/80">
+      <div className="p-3.5 border-t border-[#232E52] bg-[#10172B]">
         <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 rounded-full bg-[#273a39] border border-[#dfbd84]/40 flex items-center justify-center text-xs font-bold text-[#dfbd84]">
-            {user?.first_name?.[0]}{user?.last_name?.[0]}
+          <div className="w-8 h-8 rounded-full bg-[#1E2748] border border-[#C59E5F]/50 flex items-center justify-center text-xs font-heading font-black text-[#C59E5F]">
+            {user?.first_name?.[0] || 'K'}{user?.last_name?.[0] || 'S'}
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-xs font-bold text-[#f4eee2] truncate">{user?.first_name} {user?.last_name}</p>
-            <p className="text-[10px] text-[#dfbd84] font-mono capitalize truncate">{user?.role?.replace('_', ' ')}</p>
+            <p className="text-xs font-bold text-[#FFFFFF] truncate">{user?.first_name} {user?.last_name}</p>
+            <p className="text-[10px] text-[#C59E5F] font-mono capitalize truncate">{user?.role?.replace('_', ' ')}</p>
           </div>
         </div>
       </div>
@@ -102,3 +111,4 @@ export const Sidebar = () => {
   );
 };
 export default Sidebar;
+

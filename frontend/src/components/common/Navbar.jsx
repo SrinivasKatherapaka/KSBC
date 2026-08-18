@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { LogOut, Sparkles, Shield, KeyRound, UserCheck } from 'lucide-react';
+import { LogOut, Sparkles, Shield, KeyRound } from 'lucide-react';
 import ReAuthModal from './ReAuthModal';
 
 export const Navbar = () => {
@@ -29,30 +29,30 @@ export const Navbar = () => {
 
   return (
     <>
-      <header className="h-16 glass-panel border-b border-[#dfbd84]/20 px-6 flex items-center justify-between sticky top-0 z-20 bg-[#1b2827]/85 backdrop-blur-xl">
+      <header className="h-16 glass-panel border-b border-[#1E2748]/15 px-6 flex items-center justify-between sticky top-0 z-20 bg-[#FAF7E6]/95 backdrop-blur-xl">
         <div className="flex items-center space-x-4">
-          <div className="flex items-center space-x-2 px-3 py-1 bg-[#dfbd84]/10 border border-[#dfbd84]/30 rounded-full">
-            <span className="w-2 h-2 rounded-full bg-[#dfbd84] animate-pulse"></span>
-            <span className="text-[11px] font-bold text-[#dfbd84] uppercase tracking-wider">KSBC Live</span>
+          <div className="flex items-center space-x-2 px-3 py-1 bg-[#1E2748] text-[#FAF7E6] rounded-full shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
+            <span className="text-[11px] font-archivo font-black uppercase tracking-wider">KSBC Live</span>
           </div>
 
-          <div className="hidden lg:flex items-center space-x-2 text-xs text-[#a4b8b5]">
-            <Sparkles className="w-3.5 h-3.5 text-[#dfbd84]" />
-            <span>Gemini KSBC Underwriting Engine Active</span>
+          <div className="hidden lg:flex items-center space-x-2 text-xs text-[#53627C] font-medium">
+            <Sparkles className="w-3.5 h-3.5 text-[#C59E5F]" />
+            <span>Gemini Underwriting Engine Active</span>
           </div>
         </div>
 
         <div className="flex items-center space-x-3">
           {/* Quick Persona Shift Dropdown with Authentication */}
           <div className="relative group">
-            <button className="flex items-center space-x-2 bg-[#273a39] hover:bg-[#324846] px-3 py-1.5 rounded-xl border border-[#dfbd84]/35 text-xs font-bold text-[#f4eee2] transition">
-              <KeyRound className="w-3.5 h-3.5 text-[#dfbd84]" />
-              <span>Shift Account Clearance</span>
+            <button className="flex items-center space-x-2 bg-[#FFFFFF] hover:bg-[#F2EDE0] px-3.5 py-1.5 rounded-xl border border-[#1E2748]/20 text-xs font-bold text-[#1E2748] shadow-sm transition">
+              <KeyRound className="w-3.5 h-3.5 text-[#1E2748]" />
+              <span>Shift Clearance Role</span>
             </button>
 
-            <div className="absolute right-0 mt-1 w-56 glass-panel p-2 rounded-2xl border border-[#dfbd84]/30 shadow-2xl hidden group-hover:block z-50 space-y-1 bg-[#20302f]">
-              <div className="px-2 py-1 text-[10px] font-bold text-[#dfbd84] uppercase tracking-wider">
-                Shift Account View (Requires Auth):
+            <div className="absolute right-0 mt-1 w-60 glass-panel p-2 rounded-2xl border border-[#1E2748]/20 shadow-2xl hidden group-hover:block z-50 space-y-1 bg-[#FFFFFF]">
+              <div className="px-2.5 py-1.5 text-[10px] font-archivo font-extrabold text-[#1E2748] uppercase tracking-wider border-b border-[#1E2748]/10">
+                Shift Account Persona:
               </div>
               {demoPersonas.map((p) => (
                 <button
@@ -60,26 +60,26 @@ export const Navbar = () => {
                   onClick={() => handleTriggerShift(p.email)}
                   className={`w-full text-left px-2.5 py-1.5 rounded-xl text-xs font-medium transition flex items-center justify-between ${
                     user?.email === p.email
-                      ? 'bg-[#273a39] text-[#dfbd84] font-bold border border-[#dfbd84]/40'
-                      : 'text-[#a4b8b5] hover:bg-[#273a39]/70 hover:text-[#f4eee2]'
+                      ? 'bg-[#1E2748] text-[#FAF7E6] font-bold shadow-sm'
+                      : 'text-[#53627C] hover:bg-[#FAF7E6] hover:text-[#1E2748]'
                   }`}
                 >
                   <span>{p.label}</span>
-                  {user?.email === p.email && <span className="text-[9px] font-mono text-[#58b388]">Active</span>}
+                  {user?.email === p.email && <span className="text-[9px] font-mono text-[#10B981] font-bold">Active</span>}
                 </button>
               ))}
             </div>
           </div>
 
-          <div className="hidden sm:flex items-center space-x-2 bg-[#273a39]/80 px-3 py-1.5 rounded-xl border border-[#dfbd84]/25 text-xs">
-            <Shield className="w-3.5 h-3.5 text-[#dfbd84]" />
-            <span className="text-[#a4b8b5] font-medium">Clearance:</span>
-            <span className="text-[#dfbd84] font-mono font-bold capitalize">{user?.role?.replace('_', ' ')}</span>
+          <div className="hidden sm:flex items-center space-x-2 bg-[#FFFFFF] px-3 py-1.5 rounded-xl border border-[#1E2748]/20 text-xs shadow-sm">
+            <Shield className="w-3.5 h-3.5 text-[#1E2748]" />
+            <span className="text-[#53627C] font-medium">Clearance:</span>
+            <span className="text-[#1E2748] font-mono font-bold capitalize">{user?.role?.replace('_', ' ')}</span>
           </div>
 
           <button 
             onClick={logout}
-            className="flex items-center space-x-2 px-3 py-1.5 bg-[#273a39] hover:bg-[#182423] border border-[#dfbd84]/30 text-[#dfbd84] hover:text-[#eed29e] rounded-xl text-xs font-semibold transition"
+            className="flex items-center space-x-2 px-3 py-1.5 bg-[#1E2748] hover:bg-[#141C33] text-[#FAF7E6] rounded-xl text-xs font-bold transition shadow-sm"
             title="Sign out of KSBC Session"
           >
             <LogOut className="w-3.5 h-3.5" />
@@ -100,3 +100,4 @@ export const Navbar = () => {
 };
 
 export default Navbar;
+

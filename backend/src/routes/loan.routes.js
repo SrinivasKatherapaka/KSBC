@@ -82,11 +82,40 @@ router.post('/', authenticateJWT, validateRequest(createLoanSchema), async (req,
     if (customerId) {
       matchingCustomer = allCustomers.find(c => c.id === customerId);
       if (matchingCustomer && !targetApplicantName) {
-        targetApplicantName = `${matchingCustomer.first_name} ${matchingCustomer.last_name}`;
+        targetApplicantName = `${matchingCustomer.first_name} ${matchingCustomer.last_name}`.trim();
       }
     }
 
-    if (!targetCustomerId && allCustomers.length > 0) {
+    if (!targetCustomerId && targetApplicantName) {
+      const nameParts = targetApplicantName.trim().split(' ');
+      const fName = nameParts[0] || 'Commercial';
+      const lName = nameParts.slice(1).join(' ') || 'Applicant';
+
+      matchingCustomer = allCustomers.find(c => 
+        c.first_name?.toLowerCase() === fName.toLowerCase() && 
+        c.last_name?.toLowerCase() === lName.toLowerCase()
+      );
+
+      if (matchingCustomer) {
+        targetCustomerId = matchingCustomer.id;
+      } else {
+        const newCust = await db.createCustomer({
+          first_name: fName,
+          last_name: lName,
+          email: `${fName.toLowerCase()}.${Date.now().toString().slice(-6)}@ksbc-client.com`,
+          phone: '+1-555-019-2831',
+          national_id: `US-TAX-${Date.now().toString().slice(-7)}`,
+          annual_revenue: Number(annualRevenue || 5000000),
+          client_category: applicantCategory || 'corporate',
+          account_type: 'Commercial Loan Facility Account',
+          account_number: `KSBC-CORP-${Date.now().toString().slice(-8)}`,
+          kyc_status: 'verified',
+          kyc_notes: 'Auto-onboarded for commercial loan application'
+        });
+        targetCustomerId = newCust.id;
+        matchingCustomer = newCust;
+      }
+    } else if (!targetCustomerId && allCustomers.length > 0) {
       targetCustomerId = allCustomers[0].id;
       matchingCustomer = allCustomers[0];
     }
