@@ -57,8 +57,8 @@ export const Sidebar = () => {
   return (
     <aside className="w-64 bg-[#141C33] border-r border-[#232E52] flex flex-col h-screen sticky top-0 z-30 shadow-2xl text-[#FAF7E6]">
       {/* KSBC Brand Header with Temple Logo */}
-      <div className="p-4 border-b border-[#232E52] bg-[#10172B] flex items-center justify-between">
-        <FlyingMatLogo size="lg" light={true} />
+      <div className="p-3.5 border-b border-[#232E52] bg-[#10172B] flex items-center justify-center">
+        <FlyingMatLogo size="sidebar" className="w-full" />
       </div>
 
       {/* Navigation items */}
