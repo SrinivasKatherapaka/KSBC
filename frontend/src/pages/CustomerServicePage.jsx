@@ -58,7 +58,7 @@ export const CustomerServicePage = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#FAF7E6] text-[#53627C]">
+    <div className="flex min-h-screen bg-[#0B1120] text-[#FAF7E6] text-[#94A3B8]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -67,7 +67,7 @@ export const CustomerServicePage = () => {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-extrabold text-white font-heading">KSBC 24/7 AI Customer Service</h1>
-              <p className="text-xs text-[#1E2748]/70">Powered by Gemini 2.5 Flash Banking Assistant</p>
+              <p className="text-xs text-[#FAF7E6]/70">Powered by Gemini 2.5 Flash Banking Assistant</p>
             </div>
             <div className="flex items-center space-x-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded-full text-xs text-emerald-400 font-bold">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -78,15 +78,15 @@ export const CustomerServicePage = () => {
           <ErrorAlert message={error} onClose={() => setError('')} />
 
           {/* Chat Container */}
-          <div className="flex-1 glass-panel rounded-2xl border border-[#1E2748]/15 flex flex-col h-[600px] overflow-hidden">
-            <div className="p-4 border-b border-[#1E2748]/15 bg-[#FFFFFF]/60 flex items-center justify-between">
+          <div className="flex-1 glass-panel rounded-2xl border border-[#DFBD84]/15 flex flex-col h-[600px] overflow-hidden">
+            <div className="p-4 border-b border-[#DFBD84]/15 bg-[#15203B]/85 text-[#FAF7E6]/60 flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <div className="w-9 h-9 rounded-2xl bg-gradient-to-br from-rose-700 to-amber-600 flex items-center justify-center shadow-lg">
                   <Bot className="w-5 h-5 text-white" />
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-white">KSBC Virtual Representative</h3>
-                  <p className="text-[10px] text-[#1E2748]/70 font-mono">Gemini 2.5 Flash Neural Support</p>
+                  <p className="text-[10px] text-[#FAF7E6]/70 font-mono">Gemini 2.5 Flash Neural Support</p>
                 </div>
               </div>
             </div>
@@ -100,10 +100,10 @@ export const CustomerServicePage = () => {
                 >
                   <div className={`max-w-xl p-4 rounded-2xl text-xs space-y-2 ${
                     m.sender === 'user'
-                      ? 'bg-[#FAF7E6] text-white rounded-tr-none shadow-lg border border-[#1E2748]/20'
-                      : 'bg-rose-950/80 text-slate-200 rounded-tl-none border border-[#1E2748]/15 shadow-lg'
+                      ? 'bg-[#0F172A] text-white rounded-tr-none shadow-lg border border-[#DFBD84]/15'
+                      : 'bg-rose-950/80 text-slate-200 rounded-tl-none border border-[#DFBD84]/15 shadow-lg'
                   }`}>
-                    <div className="flex items-center space-x-2 font-bold text-[10px] text-[#1E2748]/80 uppercase">
+                    <div className="flex items-center space-x-2 font-bold text-[10px] text-[#FAF7E6]/80 uppercase">
                       {m.sender === 'user' ? <User className="w-3.5 h-3.5" /> : <Bot className="w-3.5 h-3.5 text-amber-400" />}
                       <span>{m.sender === 'user' ? 'You' : 'KSBC AI Assistant'}</span>
                     </div>
@@ -117,7 +117,7 @@ export const CustomerServicePage = () => {
                           <button
                             key={tIdx}
                             onClick={() => handleSendMessage(topic)}
-                            className="px-2.5 py-1 bg-[#E5DFCE] hover:bg-[#FAF7E6] text-amber-300 rounded-lg text-[10px] font-semibold transition border border-rose-700/50 flex items-center space-x-1"
+                            className="px-2.5 py-1 bg-[#1E2D4E] hover:bg-[#0F172A] text-amber-300 rounded-lg text-[10px] font-semibold transition border border-rose-700/50 flex items-center space-x-1"
                           >
                             <span>{topic}</span>
                             <ArrowRight className="w-3 h-3 text-amber-400" />
@@ -131,7 +131,7 @@ export const CustomerServicePage = () => {
 
               {loading && (
                 <div className="flex justify-start">
-                  <div className="bg-rose-950/80 p-4 rounded-2xl rounded-tl-none border border-[#1E2748]/15">
+                  <div className="bg-rose-950/80 p-4 rounded-2xl rounded-tl-none border border-[#DFBD84]/15">
                     <LoadingSpinner text="KSBC AI is generating support response..." />
                   </div>
                 </div>
@@ -140,18 +140,18 @@ export const CustomerServicePage = () => {
             </div>
 
             {/* Input Bar */}
-            <form onSubmit={(e) => { e.preventDefault(); handleSendMessage(); }} className="p-3 border-t border-[#1E2748]/15 bg-[#FFFFFF] flex items-center space-x-2">
+            <form onSubmit={(e) => { e.preventDefault(); handleSendMessage(); }} className="p-3 border-t border-[#DFBD84]/15 bg-[#15203B]/85 text-[#FAF7E6] flex items-center space-x-2">
               <input
                 type="text"
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 placeholder="Ask about accounts, commercial loans, interest rates, or clearance..."
-                className="flex-1 glass-input bg-[#1a030b] border border-[#1E2748]/15 text-xs rounded-xl p-3 text-white focus:outline-none focus:ring-2 focus:ring-rose-600"
+                className="flex-1 glass-input bg-[#1a030b] border border-[#DFBD84]/15 text-xs rounded-xl p-3 text-white focus:outline-none focus:ring-2 focus:ring-rose-600"
               />
               <button
                 type="submit"
                 disabled={loading || !inputMessage.trim()}
-                className="px-4 py-3 bg-[#1E2748] hover:bg-[#141C33] text-white font-bold rounded-xl shadow-lg transition flex items-center justify-center space-x-1 disabled:opacity-50 border border-[#1E2748]/20"
+                className="px-4 py-3 bg-[#1E2D4E] hover:bg-[#141C33] text-white font-bold rounded-xl shadow-lg transition flex items-center justify-center space-x-1 disabled:opacity-50 border border-[#DFBD84]/15"
               >
                 <Send className="w-4 h-4 text-amber-300" />
               </button>

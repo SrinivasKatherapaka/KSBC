@@ -173,7 +173,7 @@ export const AccountDetailsPage = () => {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen bg-[#FAF7E6] text-[#53627C]">
+      <div className="flex min-h-screen bg-[#0B1120] text-[#FAF7E6] text-[#94A3B8]">
         <Sidebar />
         <div className="flex-1 flex flex-col min-w-0">
           <Navbar />
@@ -187,14 +187,14 @@ export const AccountDetailsPage = () => {
 
   if (!customer) {
     return (
-      <div className="flex min-h-screen bg-[#FAF7E6] text-[#53627C]">
+      <div className="flex min-h-screen bg-[#0B1120] text-[#FAF7E6] text-[#94A3B8]">
         <Sidebar />
         <div className="flex-1 flex flex-col min-w-0">
           <Navbar />
           <main className="p-8 space-y-6 max-w-5xl mx-auto w-full">
             <button
               onClick={() => navigate('/accounts')}
-              className="px-4 py-2 bg-[#FFFFFF] hover:bg-[#FFFFFF] text-[#1E2748] rounded-xl text-xs font-bold flex items-center space-x-2 border border-[#1E2748]/15 transition"
+              className="px-4 py-2 bg-[#15203B]/85 text-[#FAF7E6] hover:bg-[#15203B]/85 text-[#FAF7E6] text-[#FAF7E6] rounded-xl text-xs font-bold flex items-center space-x-2 border border-[#DFBD84]/15 transition"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back to Accounts Database</span>
@@ -210,7 +210,7 @@ export const AccountDetailsPage = () => {
   const isCorporate = customer.client_category === 'corporate';
 
   return (
-    <div className="flex min-h-screen bg-[#FAF7E6] text-[#53627C]">
+    <div className="flex min-h-screen bg-[#0B1120] text-[#FAF7E6] text-[#94A3B8]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -221,22 +221,22 @@ export const AccountDetailsPage = () => {
             <div className="flex items-center space-x-3">
               <button
                 onClick={() => navigate('/accounts')}
-                className="px-3.5 py-2 bg-[#FFFFFF] hover:bg-[#FFFFFF] text-[#1E2748] rounded-xl text-xs font-bold flex items-center space-x-2 border border-[#1E2748]/15 shadow transition"
+                className="px-3.5 py-2 bg-[#15203B]/85 text-[#FAF7E6] hover:bg-[#15203B]/85 text-[#FAF7E6] text-[#FAF7E6] rounded-xl text-xs font-bold flex items-center space-x-2 border border-[#DFBD84]/15 shadow transition"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span>Back to Accounts Database</span>
               </button>
-              <div className="text-xs text-[#1E2748] font-mono hidden md:block">
-                <span>Accounts Database</span> &gt; <span className="text-[#1E2748] font-bold">Account Holder File</span>
+              <div className="text-xs text-[#FAF7E6] font-mono hidden md:block">
+                <span>Accounts Database</span> &gt; <span className="text-[#FAF7E6] font-bold">Account Holder File</span>
               </div>
             </div>
 
             <div className="flex items-center space-x-2">
               <button
                 onClick={() => setIsSpecialAuthModalOpen(true)}
-                className="px-3.5 py-2 bg-[#FFFFFF] hover:bg-[#FFFFFF] text-[#1E2748] text-xs font-bold rounded-xl border border-[#1E2748]/15 transition flex items-center space-x-1.5 shadow"
+                className="px-3.5 py-2 bg-[#15203B]/85 text-[#FAF7E6] hover:bg-[#15203B]/85 text-[#FAF7E6] text-[#FAF7E6] text-xs font-bold rounded-xl border border-[#DFBD84]/15 transition flex items-center space-x-1.5 shadow"
               >
-                <KeyRound className="w-4 h-4 text-[#1E2748]" />
+                <KeyRound className="w-4 h-4 text-[#FAF7E6]" />
                 <span>Security Clearance Action</span>
               </button>
             </div>
@@ -255,28 +255,28 @@ export const AccountDetailsPage = () => {
           <ErrorAlert message={error} onClose={() => setError('')} />
 
           {/* Detailed Account Header Banner */}
-          <div className="glass-panel p-6 rounded-2xl border border-[#1E2748]/15 bg-[#FFFFFF] shadow-2xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="glass-panel p-6 rounded-2xl border border-[#DFBD84]/15 bg-[#15203B]/85 text-[#FAF7E6] shadow-2xl flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="flex items-center space-x-4">
-              <div className="p-4 bg-[#FFFFFF] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 shadow-xl flex-shrink-0">
-                <Wallet className="w-8 h-8 text-[#1E2748]" />
+              <div className="p-4 bg-[#15203B]/85 text-[#FAF7E6] text-[#FAF7E6] rounded-2xl border border-[#DFBD84]/15 shadow-xl flex-shrink-0">
+                <Wallet className="w-8 h-8 text-[#FAF7E6]" />
               </div>
               <div>
                 <div className="flex items-center space-x-3">
-                  <h1 className="text-2xl font-black text-[#1E2748] font-heading">
+                  <h1 className="text-2xl font-black text-[#FAF7E6] font-heading">
                     {customer.first_name} {customer.last_name}
                   </h1>
                   <span className={`px-2.5 py-1 rounded text-[10px] font-black uppercase border ${
                     isHnwi
-                      ? 'bg-[#1E2748]/10 text-[#1E2748] border-[#1E2748]/15'
+                      ? 'bg-[#1E2D4E]/10 text-[#FAF7E6] border-[#DFBD84]/15'
                       : isCorporate
-                      ? 'bg-[#1E2748]/10 text-[#1E2748] border-[#1E2748]/15'
+                      ? 'bg-[#1E2D4E]/10 text-[#FAF7E6] border-[#DFBD84]/15'
                       : 'bg-purple-950/60 text-purple-300 border-purple-500/40'
                   }`}>
                     {isHnwi ? '💎 High Net-Worth (HNWI)' : isCorporate ? '🏢 Corporate Client' : '👤 Private Savings Account'}
                   </span>
                 </div>
-                <p className="text-xs font-mono text-[#1E2748] mt-1">
-                  Master Ledger Account Number: <strong className="text-[#1E2748] font-bold">{customer.account_number || `KSBC-ACC-${customer.id.slice(0, 8)}`}</strong>
+                <p className="text-xs font-mono text-[#FAF7E6] mt-1">
+                  Master Ledger Account Number: <strong className="text-[#FAF7E6] font-bold">{customer.account_number || `KSBC-ACC-${customer.id.slice(0, 8)}`}</strong>
                 </p>
               </div>
             </div>
@@ -287,7 +287,7 @@ export const AccountDetailsPage = () => {
                   ? 'bg-[#58b388]/20 text-[#58b388] border-[#58b388]/40'
                   : customer.kyc_status === 'flagged'
                   ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
-                  : 'bg-[#FFFFFF] text-[#53627C] border-[#1E2748]/15'
+                  : 'bg-[#15203B]/85 text-[#FAF7E6] text-[#94A3B8] border-[#DFBD84]/15'
               }`}>
                 <ShieldCheck className="w-4 h-4" />
                 <span>KYC Status: {customer.kyc_status || 'Verified'}</span>
@@ -297,9 +297,9 @@ export const AccountDetailsPage = () => {
                 <div className="flex items-center space-x-2">
                   <button
                     onClick={handleOpenEdit}
-                    className="px-3.5 py-2 bg-[#FFFFFF] hover:bg-[#FFFFFF] text-[#1E2748] border border-[#1E2748]/15 rounded-xl text-xs font-bold transition flex items-center space-x-1.5 shadow"
+                    className="px-3.5 py-2 bg-[#15203B]/85 text-[#FAF7E6] hover:bg-[#15203B]/85 text-[#FAF7E6] text-[#FAF7E6] border border-[#DFBD84]/15 rounded-xl text-xs font-bold transition flex items-center space-x-1.5 shadow"
                   >
-                    <Edit className="w-3.5 h-3.5 text-[#1E2748]" />
+                    <Edit className="w-3.5 h-3.5 text-[#FAF7E6]" />
                     <span>Modify Account</span>
                   </button>
                   <button
@@ -318,18 +318,18 @@ export const AccountDetailsPage = () => {
           <div className={`p-5 rounded-2xl border transition-all ${
             isIdUnlocked
               ? 'bg-[#58b388]/10 border-[#58b388]/50 shadow-xl'
-              : 'bg-[#FFFFFF]/95 border-amber-500/40 shadow-xl'
+              : 'bg-[#15203B]/85 text-[#FAF7E6]/95 border-amber-500/40 shadow-xl'
           }`}>
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div className="space-y-1.5">
                 <div className="flex items-center space-x-2">
                   <Shield className={`w-5 h-5 ${isIdUnlocked ? 'text-[#58b388]' : 'text-amber-400'}`} />
-                  <span className="text-xs uppercase font-extrabold text-[#1E2748] tracking-wider">
+                  <span className="text-xs uppercase font-extrabold text-[#FAF7E6] tracking-wider">
                     Account Holder User Identification Number (SSN / EIN / Tax ID)
                   </span>
                 </div>
                 <div className="flex items-center space-x-4 pt-1">
-                  <span className="font-mono text-2xl font-black text-[#1E2748] tracking-widest">
+                  <span className="font-mono text-2xl font-black text-[#FAF7E6] tracking-widest">
                     {getMaskedNationalId(customer.national_id)}
                   </span>
                   <span className={`px-3 py-1 rounded-full text-xs font-bold border uppercase flex items-center space-x-1.5 ${
@@ -364,9 +364,9 @@ export const AccountDetailsPage = () => {
                 ) : (
                   <button
                     onClick={() => setIsIdUnlocked(false)}
-                    className="px-4 py-2.5 bg-[#FFFFFF] hover:bg-[#FFFFFF] text-[#1E2748] font-bold rounded-xl border border-[#1E2748]/15 transition flex items-center space-x-2 text-xs"
+                    className="px-4 py-2.5 bg-[#15203B]/85 text-[#FAF7E6] hover:bg-[#15203B]/85 text-[#FAF7E6] text-[#FAF7E6] font-bold rounded-xl border border-[#DFBD84]/15 transition flex items-center space-x-2 text-xs"
                   >
-                    <Lock className="w-4 h-4 text-[#1E2748]" />
+                    <Lock className="w-4 h-4 text-[#FAF7E6]" />
                     <span>Re-Lock Identification Number</span>
                   </button>
                 )}
@@ -377,69 +377,69 @@ export const AccountDetailsPage = () => {
           {/* Grid Layout: Account Details & Customer Information */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Customer Personal & Contact Profile Card */}
-            <div className="glass-panel p-5 rounded-2xl border border-[#1E2748]/15 bg-[#FFFFFF]/60 space-y-4 shadow-xl">
-              <h2 className="text-sm font-black text-[#1E2748] uppercase tracking-wider flex items-center space-x-2 border-b border-[#1E2748]/10 pb-3">
-                <User className="w-4.5 h-4.5 text-[#1E2748]" />
+            <div className="glass-panel p-5 rounded-2xl border border-[#DFBD84]/15 bg-[#15203B]/85 text-[#FAF7E6]/60 space-y-4 shadow-xl">
+              <h2 className="text-sm font-black text-[#FAF7E6] uppercase tracking-wider flex items-center space-x-2 border-b border-[#DFBD84]/15 pb-3">
+                <User className="w-4.5 h-4.5 text-[#FAF7E6]" />
                 <span>Customer Profile & Contact Information</span>
               </h2>
 
               <div className="space-y-3 text-xs">
-                <div className="flex justify-between py-1.5 border-b border-[#1E2748]/20/10">
-                  <span className="text-[#53627C] font-semibold">1. First Name / Entity Name:</span>
-                  <span className="font-bold text-[#1E2748]">{customer.first_name}</span>
+                <div className="flex justify-between py-1.5 border-b border-[#DFBD84]/15/10">
+                  <span className="text-[#94A3B8] font-semibold">1. First Name / Entity Name:</span>
+                  <span className="font-bold text-[#FAF7E6]">{customer.first_name}</span>
                 </div>
-                <div className="flex justify-between py-1.5 border-b border-[#1E2748]/20/10">
-                  <span className="text-[#53627C] font-semibold">2. Last Name / Corporate Suffix:</span>
-                  <span className="font-bold text-[#1E2748]">{customer.last_name}</span>
+                <div className="flex justify-between py-1.5 border-b border-[#DFBD84]/15/10">
+                  <span className="text-[#94A3B8] font-semibold">2. Last Name / Corporate Suffix:</span>
+                  <span className="font-bold text-[#FAF7E6]">{customer.last_name}</span>
                 </div>
-                <div className="flex justify-between py-1.5 border-b border-[#1E2748]/20/10">
-                  <span className="text-[#53627C] font-semibold">3. Primary Email Address:</span>
-                  <span className="font-mono text-[#1E2748] font-bold">{customer.email}</span>
+                <div className="flex justify-between py-1.5 border-b border-[#DFBD84]/15/10">
+                  <span className="text-[#94A3B8] font-semibold">3. Primary Email Address:</span>
+                  <span className="font-mono text-[#FAF7E6] font-bold">{customer.email}</span>
                 </div>
-                <div className="flex justify-between py-1.5 border-b border-[#1E2748]/20/10">
-                  <span className="text-[#53627C] font-semibold">4. Telephone Contact:</span>
-                  <span className="font-mono text-[#1E2748]">{customer.phone || '+1-555-0199'}</span>
+                <div className="flex justify-between py-1.5 border-b border-[#DFBD84]/15/10">
+                  <span className="text-[#94A3B8] font-semibold">4. Telephone Contact:</span>
+                  <span className="font-mono text-[#FAF7E6]">{customer.phone || '+1-555-0199'}</span>
                 </div>
                 <div className="flex justify-between py-1.5">
-                  <span className="text-[#53627C] font-semibold">5. Customer Tier Category:</span>
-                  <span className="font-bold uppercase text-[#1E2748]">{customer.client_category || 'private_savings'}</span>
+                  <span className="text-[#94A3B8] font-semibold">5. Customer Tier Category:</span>
+                  <span className="font-bold uppercase text-[#FAF7E6]">{customer.client_category || 'private_savings'}</span>
                 </div>
               </div>
             </div>
 
             {/* Account Financial Ledger Card */}
-            <div className="glass-panel p-5 rounded-2xl border border-[#1E2748]/15 bg-[#FFFFFF]/60 space-y-4 shadow-xl">
-              <h2 className="text-sm font-black text-[#1E2748] uppercase tracking-wider flex items-center space-x-2 border-b border-[#1E2748]/10 pb-3">
-                <Wallet className="w-4.5 h-4.5 text-[#1E2748]" />
+            <div className="glass-panel p-5 rounded-2xl border border-[#DFBD84]/15 bg-[#15203B]/85 text-[#FAF7E6]/60 space-y-4 shadow-xl">
+              <h2 className="text-sm font-black text-[#FAF7E6] uppercase tracking-wider flex items-center space-x-2 border-b border-[#DFBD84]/15 pb-3">
+                <Wallet className="w-4.5 h-4.5 text-[#FAF7E6]" />
                 <span>Financial Ledger & Deposit Account Details</span>
               </h2>
 
               <div className="space-y-3 text-xs">
-                <div className="flex justify-between py-1.5 border-b border-[#1E2748]/20/10">
-                  <span className="text-[#53627C] font-semibold">1. Account Master Number:</span>
-                  <span className="font-mono font-bold text-[#1E2748]">
+                <div className="flex justify-between py-1.5 border-b border-[#DFBD84]/15/10">
+                  <span className="text-[#94A3B8] font-semibold">1. Account Master Number:</span>
+                  <span className="font-mono font-bold text-[#FAF7E6]">
                     {customer.account_number || `KSBC-ACC-${customer.id.slice(0, 8)}`}
                   </span>
                 </div>
-                <div className="flex justify-between py-1.5 border-b border-[#1E2748]/20/10">
-                  <span className="text-[#53627C] font-semibold">2. Account Product Type:</span>
-                  <span className="font-medium text-[#1E2748]">
+                <div className="flex justify-between py-1.5 border-b border-[#DFBD84]/15/10">
+                  <span className="text-[#94A3B8] font-semibold">2. Account Product Type:</span>
+                  <span className="font-medium text-[#FAF7E6]">
                     {customer.account_type || (isHnwi ? 'Private High-Net-Worth Reserve' : isCorporate ? 'Corporate Treasury Checking' : 'Private Standard Savings')}
                   </span>
                 </div>
-                <div className="flex justify-between py-1.5 border-b border-[#1E2748]/20/10">
-                  <span className="text-[#53627C] font-semibold">3. Current Deposit Balance:</span>
+                <div className="flex justify-between py-1.5 border-b border-[#DFBD84]/15/10">
+                  <span className="text-[#94A3B8] font-semibold">3. Current Deposit Balance:</span>
                   <span className="font-mono font-extrabold text-[#58b388] text-sm">
                     ${Number(customer.annual_revenue || 0).toLocaleString()}
                   </span>
                 </div>
-                <div className="flex justify-between py-1.5 border-b border-[#1E2748]/20/10">
-                  <span className="text-[#53627C] font-semibold">4. Operational Standing:</span>
+                <div className="flex justify-between py-1.5 border-b border-[#DFBD84]/15/10">
+                  <span className="text-[#94A3B8] font-semibold">4. Operational Standing:</span>
                   <span className="font-bold text-emerald-400 uppercase">Active & Authenticated</span>
                 </div>
                 <div className="flex justify-between py-1.5">
-                  <span className="text-[#53627C] font-semibold">5. Onboarding Date:</span>
-                  <span className="font-mono text-[#1E2748]">
+                  <span className="text-[#94A3B8] font-semibold">5. Onboarding Date:</span>
+                  <span className="font-mono text-[#FAF7E6]">
                     {customer.created_at ? new Date(customer.created_at).toLocaleDateString() : '2026-01-15'}
                   </span>
                 </div>
@@ -448,39 +448,39 @@ export const AccountDetailsPage = () => {
           </div>
 
           {/* KYC Compliance & Beneficial Ownership Audit Card */}
-          <div className="glass-panel p-5 rounded-2xl border border-[#1E2748]/15 bg-[#FFFFFF]/60 space-y-3 shadow-xl">
-            <h2 className="text-sm font-black text-[#1E2748] uppercase tracking-wider flex items-center space-x-2 border-b border-[#1E2748]/10 pb-3">
-              <ShieldCheck className="w-4.5 h-4.5 text-[#1E2748]" />
+          <div className="glass-panel p-5 rounded-2xl border border-[#DFBD84]/15 bg-[#15203B]/85 text-[#FAF7E6]/60 space-y-3 shadow-xl">
+            <h2 className="text-sm font-black text-[#FAF7E6] uppercase tracking-wider flex items-center space-x-2 border-b border-[#DFBD84]/15 pb-3">
+              <ShieldCheck className="w-4.5 h-4.5 text-[#FAF7E6]" />
               <span>KYC Compliance Clearance & Beneficial Ownership Audit Remarks</span>
             </h2>
-            <p className="text-xs text-[#1E2748] leading-relaxed font-mono bg-[#FFFFFF] p-4 rounded-xl border border-[#1E2748]/10">
+            <p className="text-xs text-[#FAF7E6] leading-relaxed font-mono bg-[#15203B]/85 text-[#FAF7E6] p-4 rounded-xl border border-[#DFBD84]/15">
               {customer.kyc_notes || 'Executive intake clearance audit completed. Anti-Money Laundering (AML) & Beneficial Ownership verification confirmed.'}
             </p>
           </div>
 
           {/* Associated Credit & Loan Portfolio Card */}
           {customerLoans.length > 0 && (
-            <div className="glass-panel p-5 rounded-2xl border border-[#1E2748]/15 bg-[#FFFFFF]/60 space-y-4 shadow-xl">
-              <h2 className="text-sm font-black text-[#1E2748] uppercase tracking-wider flex items-center space-x-2 border-b border-[#1E2748]/10 pb-3">
-                <FileText className="w-4.5 h-4.5 text-[#1E2748]" />
+            <div className="glass-panel p-5 rounded-2xl border border-[#DFBD84]/15 bg-[#15203B]/85 text-[#FAF7E6]/60 space-y-4 shadow-xl">
+              <h2 className="text-sm font-black text-[#FAF7E6] uppercase tracking-wider flex items-center space-x-2 border-b border-[#DFBD84]/15 pb-3">
+                <FileText className="w-4.5 h-4.5 text-[#FAF7E6]" />
                 <span>Associated Loan & Credit Facilities ({customerLoans.length} Applications)</span>
               </h2>
 
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
                   <thead>
-                    <tr className="border-b border-[#1E2748]/10 text-[#1E2748] uppercase text-[10px] bg-[#FFFFFF]">
+                    <tr className="border-b border-[#DFBD84]/15 text-[#FAF7E6] uppercase text-[10px] bg-[#15203B]/85 text-[#FAF7E6]">
                       <th className="py-2.5 px-3">Loan ID</th>
                       <th className="py-2.5 px-3">Purpose</th>
                       <th className="py-2.5 px-3 text-right">Principal Amount</th>
                       <th className="py-2.5 px-3 text-center">Status</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#1E2748]/15 font-mono">
+                  <tbody className="divide-y divide-[#DFBD84]/15 font-mono">
                     {customerLoans.map(l => (
-                      <tr key={l.id} className="hover:bg-[#FFFFFF]/40">
-                        <td className="py-2.5 px-3 text-[#1E2748] font-bold">#{l.id.slice(0, 8)}</td>
-                        <td className="py-2.5 px-3 text-[#1E2748] font-sans">{l.purpose}</td>
+                      <tr key={l.id} className="hover:bg-[#15203B]/85 text-[#FAF7E6]/40">
+                        <td className="py-2.5 px-3 text-[#FAF7E6] font-bold">#{l.id.slice(0, 8)}</td>
+                        <td className="py-2.5 px-3 text-[#FAF7E6] font-sans">{l.purpose}</td>
                         <td className="py-2.5 px-3 text-right text-[#58b388] font-bold">${Number(l.principal_amount || 0).toLocaleString()}</td>
                         <td className="py-2.5 px-3 text-center">
                           <span className={`px-2 py-0.5 rounded text-[9px] uppercase font-bold ${
@@ -502,18 +502,18 @@ export const AccountDetailsPage = () => {
       {/* Modify Account Details Modal */}
       {editingCustomer && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="glass-panel w-full max-w-lg p-6 rounded-2xl border border-[#1E2748]/15 bg-[#FFFFFF] shadow-2xl space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-[#1E2748]/10">
+          <div className="glass-panel w-full max-w-lg p-6 rounded-2xl border border-[#DFBD84]/15 bg-[#15203B]/85 text-[#FAF7E6] shadow-2xl space-y-4">
+            <div className="flex items-center justify-between pb-3 border-b border-[#DFBD84]/15">
               <div className="flex items-center space-x-2">
-                <div className="p-2 bg-[#FFFFFF] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
-                  <Edit className="w-5 h-5 text-[#1E2748]" />
+                <div className="p-2 bg-[#15203B]/85 text-[#FAF7E6] text-[#FAF7E6] rounded-xl border border-[#DFBD84]/15">
+                  <Edit className="w-5 h-5 text-[#FAF7E6]" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-[#1E2748]">Modify Customer Account Details</h3>
-                  <p className="text-[11px] text-[#1E2748]">CFO & System Admin Executive Modification Clearance</p>
+                  <h3 className="text-base font-bold text-[#FAF7E6]">Modify Customer Account Details</h3>
+                  <p className="text-[11px] text-[#FAF7E6]">CFO & System Admin Executive Modification Clearance</p>
                 </div>
               </div>
-              <button onClick={() => setEditingCustomer(null)} className="text-[#53627C] hover:text-white">
+              <button onClick={() => setEditingCustomer(null)} className="text-[#94A3B8] hover:text-white">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -521,45 +521,45 @@ export const AccountDetailsPage = () => {
             <form onSubmit={handleSaveEdit} className="space-y-4 text-xs">
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">First Name / Entity</label>
+                  <label className="block text-[#FAF7E6] font-bold mb-1 uppercase text-[10px]">First Name / Entity</label>
                   <input
                     type="text"
                     value={editForm.firstName}
                     onChange={(e) => setEditForm({ ...editForm, firstName: e.target.value })}
-                    className="w-full glass-input bg-[#FFFFFF] border border-[#1E2748]/15 rounded-xl p-2.5 text-[#1E2748]"
+                    className="w-full glass-input bg-[#15203B]/85 text-[#FAF7E6] border border-[#DFBD84]/15 rounded-xl p-2.5 text-[#FAF7E6]"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">Last Name / Suffix</label>
+                  <label className="block text-[#FAF7E6] font-bold mb-1 uppercase text-[10px]">Last Name / Suffix</label>
                   <input
                     type="text"
                     value={editForm.lastName}
                     onChange={(e) => setEditForm({ ...editForm, lastName: e.target.value })}
-                    className="w-full glass-input bg-[#FFFFFF] border border-[#1E2748]/15 rounded-xl p-2.5 text-[#1E2748]"
+                    className="w-full glass-input bg-[#15203B]/85 text-[#FAF7E6] border border-[#DFBD84]/15 rounded-xl p-2.5 text-[#FAF7E6]"
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">Deposit Balance ($)</label>
+                <label className="block text-[#FAF7E6] font-bold mb-1 uppercase text-[10px]">Deposit Balance ($)</label>
                 <input
                   type="number"
                   value={editForm.annualRevenue}
                   onChange={(e) => setEditForm({ ...editForm, annualRevenue: e.target.value })}
-                  className="w-full glass-input bg-[#FFFFFF] border border-[#1E2748]/15 rounded-xl p-2.5 text-[#1E2748] font-mono font-bold"
+                  className="w-full glass-input bg-[#15203B]/85 text-[#FAF7E6] border border-[#DFBD84]/15 rounded-xl p-2.5 text-[#FAF7E6] font-mono font-bold"
                   required
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">Account Category</label>
+                  <label className="block text-[#FAF7E6] font-bold mb-1 uppercase text-[10px]">Account Category</label>
                   <select
                     value={editForm.clientCategory}
                     onChange={(e) => setEditForm({ ...editForm, clientCategory: e.target.value })}
-                    className="w-full glass-input bg-[#FFFFFF] border border-[#1E2748]/15 rounded-xl p-2.5 text-[#1E2748]"
+                    className="w-full glass-input bg-[#15203B]/85 text-[#FAF7E6] border border-[#DFBD84]/15 rounded-xl p-2.5 text-[#FAF7E6]"
                   >
                     <option value="private_savings">Private Savings</option>
                     <option value="hnwi">High Net-Worth (HNWI)</option>
@@ -568,11 +568,11 @@ export const AccountDetailsPage = () => {
                 </div>
 
                 <div>
-                  <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">KYC Clearance Status</label>
+                  <label className="block text-[#FAF7E6] font-bold mb-1 uppercase text-[10px]">KYC Clearance Status</label>
                   <select
                     value={editForm.kycStatus}
                     onChange={(e) => setEditForm({ ...editForm, kycStatus: e.target.value })}
-                    className="w-full glass-input bg-[#FFFFFF] border border-[#1E2748]/15 rounded-xl p-2.5 text-[#1E2748]"
+                    className="w-full glass-input bg-[#15203B]/85 text-[#FAF7E6] border border-[#DFBD84]/15 rounded-xl p-2.5 text-[#FAF7E6]"
                   >
                     <option value="verified">Verified</option>
                     <option value="pending">Pending</option>
@@ -581,18 +581,18 @@ export const AccountDetailsPage = () => {
                 </div>
               </div>
 
-              <div className="pt-3 flex justify-end space-x-2 border-t border-[#1E2748]/10">
+              <div className="pt-3 flex justify-end space-x-2 border-t border-[#DFBD84]/15">
                 <button
                   type="button"
                   onClick={() => setEditingCustomer(null)}
-                  className="px-4 py-2 bg-[#FFFFFF] text-[#53627C] rounded-xl font-semibold hover:bg-[#FFFFFF]"
+                  className="px-4 py-2 bg-[#15203B]/85 text-[#FAF7E6] text-[#94A3B8] rounded-xl font-semibold hover:bg-[#15203B]/85 text-[#FAF7E6]"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="px-5 py-2 bg-[#1E2748] hover:bg-[#141C33] text-[#FAF7E6] font-black rounded-xl shadow-lg transition disabled:opacity-50"
+                  className="px-5 py-2 bg-gradient-to-r from-[#C59E5F] via-[#DFBD84] to-[#C59E5F] hover:from-[#DFBD84] hover:to-[#EED29E] text-[#0B1120] font-black font-black rounded-xl shadow-lg transition disabled:opacity-50"
                 >
                   {submitting ? 'Saving Changes...' : 'Save Account Modifications'}
                 </button>
@@ -605,7 +605,7 @@ export const AccountDetailsPage = () => {
       {/* Confirm Account Deletion Modal */}
       {deletingCustomer && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="glass-panel w-full max-w-md p-6 rounded-2xl border border-red-500/40 bg-[#FFFFFF] shadow-2xl space-y-4">
+          <div className="glass-panel w-full max-w-md p-6 rounded-2xl border border-red-500/40 bg-[#15203B]/85 text-[#FAF7E6] shadow-2xl space-y-4">
             <div className="flex items-center space-x-3 text-red-400 border-b border-red-500/20 pb-3">
               <div className="p-2 bg-red-950/60 rounded-xl border border-red-500/40">
                 <AlertTriangle className="w-6 h-6 text-red-400" />
@@ -616,15 +616,15 @@ export const AccountDetailsPage = () => {
               </div>
             </div>
 
-            <p className="text-xs text-[#1E2748] leading-relaxed">
-              Are you sure you want to permanently delete the account of <strong className="text-[#1E2748]">{deletingCustomer.first_name} {deletingCustomer.last_name}</strong>?
+            <p className="text-xs text-[#FAF7E6] leading-relaxed">
+              Are you sure you want to permanently delete the account of <strong className="text-[#FAF7E6]">{deletingCustomer.first_name} {deletingCustomer.last_name}</strong>?
             </p>
 
-            <div className="pt-3 flex justify-end space-x-2 border-t border-[#1E2748]/10">
+            <div className="pt-3 flex justify-end space-x-2 border-t border-[#DFBD84]/15">
               <button
                 type="button"
                 onClick={() => setDeletingCustomer(null)}
-                className="px-4 py-2 bg-[#FFFFFF] text-[#53627C] rounded-xl font-semibold"
+                className="px-4 py-2 bg-[#15203B]/85 text-[#FAF7E6] text-[#94A3B8] rounded-xl font-semibold"
               >
                 Cancel
               </button>

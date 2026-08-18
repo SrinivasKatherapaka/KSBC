@@ -93,7 +93,7 @@ export const CustomersPage = () => {
   });
 
   return (
-    <div className="flex min-h-screen bg-[#FAF7E6] text-[#53627C]">
+    <div className="flex min-h-screen bg-[#0B1120] text-[#FAF7E6] text-[#94A3B8]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -102,13 +102,13 @@ export const CustomersPage = () => {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h1 className="text-2xl font-extrabold text-white font-heading">Authenticated Customer Database</h1>
-              <p className="text-xs text-[#1E2748]/70">KSBC Corporate Client Records ({customers.length} Accounts Onboarded)</p>
+              <p className="text-xs text-[#FAF7E6]/70">KSBC Corporate Client Records ({customers.length} Accounts Onboarded)</p>
             </div>
 
             <div className="flex items-center space-x-3">
               <button
                 onClick={() => setIsAuthModalOpen(true)}
-                className="px-3.5 py-2 bg-rose-950 hover:bg-[#E5DFCE] text-amber-300 text-xs font-bold rounded-xl border border-rose-800/60 transition flex items-center space-x-1.5"
+                className="px-3.5 py-2 bg-rose-950 hover:bg-[#1E2D4E] text-amber-300 text-xs font-bold rounded-xl border border-rose-800/60 transition flex items-center space-x-1.5"
               >
                 <KeyRound className="w-4 h-4 text-amber-400" />
                 <span>Re-Verify Password Clearance</span>
@@ -116,7 +116,7 @@ export const CustomersPage = () => {
 
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="px-4 py-2.5 bg-[#1E2748] hover:bg-[#141C33] text-white text-xs font-bold rounded-xl shadow-lg shadow-[#FFFFFF]/30 transition flex items-center space-x-2 border border-[#1E2748]/20"
+                className="px-4 py-2.5 bg-[#1E2D4E] hover:bg-[#141C33] text-white text-xs font-bold rounded-xl shadow-lg shadow-[#FFFFFF]/30 transition flex items-center space-x-2 border border-[#DFBD84]/15"
               >
                 <UserPlus className="w-4 h-4 text-amber-400" />
                 <span>Onboard Corporate Client</span>
@@ -140,22 +140,22 @@ export const CustomersPage = () => {
           {loading ? (
             <LoadingSpinner text="Retrieving authenticated KSBC corporate customer database..." />
           ) : (
-            <div className="glass-panel rounded-2xl border border-[#1E2748]/15 overflow-hidden space-y-4 p-5">
+            <div className="glass-panel rounded-2xl border border-[#DFBD84]/15 overflow-hidden space-y-4 p-5">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <h3 className="text-sm font-bold text-white flex items-center space-x-2">
-                  <Users className="w-4 h-4 text-[#1E2748]" />
+                  <Users className="w-4 h-4 text-[#FAF7E6]" />
                   <span>Onboarded Corporate Accounts ({filteredCustomers.length} displayed of {customers.length})</span>
                 </h3>
 
                 {/* Search Bar */}
                 <div className="relative w-full md:w-72">
-                  <Search className="absolute left-3 top-2.5 w-4 h-4 text-[#1E2748]/60" />
+                  <Search className="absolute left-3 top-2.5 w-4 h-4 text-[#FAF7E6]/60" />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search client, EIN, or email..."
-                    className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 text-xs rounded-xl p-2 pl-9 text-white focus:outline-none focus:ring-2 focus:ring-rose-600"
+                    className="w-full glass-input bg-[#1a030b] border border-[#DFBD84]/15 text-xs rounded-xl p-2 pl-9 text-white focus:outline-none focus:ring-2 focus:ring-rose-600"
                   />
                 </div>
               </div>
@@ -163,7 +163,7 @@ export const CustomersPage = () => {
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
                   <thead>
-                    <tr className="border-b border-[#1E2748]/15 text-[#1E2748]/70 uppercase tracking-wider text-[10px] bg-[#FFFFFF]">
+                    <tr className="border-b border-[#DFBD84]/15 text-[#FAF7E6]/70 uppercase tracking-wider text-[10px] bg-[#15203B]/85 text-[#FAF7E6]">
                       <th className="py-3 px-4">Client Name</th>
                       <th className="py-3 px-4">Tax / EIN ID</th>
                       <th className="py-3 px-4">Contact Details</th>
@@ -176,18 +176,18 @@ export const CustomersPage = () => {
                       <tr key={c.id} className="hover:bg-rose-950/30 transition">
                         <td className="py-3.5 px-4">
                           <span className="font-bold text-white block">{c.first_name} {c.last_name}</span>
-                          <span className="text-[10px] text-[#1E2748]/60 font-mono">ID: {c.id.slice(0, 8)}</span>
+                          <span className="text-[10px] text-[#FAF7E6]/60 font-mono">ID: {c.id.slice(0, 8)}</span>
                         </td>
                         <td className="py-3.5 px-4 font-mono text-slate-300">
                           {isUnlocked ? c.national_id : '••••••••••••'}
                         </td>
                         <td className="py-3.5 px-4 space-y-0.5">
                           <div className="flex items-center space-x-1.5 text-slate-300">
-                            <Mail className="w-3 h-3 text-[#1E2748]/60" />
+                            <Mail className="w-3 h-3 text-[#FAF7E6]/60" />
                             <span>{c.email}</span>
                           </div>
                           <div className="flex items-center space-x-1.5 text-slate-400 text-[11px]">
-                            <Phone className="w-3 h-3 text-[#1E2748]/60" />
+                            <Phone className="w-3 h-3 text-[#FAF7E6]/60" />
                             <span>{c.phone}</span>
                           </div>
                         </td>
@@ -218,8 +218,8 @@ export const CustomersPage = () => {
       {/* Onboarding Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
-          <div className="glass-panel w-full max-w-md p-6 rounded-2xl border border-[#1E2748]/15 relative">
-            <div className="flex items-center justify-between pb-3 border-b border-[#1E2748]/15 mb-4">
+          <div className="glass-panel w-full max-w-md p-6 rounded-2xl border border-[#DFBD84]/15 relative">
+            <div className="flex items-center justify-between pb-3 border-b border-[#DFBD84]/15 mb-4">
               <h3 className="text-base font-bold text-white">Onboard New Corporate Client</h3>
               <button onClick={() => setIsModalOpen(false)} className="text-slate-400 hover:text-white">
                 <X className="w-5 h-5" />
@@ -233,7 +233,7 @@ export const CustomersPage = () => {
                   type="text"
                   value={formData.firstName}
                   onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 rounded-xl p-2.5 text-white"
+                  className="w-full glass-input bg-[#1a030b] border border-[#DFBD84]/15 rounded-xl p-2.5 text-white"
                   required
                   placeholder="Apex Industrial"
                 />
@@ -245,7 +245,7 @@ export const CustomersPage = () => {
                   type="text"
                   value={formData.lastName}
                   onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 rounded-xl p-2.5 text-white"
+                  className="w-full glass-input bg-[#1a030b] border border-[#DFBD84]/15 rounded-xl p-2.5 text-white"
                   required
                   placeholder="Corporation"
                 />
@@ -257,7 +257,7 @@ export const CustomersPage = () => {
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 rounded-xl p-2.5 text-white"
+                  className="w-full glass-input bg-[#1a030b] border border-[#DFBD84]/15 rounded-xl p-2.5 text-white"
                   required
                   placeholder="contact@company.com"
                 />
@@ -269,7 +269,7 @@ export const CustomersPage = () => {
                   type="text"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 rounded-xl p-2.5 text-white"
+                  className="w-full glass-input bg-[#1a030b] border border-[#DFBD84]/15 rounded-xl p-2.5 text-white"
                   required
                   placeholder="+1-555-019-2831"
                 />
@@ -281,7 +281,7 @@ export const CustomersPage = () => {
                   type="text"
                   value={formData.nationalId}
                   onChange={(e) => setFormData({ ...formData, nationalId: e.target.value })}
-                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 rounded-xl p-2.5 text-white"
+                  className="w-full glass-input bg-[#1a030b] border border-[#DFBD84]/15 rounded-xl p-2.5 text-white"
                   required
                   placeholder="US-EIN-9920194"
                 />
@@ -293,12 +293,12 @@ export const CustomersPage = () => {
                   type="number"
                   value={formData.annualRevenue}
                   onChange={(e) => setFormData({ ...formData, annualRevenue: e.target.value })}
-                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 rounded-xl p-2.5 text-white"
+                  className="w-full glass-input bg-[#1a030b] border border-[#DFBD84]/15 rounded-xl p-2.5 text-white"
                   required
                 />
               </div>
 
-              <div className="pt-3 flex justify-end space-x-2 border-t border-[#1E2748]/15">
+              <div className="pt-3 flex justify-end space-x-2 border-t border-[#DFBD84]/15">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
@@ -309,7 +309,7 @@ export const CustomersPage = () => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="px-4 py-2 bg-[#FAF7E6] hover:bg-rose-700 text-white rounded-xl font-bold transition disabled:opacity-50"
+                  className="px-4 py-2 bg-[#0F172A] hover:bg-rose-700 text-white rounded-xl font-bold transition disabled:opacity-50"
                 >
                   {submitting ? 'Saving...' : 'Onboard Client'}
                 </button>

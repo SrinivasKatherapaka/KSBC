@@ -31,18 +31,18 @@ export const ReAuthModal = ({ isOpen, onClose, targetEmail, onAuthenticate }) =>
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#141C33]/60 backdrop-blur-md">
-      <div className="glass-panel w-full max-w-md p-6 rounded-2xl border border-[#1E2748]/20 shadow-2xl relative space-y-4 bg-[#FFFFFF]">
-        <div className="flex items-center justify-between pb-3 border-b border-[#1E2748]/10">
+      <div className="glass-panel w-full max-w-md p-6 rounded-2xl border border-[#DFBD84]/15 shadow-2xl relative space-y-4 bg-[#15203B]/85 text-[#FAF7E6]">
+        <div className="flex items-center justify-between pb-3 border-b border-[#DFBD84]/15">
           <div className="flex items-center space-x-3">
-            <div className="p-2 bg-[#FAF7E6] text-[#1E2748] rounded-xl border border-[#1E2748]/20">
-              <KeyRound className="w-5 h-5 text-[#1E2748]" />
+            <div className="p-2 bg-[#0B1120] text-[#FAF7E6] rounded-xl border border-[#DFBD84]/15">
+              <KeyRound className="w-5 h-5 text-[#FAF7E6]" />
             </div>
             <div>
-              <h3 className="text-base font-archivo font-extrabold text-[#1E2748]">Personnel Clearance Shift</h3>
-              <p className="text-[11px] text-[#53627C]">Verify password to switch security clearance</p>
+              <h3 className="text-base font-archivo font-extrabold text-[#FAF7E6]">Personnel Clearance Shift</h3>
+              <p className="text-[11px] text-[#94A3B8]">Verify password to switch security clearance</p>
             </div>
           </div>
-          <button onClick={onClose} className="text-[#7E8DA4] hover:text-[#1E2748]">
+          <button onClick={onClose} className="text-[#94A3B8] hover:text-[#FAF7E6]">
             <X className="w-5 h-5" />
           </button>
         </div>
@@ -54,40 +54,40 @@ export const ReAuthModal = ({ isOpen, onClose, targetEmail, onAuthenticate }) =>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-4 text-xs">
-          <div className="p-3 bg-[#FAF7E6] rounded-xl border border-[#1E2748]/15 space-y-1">
-            <span className="text-[10px] uppercase font-bold text-[#53627C] block">Target Clearance Persona:</span>
-            <span className="font-mono font-bold text-[#1E2748] text-sm">{targetEmail}</span>
+          <div className="p-3 bg-[#0F172A] rounded-xl border border-[#DFBD84]/15 space-y-1">
+            <span className="text-[10px] uppercase font-bold text-[#94A3B8] block">Target Clearance Persona:</span>
+            <span className="font-mono font-bold text-[#FAF7E6] text-sm">{targetEmail}</span>
           </div>
 
           <div>
-            <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px] tracking-wider">
+            <label className="block text-[#FAF7E6] font-bold mb-1 uppercase text-[10px] tracking-wider">
               Enter Personnel Password
             </label>
             <div className="relative">
-              <Lock className="absolute left-3 top-3 w-4 h-4 text-[#1E2748]" />
+              <Lock className="absolute left-3 top-3 w-4 h-4 text-[#FAF7E6]" />
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full glass-input bg-[#FFFFFF] border border-[#1E2748]/25 text-[#1E2748] text-xs rounded-xl p-3 pl-10 focus:outline-none focus:ring-2 focus:ring-[#1E2748]"
+                className="w-full glass-input bg-[#15203B]/85 text-[#FAF7E6] border border-[#DFBD84]/20 text-[#FAF7E6] text-xs rounded-xl p-3 pl-10 focus:outline-none focus:ring-2 focus:ring-[#DFBD84]"
                 required
                 placeholder="••••••••"
               />
             </div>
           </div>
 
-          <div className="pt-3 flex justify-end space-x-2 border-t border-[#1E2748]/10">
+          <div className="pt-3 flex justify-end space-x-2 border-t border-[#DFBD84]/15">
             <button
               type="button"
               onClick={onClose}
-              className="px-3.5 py-2 bg-[#F2EDE0] text-[#53627C] rounded-xl font-bold hover:bg-[#E5DFCE] hover:text-[#1E2748]"
+              className="px-3.5 py-2 bg-[#1E2D4E] text-[#94A3B8] rounded-xl font-bold hover:bg-[#1E2D4E] hover:text-[#FAF7E6]"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={submitting}
-              className="px-4 py-2 bg-[#1E2748] hover:bg-[#141C33] text-[#FAF7E6] font-archivo font-extrabold rounded-xl shadow-lg transition flex items-center space-x-2 disabled:opacity-50"
+              className="px-4 py-2 bg-gradient-to-r from-[#C59E5F] via-[#DFBD84] to-[#C59E5F] hover:from-[#DFBD84] hover:to-[#EED29E] text-[#0B1120] font-black font-archivo font-extrabold rounded-xl shadow-lg transition flex items-center space-x-2 disabled:opacity-50"
             >
               <span>{submitting ? 'Authenticating...' : 'Authenticate & Shift Persona'}</span>
               <ArrowRight className="w-4 h-4" />
