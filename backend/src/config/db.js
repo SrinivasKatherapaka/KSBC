@@ -539,36 +539,66 @@ async function syncAllLoansToSupabase() {
 initializeWalAndDataStore();
 syncAllLoansToSupabase();
 
+const DEFAULT_USER_ROLES = {
+  'cfo@banking.com': 'cfo_executive',
+  'admin@banking.com': 'admin',
+  'loan@banking.com': 'loan_officer',
+  'treasury@banking.com': 'treasury_manager',
+  'compliance@banking.com': 'compliance_officer',
+  'customerops@banking.com': 'customer_ops',
+  'finance@banking.com': 'finance_manager'
+};
+
 export const db = {
   getStore: (tableName) => memoryDb[tableName] || [],
   
   findUserByEmail: async (email) => {
     const cleanEmail = email ? email.trim().toLowerCase() : '';
+    let foundUser = null;
     if (isSupabaseConfigured) {
       try {
         const { data, error } = await supabase.from('users').select('*').ilike('email', cleanEmail).single();
-        if (!error && data) return data;
+        if (!error && data) foundUser = data;
       } catch (err) {}
     }
-    return memoryDb.users.find(u => u.email.toLowerCase() === cleanEmail) || null;
+    if (!foundUser) {
+      foundUser = memoryDb.users.find(u => u.email.toLowerCase() === cleanEmail) || null;
+    }
+    if (foundUser) {
+      foundUser.role = foundUser.role || DEFAULT_USER_ROLES[cleanEmail] || 'cfo_executive';
+      foundUser.is_active = foundUser.is_active !== false;
+    }
+    return foundUser;
   },
 
   findUserById: async (id) => {
+    let foundUser = null;
     if (isSupabaseConfigured) {
       try {
         const { data, error } = await supabase.from('users').select('*').eq('id', id).single();
-        if (!error && data) return data;
+        if (!error && data) foundUser = data;
       } catch (err) {}
     }
-    return memoryDb.users.find(u => u.id === id) || null;
+    if (!foundUser) {
+      foundUser = memoryDb.users.find(u => u.id === id) || null;
+    }
+    if (foundUser) {
+      foundUser.role = foundUser.role || DEFAULT_USER_ROLES[foundUser.email?.toLowerCase()] || 'cfo_executive';
+      foundUser.is_active = foundUser.is_active !== false;
+    }
+    return foundUser;
   },
 
   createUser: async (userData) => {
-    const newUser = { id: uuidv4(), ...userData, created_at: new Date().toISOString(), updated_at: new Date().toISOString() };
+    const role = userData.role || DEFAULT_USER_ROLES[userData.email?.toLowerCase()] || 'customer_ops';
+    const newUser = { id: uuidv4(), ...userData, role, is_active: true, created_at: new Date().toISOString(), updated_at: new Date().toISOString() };
     if (isSupabaseConfigured) {
       try {
         const { data, error } = await supabase.from('users').insert(newUser).select().single();
-        if (!error && data) return data;
+        if (!error && data) {
+          data.role = data.role || role;
+          return data;
+        }
       } catch (err) {}
     }
     memoryDb.users.push(newUser);

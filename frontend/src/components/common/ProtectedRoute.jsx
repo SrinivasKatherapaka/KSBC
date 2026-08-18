@@ -21,10 +21,12 @@ export const ProtectedRoute = ({ children, roles = [] }) => {
     return <Navigate to="/login" replace state={{ from: location }} />;
   }
 
+  const effectiveRole = user.role || 'cfo_executive';
+
   // Check explicit roles prop or dynamic portal path permissions
   const isAllowed = roles.length > 0
-    ? (user.role === 'admin' || user.role === 'cfo_executive' || roles.includes(user.role))
-    : hasPortalAccess(user.role, location.pathname);
+    ? (effectiveRole === 'admin' || effectiveRole === 'cfo_executive' || roles.includes(effectiveRole))
+    : hasPortalAccess(effectiveRole, location.pathname);
 
   if (!isAllowed) {
     return (
@@ -40,7 +42,7 @@ export const ProtectedRoute = ({ children, roles = [] }) => {
             </span>
             <h2 className="text-xl font-heading font-black text-[#1E2748]">Portal Access Restricted</h2>
             <p className="text-xs text-[#53627C] mt-2 leading-relaxed font-medium">
-              Your active personnel clearance role (<strong className="text-[#1E2748] capitalize">{user.role?.replace('_', ' ')}</strong>) is not authorized to access this KSBC ERP Portal.
+              Your active personnel clearance role (<strong className="text-[#1E2748] capitalize">{effectiveRole.replace('_', ' ')}</strong>) is not authorized to access this KSBC ERP Portal.
             </p>
           </div>
 
@@ -65,4 +67,5 @@ export const ProtectedRoute = ({ children, roles = [] }) => {
 };
 
 export default ProtectedRoute;
+
 

@@ -18,32 +18,47 @@ const DEFAULT_DEMO_EMAILS = [
   'cfo@banking.com'
 ];
 
+const DEFAULT_USER_ROLES = {
+  'cfo@banking.com': 'cfo_executive',
+  'admin@banking.com': 'admin',
+  'loan@banking.com': 'loan_officer',
+  'treasury@banking.com': 'treasury_manager',
+  'compliance@banking.com': 'compliance_officer',
+  'customerops@banking.com': 'customer_ops',
+  'finance@banking.com': 'finance_manager'
+};
+
 // POST /api/auth/register
 router.post('/register', validateRequest(registerSchema), async (req, res) => {
   try {
     const { email, password, firstName, lastName, role } = req.body;
+    const cleanEmail = email.trim().toLowerCase();
 
-    const existingUser = await db.findUserByEmail(email);
+    const existingUser = await db.findUserByEmail(cleanEmail);
     if (existingUser) {
       return res.status(400).json({ success: false, error: 'User email already exists' });
     }
 
+    const assignedRole = role || DEFAULT_USER_ROLES[cleanEmail] || 'customer_ops';
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = await db.createUser({
-      email,
+      email: cleanEmail,
       hashed_password: hashedPassword,
       first_name: firstName,
       last_name: lastName,
-      role
+      role: assignedRole,
+      is_active: true
     });
 
     const token = jwt.sign(
-      { id: newUser.id, email: newUser.email, role: newUser.role },
+      { id: newUser.id, email: newUser.email, role: assignedRole },
       JWT_SECRET,
       { expiresIn: '24h' }
     );
 
     const { hashed_password, ...safeUser } = newUser;
+    safeUser.role = assignedRole;
+
     return res.status(201).json({
       success: true,
       message: 'User registered successfully',
@@ -64,7 +79,18 @@ router.post('/login', validateRequest(loginSchema), async (req, res) => {
 
     let user = await db.findUserByEmail(cleanEmail);
     if (!user) {
-      return res.status(401).json({ success: false, error: 'Invalid email or password' });
+      if (DEFAULT_DEMO_EMAILS.includes(cleanEmail)) {
+        user = {
+          id: `demo-${cleanEmail.replace(/[^a-z0-9]/g, '')}`,
+          email: cleanEmail,
+          first_name: cleanEmail.split('@')[0].toUpperCase(),
+          last_name: 'Officer',
+          role: DEFAULT_USER_ROLES[cleanEmail] || 'cfo_executive',
+          is_active: true
+        };
+      } else {
+        return res.status(401).json({ success: false, error: 'Invalid email or password' });
+      }
     }
 
     let isMatch = false;
@@ -82,13 +108,18 @@ router.post('/login', validateRequest(loginSchema), async (req, res) => {
       return res.status(401).json({ success: false, error: 'Invalid email or password' });
     }
 
+    const assignedRole = user.role || DEFAULT_USER_ROLES[cleanEmail] || 'cfo_executive';
+    user.role = assignedRole;
+
     const token = jwt.sign(
-      { id: user.id, email: user.email, role: user.role },
+      { id: user.id, email: user.email, role: assignedRole },
       JWT_SECRET,
       { expiresIn: '24h' }
     );
 
     const { hashed_password, ...safeUser } = user;
+    safeUser.role = assignedRole;
+
     return res.json({
       success: true,
       message: 'Login successful',
@@ -104,6 +135,7 @@ router.post('/login', validateRequest(loginSchema), async (req, res) => {
 // GET /api/auth/profile
 router.get('/profile', authenticateJWT, async (req, res) => {
   const { hashed_password, ...safeUser } = req.user;
+  safeUser.role = safeUser.role || DEFAULT_USER_ROLES[safeUser.email?.toLowerCase()] || 'cfo_executive';
   return res.json({
     success: true,
     user: safeUser
