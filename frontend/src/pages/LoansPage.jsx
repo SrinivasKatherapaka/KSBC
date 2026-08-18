@@ -187,6 +187,7 @@ export const LoansPage = () => {
   // Segregated Pipeline Loan Groups
   const appliedLoans = activeFilteredLoans.filter((l) => l.status === 'draft' || l.status === 'applied');
   const inProcessLoans = activeFilteredLoans.filter((l) => l.status === 'underwriting' || l.status === 'compliance_review');
+  const onHoldLoans = activeFilteredLoans.filter((l) => l.status === 'on_hold' || l.status === 'onhold');
   const approvedLoans = activeFilteredLoans.filter((l) => l.status === 'approved');
   const disbursedLoans = activeFilteredLoans.filter((l) => l.status === 'disbursed');
   const rejectedLoans = activeFilteredLoans.filter((l) => l.status === 'rejected');
@@ -264,6 +265,32 @@ export const LoansPage = () => {
                 <CheckCircle2 className="w-3 h-3" />
                 <span>Approve</span>
               </button>
+            </div>
+          )}
+
+          {loan.status === 'on_hold' && (
+            <div className="space-y-1.5">
+              <div className="p-1.5 bg-amber-500/10 border border-amber-500/30 rounded text-[10px] text-amber-400 font-medium">
+                ⏳ On Hold: {loan.decision_notes || 'Pending documentation/compliance'}
+              </div>
+              <div className="grid grid-cols-2 gap-1.5">
+                <button
+                  onClick={() => handleAssessRisk(loan.id)}
+                  disabled={processingId === loan.id}
+                  className="w-full py-1.5 bg-[#dfbd84] text-[#1b2827] text-[10px] font-black rounded-lg shadow transition flex items-center justify-center space-x-1 disabled:opacity-50"
+                >
+                  <Sparkles className="w-3 h-3 text-[#1b2827]" />
+                  <span>Re-Assess</span>
+                </button>
+                <button
+                  onClick={() => handleApproveLoan(loan.id)}
+                  disabled={processingId === loan.id}
+                  className="w-full py-1.5 bg-[#58b388] text-[#1b2827] text-[10px] font-black rounded-lg shadow transition flex items-center justify-center space-x-1 disabled:opacity-50"
+                >
+                  <CheckCircle2 className="w-3 h-3" />
+                  <span>Approve</span>
+                </button>
+              </div>
             </div>
           )}
 
@@ -347,36 +374,11 @@ export const LoansPage = () => {
               >
                 All Categories ({loans.length})
               </button>
-              <button
-                onClick={() => setCategoryFilter('corporate')}
-                className={`px-3 py-1.5 rounded-xl font-bold transition ${
-                  categoryFilter === 'corporate' ? 'bg-[#dfbd84] text-[#1b2827]' : 'bg-[#20302f] text-[#a4b8b5] hover:text-[#f4eee2]'
-                }`}
-              >
-                🏢 Corporate Enterprise
-              </button>
-              <button
-                onClick={() => setCategoryFilter('sme')}
-                className={`px-3 py-1.5 rounded-xl font-bold transition ${
-                  categoryFilter === 'sme' ? 'bg-[#c59e5f] text-[#1b2827]' : 'bg-[#20302f] text-[#a4b8b5] hover:text-[#f4eee2]'
-                }`}
-              >
-                🏬 SME Business
-              </button>
-              <button
-                onClick={() => setCategoryFilter('private_individual')}
-                className={`px-3 py-1.5 rounded-xl font-bold transition ${
-                  categoryFilter === 'private_individual' ? 'bg-purple-500 text-white' : 'bg-[#20302f] text-[#a4b8b5] hover:text-[#f4eee2]'
-                }`}
-              >
-                👤 Private Accounts
-              </button>
             </div>
           </div>
 
-          {/* Success Banner */}
           {successMsg && (
-            <div className="p-3.5 bg-[#58b388]/20 border border-[#58b388]/50 rounded-xl text-xs text-[#58b388] font-bold flex items-center justify-between shadow">
+            <div className="p-4 bg-[#58b388]/10 border border-[#58b388]/30 rounded-xl text-xs text-[#58b388] flex items-center justify-between">
               <span className="flex items-center space-x-2">
                 <Check className="w-4 h-4" />
                 <span>{successMsg}</span>
@@ -392,13 +394,13 @@ export const LoansPage = () => {
           {loading ? (
             <LoadingSpinner text="Loading categorized commercial loans pipeline..." />
           ) : (
-            /* Categorized 5-Column Underwriting Lifecycle Kanban Pipeline */
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 items-start">
+            /* Categorized 6-Column Underwriting Lifecycle Kanban Pipeline */
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3.5 items-start">
               {/* Column 1: Applied / Draft */}
-              <div className="glass-panel p-4 rounded-2xl border border-[#dfbd84]/30 space-y-3 bg-[#20302f]/50 shadow-xl">
+              <div className="glass-panel p-3.5 rounded-2xl border border-[#dfbd84]/30 space-y-3 bg-[#20302f]/50 shadow-xl">
                 <div className="pb-2 border-b border-[#dfbd84]/20">
                   <div className="flex justify-between items-center">
-                    <span className="font-extrabold text-white text-xs uppercase flex items-center space-x-1">
+                    <span className="font-extrabold text-white text-[11px] uppercase flex items-center space-x-1">
                       <span>1. Applied / Draft</span>
                     </span>
                     <span className="px-2 py-0.5 bg-[#182423] text-[#dfbd84] rounded-full text-[10px] font-mono font-bold">
@@ -406,13 +408,13 @@ export const LoansPage = () => {
                     </span>
                   </div>
                   <p className="text-[10px] text-[#dfbd84] font-mono font-bold mt-1">
-                    Volume: ${calcGroupTotal(appliedLoans).toLocaleString()}
+                    ${calcGroupTotal(appliedLoans).toLocaleString()}
                   </p>
                 </div>
                 <div className="space-y-3 max-h-[650px] overflow-y-auto pr-1">
                   {appliedLoans.length === 0 ? (
-                    <div className="p-4 text-center text-[#a4b8b5] text-xs italic bg-[#182423]/40 rounded-xl">
-                      No applied applications in this category filter.
+                    <div className="p-3 text-center text-[#a4b8b5] text-[11px] italic bg-[#182423]/40 rounded-xl">
+                      No applied loans.
                     </div>
                   ) : (
                     appliedLoans.map(renderLoanCard)
@@ -421,10 +423,10 @@ export const LoansPage = () => {
               </div>
 
               {/* Column 2: In Process / Underwriting */}
-              <div className="glass-panel p-4 rounded-2xl border border-[#dfbd84]/30 space-y-3 bg-[#20302f]/50 shadow-xl">
+              <div className="glass-panel p-3.5 rounded-2xl border border-[#dfbd84]/30 space-y-3 bg-[#20302f]/50 shadow-xl">
                 <div className="pb-2 border-b border-[#dfbd84]/20">
                   <div className="flex justify-between items-center">
-                    <span className="font-extrabold text-white text-xs uppercase flex items-center space-x-1">
+                    <span className="font-extrabold text-white text-[11px] uppercase flex items-center space-x-1">
                       <span>2. Underwriting</span>
                     </span>
                     <span className="px-2 py-0.5 bg-[#182423] text-[#dfbd84] rounded-full text-[10px] font-mono font-bold">
@@ -432,13 +434,13 @@ export const LoansPage = () => {
                     </span>
                   </div>
                   <p className="text-[10px] text-[#dfbd84] font-mono font-bold mt-1">
-                    Volume: ${calcGroupTotal(inProcessLoans).toLocaleString()}
+                    ${calcGroupTotal(inProcessLoans).toLocaleString()}
                   </p>
                 </div>
                 <div className="space-y-3 max-h-[650px] overflow-y-auto pr-1">
                   {inProcessLoans.length === 0 ? (
-                    <div className="p-4 text-center text-[#a4b8b5] text-xs italic bg-[#182423]/40 rounded-xl">
-                      No loans in underwriting review.
+                    <div className="p-3 text-center text-[#a4b8b5] text-[11px] italic bg-[#182423]/40 rounded-xl">
+                      No loans in review.
                     </div>
                   ) : (
                     inProcessLoans.map(renderLoanCard)
@@ -446,25 +448,51 @@ export const LoansPage = () => {
                 </div>
               </div>
 
-              {/* Column 3: Approved */}
-              <div className="glass-panel p-4 rounded-2xl border border-[#dfbd84]/30 space-y-3 bg-[#20302f]/50 shadow-xl">
-                <div className="pb-2 border-b border-[#dfbd84]/20">
+              {/* Column 3: On Hold */}
+              <div className="glass-panel p-3.5 rounded-2xl border border-amber-500/30 space-y-3 bg-[#20302f]/50 shadow-xl">
+                <div className="pb-2 border-b border-amber-500/20">
                   <div className="flex justify-between items-center">
-                    <span className="font-extrabold text-white text-xs uppercase flex items-center space-x-1">
-                      <span>3. Approved</span>
+                    <span className="font-extrabold text-amber-400 text-[11px] uppercase flex items-center space-x-1">
+                      <span>3. On Hold</span>
+                    </span>
+                    <span className="px-2 py-0.5 bg-[#182423] text-amber-400 rounded-full text-[10px] font-mono font-bold">
+                      {onHoldLoans.length}
+                    </span>
+                  </div>
+                  <p className="text-[10px] text-amber-400 font-mono font-bold mt-1">
+                    ${calcGroupTotal(onHoldLoans).toLocaleString()}
+                  </p>
+                </div>
+                <div className="space-y-3 max-h-[650px] overflow-y-auto pr-1">
+                  {onHoldLoans.length === 0 ? (
+                    <div className="p-3 text-center text-[#a4b8b5] text-[11px] italic bg-[#182423]/40 rounded-xl">
+                      No on-hold loans.
+                    </div>
+                  ) : (
+                    onHoldLoans.map(renderLoanCard)
+                  )}
+                </div>
+              </div>
+
+              {/* Column 4: Approved */}
+              <div className="glass-panel p-3.5 rounded-2xl border border-[#58b388]/30 space-y-3 bg-[#20302f]/50 shadow-xl">
+                <div className="pb-2 border-b border-[#58b388]/20">
+                  <div className="flex justify-between items-center">
+                    <span className="font-extrabold text-[#58b388] text-[11px] uppercase flex items-center space-x-1">
+                      <span>4. Approved</span>
                     </span>
                     <span className="px-2 py-0.5 bg-[#182423] text-[#58b388] rounded-full text-[10px] font-mono font-bold">
                       {approvedLoans.length}
                     </span>
                   </div>
                   <p className="text-[10px] text-[#58b388] font-mono font-bold mt-1">
-                    Volume: ${calcGroupTotal(approvedLoans).toLocaleString()}
+                    ${calcGroupTotal(approvedLoans).toLocaleString()}
                   </p>
                 </div>
                 <div className="space-y-3 max-h-[650px] overflow-y-auto pr-1">
                   {approvedLoans.length === 0 ? (
-                    <div className="p-4 text-center text-[#a4b8b5] text-xs italic bg-[#182423]/40 rounded-xl">
-                      No approved loans pending payout.
+                    <div className="p-3 text-center text-[#a4b8b5] text-[11px] italic bg-[#182423]/40 rounded-xl">
+                      No approved loans.
                     </div>
                   ) : (
                     approvedLoans.map(renderLoanCard)
@@ -472,24 +500,24 @@ export const LoansPage = () => {
                 </div>
               </div>
 
-              {/* Column 4: Disbursed Active Portfolio */}
-              <div className="glass-panel p-4 rounded-2xl border border-[#58b388]/40 space-y-3 bg-[#20302f]/70 shadow-2xl">
+              {/* Column 5: Disbursed Active Portfolio */}
+              <div className="glass-panel p-3.5 rounded-2xl border border-[#58b388]/40 space-y-3 bg-[#20302f]/70 shadow-2xl">
                 <div className="pb-2 border-b border-[#58b388]/30">
                   <div className="flex justify-between items-center">
-                    <span className="font-extrabold text-[#58b388] text-xs uppercase flex items-center space-x-1">
-                      <span>4. Disbursed</span>
+                    <span className="font-extrabold text-[#58b388] text-[11px] uppercase flex items-center space-x-1">
+                      <span>5. Disbursed</span>
                     </span>
                     <span className="px-2 py-0.5 bg-[#182423] text-[#58b388] rounded-full text-[10px] font-mono font-bold">
                       {disbursedLoans.length}
                     </span>
                   </div>
                   <p className="text-[10px] text-[#58b388] font-mono font-bold mt-1">
-                    Volume: ${calcGroupTotal(disbursedLoans).toLocaleString()}
+                    ${calcGroupTotal(disbursedLoans).toLocaleString()}
                   </p>
                 </div>
                 <div className="space-y-3 max-h-[650px] overflow-y-auto pr-1">
                   {disbursedLoans.length === 0 ? (
-                    <div className="p-4 text-center text-[#a4b8b5] text-xs italic bg-[#182423]/40 rounded-xl">
+                    <div className="p-3 text-center text-[#a4b8b5] text-[11px] italic bg-[#182423]/40 rounded-xl">
                       No disbursed loans.
                     </div>
                   ) : (
@@ -498,24 +526,24 @@ export const LoansPage = () => {
                 </div>
               </div>
 
-              {/* Column 5: Rejected Applications */}
-              <div className="glass-panel p-4 rounded-2xl border border-red-500/30 space-y-3 bg-[#20302f]/40 shadow-xl">
+              {/* Column 6: Rejected Applications */}
+              <div className="glass-panel p-3.5 rounded-2xl border border-red-500/30 space-y-3 bg-[#20302f]/40 shadow-xl">
                 <div className="pb-2 border-b border-red-500/20">
                   <div className="flex justify-between items-center">
-                    <span className="font-extrabold text-red-400 text-xs uppercase flex items-center space-x-1">
-                      <span>5. Rejected</span>
+                    <span className="font-extrabold text-red-400 text-[11px] uppercase flex items-center space-x-1">
+                      <span>6. Rejected</span>
                     </span>
                     <span className="px-2 py-0.5 bg-[#182423] text-red-400 rounded-full text-[10px] font-mono font-bold">
                       {rejectedLoans.length}
                     </span>
                   </div>
                   <p className="text-[10px] text-red-400 font-mono font-bold mt-1">
-                    Volume: ${calcGroupTotal(rejectedLoans).toLocaleString()}
+                    ${calcGroupTotal(rejectedLoans).toLocaleString()}
                   </p>
                 </div>
                 <div className="space-y-3 max-h-[650px] overflow-y-auto pr-1">
                   {rejectedLoans.length === 0 ? (
-                    <div className="p-4 text-center text-[#a4b8b5] text-xs italic bg-[#182423]/40 rounded-xl">
+                    <div className="p-3 text-center text-[#a4b8b5] text-[11px] italic bg-[#182423]/40 rounded-xl">
                       No rejected applications.
                     </div>
                   ) : (

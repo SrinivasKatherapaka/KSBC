@@ -13,6 +13,7 @@ import CompliancePage from './pages/CompliancePage';
 import LoanCalculatorPage from './pages/LoanCalculatorPage';
 import LoansPage from './pages/LoansPage';
 import LoansDatabasePage from './pages/LoansDatabasePage';
+import FreshLoanApplicationsPage from './pages/FreshLoanApplicationsPage';
 import DefaultersPage from './pages/DefaultersPage';
 import FraudDetectionPage from './pages/FraudDetectionPage';
 import CustomerServicePage from './pages/CustomerServicePage';
@@ -41,12 +42,13 @@ export function App() {
           <Route path="/accounts" element={<ProtectedRoute><AccountsPage /></ProtectedRoute>} />
           <Route path="/accounts/:id" element={<ProtectedRoute><AccountDetailsPage /></ProtectedRoute>} />
           <Route path="/accounts/details/:id" element={<ProtectedRoute><AccountDetailsPage /></ProtectedRoute>} />
+          <Route path="/fresh-loans" element={<ProtectedRoute><FreshLoanApplicationsPage /></ProtectedRoute>} />
+          <Route path="/loan-applications" element={<ProtectedRoute><FreshLoanApplicationsPage /></ProtectedRoute>} />
           <Route path="/loans-database" element={<ProtectedRoute><LoansDatabasePage /></ProtectedRoute>} />
           <Route path="/loans" element={<ProtectedRoute><LoansPage /></ProtectedRoute>} />
           <Route path="/customers" element={<ProtectedRoute><CustomersPage /></ProtectedRoute>} />
           <Route path="/compliance" element={<ProtectedRoute><CompliancePage /></ProtectedRoute>} />
           <Route path="/loan-calculator" element={<ProtectedRoute><LoanCalculatorPage /></ProtectedRoute>} />
-          <Route path="/loan-applications" element={<ProtectedRoute><LoansPage /></ProtectedRoute>} />
           <Route path="/defaulters" element={<ProtectedRoute><DefaultersPage /></ProtectedRoute>} />
           <Route path="/fraud-detection" element={<ProtectedRoute><FraudDetectionPage /></ProtectedRoute>} />
           <Route path="/customer-service" element={<ProtectedRoute><CustomerServicePage /></ProtectedRoute>} />

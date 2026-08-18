@@ -273,6 +273,7 @@ initializeSeedData();
 const DATA_DIR = path.join(process.cwd(), 'backend', 'data');
 const WAL_LOG_PATH = path.join(DATA_DIR, 'wal_journal.log');
 const CUSTOMERS_STORE_PATH = path.join(DATA_DIR, 'customers_store.json');
+const LOANS_STORE_PATH = path.join(DATA_DIR, 'loans_store.json');
 
 // Ensure data directory exists
 if (!fs.existsSync(DATA_DIR)) {
@@ -316,6 +317,15 @@ function saveCustomerStore() {
   }
 }
 
+// Persist loans state to disk snapshot
+function saveLoanStore() {
+  try {
+    fs.writeFileSync(LOANS_STORE_PATH, JSON.stringify(memoryDb.loans, null, 2), 'utf8');
+  } catch (err) {
+    console.error('[WAL LOG ERROR] Error saving loan store to disk:', err);
+  }
+}
+
 // Recover and replay WAL entries on system startup
 function initializeWalAndDataStore() {
   try {
@@ -328,7 +338,16 @@ function initializeWalAndDataStore() {
       }
     }
 
-    // 2. Replay WAL journal log entries sequentially
+    // 2. Load existing loan snapshot from disk if present
+    if (fs.existsSync(LOANS_STORE_PATH)) {
+      const content = fs.readFileSync(LOANS_STORE_PATH, 'utf8');
+      const stored = JSON.parse(content);
+      if (Array.isArray(stored) && stored.length > 0) {
+        memoryDb.loans = stored;
+      }
+    }
+
+    // 3. Replay WAL journal log entries sequentially
     if (fs.existsSync(WAL_LOG_PATH)) {
       const content = fs.readFileSync(WAL_LOG_PATH, 'utf8');
       const lines = content.split('\n').filter(l => l.trim().length > 0);
@@ -361,6 +380,35 @@ function initializeWalAndDataStore() {
               memoryDb.customers[idx].kyc_notes = entry.payload.notes;
               count++;
             }
+          } else if (entry.operation === 'CREATE_LOAN' && entry.payload) {
+            const existsIdx = memoryDb.loans.findIndex(l => l.id === entry.payload.id);
+            if (existsIdx === -1) {
+              memoryDb.loans.unshift(entry.payload);
+            } else {
+              memoryDb.loans[existsIdx] = { ...memoryDb.loans[existsIdx], ...entry.payload };
+            }
+            count++;
+          } else if (entry.operation === 'UPDATE_LOAN' && entry.payload) {
+            const idx = memoryDb.loans.findIndex(l => l.id === entry.payload.id);
+            if (idx !== -1) {
+              memoryDb.loans[idx] = { ...memoryDb.loans[idx], ...entry.payload };
+              count++;
+            }
+          } else if (entry.operation === 'UPDATE_LOAN_STATUS' && entry.payload) {
+            const idx = memoryDb.loans.findIndex(l => l.id === entry.payload.id);
+            if (idx !== -1) {
+              memoryDb.loans[idx] = {
+                ...memoryDb.loans[idx],
+                status: entry.payload.status,
+                ...(entry.payload.notes ? { decision_notes: entry.payload.notes } : {}),
+                ...(entry.payload.action_logs ? { action_logs: entry.payload.action_logs } : {}),
+                updated_at: new Date().toISOString()
+              };
+              count++;
+            }
+          } else if (entry.operation === 'DELETE_LOAN' && entry.payload) {
+            memoryDb.loans = memoryDb.loans.filter(l => l.id !== entry.payload.id);
+            count++;
           }
         } catch (e) {}
       }
@@ -370,10 +418,11 @@ function initializeWalAndDataStore() {
       const stats = fs.statSync(WAL_LOG_PATH);
       walStats.journalSize = stats.size;
 
-      console.log(`⚡ [WAL ENGINE RECOVERY] Replayed ${count} WAL entries. Total customer records protected: ${memoryDb.customers.length}`);
+      console.log(`⚡ [WAL ENGINE RECOVERY] Replayed ${count} WAL entries. Total customers: ${memoryDb.customers.length}, Total loans: ${memoryDb.loans.length}`);
     }
 
     saveCustomerStore();
+    saveLoanStore();
   } catch (err) {
     console.error('[WAL LOG ERROR] WAL Initialization error:', err);
   }
@@ -584,47 +633,123 @@ export const db = {
   },
 
   getLoans: async () => {
+    // Sort memory loans newest first
+    const sortedMemoryLoans = [...memoryDb.loans].sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
+
     if (isSupabaseConfigured) {
       try {
         const { data, error } = await supabase.from('loans').select('*, customer:customers(*)').order('created_at', { ascending: false });
-        if (!error && data && data.length >= 50) return data;
+        if (!error && data && data.length > 0) {
+          // Merge Supabase loans with any fresh in-memory loans that might not yet be in Supabase
+          const map = new Map();
+          for (const l of sortedMemoryLoans) {
+            map.set(l.id, {
+              ...l,
+              customer: memoryDb.customers.find(c => c.id === l.customer_id) || l.customer || null
+            });
+          }
+          for (const l of data) {
+            map.set(l.id, l);
+          }
+          return Array.from(map.values()).sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
+        }
       } catch (err) {}
     }
-    return memoryDb.loans.map(loan => ({
+
+    return sortedMemoryLoans.map(loan => ({
       ...loan,
-      customer: memoryDb.customers.find(c => c.id === loan.customer_id) || null
+      customer: memoryDb.customers.find(c => c.id === loan.customer_id) || loan.customer || null
     }));
   },
 
   getLoanById: async (id) => {
     const loan = memoryDb.loans.find(l => l.id === id);
-    if (!loan) return null;
-    return {
-      ...loan,
-      customer: memoryDb.customers.find(c => c.id === loan.customer_id) || null
-    };
-  },
-
-  createLoan: async (loanData) => {
-    const newLoan = {
-      id: uuidv4(),
-      status: 'draft',
-      risk_score: null,
-      ai_risk_assessment: null,
-      approved_by: null,
-      disbursed_by: null,
-      ...loanData,
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString()
-    };
+    if (loan) {
+      return {
+        ...loan,
+        customer: memoryDb.customers.find(c => c.id === loan.customer_id) || loan.customer || null
+      };
+    }
     if (isSupabaseConfigured) {
       try {
-        const { data, error } = await supabase.from('loans').insert(newLoan).select().single();
+        const { data, error } = await supabase.from('loans').select('*, customer:customers(*)').eq('id', id).single();
         if (!error && data) return data;
       } catch (err) {}
     }
-    memoryDb.loans.push(newLoan);
-    return newLoan;
+    return null;
+  },
+
+  createLoan: async (loanData) => {
+    const loanId = loanData.id || uuidv4();
+    const newLoan = {
+      id: loanId,
+      status: loanData.status || 'draft',
+      risk_score: loanData.risk_score !== undefined ? loanData.risk_score : 35,
+      ai_risk_assessment: loanData.ai_risk_assessment || null,
+      approved_by: loanData.approved_by || null,
+      disbursed_by: loanData.disbursed_by || null,
+      decision_notes: loanData.decision_notes || loanData.notes || '',
+      action_logs: loanData.action_logs || [
+        {
+          action: loanData.status || 'draft',
+          notes: loanData.decision_notes || loanData.notes || 'Application submitted into intake queue',
+          timestamp: new Date().toISOString(),
+          user_id: loanData.created_by || null
+        }
+      ],
+      ...loanData,
+      created_at: loanData.created_at || new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    };
+
+    // 1. Immediately unshift to memory store so it appears at top of queue
+    const existsIdx = memoryDb.loans.findIndex(l => l.id === newLoan.id);
+    if (existsIdx === -1) {
+      memoryDb.loans.unshift(newLoan);
+    } else {
+      memoryDb.loans[existsIdx] = newLoan;
+    }
+
+    // 2. Write to WAL and save to disk
+    writeToWal('CREATE_LOAN', newLoan);
+    saveLoanStore();
+
+    // 3. Sync to Supabase Database
+    if (isSupabaseConfigured) {
+      try {
+        // Strip non-table fields for Supabase if needed
+        const sbPayload = {
+          id: newLoan.id,
+          customer_id: newLoan.customer_id,
+          applicant_name: newLoan.applicant_name,
+          applicant_category: newLoan.applicant_category,
+          principal_amount: newLoan.principal_amount,
+          interest_rate: newLoan.interest_rate,
+          term_months: newLoan.term_months,
+          purpose: newLoan.purpose,
+          status: ['draft', 'compliance_review', 'underwriting', 'approved', 'disbursed', 'rejected'].includes(newLoan.status) ? newLoan.status : 'draft',
+          risk_score: typeof newLoan.risk_score === 'number' ? Math.round(newLoan.risk_score) : null,
+          ai_risk_assessment: newLoan.ai_risk_assessment,
+          created_by: newLoan.created_by,
+          approved_by: newLoan.approved_by,
+          disbursed_by: newLoan.disbursed_by,
+          created_at: newLoan.created_at,
+          updated_at: newLoan.updated_at
+        };
+        const { data, error } = await supabase.from('loans').insert(sbPayload).select().single();
+        if (error) {
+          console.warn('[SUPABASE LOAN SYNC WARNING] Primary insert warning:', error.message);
+          await supabase.from('loans').upsert(sbPayload);
+        }
+      } catch (err) {
+        console.warn('[SUPABASE LOAN SYNC EXCEPTION]', err.message);
+      }
+    }
+
+    return {
+      ...newLoan,
+      customer: memoryDb.customers.find(c => c.id === newLoan.customer_id) || newLoan.customer || null
+    };
   },
 
   updateLoanRiskAssessment: async (id, riskScore, assessmentData) => {
@@ -634,37 +759,66 @@ export const db = {
       status: 'underwriting',
       updated_at: new Date().toISOString()
     };
-    if (isSupabaseConfigured) {
-      try {
-        const { data, error } = await supabase.from('loans').update(updatePayload).eq('id', id).select().single();
-        if (!error && data) return data;
-      } catch (err) {}
-    }
+    
     const idx = memoryDb.loans.findIndex(l => l.id === id);
     if (idx !== -1) {
       memoryDb.loans[idx] = { ...memoryDb.loans[idx], ...updatePayload };
-      return memoryDb.loans[idx];
+      writeToWal('UPDATE_LOAN', memoryDb.loans[idx]);
+      saveLoanStore();
     }
-    return null;
+
+    if (isSupabaseConfigured) {
+      try {
+        await supabase.from('loans').update({
+          risk_score: riskScore,
+          ai_risk_assessment: assessmentData,
+          status: 'underwriting',
+          updated_at: updatePayload.updated_at
+        }).eq('id', id);
+      } catch (err) {}
+    }
+
+    return idx !== -1 ? memoryDb.loans[idx] : null;
   },
 
-  updateLoanStatus: async (id, status, approverId = null, disburserId = null) => {
-    const updatePayload = { status, updated_at: new Date().toISOString() };
+  updateLoanStatus: async (id, status, approverId = null, disburserId = null, notes = '') => {
+    const updatePayload = { 
+      status, 
+      updated_at: new Date().toISOString() 
+    };
     if (approverId) updatePayload.approved_by = approverId;
     if (disburserId) updatePayload.disbursed_by = disburserId;
+    if (notes) updatePayload.decision_notes = notes;
+
+    const idx = memoryDb.loans.findIndex(l => l.id === id);
+    if (idx !== -1) {
+      const prevLogs = memoryDb.loans[idx].action_logs || [];
+      const newLog = {
+        action: status,
+        notes: notes || `Status updated to ${status}`,
+        timestamp: new Date().toISOString(),
+        user_id: approverId || disburserId || null
+      };
+      updatePayload.action_logs = [newLog, ...prevLogs];
+
+      memoryDb.loans[idx] = { ...memoryDb.loans[idx], ...updatePayload };
+      writeToWal('UPDATE_LOAN_STATUS', { id, status, notes, action_logs: updatePayload.action_logs });
+      saveLoanStore();
+    }
 
     if (isSupabaseConfigured) {
       try {
-        const { data, error } = await supabase.from('loans').update(updatePayload).eq('id', id).select().single();
-        if (!error && data) return data;
+        const sbStatus = ['draft', 'compliance_review', 'underwriting', 'approved', 'disbursed', 'rejected'].includes(status) ? status : 'draft';
+        await supabase.from('loans').update({
+          status: sbStatus,
+          ...(approverId ? { approved_by: approverId } : {}),
+          ...(disburserId ? { disbursed_by: disburserId } : {}),
+          updated_at: updatePayload.updated_at
+        }).eq('id', id);
       } catch (err) {}
     }
-    const idx = memoryDb.loans.findIndex(l => l.id === id);
-    if (idx !== -1) {
-      memoryDb.loans[idx] = { ...memoryDb.loans[idx], ...updatePayload };
-      return memoryDb.loans[idx];
-    }
-    return null;
+
+    return idx !== -1 ? memoryDb.loans[idx] : null;
   },
 
   updateLoanDetails: async (id, loanData) => {
@@ -672,31 +826,38 @@ export const db = {
       ...loanData,
       updated_at: new Date().toISOString()
     };
+    
+    const idx = memoryDb.loans.findIndex(l => l.id === id);
+    if (idx !== -1) {
+      memoryDb.loans[idx] = { ...memoryDb.loans[idx], ...updatePayload };
+      writeToWal('UPDATE_LOAN', memoryDb.loans[idx]);
+      saveLoanStore();
+    }
+
     if (isSupabaseConfigured) {
       try {
         await supabase.from('loans').update(updatePayload).eq('id', id);
       } catch (err) {}
     }
-    const idx = memoryDb.loans.findIndex(l => l.id === id);
-    if (idx !== -1) {
-      memoryDb.loans[idx] = { ...memoryDb.loans[idx], ...updatePayload };
-      return memoryDb.loans[idx];
-    }
-    return null;
+
+    return idx !== -1 ? memoryDb.loans[idx] : null;
   },
 
   deleteLoanRecord: async (id) => {
+    const idx = memoryDb.loans.findIndex(l => l.id === id);
+    if (idx !== -1) {
+      memoryDb.loans.splice(idx, 1);
+      writeToWal('DELETE_LOAN', { id });
+      saveLoanStore();
+    }
+
     if (isSupabaseConfigured) {
       try {
         await supabase.from('loans').delete().eq('id', id);
       } catch (err) {}
     }
-    const idx = memoryDb.loans.findIndex(l => l.id === id);
-    if (idx !== -1) {
-      memoryDb.loans.splice(idx, 1);
-      return true;
-    }
-    return false;
+
+    return idx !== -1;
   },
 
   getGlAccounts: async () => {

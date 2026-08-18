@@ -28,6 +28,7 @@ export const Sidebar = () => {
 
   const navItems = [
     { label: 'KSBC Executive Dashboard', path: '/dashboard', icon: LayoutDashboard, roleTag: 'Executive' },
+    { label: 'Fresh Loan Applications', path: '/fresh-loans', icon: FileText, roleTag: 'Intake AI' },
     { label: 'CFO Executive AI Chatbot', path: '/cfo-ai-chat', icon: Bot, roleTag: 'CFO AI' },
     { label: 'Accounts Database', path: '/accounts', icon: Wallet, roleTag: 'Master' },
     { label: 'Loans Database', path: '/loans-database', icon: Landmark, roleTag: 'Master DB' },

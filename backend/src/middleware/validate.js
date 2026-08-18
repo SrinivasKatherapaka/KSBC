@@ -31,13 +31,21 @@ export const createCustomerSchema = z.object({
 });
 
 export const createLoanSchema = z.object({
-  customerId: z.string().uuid().optional(),
-  applicantName: z.string().min(2).optional(),
-  applicantCategory: z.enum(['private_individual', 'corporate', 'sme', 'institutional']).optional().default('corporate'),
-  principalAmount: z.number().positive(),
-  interestRate: z.number().min(0.1).max(30),
-  termMonths: z.number().int().positive(),
-  purpose: z.string().min(3)
+  customerId: z.string().optional().nullable().or(z.literal('')),
+  applicantName: z.string().min(1).optional().nullable(),
+  applicantCategory: z.string().optional().default('corporate'),
+  principalAmount: z.union([z.number(), z.string().transform(v => Number(v))]).refine(v => !isNaN(v) && v > 0, { message: 'Principal amount must be positive' }),
+  interestRate: z.union([z.number(), z.string().transform(v => Number(v))]).refine(v => !isNaN(v) && v >= 0.01 && v <= 100, { message: 'Interest rate must be between 0.01 and 100' }),
+  termMonths: z.union([z.number(), z.string().transform(v => Number(v))]).refine(v => !isNaN(v) && v > 0, { message: 'Term months must be positive' }),
+  purpose: z.string().min(1),
+  status: z.string().optional().default('draft'),
+  annualRevenue: z.union([z.number(), z.string().transform(v => Number(v))]).optional(),
+  creditScore: z.union([z.number(), z.string().transform(v => Number(v))]).optional(),
+  collateralValue: z.union([z.number(), z.string().transform(v => Number(v))]).optional(),
+  dtiRatio: z.union([z.number(), z.string().transform(v => Number(v))]).optional(),
+  actionTaken: z.string().optional(),
+  decisionNotes: z.string().optional(),
+  notes: z.string().optional()
 });
 
 export const createPoSchema = z.object({

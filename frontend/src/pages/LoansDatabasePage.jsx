@@ -387,6 +387,7 @@ export const LoansDatabasePage = () => {
                     <option value="all" className="bg-[#182423]">All Loan Statuses</option>
                     <option value="draft" className="bg-[#182423]">Applied / Draft</option>
                     <option value="underwriting" className="bg-[#182423]">In Underwriting</option>
+                    <option value="on_hold" className="bg-[#182423]">On Hold</option>
                     <option value="approved" className="bg-[#182423]">Approved</option>
                     <option value="disbursed" className="bg-[#182423]">Disbursed</option>
                     <option value="rejected" className="bg-[#182423]">Rejected</option>
@@ -466,7 +467,7 @@ export const LoansDatabasePage = () => {
                   <tbody className="divide-y divide-[#dfbd84]/15">
                     {filteredDatabaseLoans.length === 0 ? (
                       <tr>
-                        <td colSpan="10" className="py-8 text-center text-[#a4b8b5] text-xs">
+                        <td colSpan="10" className="py-8 text-center text-[#a4b8b5] italic text-xs">
                           No loan records matching selected search query or filters.
                         </td>
                       </tr>
@@ -517,11 +518,13 @@ export const LoansDatabasePage = () => {
                                   ? 'bg-[#58b388]/20 text-[#58b388] border-[#58b388]/40'
                                   : l.status === 'approved'
                                   ? 'bg-[#268bd2]/20 text-[#268bd2] border-[#268bd2]/40'
+                                  : l.status === 'on_hold' || l.status === 'onhold'
+                                  ? 'bg-amber-500/20 text-amber-400 border-amber-500/40'
                                   : l.status === 'rejected'
                                   ? 'bg-red-500/10 text-red-400 border-red-500/30'
                                   : 'bg-[#c59e5f]/20 text-[#dfbd84] border-[#dfbd84]/40'
                               }`}>
-                                {l.status}
+                                {l.status === 'on_hold' ? 'ON HOLD' : l.status}
                               </span>
                             </td>
 
