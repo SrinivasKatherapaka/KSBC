@@ -15,17 +15,17 @@ export const ProfilePage = () => {
 
         <main className="p-6 md:p-8 space-y-6 max-w-4xl mx-auto w-full">
           <div>
-            <h1 className="text-2xl font-extrabold text-white font-heading">User Profile & Security Clearance</h1>
+            <h1 className="text-2xl font-extrabold text-[#1E2748] font-heading">User Profile & Security Clearance</h1>
             <p className="text-xs text-slate-400">Managed Personnel Credentials & RBAC Access Matrix</p>
           </div>
 
           <div className="glass-panel p-8 rounded-3xl border border-white/10 space-y-6">
             <div className="flex items-center space-x-4">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 border border-blue-400 flex items-center justify-center text-2xl font-extrabold text-white">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 border border-blue-400 flex items-center justify-center text-2xl font-extrabold text-[#1E2748]">
                 {user?.first_name?.[0]}{user?.last_name?.[0]}
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white">{user?.first_name} {user?.last_name}</h2>
+                <h2 className="text-xl font-bold text-[#1E2748]">{user?.first_name} {user?.last_name}</h2>
                 <div className="flex items-center space-x-2 mt-1">
                   <Shield className="w-4 h-4 text-amber-400" />
                   <span className="text-xs font-mono font-bold text-amber-400 capitalize">
@@ -38,7 +38,7 @@ export const ProfilePage = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
               <div className="p-4 bg-slate-900/60 rounded-2xl border border-slate-800 space-y-1">
                 <span className="text-slate-400 font-bold uppercase text-[10px] block">Corporate Email</span>
-                <span className="text-white font-mono text-sm">{user?.email}</span>
+                <span className="text-[#1E2748] font-mono text-sm">{user?.email}</span>
               </div>
               <div className="p-4 bg-slate-900/60 rounded-2xl border border-slate-800 space-y-1">
                 <span className="text-slate-400 font-bold uppercase text-[10px] block">Personnel User ID</span>
@@ -47,10 +47,10 @@ export const ProfilePage = () => {
             </div>
 
             <div className="p-4 bg-blue-600/10 border border-blue-500/20 rounded-2xl text-xs text-blue-300 space-y-2">
-              <span className="font-bold text-white block">Active RBAC Security Clearance:</span>
+              <span className="font-bold text-[#1E2748] block">Active RBAC Security Clearance:</span>
               <p>
                 Your session is authenticated via JWT. You possess clearance to view and manage modules under the{' '}
-                <span className="font-bold font-mono text-white">"{user?.role}"</span> clearance policy.
+                <span className="font-bold font-mono text-[#1E2748]">"{user?.role}"</span> clearance policy.
               </p>
             </div>
 

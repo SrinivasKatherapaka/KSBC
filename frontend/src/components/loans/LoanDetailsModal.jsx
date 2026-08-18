@@ -209,7 +209,7 @@ Underwriter ID    : ${user?.id || 'SYSTEM-ADMIN'}
 
             <button
               onClick={onClose}
-              className="p-1.5 bg-[#F6F2E3] text-[#1E2748] text-[#53627C] hover:text-white rounded-xl border border-[#1E2748]/15 transition cursor-pointer"
+              className="p-1.5 bg-[#F6F2E3] text-[#1E2748] text-[#53627C] hover:text-[#1E2748] rounded-xl border border-[#1E2748]/15 transition cursor-pointer"
               title="Close Modal"
             >
               <X className="w-5 h-5" />
@@ -221,7 +221,7 @@ Underwriter ID    : ${user?.id || 'SYSTEM-ADMIN'}
         {feedbackMsg && (
           <div className="p-3 bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15 rounded-xl text-xs font-bold text-[#1E2748] flex items-center justify-between">
             <span>{feedbackMsg}</span>
-            <button onClick={() => setFeedbackMsg('')} className="text-[#53627C] hover:text-white">
+            <button onClick={() => setFeedbackMsg('')} className="text-[#53627C] hover:text-[#1E2748]">
               <X className="w-4 h-4" />
             </button>
           </div>
@@ -295,7 +295,7 @@ Underwriter ID    : ${user?.id || 'SYSTEM-ADMIN'}
                   <button
                     type="button"
                     onClick={() => setIsTaxIdVisible(!isTaxIdVisible)}
-                    className="text-[#1E2748] hover:text-white p-0.5 cursor-pointer"
+                    className="text-[#1E2748] hover:text-[#1E2748] p-0.5 cursor-pointer"
                     title={isTaxIdVisible ? 'Hide Tax ID' : 'Reveal Tax ID'}
                   >
                     {isTaxIdVisible ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
@@ -408,7 +408,7 @@ Underwriter ID    : ${user?.id || 'SYSTEM-ADMIN'}
               <h4 className="font-extrabold text-[#1E2748] text-xs uppercase flex items-center space-x-2">
                 <span>Confirm Action: {activeActionPrompt.toUpperCase().replace('_', ' ')}</span>
               </h4>
-              <button onClick={() => setActiveActionPrompt(null)} className="text-[#53627C] hover:text-white">
+              <button onClick={() => setActiveActionPrompt(null)} className="text-[#53627C] hover:text-[#1E2748]">
                 <X className="w-4 h-4" />
               </button>
             </div>
@@ -422,7 +422,7 @@ Underwriter ID    : ${user?.id || 'SYSTEM-ADMIN'}
                 value={actionReason}
                 onChange={(e) => setActionReason(e.target.value)}
                 placeholder={`Provide reason for marking as ${activeActionPrompt}...`}
-                className="w-full glass-input bg-[#EBE4CD] text-white rounded-xl p-2.5 text-xs"
+                className="w-full glass-input bg-[#EBE4CD] text-[#1E2748] rounded-xl p-2.5 text-xs"
               />
             </div>
 
@@ -517,7 +517,7 @@ Underwriter ID    : ${user?.id || 'SYSTEM-ADMIN'}
                 setActionReason('Adverse action reject: elevated default probability');
               }}
               disabled={isProcessing || status === 'rejected'}
-              className="px-3.5 py-2 bg-red-600 hover:bg-red-500 text-white text-xs font-black rounded-xl transition flex items-center space-x-1.5 disabled:opacity-30 cursor-pointer shadow-md"
+              className="px-3.5 py-2 bg-red-600 hover:bg-red-500 text-[#1E2748] text-xs font-black rounded-xl transition flex items-center space-x-1.5 disabled:opacity-30 cursor-pointer shadow-md"
             >
               <XCircle className="w-4 h-4" />
               <span>Reject Application</span>

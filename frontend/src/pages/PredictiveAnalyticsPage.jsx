@@ -70,7 +70,7 @@ export const PredictiveAnalyticsPage = () => {
                   className={`px-3 py-1.5 rounded-lg font-bold transition text-xs ${
                     scenario === s.id
                       ? 'bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border border-[#1E2748]/15 shadow'
-                      : 'text-[#53627C] hover:text-white'
+                      : 'text-[#53627C] hover:text-[#1E2748]'
                   }`}
                 >
                   {s.label}

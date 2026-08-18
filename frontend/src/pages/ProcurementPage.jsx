@@ -155,7 +155,7 @@ export const ProcurementPage = () => {
                 <Check className="w-4 h-4" />
                 <span>{successMsg}</span>
               </span>
-              <button onClick={() => setSuccessMsg('')} className="text-[#58b388] hover:text-white">
+              <button onClick={() => setSuccessMsg('')} className="text-[#58b388] hover:text-[#1E2748]">
                 <X className="w-4 h-4" />
               </button>
             </div>
@@ -250,7 +250,7 @@ export const ProcurementPage = () => {
                         className={`px-2.5 py-1 rounded-lg font-bold transition ${
                           activeTab === t.id
                             ? 'bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border border-[#1E2748]/15 shadow'
-                            : 'text-[#53627C] hover:text-white'
+                            : 'text-[#53627C] hover:text-[#1E2748]'
                         }`}
                       >
                         {t.label}
@@ -358,7 +358,7 @@ export const ProcurementPage = () => {
                   <p className="text-[11px] text-[#1E2748]">Procurement & Expense General Ledger Posting</p>
                 </div>
               </div>
-              <button onClick={() => setIsPoModalOpen(false)} className="text-[#53627C] hover:text-white">
+              <button onClick={() => setIsPoModalOpen(false)} className="text-[#53627C] hover:text-[#1E2748]">
                 <X className="w-5 h-5" />
               </button>
             </div>

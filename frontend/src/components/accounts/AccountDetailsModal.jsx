@@ -96,7 +96,7 @@ export const AccountDetailsModal = ({
               </span>
               <button
                 onClick={onClose}
-                className="p-1.5 bg-[#F6F2E3] text-[#1E2748] text-[#53627C] hover:text-white rounded-xl border border-[#1E2748]/15 transition"
+                className="p-1.5 bg-[#F6F2E3] text-[#1E2748] text-[#53627C] hover:text-[#1E2748] rounded-xl border border-[#1E2748]/15 transition"
               >
                 <X className="w-5 h-5" />
               </button>

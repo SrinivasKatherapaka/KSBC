@@ -66,7 +66,7 @@ export const CustomerServicePage = () => {
         <main className="p-6 md:p-8 space-y-6 max-w-5xl mx-auto w-full flex-1 flex flex-col">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-extrabold text-white font-heading">KSBC 24/7 AI Customer Service</h1>
+              <h1 className="text-2xl font-extrabold text-[#1E2748] font-heading">KSBC 24/7 AI Customer Service</h1>
               <p className="text-xs text-[#1E2748]/70">Powered by Gemini 2.5 Flash Banking Assistant</p>
             </div>
             <div className="flex items-center space-x-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded-full text-xs text-emerald-400 font-bold">
@@ -82,10 +82,10 @@ export const CustomerServicePage = () => {
             <div className="p-4 border-b border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/60 flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <div className="w-9 h-9 rounded-2xl bg-gradient-to-br from-rose-700 to-amber-600 flex items-center justify-center shadow-lg">
-                  <Bot className="w-5 h-5 text-white" />
+                  <Bot className="w-5 h-5 text-[#1E2748]" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-white">KSBC Virtual Representative</h3>
+                  <h3 className="text-sm font-bold text-[#1E2748]">KSBC Virtual Representative</h3>
                   <p className="text-[10px] text-[#1E2748]/70 font-mono">Gemini 2.5 Flash Neural Support</p>
                 </div>
               </div>
@@ -100,7 +100,7 @@ export const CustomerServicePage = () => {
                 >
                   <div className={`max-w-xl p-4 rounded-2xl text-xs space-y-2 ${
                     m.sender === 'user'
-                      ? 'bg-[#EBE4CD] text-white rounded-tr-none shadow-lg border border-[#1E2748]/15'
+                      ? 'bg-[#EBE4CD] text-[#1E2748] rounded-tr-none shadow-lg border border-[#1E2748]/15'
                       : 'bg-rose-950/80 text-slate-200 rounded-tl-none border border-[#1E2748]/15 shadow-lg'
                   }`}>
                     <div className="flex items-center space-x-2 font-bold text-[10px] text-[#1E2748]/80 uppercase">
@@ -146,7 +146,7 @@ export const CustomerServicePage = () => {
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 placeholder="Ask about accounts, commercial loans, interest rates, or clearance..."
-                className="flex-1 glass-input bg-[#1a030b] border border-[#1E2748]/15 text-xs rounded-xl p-3 text-white focus:outline-none focus:ring-2 focus:ring-rose-600"
+                className="flex-1 glass-input bg-[#1a030b] border border-[#1E2748]/15 text-xs rounded-xl p-3 text-[#1E2748] focus:outline-none focus:ring-2 focus:ring-rose-600"
               />
               <button
                 type="submit"

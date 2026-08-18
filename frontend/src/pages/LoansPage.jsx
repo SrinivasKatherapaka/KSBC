@@ -418,7 +418,7 @@ export const LoansPage = () => {
                 <Check className="w-4 h-4" />
                 <span>{successMsg}</span>
               </span>
-              <button onClick={() => setSuccessMsg('')} className="text-[#58b388] hover:text-white">
+              <button onClick={() => setSuccessMsg('')} className="text-[#58b388] hover:text-[#1E2748]">
                 <X className="w-4 h-4" />
               </button>
             </div>
@@ -435,7 +435,7 @@ export const LoansPage = () => {
               <div className="glass-panel p-3.5 rounded-2xl border border-[#1E2748]/15 space-y-3 bg-[#F6F2E3] text-[#1E2748]/50 shadow-xl">
                 <div className="pb-2 border-b border-[#1E2748]/15">
                   <div className="flex justify-between items-center">
-                    <span className="font-extrabold text-white text-[11px] uppercase flex items-center space-x-1">
+                    <span className="font-extrabold text-[#1E2748] text-[11px] uppercase flex items-center space-x-1">
                       <span>1. Applied / Draft</span>
                     </span>
                     <span className="px-2 py-0.5 bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] rounded-full text-[10px] font-mono font-bold">
@@ -461,7 +461,7 @@ export const LoansPage = () => {
               <div className="glass-panel p-3.5 rounded-2xl border border-[#1E2748]/15 space-y-3 bg-[#F6F2E3] text-[#1E2748]/50 shadow-xl">
                 <div className="pb-2 border-b border-[#1E2748]/15">
                   <div className="flex justify-between items-center">
-                    <span className="font-extrabold text-white text-[11px] uppercase flex items-center space-x-1">
+                    <span className="font-extrabold text-[#1E2748] text-[11px] uppercase flex items-center space-x-1">
                       <span>2. Underwriting</span>
                     </span>
                     <span className="px-2 py-0.5 bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] rounded-full text-[10px] font-mono font-bold">

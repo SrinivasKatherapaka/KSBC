@@ -162,7 +162,7 @@ export const WorkflowAutomationPage = () => {
                   {executionResult.executionSteps?.map((s, idx) => (
                     <div key={idx} className="p-3 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15 text-xs space-y-1">
                       <span className="text-[9px] text-[#1E2748] font-mono font-bold block">STEP {s.step}</span>
-                      <p className="font-bold text-white text-[11px]">{s.action}</p>
+                      <p className="font-bold text-[#1E2748] text-[11px]">{s.action}</p>
                       <span className="text-[10px] text-[#58b388] font-mono block font-bold">{s.status}</span>
                     </div>
                   ))}

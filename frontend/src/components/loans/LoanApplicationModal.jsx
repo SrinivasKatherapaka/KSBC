@@ -90,7 +90,7 @@ export const LoanApplicationModal = ({ isOpen, onClose, customers = [], onSubmit
                 value={applicantName}
                 onChange={(e) => setApplicantName(e.target.value)}
                 placeholder="e.g. Katherapaka Srinivas"
-                className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 text-white text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600"
+                className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 text-[#1E2748] text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600"
                 required
               />
             </div>
@@ -102,7 +102,7 @@ export const LoanApplicationModal = ({ isOpen, onClose, customers = [], onSubmit
               <select
                 value={applicantCategory}
                 onChange={(e) => setApplicantCategory(e.target.value)}
-                className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 text-white text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600 font-medium"
+                className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 text-[#1E2748] text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600 font-medium"
               >
                 <option value="private_individual">👤 Private / Individual Account Holder</option>
                 <option value="corporate">🏢 Corporate / Enterprise Commercial</option>
@@ -119,7 +119,7 @@ export const LoanApplicationModal = ({ isOpen, onClose, customers = [], onSubmit
             <select
               value={customerId}
               onChange={(e) => handleCustomerSelect(e.target.value)}
-              className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 text-white text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600"
+              className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 text-[#1E2748] text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600"
             >
               <option value="">-- Choose Existing Account ({customers.length}) --</option>
               {customers.map((c) => (
@@ -143,7 +143,7 @@ export const LoanApplicationModal = ({ isOpen, onClose, customers = [], onSubmit
                   max="50000000"
                   value={principalAmount}
                   onChange={(e) => setPrincipalAmount(e.target.value)}
-                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 text-white text-xs rounded-xl p-3 pl-7 focus:outline-none focus:ring-2 focus:ring-rose-600 font-mono"
+                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 text-[#1E2748] text-xs rounded-xl p-3 pl-7 focus:outline-none focus:ring-2 focus:ring-rose-600 font-mono"
                   required
                 />
               </div>
@@ -161,7 +161,7 @@ export const LoanApplicationModal = ({ isOpen, onClose, customers = [], onSubmit
                   max="30"
                   value={interestRate}
                   onChange={(e) => setInterestRate(e.target.value)}
-                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 text-white text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600 font-mono"
+                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 text-[#1E2748] text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600 font-mono"
                   required
                 />
                 <Percent className="absolute right-3 top-3 w-4 h-4 text-slate-500" />
@@ -177,7 +177,7 @@ export const LoanApplicationModal = ({ isOpen, onClose, customers = [], onSubmit
               <select
                 value={termMonths}
                 onChange={(e) => setTermMonths(e.target.value)}
-                className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 text-white text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600"
+                className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 text-[#1E2748] text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600"
               >
                 <option value="12">12 Months (1 Year)</option>
                 <option value="24">24 Months (2 Years)</option>
@@ -195,7 +195,7 @@ export const LoanApplicationModal = ({ isOpen, onClose, customers = [], onSubmit
               <select
                 value={purpose}
                 onChange={(e) => setPurpose(e.target.value)}
-                className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 text-white text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600"
+                className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 text-[#1E2748] text-xs rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-600"
               >
                 <option value="Working Capital">Working Capital</option>
                 <option value="Equipment Purchase">Equipment Purchase & Automation</option>

@@ -11,6 +11,10 @@
   h1, h2, h3, h4, h5, h6, .font-heading, .font-archivo {
     font-family: 'Archivo Black', sans-serif;
     letter-spacing: -0.02em;
+    color: #1E2748;
+  }
+  input, select, textarea {
+    color: #1E2748;
   }
 }
 

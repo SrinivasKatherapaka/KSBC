@@ -46,7 +46,7 @@ export const AdvisoryHistoryPage = () => {
 
         <main className="p-6 md:p-8 space-y-6 max-w-7xl mx-auto w-full">
           <div>
-            <h1 className="text-2xl font-extrabold text-white font-heading">AI Advisory Audit History</h1>
+            <h1 className="text-2xl font-extrabold text-[#1E2748] font-heading">AI Advisory Audit History</h1>
             <p className="text-xs text-slate-400">Historical Log of Credit Underwriting Evaluations, Compliance Scans & Advisory Reports</p>
           </div>
 
@@ -69,7 +69,7 @@ export const AdvisoryHistoryPage = () => {
                           <Sparkles className="w-4 h-4" />
                         </span>
                         <div>
-                          <span className="text-xs font-bold text-white uppercase tracking-wider">{s.session_type.replace('_', ' ')}</span>
+                          <span className="text-xs font-bold text-[#1E2748] uppercase tracking-wider">{s.session_type.replace('_', ' ')}</span>
                           <p className="text-[10px] text-slate-400">{new Date(s.created_at).toLocaleString()}</p>
                         </div>
                       </div>

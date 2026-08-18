@@ -482,7 +482,7 @@ export const FreshLoanApplicationsPage = () => {
                 <CheckCircle2 className="w-5 h-5 flex-shrink-0" />
                 <span>{successMsg}</span>
               </span>
-              <button onClick={() => setSuccessMsg('')} className="text-[#58b388] hover:text-white">
+              <button onClick={() => setSuccessMsg('')} className="text-[#58b388] hover:text-[#1E2748]">
                 <X className="w-4 h-4" />
               </button>
             </div>
@@ -542,7 +542,7 @@ export const FreshLoanApplicationsPage = () => {
                         value={applicantName}
                         onChange={(e) => setApplicantName(e.target.value)}
                         placeholder="e.g. Srinivas Katherapaka or Apex Corporation"
-                        className="w-full glass-input bg-[#F6F2E3] text-[#1E2748] text-white rounded-xl p-2.5"
+                        className="w-full glass-input bg-[#F6F2E3] text-[#1E2748] rounded-xl p-2.5"
                         required
                       />
                     </div>
@@ -554,7 +554,7 @@ export const FreshLoanApplicationsPage = () => {
                       <select
                         value={applicantCategory}
                         onChange={(e) => setApplicantCategory(e.target.value)}
-                        className="w-full glass-input bg-[#F6F2E3] text-[#1E2748] text-white rounded-xl p-2.5 font-medium"
+                        className="w-full glass-input bg-[#F6F2E3] text-[#1E2748] rounded-xl p-2.5 font-medium"
                       >
                         <option value="corporate">🏢 Corporate / Enterprise Commercial</option>
                         <option value="sme">🏬 SME / Small Business Commercial</option>
@@ -579,7 +579,7 @@ export const FreshLoanApplicationsPage = () => {
                           max="100000000"
                           value={principalAmount}
                           onChange={(e) => setPrincipalAmount(e.target.value)}
-                          className="w-full glass-input bg-[#F6F2E3] text-[#1E2748] text-white rounded-xl p-2.5 pl-7 font-mono font-bold"
+                          className="w-full glass-input bg-[#F6F2E3] text-[#1E2748] rounded-xl p-2.5 pl-7 font-mono font-bold"
                           required
                         />
                       </div>
@@ -596,7 +596,7 @@ export const FreshLoanApplicationsPage = () => {
                         max="30"
                         value={interestRate}
                         onChange={(e) => setInterestRate(e.target.value)}
-                        className="w-full glass-input bg-[#F6F2E3] text-[#1E2748] text-white rounded-xl p-2.5 font-mono"
+                        className="w-full glass-input bg-[#F6F2E3] text-[#1E2748] rounded-xl p-2.5 font-mono"
                         required
                       />
                     </div>
@@ -608,7 +608,7 @@ export const FreshLoanApplicationsPage = () => {
                       <select
                         value={termMonths}
                         onChange={(e) => setTermMonths(e.target.value)}
-                        className="w-full glass-input bg-[#F6F2E3] text-[#1E2748] text-white rounded-xl p-2.5 font-medium"
+                        className="w-full glass-input bg-[#F6F2E3] text-[#1E2748] rounded-xl p-2.5 font-medium"
                       >
                         <option value="12">12 Months (1 Year)</option>
                         <option value="24">24 Months (2 Years)</option>
@@ -628,7 +628,7 @@ export const FreshLoanApplicationsPage = () => {
                     <select
                       value={purpose}
                       onChange={(e) => setPurpose(e.target.value)}
-                      className="w-full glass-input bg-[#F6F2E3] text-[#1E2748] text-white rounded-xl p-2.5 font-medium"
+                      className="w-full glass-input bg-[#F6F2E3] text-[#1E2748] rounded-xl p-2.5 font-medium"
                     >
                       <option value="Working Capital Expansion">Working Capital Expansion</option>
                       <option value="Equipment Purchase & Automation">Equipment Purchase & Automation</option>
@@ -659,7 +659,7 @@ export const FreshLoanApplicationsPage = () => {
                           min="0"
                           value={annualRevenue}
                           onChange={(e) => setAnnualRevenue(e.target.value)}
-                          className="w-full glass-input bg-[#EBE4CD] text-white rounded-lg p-2 font-mono"
+                          className="w-full glass-input bg-[#EBE4CD] text-[#1E2748] rounded-lg p-2 font-mono"
                         />
                       </div>
 
@@ -673,7 +673,7 @@ export const FreshLoanApplicationsPage = () => {
                           max="850"
                           value={creditScore}
                           onChange={(e) => setCreditScore(e.target.value)}
-                          className="w-full glass-input bg-[#EBE4CD] text-white rounded-lg p-2 font-mono"
+                          className="w-full glass-input bg-[#EBE4CD] text-[#1E2748] rounded-lg p-2 font-mono"
                         />
                       </div>
 
@@ -686,7 +686,7 @@ export const FreshLoanApplicationsPage = () => {
                           min="0"
                           value={collateralValue}
                           onChange={(e) => setCollateralValue(e.target.value)}
-                          className="w-full glass-input bg-[#EBE4CD] text-white rounded-lg p-2 font-mono"
+                          className="w-full glass-input bg-[#EBE4CD] text-[#1E2748] rounded-lg p-2 font-mono"
                         />
                       </div>
                     </div>
@@ -706,7 +706,7 @@ export const FreshLoanApplicationsPage = () => {
                         className={`p-2.5 rounded-xl border text-center font-extrabold text-[11px] transition flex flex-col items-center justify-center space-y-1 cursor-pointer ${
                           initialAction === 'underwriting'
                             ? 'bg-[#1E2748] text-[#FAF7E6] font-archivo font-extrabold border-[#1E2748]/15 shadow-md'
-                            : 'bg-[#F6F2E3] text-[#1E2748] text-[#53627C] border-[#1E2748]/15 hover:text-white'
+                            : 'bg-[#F6F2E3] text-[#1E2748] text-[#53627C] border-[#1E2748]/15 hover:text-[#1E2748]'
                         }`}
                       >
                         <Clock className="w-4 h-4" />
@@ -719,7 +719,7 @@ export const FreshLoanApplicationsPage = () => {
                         className={`p-2.5 rounded-xl border text-center font-extrabold text-[11px] transition flex flex-col items-center justify-center space-y-1 cursor-pointer ${
                           initialAction === 'approved'
                             ? 'bg-[#58b388] text-[#1E2748] border-[#58b388] shadow-md'
-                            : 'bg-[#F6F2E3] text-[#1E2748] text-[#53627C] border-[#1E2748]/15 hover:text-white'
+                            : 'bg-[#F6F2E3] text-[#1E2748] text-[#53627C] border-[#1E2748]/15 hover:text-[#1E2748]'
                         }`}
                       >
                         <CheckCircle2 className="w-4 h-4" />
@@ -732,7 +732,7 @@ export const FreshLoanApplicationsPage = () => {
                         className={`p-2.5 rounded-xl border text-center font-extrabold text-[11px] transition flex flex-col items-center justify-center space-y-1 cursor-pointer ${
                           initialAction === 'on_hold'
                             ? 'bg-amber-500 text-[#1E2748] border-amber-500 shadow-md'
-                            : 'bg-[#F6F2E3] text-[#1E2748] text-[#53627C] border-[#1E2748]/15 hover:text-white'
+                            : 'bg-[#F6F2E3] text-[#1E2748] text-[#53627C] border-[#1E2748]/15 hover:text-[#1E2748]'
                         }`}
                       >
                         <PauseCircle className="w-4 h-4" />
@@ -744,8 +744,8 @@ export const FreshLoanApplicationsPage = () => {
                         onClick={() => setInitialAction('rejected')}
                         className={`p-2.5 rounded-xl border text-center font-extrabold text-[11px] transition flex flex-col items-center justify-center space-y-1 cursor-pointer ${
                           initialAction === 'rejected'
-                            ? 'bg-red-500 text-white border-red-500 shadow-md'
-                            : 'bg-[#F6F2E3] text-[#1E2748] text-[#53627C] border-[#1E2748]/15 hover:text-white'
+                            ? 'bg-red-500 text-[#1E2748] border-red-500 shadow-md'
+                            : 'bg-[#F6F2E3] text-[#1E2748] text-[#53627C] border-[#1E2748]/15 hover:text-[#1E2748]'
                         }`}
                       >
                         <XCircle className="w-4 h-4" />
@@ -762,7 +762,7 @@ export const FreshLoanApplicationsPage = () => {
                         value={decisionNotes}
                         onChange={(e) => setDecisionNotes(e.target.value)}
                         placeholder="e.g. Cleared automated risk baseline; awaiting collateral deed filing."
-                        className="w-full glass-input bg-[#F6F2E3] text-[#1E2748] text-white rounded-lg p-2"
+                        className="w-full glass-input bg-[#F6F2E3] text-[#1E2748] rounded-lg p-2"
                       />
                     </div>
                   </div>
@@ -1123,7 +1123,7 @@ export const FreshLoanApplicationsPage = () => {
                                 setActionReason('Exceeds institutional risk appetite / high default probability');
                               }}
                               disabled={processingId === loan.id || loan.status === 'rejected'}
-                              className="py-1.5 bg-red-600 hover:bg-red-500 text-white text-[10px] font-black rounded-lg transition flex items-center justify-center space-x-1 disabled:opacity-30 cursor-pointer"
+                              className="py-1.5 bg-red-600 hover:bg-red-500 text-[#1E2748] text-[10px] font-black rounded-lg transition flex items-center justify-center space-x-1 disabled:opacity-30 cursor-pointer"
                               title="Reject Application"
                             >
                               <XCircle className="w-3 h-3" />
@@ -1431,7 +1431,7 @@ export const FreshLoanApplicationsPage = () => {
                   </p>
                 </div>
               </div>
-              <button onClick={() => setActionModalLoan(null)} className="text-[#53627C] hover:text-white cursor-pointer">
+              <button onClick={() => setActionModalLoan(null)} className="text-[#53627C] hover:text-[#1E2748] cursor-pointer">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -1456,7 +1456,7 @@ export const FreshLoanApplicationsPage = () => {
                 value={actionReason}
                 onChange={(e) => setActionReason(e.target.value)}
                 placeholder="Enter mandatory audit rationale for this underwriting decision..."
-                className="w-full glass-input bg-[#F6F2E3] text-[#1E2748] text-white rounded-xl p-2.5 text-xs"
+                className="w-full glass-input bg-[#F6F2E3] text-[#1E2748] rounded-xl p-2.5 text-xs"
                 required
               />
             </div>

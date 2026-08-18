@@ -348,7 +348,7 @@ export const AccountsPage = () => {
                 <Check className="w-4 h-4" />
                 <span>{successMsg}</span>
               </span>
-              <button onClick={() => setSuccessMsg('')} className="text-[#58b388] hover:text-white">
+              <button onClick={() => setSuccessMsg('')} className="text-[#58b388] hover:text-[#1E2748]">
                 <X className="w-4 h-4" />
               </button>
             </div>
@@ -404,14 +404,14 @@ export const AccountsPage = () => {
                 <button
                   onClick={handleBulkDelete}
                   disabled={submitting}
-                  className="px-3.5 py-1.5 bg-red-600 hover:bg-red-500 text-white rounded-xl font-bold flex items-center space-x-1.5 shadow transition"
+                  className="px-3.5 py-1.5 bg-red-600 hover:bg-red-500 text-[#1E2748] rounded-xl font-bold flex items-center space-x-1.5 shadow transition"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
                   <span>Delete Selected Accounts</span>
                 </button>
                 <button
                   onClick={() => setSelectedIds([])}
-                  className="px-3 py-1.5 bg-[#F6F2E3] text-[#1E2748] text-[#53627C] hover:text-white rounded-xl font-semibold"
+                  className="px-3 py-1.5 bg-[#F6F2E3] text-[#1E2748] text-[#53627C] hover:text-[#1E2748] rounded-xl font-semibold"
                 >
                   Deselect All
                 </button>
@@ -431,7 +431,7 @@ export const AccountsPage = () => {
                       <th className="py-3.5 px-4 text-center">
                         <button
                           onClick={() => handleToggleSelectAll(filteredAccounts)}
-                          className="text-[#1E2748] hover:text-white transition"
+                          className="text-[#1E2748] hover:text-[#1E2748] transition"
                           title="Select All Accounts"
                         >
                           {selectedIds.length > 0 && selectedIds.length === filteredAccounts.length ? (
@@ -467,7 +467,7 @@ export const AccountsPage = () => {
                           <td className="py-3.5 px-4 text-center" onClick={(e) => e.stopPropagation()}>
                             <button
                               onClick={() => handleToggleSelectRow(c.id)}
-                              className="text-[#1E2748] hover:text-white"
+                              className="text-[#1E2748] hover:text-[#1E2748]"
                             >
                               {isSelected ? (
                                 <CheckSquare className="w-4 h-4 text-[#1E2748]" />
@@ -537,7 +537,7 @@ export const AccountsPage = () => {
                             <div className="flex items-center justify-center space-x-1.5">
                               <button
                                 onClick={() => { setViewingCustomer(c); navigate(`/accounts/${c.id}`); }}
-                                className="px-2.5 py-1 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] hover:text-white border border-[#1E2748]/15 rounded-lg text-[10px] font-bold transition flex items-center space-x-1 shadow"
+                                className="px-2.5 py-1 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] hover:text-[#1E2748] border border-[#1E2748]/15 rounded-lg text-[10px] font-bold transition flex items-center space-x-1 shadow"
                                 title="View Detailed Account Information"
                               >
                                 <Eye className="w-3 h-3 text-[#1E2748]" />
@@ -586,7 +586,7 @@ export const AccountsPage = () => {
                   <p className="text-[11px] text-[#1E2748]">CFO, Compliance & Admin Executive Intake Clearance</p>
                 </div>
               </div>
-              <button onClick={() => setIsCreateModalOpen(false)} className="text-[#53627C] hover:text-white">
+              <button onClick={() => setIsCreateModalOpen(false)} className="text-[#53627C] hover:text-[#1E2748]">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -751,7 +751,7 @@ export const AccountsPage = () => {
                   <p className="text-[11px] text-[#1E2748]">CFO & System Admin Executive Modification Clearance</p>
                 </div>
               </div>
-              <button onClick={() => setEditingCustomer(null)} className="text-[#53627C] hover:text-white">
+              <button onClick={() => setEditingCustomer(null)} className="text-[#53627C] hover:text-[#1E2748]">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -849,7 +849,7 @@ export const AccountsPage = () => {
                 <AlertTriangle className="w-6 h-6 text-red-400" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-white">Confirm Permanent Account Deletion</h3>
+                <h3 className="text-base font-bold text-[#1E2748]">Confirm Permanent Account Deletion</h3>
                 <p className="text-[11px] text-red-300/70">Restricted Executive Action</p>
               </div>
             </div>
@@ -870,7 +870,7 @@ export const AccountsPage = () => {
                 type="button"
                 onClick={handleConfirmDelete}
                 disabled={submitting}
-                className="px-5 py-2 bg-red-600 hover:bg-red-500 text-white font-bold rounded-xl shadow-lg transition disabled:opacity-50"
+                className="px-5 py-2 bg-red-600 hover:bg-red-500 text-[#1E2748] font-bold rounded-xl shadow-lg transition disabled:opacity-50"
               >
                 {submitting ? 'Deleting Account...' : 'Permanently Delete Account'}
               </button>

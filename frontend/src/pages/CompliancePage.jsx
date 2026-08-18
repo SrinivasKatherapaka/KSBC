@@ -42,7 +42,7 @@ export const CompliancePage = () => {
 
         <main className="p-6 md:p-8 space-y-6 max-w-7xl mx-auto w-full">
           <div>
-            <h1 className="text-2xl font-extrabold text-white font-heading">Compliance & KYC Hub</h1>
+            <h1 className="text-2xl font-extrabold text-[#1E2748] font-heading">Compliance & KYC Hub</h1>
             <p className="text-xs text-slate-400">Automated Document Parsing, Identity OCR & PEP/Sanctions Verification</p>
           </div>
 
@@ -54,7 +54,7 @@ export const CompliancePage = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Customer Selector Sidebar */}
               <div className="glass-panel p-5 rounded-2xl border border-white/10 space-y-4">
-                <h3 className="text-sm font-bold text-white flex items-center space-x-2">
+                <h3 className="text-sm font-bold text-[#1E2748] flex items-center space-x-2">
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
                   <span>Select Account for Compliance</span>
                 </h3>
@@ -66,7 +66,7 @@ export const CompliancePage = () => {
                       onClick={() => setSelectedCustomerId(c.id)}
                       className={`w-full p-3 rounded-xl text-left text-xs transition border ${
                         selectedCustomerId === c.id
-                          ? 'bg-blue-600/20 border-blue-500/40 text-white font-bold'
+                          ? 'bg-blue-600/20 border-blue-500/40 text-[#1E2748] font-bold'
                           : 'bg-slate-900/60 border-slate-800 text-slate-300 hover:bg-slate-800'
                       }`}
                     >
@@ -93,7 +93,7 @@ export const CompliancePage = () => {
 
                 {/* Audit Logs Section */}
                 <div className="glass-panel p-6 rounded-2xl border border-white/10">
-                  <h3 className="text-sm font-bold text-white mb-3">Sanctions & PEP Screening Log</h3>
+                  <h3 className="text-sm font-bold text-[#1E2748] mb-3">Sanctions & PEP Screening Log</h3>
                   <div className="p-4 bg-slate-900/60 rounded-xl text-xs space-y-2 text-slate-300 font-mono">
                     <div className="flex justify-between text-slate-400 text-[10px]">
                       <span>GLOBAL DATABASE CHECK</span>

@@ -62,7 +62,7 @@ export const FraudDetectionPage = () => {
         <main className="p-6 md:p-8 space-y-6 max-w-7xl mx-auto w-full">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-extrabold text-white font-heading">AI Fraudulent Transaction Engine</h1>
+              <h1 className="text-2xl font-extrabold text-[#1E2748] font-heading">AI Fraudulent Transaction Engine</h1>
               <p className="text-xs text-[#1E2748]/70">Real-Time Gemini 2.5 Anomaly Scoring & Anti-Money Laundering (AML) Sentinel</p>
             </div>
             <div className="flex items-center space-x-2 px-3 py-1 bg-red-500/10 border border-red-500/30 rounded-full text-xs text-red-400 font-bold">
@@ -79,7 +79,7 @@ export const FraudDetectionPage = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
               {/* Suspicious Transactions Feed */}
               <div className="lg:col-span-7 glass-panel p-5 rounded-2xl border border-[#1E2748]/15 space-y-4">
-                <h3 className="text-sm font-bold text-white flex items-center space-x-2 pb-2 border-b border-[#1E2748]/15">
+                <h3 className="text-sm font-bold text-[#1E2748] flex items-center space-x-2 pb-2 border-b border-[#1E2748]/15">
                   <AlertTriangle className="w-4 h-4 text-amber-400" />
                   <span>Flagged Suspicious Transactions ({fraudAlerts.length})</span>
                 </h3>
@@ -91,7 +91,7 @@ export const FraudDetectionPage = () => {
                       <div key={tx.transactionId} className="p-4 bg-[#F6F2E3] text-[#1E2748]/60 rounded-xl border border-[#1E2748]/15 space-y-3 hover:border-rose-600/50 transition">
                         <div className="flex justify-between items-start">
                           <div>
-                            <h4 className="font-bold text-white text-sm">{tx.accountHolder}</h4>
+                            <h4 className="font-bold text-[#1E2748] text-sm">{tx.accountHolder}</h4>
                             <span className="text-[10px] font-mono text-amber-300">
                               {tx.accountNumber} | {tx.transactionType}
                             </span>
@@ -159,7 +159,7 @@ export const FraudDetectionPage = () => {
                 {analysisResult ? (
                   <div className="glass-panel p-6 rounded-2xl border border-[#1E2748]/15 space-y-4 shadow-2xl bg-rose-950/20">
                     <div className="flex justify-between items-center pb-3 border-b border-[#1E2748]/15">
-                      <h3 className="text-base font-bold text-white flex items-center space-x-2">
+                      <h3 className="text-base font-bold text-[#1E2748] flex items-center space-x-2">
                         <Sparkles className="w-4 h-4 text-amber-400" />
                         <span>Gemini AI Fraud Audit</span>
                       </h3>
@@ -170,7 +170,7 @@ export const FraudDetectionPage = () => {
 
                     <div className="p-3 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15 text-xs font-mono space-y-1">
                       <span className="text-slate-400 font-sans text-[10px] block">TRANSACTION AUDIT VERDICT</span>
-                      <span className="font-bold text-white text-sm block">{analysisResult.transactionId}</span>
+                      <span className="font-bold text-[#1E2748] text-sm block">{analysisResult.transactionId}</span>
                       <span className="text-red-400 block font-bold">Risk Tag: {analysisResult.riskTag}</span>
                     </div>
 

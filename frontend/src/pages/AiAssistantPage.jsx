@@ -56,7 +56,7 @@ export const AiAssistantPage = () => {
 
         <main className="flex-1 flex flex-col p-6 max-w-5xl mx-auto w-full min-h-0 overflow-hidden">
           <div className="mb-4">
-            <h1 className="text-2xl font-extrabold text-white font-heading flex items-center space-x-2">
+            <h1 className="text-2xl font-extrabold text-[#1E2748] font-heading flex items-center space-x-2">
               <Bot className="w-6 h-6 text-blue-400" />
               <span>AI ERP Assistant</span>
             </h1>
@@ -124,12 +124,12 @@ export const AiAssistantPage = () => {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSend()}
               placeholder="Ask Gemini about loan portfolios, General Ledger entries, or compliance..."
-              className="flex-1 bg-transparent px-3 text-xs text-white placeholder-slate-500 focus:outline-none"
+              className="flex-1 bg-transparent px-3 text-xs text-[#1E2748] placeholder-slate-500 focus:outline-none"
             />
             <button
               onClick={() => handleSend()}
               disabled={!input.trim() || loading}
-              className="p-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white rounded-xl shadow-lg transition disabled:opacity-50"
+              className="p-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-[#1E2748] rounded-xl shadow-lg transition disabled:opacity-50"
             >
               <Send className="w-4 h-4" />
             </button>

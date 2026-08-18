@@ -43,7 +43,7 @@ export const TreasuryPage = () => {
 
         <main className="p-6 md:p-8 space-y-6 max-w-7xl mx-auto w-full">
           <div>
-            <h1 className="text-2xl font-extrabold text-white font-heading">Treasury & Capital Management</h1>
+            <h1 className="text-2xl font-extrabold text-[#1E2748] font-heading">Treasury & Capital Management</h1>
             <p className="text-xs text-slate-400">Vault Cash Reserves, Liquidity Ratios & Payout Authorization</p>
           </div>
 
@@ -85,7 +85,7 @@ export const TreasuryPage = () => {
               </div>
 
               <div className="glass-panel p-6 rounded-2xl border border-white/10 space-y-4">
-                <h3 className="text-base font-bold text-white flex items-center space-x-2">
+                <h3 className="text-base font-bold text-[#1E2748] flex items-center space-x-2">
                   <PieChart className="w-5 h-5 text-indigo-400" />
                   <span>Treasury Reserve Allocation Breakdown</span>
                 </h3>

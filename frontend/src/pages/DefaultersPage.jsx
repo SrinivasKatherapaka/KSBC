@@ -55,7 +55,7 @@ export const DefaultersPage = () => {
         <main className="p-6 md:p-8 space-y-6 max-w-7xl mx-auto w-full">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-extrabold text-white font-heading">Loan Defaulters & NPA Risk Manager</h1>
+              <h1 className="text-2xl font-extrabold text-[#1E2748] font-heading">Loan Defaulters & NPA Risk Manager</h1>
               <p className="text-xs text-[#1E2748]/70">Early Warning Indicator & AI Non-Performing Asset (NPA) Restructuring Workout Plans</p>
             </div>
             <div className="flex items-center space-x-2 px-3 py-1 bg-red-500/10 border border-red-500/30 rounded-full text-xs text-red-400 font-bold">
@@ -72,7 +72,7 @@ export const DefaultersPage = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
               {/* Defaulter Table */}
               <div className="lg:col-span-7 glass-panel p-5 rounded-2xl border border-[#1E2748]/15 space-y-4">
-                <h3 className="text-sm font-bold text-white flex items-center space-x-2 pb-2 border-b border-[#1E2748]/15">
+                <h3 className="text-sm font-bold text-[#1E2748] flex items-center space-x-2 pb-2 border-b border-[#1E2748]/15">
                   <ShieldAlert className="w-4 h-4 text-red-400" />
                   <span>Active Past-Due & NPA Accounts ({defaulters.length})</span>
                 </h3>
@@ -82,7 +82,7 @@ export const DefaultersPage = () => {
                     <div key={d.id} className="p-4 bg-[#F6F2E3] text-[#1E2748]/60 rounded-xl border border-[#1E2748]/15 space-y-3 hover:border-red-600/50 transition">
                       <div className="flex justify-between items-start">
                         <div>
-                          <h4 className="font-bold text-white text-sm">{d.borrowerName}</h4>
+                          <h4 className="font-bold text-[#1E2748] text-sm">{d.borrowerName}</h4>
                           <span className="text-[10px] font-mono text-[#1E2748]/70">ID: {d.id} | Collateral: {d.collateralType}</span>
                         </div>
                         <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold border font-mono uppercase ${
@@ -109,7 +109,7 @@ export const DefaultersPage = () => {
                         <button
                           onClick={() => handleAnalyzeWorkout(d)}
                           disabled={analyzingId === d.id}
-                          className="px-3.5 py-2 bg-gradient-to-r from-amber-600 to-rose-800 hover:from-amber-500 hover:to-rose-700 text-white text-xs font-bold rounded-xl shadow transition flex items-center space-x-1.5 disabled:opacity-50"
+                          className="px-3.5 py-2 bg-gradient-to-r from-amber-600 to-rose-800 hover:from-amber-500 hover:to-rose-700 text-[#1E2748] text-xs font-bold rounded-xl shadow transition flex items-center space-x-1.5 disabled:opacity-50"
                         >
                           {analyzingId === d.id ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Sparkles className="w-3.5 h-3.5 text-amber-300" />}
                           <span>Generate AI Workout Plan</span>
@@ -125,7 +125,7 @@ export const DefaultersPage = () => {
                 {activeStrategy ? (
                   <div className="glass-panel p-6 rounded-2xl border border-[#1E2748]/15 space-y-4 shadow-2xl bg-rose-950/20">
                     <div className="flex justify-between items-center pb-3 border-b border-[#1E2748]/15">
-                      <h3 className="text-base font-bold text-white flex items-center space-x-2">
+                      <h3 className="text-base font-bold text-[#1E2748] flex items-center space-x-2">
                         <Sparkles className="w-4 h-4 text-amber-400" />
                         <span>AI NPA Workout Strategy</span>
                       </h3>
@@ -136,7 +136,7 @@ export const DefaultersPage = () => {
 
                     <div className="p-3 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15 text-xs font-mono space-y-1">
                       <span className="text-slate-400 font-sans text-[10px] block">BORROWER ACCOUNT</span>
-                      <span className="font-bold text-white text-sm block">{activeStrategy.borrowerName}</span>
+                      <span className="font-bold text-[#1E2748] text-sm block">{activeStrategy.borrowerName}</span>
                       <span className="text-amber-400 block font-bold">NPA Stage: {activeStrategy.npaClassification}</span>
                     </div>
 
@@ -162,7 +162,7 @@ export const DefaultersPage = () => {
                     <div className="pt-2 border-t border-[#1E2748]/15 grid grid-cols-2 gap-2 text-xs">
                       <button
                         onClick={() => alert(`✅ 90-Day Workout Plan & Restructure initiated for ${activeStrategy.borrowerName}. General Ledger NPA Provision updated.`)}
-                        className="py-2 bg-gradient-to-r from-amber-600 to-emerald-600 hover:from-amber-500 hover:to-emerald-500 text-white font-bold rounded-xl shadow transition"
+                        className="py-2 bg-gradient-to-r from-amber-600 to-emerald-600 hover:from-amber-500 hover:to-emerald-500 text-[#1E2748] font-bold rounded-xl shadow transition"
                       >
                         Execute 90-Day Workout Plan
                       </button>

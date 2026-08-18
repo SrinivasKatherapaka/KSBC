@@ -37,7 +37,7 @@ export const FinancePage = () => {
         <main className="p-6 md:p-8 space-y-6 max-w-7xl mx-auto w-full">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-extrabold text-white font-heading">Finance General Ledger (GL)</h1>
+              <h1 className="text-2xl font-extrabold text-[#1E2748] font-heading">Finance General Ledger (GL)</h1>
               <p className="text-xs text-slate-400">Double-Entry Accounting, Chart of Accounts & Trial Balance Audit</p>
             </div>
 
@@ -63,7 +63,7 @@ export const FinancePage = () => {
             <>
               {/* Chart of Accounts Grid */}
               <div className="glass-panel p-6 rounded-2xl border border-white/10 space-y-4">
-                <h3 className="text-sm font-bold text-white flex items-center space-x-2">
+                <h3 className="text-sm font-bold text-[#1E2748] flex items-center space-x-2">
                   <Layers className="w-4 h-4 text-blue-400" />
                   <span>Chart of Accounts</span>
                 </h3>
@@ -77,7 +77,7 @@ export const FinancePage = () => {
                           {acc.account_type}
                         </span>
                       </div>
-                      <h4 className="text-sm font-bold text-white">{acc.account_name}</h4>
+                      <h4 className="text-sm font-bold text-[#1E2748]">{acc.account_name}</h4>
                       <p className="text-lg font-mono font-extrabold text-emerald-400">
                         ${Number(acc.balance).toLocaleString()}
                       </p>
@@ -88,7 +88,7 @@ export const FinancePage = () => {
 
               {/* Transactions Ledger */}
               <div className="glass-panel p-6 rounded-2xl border border-white/10 space-y-4">
-                <h3 className="text-sm font-bold text-white flex items-center space-x-2">
+                <h3 className="text-sm font-bold text-[#1E2748] flex items-center space-x-2">
                   <BookOpen className="w-4 h-4 text-emerald-400" />
                   <span>General Ledger Journal Entries ({ledger.transactions.length})</span>
                 </h3>

@@ -246,7 +246,7 @@ export const AccountDetailsPage = () => {
           {successMsg && (
             <div className="p-3.5 bg-[#58b388]/20 border border-[#58b388]/50 rounded-xl text-xs text-[#58b388] font-bold flex items-center justify-between">
               <span>{successMsg}</span>
-              <button onClick={() => setSuccessMsg('')} className="text-[#58b388] hover:text-white">
+              <button onClick={() => setSuccessMsg('')} className="text-[#58b388] hover:text-[#1E2748]">
                 <X className="w-4 h-4" />
               </button>
             </div>
@@ -513,7 +513,7 @@ export const AccountDetailsPage = () => {
                   <p className="text-[11px] text-[#1E2748]">CFO & System Admin Executive Modification Clearance</p>
                 </div>
               </div>
-              <button onClick={() => setEditingCustomer(null)} className="text-[#53627C] hover:text-white">
+              <button onClick={() => setEditingCustomer(null)} className="text-[#53627C] hover:text-[#1E2748]">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -611,7 +611,7 @@ export const AccountDetailsPage = () => {
                 <AlertTriangle className="w-6 h-6 text-red-400" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-white">Confirm Permanent Account Deletion</h3>
+                <h3 className="text-base font-bold text-[#1E2748]">Confirm Permanent Account Deletion</h3>
                 <p className="text-[11px] text-red-300/70">Restricted Executive Action</p>
               </div>
             </div>
@@ -632,7 +632,7 @@ export const AccountDetailsPage = () => {
                 type="button"
                 onClick={handleConfirmDelete}
                 disabled={submitting}
-                className="px-5 py-2 bg-red-600 hover:bg-red-500 text-white font-bold rounded-xl shadow-lg transition disabled:opacity-50"
+                className="px-5 py-2 bg-red-600 hover:bg-red-500 text-[#1E2748] font-bold rounded-xl shadow-lg transition disabled:opacity-50"
               >
                 {submitting ? 'Deleting Account...' : 'Permanently Delete Account'}
               </button>

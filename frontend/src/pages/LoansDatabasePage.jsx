@@ -338,7 +338,7 @@ export const LoansDatabasePage = () => {
                 <Check className="w-4 h-4" />
                 <span>{successMsg}</span>
               </span>
-              <button onClick={() => setSuccessMsg('')} className="text-[#58b388] hover:text-white">
+              <button onClick={() => setSuccessMsg('')} className="text-[#58b388] hover:text-[#1E2748]">
                 <X className="w-4 h-4" />
               </button>
             </div>
@@ -592,7 +592,7 @@ export const LoansDatabasePage = () => {
                                 {/* Delete Button */}
                                 <button
                                   onClick={() => handleDeleteLoanRecord(l.id, name)}
-                                  className="p-1.5 bg-red-950/60 text-red-400 hover:bg-red-600 hover:text-white rounded-lg transition border border-red-500/30 cursor-pointer"
+                                  className="p-1.5 bg-red-950/60 text-red-400 hover:bg-red-600 hover:text-[#1E2748] rounded-lg transition border border-red-500/30 cursor-pointer"
                                   title="Delete Loan Record"
                                 >
                                   <Trash2 className="w-3.5 h-3.5" />
@@ -640,7 +640,7 @@ export const LoansDatabasePage = () => {
                   <p className="text-[11px] text-[#1E2748]">Loan Ref: #{editingLoan.id.slice(0, 8)}</p>
                 </div>
               </div>
-              <button onClick={() => setEditingLoan(null)} className="text-[#53627C] hover:text-white">
+              <button onClick={() => setEditingLoan(null)} className="text-[#53627C] hover:text-[#1E2748]">
                 <X className="w-5 h-5" />
               </button>
             </div>

@@ -101,7 +101,7 @@ export const CustomersPage = () => {
         <main className="p-6 md:p-8 space-y-6 max-w-7xl mx-auto w-full">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-extrabold text-white font-heading">Authenticated Customer Database</h1>
+              <h1 className="text-2xl font-extrabold text-[#1E2748] font-heading">Authenticated Customer Database</h1>
               <p className="text-xs text-[#1E2748]/70">KSBC Corporate Client Records ({customers.length} Accounts Onboarded)</p>
             </div>
 
@@ -142,7 +142,7 @@ export const CustomersPage = () => {
           ) : (
             <div className="glass-panel rounded-2xl border border-[#1E2748]/15 overflow-hidden space-y-4 p-5">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <h3 className="text-sm font-bold text-white flex items-center space-x-2">
+                <h3 className="text-sm font-bold text-[#1E2748] flex items-center space-x-2">
                   <Users className="w-4 h-4 text-[#1E2748]" />
                   <span>Onboarded Corporate Accounts ({filteredCustomers.length} displayed of {customers.length})</span>
                 </h3>
@@ -155,7 +155,7 @@ export const CustomersPage = () => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search client, EIN, or email..."
-                    className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 text-xs rounded-xl p-2 pl-9 text-white focus:outline-none focus:ring-2 focus:ring-rose-600"
+                    className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 text-xs rounded-xl p-2 pl-9 text-[#1E2748] focus:outline-none focus:ring-2 focus:ring-rose-600"
                   />
                 </div>
               </div>
@@ -175,7 +175,7 @@ export const CustomersPage = () => {
                     {filteredCustomers.map((c) => (
                       <tr key={c.id} className="hover:bg-rose-950/30 transition">
                         <td className="py-3.5 px-4">
-                          <span className="font-bold text-white block">{c.first_name} {c.last_name}</span>
+                          <span className="font-bold text-[#1E2748] block">{c.first_name} {c.last_name}</span>
                           <span className="text-[10px] text-[#1E2748]/60 font-mono">ID: {c.id.slice(0, 8)}</span>
                         </td>
                         <td className="py-3.5 px-4 font-mono text-slate-300">
@@ -220,8 +220,8 @@ export const CustomersPage = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
           <div className="glass-panel w-full max-w-md p-6 rounded-2xl border border-[#1E2748]/15 relative">
             <div className="flex items-center justify-between pb-3 border-b border-[#1E2748]/15 mb-4">
-              <h3 className="text-base font-bold text-white">Onboard New Corporate Client</h3>
-              <button onClick={() => setIsModalOpen(false)} className="text-slate-400 hover:text-white">
+              <h3 className="text-base font-bold text-[#1E2748]">Onboard New Corporate Client</h3>
+              <button onClick={() => setIsModalOpen(false)} className="text-slate-400 hover:text-[#1E2748]">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -233,7 +233,7 @@ export const CustomersPage = () => {
                   type="text"
                   value={formData.firstName}
                   onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 rounded-xl p-2.5 text-white"
+                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 rounded-xl p-2.5 text-[#1E2748]"
                   required
                   placeholder="Apex Industrial"
                 />
@@ -245,7 +245,7 @@ export const CustomersPage = () => {
                   type="text"
                   value={formData.lastName}
                   onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 rounded-xl p-2.5 text-white"
+                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 rounded-xl p-2.5 text-[#1E2748]"
                   required
                   placeholder="Corporation"
                 />
@@ -257,7 +257,7 @@ export const CustomersPage = () => {
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 rounded-xl p-2.5 text-white"
+                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 rounded-xl p-2.5 text-[#1E2748]"
                   required
                   placeholder="contact@company.com"
                 />
@@ -269,7 +269,7 @@ export const CustomersPage = () => {
                   type="text"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 rounded-xl p-2.5 text-white"
+                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 rounded-xl p-2.5 text-[#1E2748]"
                   required
                   placeholder="+1-555-019-2831"
                 />
@@ -281,7 +281,7 @@ export const CustomersPage = () => {
                   type="text"
                   value={formData.nationalId}
                   onChange={(e) => setFormData({ ...formData, nationalId: e.target.value })}
-                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 rounded-xl p-2.5 text-white"
+                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 rounded-xl p-2.5 text-[#1E2748]"
                   required
                   placeholder="US-EIN-9920194"
                 />
@@ -293,7 +293,7 @@ export const CustomersPage = () => {
                   type="number"
                   value={formData.annualRevenue}
                   onChange={(e) => setFormData({ ...formData, annualRevenue: e.target.value })}
-                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 rounded-xl p-2.5 text-white"
+                  className="w-full glass-input bg-[#1a030b] border border-[#1E2748]/15 rounded-xl p-2.5 text-[#1E2748]"
                   required
                 />
               </div>
@@ -309,7 +309,7 @@ export const CustomersPage = () => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="px-4 py-2 bg-[#EBE4CD] hover:bg-rose-700 text-white rounded-xl font-bold transition disabled:opacity-50"
+                  className="px-4 py-2 bg-[#EBE4CD] hover:bg-rose-700 text-[#1E2748] rounded-xl font-bold transition disabled:opacity-50"
                 >
                   {submitting ? 'Saving...' : 'Onboard Client'}
                 </button>

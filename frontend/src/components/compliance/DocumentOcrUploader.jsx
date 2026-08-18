@@ -56,7 +56,7 @@ export const DocumentOcrUploader = ({ customerId, onVerificationComplete }) => {
           <ShieldCheck className="w-6 h-6" />
         </div>
         <div>
-          <h3 className="text-base font-bold text-white">Gemini Multi-Modal OCR & Compliance Screener</h3>
+          <h3 className="text-base font-bold text-[#1E2748]">Gemini Multi-Modal OCR & Compliance Screener</h3>
           <p className="text-xs text-slate-400">Automated identity verification, balance sheet parsing & Sanctions/PEP screening</p>
         </div>
       </div>
@@ -90,7 +90,7 @@ export const DocumentOcrUploader = ({ customerId, onVerificationComplete }) => {
         <button
           onClick={handleUploadAndAnalyze}
           disabled={!file || loading}
-          className="flex items-center space-x-2 px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white text-xs font-bold rounded-xl shadow-lg shadow-indigo-500/20 transition disabled:opacity-50"
+          className="flex items-center space-x-2 px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-[#1E2748] text-xs font-bold rounded-xl shadow-lg shadow-indigo-500/20 transition disabled:opacity-50"
         >
           {loading ? (
             <>
@@ -122,7 +122,7 @@ export const DocumentOcrUploader = ({ customerId, onVerificationComplete }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
             <div className="bg-slate-800/60 p-3 rounded-xl">
               <span className="text-slate-400 block text-[10px]">DOCUMENT TYPE</span>
-              <span className="font-mono text-white font-semibold">{result.documentType}</span>
+              <span className="font-mono text-[#1E2748] font-semibold">{result.documentType}</span>
             </div>
             <div className="bg-slate-800/60 p-3 rounded-xl">
               <span className="text-slate-400 block text-[10px]">PEP / SANCTIONS STATUS</span>
