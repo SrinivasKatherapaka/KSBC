@@ -1,5 +1,32 @@
 [
   {
+    "id": "5abe25fc-4db7-435f-9fc9-86922a684dd6",
+    "status": "underwriting",
+    "risk_score": 35,
+    "ai_risk_assessment": null,
+    "approved_by": null,
+    "disbursed_by": null,
+    "decision_notes": "",
+    "action_logs": [
+      {
+        "action": "underwriting",
+        "notes": "Application submitted into intake queue",
+        "timestamp": "2026-08-25T13:00:03.619Z",
+        "user_id": "d45850ff-00fa-4392-ad12-33b6d44b5cfb"
+      }
+    ],
+    "customer_id": "de850acf-44a1-4d01-ad65-e5ce1b821af7",
+    "applicant_name": "ManualIntake Corp",
+    "applicant_category": "corporate",
+    "principal_amount": 1200000,
+    "interest_rate": 6.8,
+    "term_months": 36,
+    "purpose": "Manual DB Verification",
+    "created_by": "d45850ff-00fa-4392-ad12-33b6d44b5cfb",
+    "created_at": "2026-08-25T13:00:03.619Z",
+    "updated_at": "2026-08-25T13:00:03.619Z"
+  },
+  {
     "id": "8d41a087-80d6-4b0d-9b77-14109d723a5e",
     "status": "underwriting",
     "risk_score": 35,

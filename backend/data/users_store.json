@@ -94,5 +94,16 @@
     "is_active": true,
     "created_at": "2026-08-25T10:52:38.128Z",
     "updated_at": "2026-08-25T10:52:38.128Z"
+  },
+  {
+    "id": "d45850ff-00fa-4392-ad12-33b6d44b5cfb",
+    "email": "test.personnel.1787662796485@ksbc-test.com",
+    "hashed_password": "hashed_password_sample_123",
+    "first_name": "TestPersist",
+    "last_name": "User",
+    "role": "customer_ops",
+    "is_active": true,
+    "created_at": "2026-08-25T12:59:56.486Z",
+    "updated_at": "2026-08-25T12:59:56.486Z"
   }
 ]
