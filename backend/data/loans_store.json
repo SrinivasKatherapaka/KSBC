@@ -1,5 +1,86 @@
 [
   {
+    "id": "8d41a087-80d6-4b0d-9b77-14109d723a5e",
+    "status": "underwriting",
+    "risk_score": 35,
+    "ai_risk_assessment": null,
+    "approved_by": null,
+    "disbursed_by": null,
+    "decision_notes": "",
+    "action_logs": [
+      {
+        "action": "underwriting",
+        "notes": "Application submitted into intake queue",
+        "timestamp": "2026-08-25T10:52:45.206Z",
+        "user_id": "255e007a-545a-4952-ad74-125db9b91107"
+      }
+    ],
+    "customer_id": "a9691f8a-013f-4757-bd02-41cd3523d6c6",
+    "applicant_name": "ManualIntake Corp",
+    "applicant_category": "corporate",
+    "principal_amount": 1200000,
+    "interest_rate": 6.8,
+    "term_months": 36,
+    "purpose": "Manual DB Verification",
+    "created_by": "255e007a-545a-4952-ad74-125db9b91107",
+    "created_at": "2026-08-25T10:52:45.206Z",
+    "updated_at": "2026-08-25T10:52:45.206Z"
+  },
+  {
+    "id": "5a6e2445-9112-411d-bde2-7260fc57160d",
+    "status": "underwriting",
+    "risk_score": 35,
+    "ai_risk_assessment": null,
+    "approved_by": null,
+    "disbursed_by": null,
+    "decision_notes": "",
+    "action_logs": [
+      {
+        "action": "underwriting",
+        "notes": "Application submitted into intake queue",
+        "timestamp": "2026-08-25T10:52:15.615Z",
+        "user_id": "418f8d78-f941-474c-bcd4-04a9716a3063"
+      }
+    ],
+    "customer_id": "52c9842a-4e97-4e9e-b365-469bb7621d08",
+    "applicant_name": "ManualIntake Corp",
+    "applicant_category": "corporate",
+    "principal_amount": 1200000,
+    "interest_rate": 6.8,
+    "term_months": 36,
+    "purpose": "Manual DB Verification",
+    "created_by": "418f8d78-f941-474c-bcd4-04a9716a3063",
+    "created_at": "2026-08-25T10:52:15.615Z",
+    "updated_at": "2026-08-25T10:52:15.615Z"
+  },
+  {
+    "id": "308c8197-5d4c-433b-a0e6-c9351f9a8026",
+    "status": "underwriting",
+    "risk_score": 35,
+    "ai_risk_assessment": null,
+    "approved_by": null,
+    "disbursed_by": null,
+    "decision_notes": "",
+    "action_logs": [
+      {
+        "action": "underwriting",
+        "notes": "Application submitted into intake queue",
+        "timestamp": "2026-08-25T10:51:43.922Z",
+        "user_id": "d5f71eb8-e8da-492e-a475-241340a166db"
+      }
+    ],
+    "customer_id": "973568aa-2f2d-421e-8147-45da1a2cb648",
+    "applicant_name": "ManualIntake Corp",
+    "applicant_category": "corporate",
+    "principal_amount": 1200000,
+    "interest_rate": 6.8,
+    "term_months": 36,
+    "purpose": "Manual DB Verification",
+    "created_by": "d5f71eb8-e8da-492e-a475-241340a166db",
+    "created_at": "2026-08-25T10:51:43.922Z",
+    "updated_at": "2026-08-25T10:51:43.922Z"
+  },
+  {
     "id": "c0000001-1111-4111-c111-111111111111",
     "customer_id": "b0000001-1111-4111-b111-111111111111",
     "applicant_name": "Alexander Chen",

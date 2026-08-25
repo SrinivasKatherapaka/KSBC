@@ -1,0 +1,66 @@
+[
+  {
+    "id": "v1000001-1111-4111-v111-111111111111",
+    "vendor_name": "Global Tech Hardware Inc",
+    "tax_id": "US-9988223",
+    "contact_email": "procurement@globaltech.com",
+    "is_approved": true,
+    "created_at": "2026-08-25T10:51:36.770Z"
+  },
+  {
+    "id": "v1000002-2222-4222-v222-222222222222",
+    "vendor_name": "CyberShield Banking Security",
+    "tax_id": "US-4433112",
+    "contact_email": "billing@cybershield.io",
+    "is_approved": true,
+    "created_at": "2026-08-25T10:51:36.770Z"
+  },
+  {
+    "id": "v1000003-3333-4333-v333-333333333333",
+    "vendor_name": "OmniCloud Data Infrastructure",
+    "tax_id": "US-8822991",
+    "contact_email": "enterprise@omnicloud.com",
+    "is_approved": true,
+    "created_at": "2026-08-25T10:51:36.770Z"
+  },
+  {
+    "id": "v1000004-4444-4444-v444-444444444444",
+    "vendor_name": "Apex Data Center Solutions",
+    "tax_id": "US-7711005",
+    "contact_email": "orders@apexdatacenters.com",
+    "is_approved": true,
+    "created_at": "2026-08-25T10:51:36.770Z"
+  },
+  {
+    "id": "v1000005-5555-4555-v555-555555555555",
+    "vendor_name": "Vanguard ATM & Vault Hardware",
+    "tax_id": "US-3344556",
+    "contact_email": "finance@vanguardatm.com",
+    "is_approved": true,
+    "created_at": "2026-08-25T10:51:36.770Z"
+  },
+  {
+    "id": "v1000006-6666-4666-v666-666666666666",
+    "vendor_name": "BioPharma Commercial Equipment",
+    "tax_id": "US-6655443",
+    "contact_email": "accounts@biopharmasupplies.com",
+    "is_approved": true,
+    "created_at": "2026-08-25T10:51:36.770Z"
+  },
+  {
+    "id": "v1000007-7777-4777-v777-777777777777",
+    "vendor_name": "Titan Real Estate Management",
+    "tax_id": "US-2233441",
+    "contact_email": "billing@titanproperties.com",
+    "is_approved": true,
+    "created_at": "2026-08-25T10:51:36.770Z"
+  },
+  {
+    "id": "v1000008-8888-4888-v888-888888888888",
+    "vendor_name": "Solstice Renewable Energy Corp",
+    "tax_id": "US-1122334",
+    "contact_email": "orders@solsticepower.com",
+    "is_approved": true,
+    "created_at": "2026-08-25T10:51:36.770Z"
+  }
+]

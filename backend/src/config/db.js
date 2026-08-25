@@ -270,10 +270,19 @@ initializeSeedData();
 // ==========================================
 // WRITE-AHEAD LOGGING (WAL) PERSISTENCE ENGINE
 // ==========================================
-const DATA_DIR = path.join(process.cwd(), 'backend', 'data');
+const cwd = process.cwd();
+const DATA_DIR = (cwd.endsWith('backend') || cwd.endsWith('backend\\') || cwd.endsWith('backend/'))
+  ? path.join(cwd, 'data')
+  : path.join(cwd, 'backend', 'data');
+
 const WAL_LOG_PATH = path.join(DATA_DIR, 'wal_journal.log');
+const USERS_STORE_PATH = path.join(DATA_DIR, 'users_store.json');
 const CUSTOMERS_STORE_PATH = path.join(DATA_DIR, 'customers_store.json');
 const LOANS_STORE_PATH = path.join(DATA_DIR, 'loans_store.json');
+const PURCHASE_ORDERS_STORE_PATH = path.join(DATA_DIR, 'purchase_orders_store.json');
+const VENDORS_STORE_PATH = path.join(DATA_DIR, 'vendors_store.json');
+const TRANSACTIONS_STORE_PATH = path.join(DATA_DIR, 'transactions_store.json');
+const GL_ACCOUNTS_STORE_PATH = path.join(DATA_DIR, 'gl_accounts_store.json');
 
 // Ensure data directory exists
 if (!fs.existsSync(DATA_DIR)) {
@@ -308,7 +317,14 @@ function writeToWal(operation, payload) {
   }
 }
 
-// Persist customers state to disk snapshot
+function saveUserStore() {
+  try {
+    fs.writeFileSync(USERS_STORE_PATH, JSON.stringify(memoryDb.users, null, 2), 'utf8');
+  } catch (err) {
+    console.error('[WAL LOG ERROR] Error saving user store to disk:', err);
+  }
+}
+
 function saveCustomerStore() {
   try {
     fs.writeFileSync(CUSTOMERS_STORE_PATH, JSON.stringify(memoryDb.customers, null, 2), 'utf8');
@@ -317,7 +333,6 @@ function saveCustomerStore() {
   }
 }
 
-// Persist loans state to disk snapshot
 function saveLoanStore() {
   try {
     fs.writeFileSync(LOANS_STORE_PATH, JSON.stringify(memoryDb.loans, null, 2), 'utf8');
@@ -326,10 +341,54 @@ function saveLoanStore() {
   }
 }
 
+function savePurchaseOrderStore() {
+  try {
+    fs.writeFileSync(PURCHASE_ORDERS_STORE_PATH, JSON.stringify(memoryDb.purchase_orders, null, 2), 'utf8');
+  } catch (err) {
+    console.error('[WAL LOG ERROR] Error saving purchase order store to disk:', err);
+  }
+}
+
+function saveVendorStore() {
+  try {
+    fs.writeFileSync(VENDORS_STORE_PATH, JSON.stringify(memoryDb.vendors, null, 2), 'utf8');
+  } catch (err) {
+    console.error('[WAL LOG ERROR] Error saving vendor store to disk:', err);
+  }
+}
+
+function saveTransactionStore() {
+  try {
+    fs.writeFileSync(TRANSACTIONS_STORE_PATH, JSON.stringify(memoryDb.transactions, null, 2), 'utf8');
+  } catch (err) {
+    console.error('[WAL LOG ERROR] Error saving transaction store to disk:', err);
+  }
+}
+
+function saveGlAccountStore() {
+  try {
+    fs.writeFileSync(GL_ACCOUNTS_STORE_PATH, JSON.stringify(memoryDb.gl_accounts, null, 2), 'utf8');
+  } catch (err) {
+    console.error('[WAL LOG ERROR] Error saving gl account store to disk:', err);
+  }
+}
+
 // Recover and replay WAL entries on system startup
 function initializeWalAndDataStore() {
   try {
-    // 1. Load existing customer snapshot from disk if present
+    // Load existing disk snapshots if present
+    if (fs.existsSync(USERS_STORE_PATH)) {
+      const content = fs.readFileSync(USERS_STORE_PATH, 'utf8');
+      const stored = JSON.parse(content);
+      if (Array.isArray(stored) && stored.length > 0) {
+        for (const u of stored) {
+          const idx = memoryDb.users.findIndex(memU => memU.id === u.id || (memU.email && u.email && memU.email.toLowerCase() === u.email.toLowerCase()));
+          if (idx === -1) memoryDb.users.push(u);
+          else memoryDb.users[idx] = { ...memoryDb.users[idx], ...u };
+        }
+      }
+    }
+
     if (fs.existsSync(CUSTOMERS_STORE_PATH)) {
       const content = fs.readFileSync(CUSTOMERS_STORE_PATH, 'utf8');
       const stored = JSON.parse(content);
@@ -338,7 +397,6 @@ function initializeWalAndDataStore() {
       }
     }
 
-    // 2. Load existing loan snapshot from disk if present
     if (fs.existsSync(LOANS_STORE_PATH)) {
       const content = fs.readFileSync(LOANS_STORE_PATH, 'utf8');
       const stored = JSON.parse(content);
@@ -347,7 +405,39 @@ function initializeWalAndDataStore() {
       }
     }
 
-    // 3. Replay WAL journal log entries sequentially
+    if (fs.existsSync(PURCHASE_ORDERS_STORE_PATH)) {
+      const content = fs.readFileSync(PURCHASE_ORDERS_STORE_PATH, 'utf8');
+      const stored = JSON.parse(content);
+      if (Array.isArray(stored) && stored.length > 0) {
+        memoryDb.purchase_orders = stored;
+      }
+    }
+
+    if (fs.existsSync(VENDORS_STORE_PATH)) {
+      const content = fs.readFileSync(VENDORS_STORE_PATH, 'utf8');
+      const stored = JSON.parse(content);
+      if (Array.isArray(stored) && stored.length > 0) {
+        memoryDb.vendors = stored;
+      }
+    }
+
+    if (fs.existsSync(TRANSACTIONS_STORE_PATH)) {
+      const content = fs.readFileSync(TRANSACTIONS_STORE_PATH, 'utf8');
+      const stored = JSON.parse(content);
+      if (Array.isArray(stored) && stored.length > 0) {
+        memoryDb.transactions = stored;
+      }
+    }
+
+    if (fs.existsSync(GL_ACCOUNTS_STORE_PATH)) {
+      const content = fs.readFileSync(GL_ACCOUNTS_STORE_PATH, 'utf8');
+      const stored = JSON.parse(content);
+      if (Array.isArray(stored) && stored.length > 0) {
+        memoryDb.gl_accounts = stored;
+      }
+    }
+
+    // Replay WAL journal log entries sequentially
     if (fs.existsSync(WAL_LOG_PATH)) {
       const content = fs.readFileSync(WAL_LOG_PATH, 'utf8');
       const lines = content.split('\n').filter(l => l.trim().length > 0);
@@ -356,7 +446,15 @@ function initializeWalAndDataStore() {
       for (const line of lines) {
         try {
           const entry = JSON.parse(line);
-          if (entry.operation === 'CREATE_CUSTOMER' && entry.payload) {
+          if (entry.operation === 'CREATE_USER' && entry.payload) {
+            const existsIdx = memoryDb.users.findIndex(u => u.id === entry.payload.id || (u.email && u.email.toLowerCase() === entry.payload.email?.toLowerCase()));
+            if (existsIdx === -1) {
+              memoryDb.users.push(entry.payload);
+            } else {
+              memoryDb.users[existsIdx] = { ...memoryDb.users[existsIdx], ...entry.payload };
+            }
+            count++;
+          } else if (entry.operation === 'CREATE_CUSTOMER' && entry.payload) {
             const existsIdx = memoryDb.customers.findIndex(c => c.id === entry.payload.id || (c.email && c.email === entry.payload.email));
             if (existsIdx === -1) {
               memoryDb.customers.unshift(entry.payload);
@@ -409,6 +507,25 @@ function initializeWalAndDataStore() {
           } else if (entry.operation === 'DELETE_LOAN' && entry.payload) {
             memoryDb.loans = memoryDb.loans.filter(l => l.id !== entry.payload.id);
             count++;
+          } else if (entry.operation === 'CREATE_PO' && entry.payload) {
+            const existsIdx = memoryDb.purchase_orders.findIndex(p => p.id === entry.payload.id);
+            if (existsIdx === -1) memoryDb.purchase_orders.unshift(entry.payload);
+            else memoryDb.purchase_orders[existsIdx] = { ...memoryDb.purchase_orders[existsIdx], ...entry.payload };
+            count++;
+          } else if (entry.operation === 'PAY_PO' && entry.payload) {
+            const idx = memoryDb.purchase_orders.findIndex(p => p.id === entry.payload.id);
+            if (idx !== -1) memoryDb.purchase_orders[idx] = { ...memoryDb.purchase_orders[idx], ...entry.payload };
+            count++;
+          } else if (entry.operation === 'CREATE_VENDOR' && entry.payload) {
+            const existsIdx = memoryDb.vendors.findIndex(v => v.id === entry.payload.id);
+            if (existsIdx === -1) memoryDb.vendors.push(entry.payload);
+            else memoryDb.vendors[existsIdx] = { ...memoryDb.vendors[existsIdx], ...entry.payload };
+            count++;
+          } else if (entry.operation === 'POST_GL_TRANSACTION' && entry.payload) {
+            if (Array.isArray(entry.payload)) {
+              memoryDb.transactions.unshift(...entry.payload);
+            }
+            count++;
           }
         } catch (e) {}
       }
@@ -417,11 +534,16 @@ function initializeWalAndDataStore() {
       walStats.lastSyncTime = new Date().toISOString();
       const stats = fs.statSync(WAL_LOG_PATH);
       walStats.journalSize = stats.size;
-      console.log(`⚡ [WAL ENGINE RECOVERY] Replayed ${count} WAL entries. Total customers: ${memoryDb.customers.length}, Total loans: ${memoryDb.loans.length}`);
+      console.log(`⚡ [WAL ENGINE RECOVERY] Replayed ${count} WAL entries. Total users: ${memoryDb.users.length}, Total customers: ${memoryDb.customers.length}, Total loans: ${memoryDb.loans.length}`);
     }
 
+    saveUserStore();
     saveCustomerStore();
     saveLoanStore();
+    savePurchaseOrderStore();
+    saveVendorStore();
+    saveTransactionStore();
+    saveGlAccountStore();
   } catch (err) {
     console.error('[WAL LOG ERROR] WAL Initialization error:', err);
   }
@@ -431,8 +553,30 @@ function initializeWalAndDataStore() {
 // REAL-TIME SUPABASE SYNCHRONIZATION ENGINE
 // ==========================================
 
+let supabaseOnlineChecked = false;
+let isSupabaseOnline = false;
+
+async function checkSupabaseHealth() {
+  if (!isSupabaseConfigured) return false;
+  if (supabaseOnlineChecked) return isSupabaseOnline;
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 1500);
+    const { error } = await supabase.from('users').select('id').limit(1).abortSignal(controller.signal);
+    clearTimeout(timer);
+    isSupabaseOnline = !error;
+  } catch (e) {
+    isSupabaseOnline = false;
+  }
+  supabaseOnlineChecked = true;
+  return isSupabaseOnline;
+}
+
 async function syncLoanToSupabase(loan) {
   if (!isSupabaseConfigured || !loan) return;
+  const isOnline = await checkSupabaseHealth();
+  if (!isOnline) return;
+
   try {
     let custId = loan.customer_id;
     let customerRow = memoryDb.customers.find(c => c.id === custId) || loan.customer;
@@ -529,6 +673,11 @@ async function syncLoanToSupabase(loan) {
 
 async function syncAllLoansToSupabase() {
   if (!isSupabaseConfigured) return;
+  const isOnline = await checkSupabaseHealth();
+  if (!isOnline) {
+    console.log('ℹ️ [SUPABASE STATUS] Host connection unavailable. Running in Local Persistent Database WAL Mode.');
+    return;
+  }
   console.log(`🔄 [SUPABASE INITIAL SYNC] Syncing ${memoryDb.loans.length} loans to Supabase live database...`);
   for (const loan of memoryDb.loans) {
     await syncLoanToSupabase(loan);
@@ -591,7 +740,28 @@ export const db = {
 
   createUser: async (userData) => {
     const role = userData.role || DEFAULT_USER_ROLES[userData.email?.toLowerCase()] || 'customer_ops';
-    const newUser = { id: uuidv4(), ...userData, role, is_active: true, created_at: new Date().toISOString(), updated_at: new Date().toISOString() };
+    const cleanEmail = (userData.email || '').trim().toLowerCase();
+    const newUser = {
+      id: userData.id || uuidv4(),
+      ...userData,
+      email: cleanEmail,
+      role,
+      is_active: true,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    };
+
+    // 1. Immediately persist user locally via WAL and disk JSON store
+    writeToWal('CREATE_USER', newUser);
+    const existingIdx = memoryDb.users.findIndex(u => u.id === newUser.id || (u.email && u.email.toLowerCase() === cleanEmail));
+    if (existingIdx !== -1) {
+      memoryDb.users[existingIdx] = { ...memoryDb.users[existingIdx], ...newUser };
+    } else {
+      memoryDb.users.push(newUser);
+    }
+    saveUserStore();
+
+    // 2. Sync to Supabase Database if available
     if (isSupabaseConfigured) {
       try {
         const { data, error } = await supabase.from('users').insert(newUser).select().single();
@@ -599,9 +769,10 @@ export const db = {
           data.role = data.role || role;
           return data;
         }
-      } catch (err) {}
+      } catch (err) {
+        console.warn('[SUPABASE WARN] User creation fallback to local WAL store:', err.message);
+      }
     }
-    memoryDb.users.push(newUser);
     return newUser;
   },
 
@@ -694,16 +865,19 @@ export const db = {
 
     // 4. Sync directly to Supabase Database
     if (isSupabaseConfigured) {
-      try {
-        const { data, error } = await supabase.from('customers').insert(newCustomer).select().single();
-        if (error) {
-          console.error('[SUPABASE SYNC WARNING] Primary insert failed, executing upsert:', error.message);
-          await supabase.from('customers').upsert(newCustomer);
-        } else {
-          console.log('[SUPABASE SYNC SUCCESS] New customer account created in Supabase:', data?.id || newCustomer.id);
+      const isOnline = await checkSupabaseHealth();
+      if (isOnline) {
+        try {
+          const { data, error } = await supabase.from('customers').insert(newCustomer).select().single();
+          if (error) {
+            console.error('[SUPABASE SYNC WARNING] Primary insert failed, executing upsert:', error.message);
+            await supabase.from('customers').upsert(newCustomer);
+          } else {
+            console.log('[SUPABASE SYNC SUCCESS] New customer account created in Supabase:', data?.id || newCustomer.id);
+          }
+        } catch (err) {
+          console.error('[SUPABASE SYNC EXCEPTION] Customer creation error:', err.message);
         }
-      } catch (err) {
-        console.error('[SUPABASE SYNC EXCEPTION] Customer creation error:', err.message);
       }
     }
 
@@ -1000,6 +1174,10 @@ export const db = {
     if (debitAcc) debitAcc.balance = Number(debitAcc.balance) + numAmount;
     if (creditAcc) creditAcc.balance = Number(creditAcc.balance) - numAmount;
 
+    writeToWal('POST_GL_TRANSACTION', [debitTx, creditTx]);
+    saveTransactionStore();
+    saveGlAccountStore();
+
     return [debitTx, creditTx];
   },
 
@@ -1010,6 +1188,8 @@ export const db = {
   createVendor: async (vendorData) => {
     const newVendor = { id: uuidv4(), is_approved: true, ...vendorData, created_at: new Date().toISOString() };
     memoryDb.vendors.push(newVendor);
+    writeToWal('CREATE_VENDOR', newVendor);
+    saveVendorStore();
     return newVendor;
   },
 
@@ -1050,6 +1230,8 @@ export const db = {
       created_at: new Date().toISOString() 
     };
     memoryDb.purchase_orders.unshift(newPo);
+    writeToWal('CREATE_PO', newPo);
+    savePurchaseOrderStore();
     return newPo;
   },
 
@@ -1069,6 +1251,8 @@ export const db = {
     const idx = memoryDb.purchase_orders.findIndex(p => p.id === poId);
     if (idx !== -1) {
       memoryDb.purchase_orders[idx] = { ...memoryDb.purchase_orders[idx], ...updatePayload };
+      writeToWal('PAY_PO', memoryDb.purchase_orders[idx]);
+      savePurchaseOrderStore();
       return memoryDb.purchase_orders[idx];
     }
     return null;
