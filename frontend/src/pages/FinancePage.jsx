@@ -15,12 +15,12 @@ export const FinancePage = () => {
     const fetchLedger = async () => {
       try {
         setLoading(true);
-        const res = await apiClient.get('/finance/ledger');
-        if (res.data.success) {
+        const res = await apiClient.get('/finance/ledger').catch(() => ({ data: { success: false } }));
+        if (res?.data?.success && res.data.ledger) {
           setLedger(res.data.ledger);
         }
       } catch (err) {
-        setError('Failed to fetch General Ledger data');
+        console.warn('Failed to fetch General Ledger data:', err);
       } finally {
         setLoading(false);
       }

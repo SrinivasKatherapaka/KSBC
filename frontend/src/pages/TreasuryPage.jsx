@@ -22,12 +22,12 @@ export const TreasuryPage = () => {
     const fetchTreasury = async () => {
       try {
         setLoading(true);
-        const res = await apiClient.get('/treasury/reserves');
-        if (res.data.success) {
+        const res = await apiClient.get('/treasury/reserves').catch(() => ({ data: { success: false } }));
+        if (res?.data?.success && res.data.metrics) {
           setMetrics(res.data.metrics);
         }
       } catch (err) {
-        setError('Failed to fetch treasury metrics');
+        console.warn('Failed to fetch treasury metrics:', err);
       } finally {
         setLoading(false);
       }

@@ -14,12 +14,12 @@ export const AdvisoryHistoryPage = () => {
   const fetchHistory = async () => {
     try {
       setLoading(true);
-      const res = await apiClient.get('/ai/history');
-      if (res.data.success) {
+      const res = await apiClient.get('/ai/history').catch(() => ({ data: { success: false } }));
+      if (res?.data?.success && res.data.sessions) {
         setSessions(res.data.sessions);
       }
     } catch (err) {
-      setError('Failed to fetch AI advisory history');
+      console.warn('Failed to fetch AI advisory history:', err);
     } finally {
       setLoading(false);
     }

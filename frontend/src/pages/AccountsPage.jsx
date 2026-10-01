@@ -74,12 +74,12 @@ export const AccountsPage = () => {
   const fetchAccounts = async () => {
     try {
       setLoading(true);
-      const res = await apiClient.get('/customers');
-      if (res.data.success) {
+      const res = await apiClient.get('/customers').catch(() => ({ data: { success: false } }));
+      if (res?.data?.success && res.data.customers) {
         setCustomers(res.data.customers);
       }
     } catch (err) {
-      setError('Failed to fetch accounts database');
+      console.warn('Failed to fetch accounts database:', err);
     } finally {
       setLoading(false);
     }

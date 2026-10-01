@@ -38,12 +38,12 @@ export const FraudDetectionPage = () => {
   const fetchFraudAlerts = async () => {
     try {
       setLoading(true);
-      const res = await apiClient.get('/ai/fraud-transactions');
-      if (res.data.success) {
+      const res = await apiClient.get('/ai/fraud-transactions').catch(() => ({ data: { success: false } }));
+      if (res?.data?.success && res.data.fraudAlerts) {
         setFraudAlerts(res.data.fraudAlerts);
       }
     } catch (err) {
-      setError('Failed to retrieve fraud monitoring feed');
+      console.warn('Failed to retrieve fraud monitoring feed:', err);
     } finally {
       setLoading(false);
     }

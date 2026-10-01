@@ -16,15 +16,15 @@ export const CompliancePage = () => {
   const fetchCustomers = async () => {
     try {
       setLoading(true);
-      const res = await apiClient.get('/customers');
-      if (res.data.success) {
+      const res = await apiClient.get('/customers').catch(() => ({ data: { success: false } }));
+      if (res?.data?.success && res.data.customers) {
         setCustomers(res.data.customers);
         if (res.data.customers.length > 0) {
           setSelectedCustomerId(res.data.customers[0].id);
         }
       }
     } catch (err) {
-      setError('Failed to fetch compliance customers list');
+      console.warn('Failed to fetch compliance customers list:', err);
     } finally {
       setLoading(false);
     }

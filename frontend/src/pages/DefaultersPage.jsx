@@ -16,12 +16,12 @@ export const DefaultersPage = () => {
   const fetchDefaulters = async () => {
     try {
       setLoading(true);
-      const res = await apiClient.get('/ai/defaulters');
-      if (res.data.success) {
+      const res = await apiClient.get('/ai/defaulters').catch(() => ({ data: { success: false } }));
+      if (res?.data?.success && res.data.defaulters) {
         setDefaulters(res.data.defaulters);
       }
     } catch (err) {
-      setError('Failed to retrieve NPA defaulters dataset');
+      console.warn('Failed to retrieve NPA defaulters dataset:', err);
     } finally {
       setLoading(false);
     }

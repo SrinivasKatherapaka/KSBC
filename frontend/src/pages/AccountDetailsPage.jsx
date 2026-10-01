@@ -49,16 +49,15 @@ export const AccountDetailsPage = () => {
     try {
       setLoading(true);
       setError('');
-      // Fetch customer directly or from list
-      const res = await apiClient.get('/customers');
-      if (res.data.success) {
+      const res = await apiClient.get('/customers').catch(() => ({ data: { success: false } }));
+      if (res?.data?.success && res.data.customers) {
         const found = res.data.customers.find(c => c.id === id || c.account_number === id);
         if (found) {
           setCustomer(found);
           // Fetch associated loans for this customer
           try {
-            const loansRes = await apiClient.get('/loans');
-            if (loansRes.data.success) {
+            const loansRes = await apiClient.get('/loans').catch(() => ({ data: { success: false } }));
+            if (loansRes?.data?.success && loansRes.data.loans) {
               const matchedLoans = loansRes.data.loans.filter(l => 
                 l.customer_id === found.id || 
                 (l.applicant_name && l.applicant_name.toLowerCase().includes(found.first_name.toLowerCase()))

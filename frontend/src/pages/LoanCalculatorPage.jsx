@@ -59,8 +59,8 @@ export const LoanCalculatorPage = () => {
   useEffect(() => {
     const fetchCustomers = async () => {
       try {
-        const res = await apiClient.get('/customers');
-        if (res.data.success && res.data.customers && res.data.customers.length > 0) {
+        const res = await apiClient.get('/customers').catch(() => ({ data: { success: false } }));
+        if (res?.data?.success && res.data.customers && res.data.customers.length > 0) {
           const apiCusts = res.data.customers;
           const mergedMap = new Map();
           DEFAULT_CUSTOMERS.forEach(c => mergedMap.set(c.account_number, c));
