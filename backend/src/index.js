@@ -90,3 +90,5 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`🚀 KSBC Digital Banking ERP Backend running on http://localhost:${PORT}`);
 });
+
+export default app;
