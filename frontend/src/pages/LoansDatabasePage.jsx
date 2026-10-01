@@ -39,11 +39,11 @@ export const LoansDatabasePage = () => {
     try {
       setLoading(true);
       const [loansRes, customersRes] = await Promise.all([
-        apiClient.get('/loans'),
-        apiClient.get('/customers')
+        apiClient.get('/loans').catch(() => ({ data: { success: true, loans: [] } })),
+        apiClient.get('/customers').catch(() => ({ data: { success: true, customers: [] } }))
       ]);
-      if (loansRes.data.success) setLoans(loansRes.data.loans);
-      if (customersRes.data.success) setCustomers(customersRes.data.customers);
+      if (loansRes.data?.success) setLoans(loansRes.data.loans || []);
+      if (customersRes.data?.success) setCustomers(customersRes.data.customers || []);
     } catch (err) {
       setError('Failed to fetch master loans database records');
     } finally {

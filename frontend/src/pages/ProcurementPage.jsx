@@ -33,15 +33,15 @@ export const ProcurementPage = () => {
     try {
       setLoading(true);
       const [vRes, poRes] = await Promise.all([
-        apiClient.get('/procurement/vendors'),
-        apiClient.get('/procurement/pos')
+        apiClient.get('/procurement/vendors').catch(() => ({ data: { success: true, vendors: [] } })),
+        apiClient.get('/procurement/pos').catch(() => ({ data: { success: true, purchaseOrders: [] } }))
       ]);
-      if (vRes.data.success) {
-        setVendors(vRes.data.vendors);
-        if (vRes.data.vendors.length > 0) setVendorId(vRes.data.vendors[0].id);
+      if (vRes.data?.success) {
+        setVendors(vRes.data.vendors || []);
+        if (vRes.data.vendors?.length > 0) setVendorId(vRes.data.vendors[0].id);
       }
-      if (poRes.data.success) {
-        setPurchaseOrders(poRes.data.purchaseOrders);
+      if (poRes.data?.success) {
+        setPurchaseOrders(poRes.data.purchaseOrders || []);
       }
     } catch (err) {
       setError('Failed to fetch procurement data');
