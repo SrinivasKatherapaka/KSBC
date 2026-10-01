@@ -137,19 +137,19 @@ export const FreshLoanApplicationsPage = () => {
 
     let riskLevel = 'LOW';
     let recommendation = 'APPROVE';
-    let riskColor = 'text-emerald-400';
-    let riskBg = 'bg-emerald-500/10 border-emerald-500/30';
+    let riskColor = 'text-emerald-800 font-extrabold';
+    let riskBg = 'bg-emerald-100 border-emerald-300';
 
     if (calculatedScore > 70) {
       riskLevel = 'HIGH';
       recommendation = 'REJECT';
-      riskColor = 'text-red-400';
-      riskBg = 'bg-red-500/10 border-red-500/30';
+      riskColor = 'text-rose-800 font-extrabold';
+      riskBg = 'bg-rose-100 border-rose-300';
     } else if (calculatedScore > 40) {
       riskLevel = 'MODERATE';
       recommendation = 'CONDITIONAL_APPROVE';
-      riskColor = 'text-[#1E2748]';
-      riskBg = 'bg-[#EBE4CD]/10 border-[#1E2748]/15';
+      riskColor = 'text-amber-900 font-extrabold';
+      riskBg = 'bg-amber-100 border-amber-300';
     }
 
     const defaultProb = Number((calculatedScore * 0.26).toFixed(1));
@@ -803,7 +803,7 @@ export const FreshLoanApplicationsPage = () => {
                         <p className="text-[10px] text-[#1E2748]">Real-time underwriting analysis</p>
                       </div>
                     </div>
-                    <span className="px-2 py-0.5 rounded-full bg-[#F6F2E3] text-[#1E2748] text-[9px] font-mono text-emerald-400 border border-emerald-500/30">
+                    <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-950 text-[10px] font-mono font-extrabold border border-emerald-300 shadow-sm">
                       LIVE COMPUTED
                     </span>
                   </div>
@@ -811,34 +811,34 @@ export const FreshLoanApplicationsPage = () => {
                   {/* Main Score Gauge */}
                   <div className="p-4 bg-[#F6F2E3] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 flex items-center justify-between">
                     <div>
-                      <span className="text-[10px] text-[#1E2748] font-bold uppercase tracking-wider block">
+                      <span className="text-[10px] text-[#1E2748] font-black uppercase tracking-wider block">
                         CALCULATED RISK SCORE
                       </span>
                       <div className="flex items-baseline space-x-2 mt-1">
                         <span className={`text-4xl font-black font-mono ${liveRiskCalculation.riskColor}`}>
                           {liveRiskCalculation.riskScore}
                         </span>
-                        <span className="text-sm text-[#1E2748] font-mono">/ 100</span>
+                        <span className="text-sm text-[#1E2748] font-mono font-extrabold">/ 100</span>
                       </div>
-                      <span className={`inline-block mt-1 px-2.5 py-0.5 rounded text-[10px] font-extrabold uppercase ${liveRiskCalculation.riskBg} ${liveRiskCalculation.riskColor}`}>
+                      <span className={`inline-block mt-1 px-2.5 py-0.5 rounded text-[10px] font-black uppercase ${liveRiskCalculation.riskBg} ${liveRiskCalculation.riskColor}`}>
                         {liveRiskCalculation.riskLevel} RISK LEVEL
                       </span>
                     </div>
 
                     <div className="text-right space-y-1">
-                      <span className="text-[10px] text-[#1E2748] font-bold uppercase tracking-wider block">
+                      <span className="text-[10px] text-[#1E2748] font-black uppercase tracking-wider block">
                         AI RECOMMENDATION
                       </span>
-                      <span className={`text-xs font-black px-3 py-1 rounded-xl uppercase inline-block ${
+                      <span className={`text-xs font-black px-3 py-1 rounded-xl uppercase inline-block shadow-sm ${
                         liveRiskCalculation.recommendation === 'APPROVE'
-                          ? 'bg-[#58b388]/20 text-[#58b388] border border-[#58b388]/40'
+                          ? 'bg-emerald-100 text-emerald-950 border border-emerald-400'
                           : liveRiskCalculation.recommendation === 'REJECT'
-                          ? 'bg-red-500/20 text-red-400 border border-red-500/40'
-                          : 'bg-[#EBE4CD]/10 text-[#1E2748] border border-[#1E2748]/15'
+                          ? 'bg-rose-100 text-rose-950 border border-rose-400'
+                          : 'bg-amber-100 text-amber-950 border border-amber-400'
                       }`}>
                         {liveRiskCalculation.recommendation}
                       </span>
-                      <p className="text-[9px] text-[#1E2748] font-mono">
+                      <p className="text-[10px] text-[#1E2748] font-bold font-mono">
                         Default Prob: {liveRiskCalculation.defaultProbability}%
                       </p>
                     </div>
@@ -847,59 +847,59 @@ export const FreshLoanApplicationsPage = () => {
                   {/* Metric Chips */}
                   <div className="grid grid-cols-2 gap-3 text-xs">
                     <div className="p-3 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
-                      <span className="text-[9px] text-[#1E2748] block">DEBT-TO-INCOME (DTI)</span>
-                      <span className="text-sm font-extrabold text-[#1E2748] font-mono">
+                      <span className="text-[10px] font-extrabold text-[#1E2748] block uppercase tracking-wider">DEBT-TO-INCOME (DTI)</span>
+                      <span className="text-sm font-black text-[#1E2748] font-mono">
                         {(liveRiskCalculation.dtiRatio * 100).toFixed(1)}%
                       </span>
-                      <span className="text-[9px] text-[#1E2748] block mt-0.5">
+                      <span className="text-[10px] text-[#1E2748] font-bold block mt-0.5">
                         ${liveRiskCalculation.monthlyPayment.toLocaleString()}/mo
                       </span>
                     </div>
 
                     <div className="p-3 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
-                      <span className="text-[9px] text-[#1E2748] block">COLLATERAL COVERAGE</span>
-                      <span className="text-sm font-extrabold text-[#1E2748] font-mono">
+                      <span className="text-[10px] font-extrabold text-[#1E2748] block uppercase tracking-wider">COLLATERAL COVERAGE</span>
+                      <span className="text-sm font-black text-[#1E2748] font-mono">
                         {(liveRiskCalculation.collateralRatio * 100).toFixed(0)}%
                       </span>
-                      <span className="text-[9px] text-[#1E2748] block mt-0.5">
+                      <span className="text-[10px] text-[#1E2748] font-bold block mt-0.5">
                         ${Number(collateralValue || 0).toLocaleString()} Asset
                       </span>
                     </div>
 
                     <div className="p-3 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
-                      <span className="text-[9px] text-[#1E2748] block">MAX RECOMMENDED LOAN</span>
-                      <span className="text-sm font-extrabold text-[#58b388] font-mono">
+                      <span className="text-[10px] font-extrabold text-[#1E2748] block uppercase tracking-wider">MAX RECOMMENDED LOAN</span>
+                      <span className="text-sm font-black text-emerald-900 font-mono">
                         ${liveRiskCalculation.maxRecommendedLoan.toLocaleString()}
                       </span>
-                      <span className="text-[9px] text-[#1E2748] block mt-0.5">42% Revenue Cap</span>
+                      <span className="text-[10px] text-[#1E2748] font-bold block mt-0.5">42% Revenue Cap</span>
                     </div>
 
                     <div className="p-3 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
-                      <span className="text-[9px] text-[#1E2748] block">REQUEST RATIO</span>
-                      <span className="text-sm font-extrabold text-[#1E2748] font-mono">
+                      <span className="text-[10px] font-extrabold text-[#1E2748] block uppercase tracking-wider">REQUEST RATIO</span>
+                      <span className="text-sm font-black text-[#1E2748] font-mono">
                         {((Number(principalAmount) / Math.max(Number(annualRevenue), 1)) * 100).toFixed(1)}%
                       </span>
-                      <span className="text-[9px] text-[#1E2748] block mt-0.5">Principal / Revenue</span>
+                      <span className="text-[10px] text-[#1E2748] font-bold block mt-0.5">Principal / Revenue</span>
                     </div>
                   </div>
 
                   {/* Key Risks & Mitigations */}
                   <div className="space-y-2 pt-2 border-t border-[#1E2748]/15">
-                    <h5 className="text-[11px] font-bold text-[#1E2748] uppercase tracking-wider">
+                    <h5 className="text-[11px] font-black text-[#1E2748] uppercase tracking-wider">
                       Identified Risk & Mitigating Strengths
                     </h5>
                     
                     <div className="space-y-1.5">
                       {liveRiskCalculation.keyRisks.map((risk, i) => (
-                        <div key={i} className="flex items-start space-x-2 text-[11px] text-red-300/90 bg-red-950/20 p-2 rounded-lg border border-red-500/20">
-                          <AlertTriangle className="w-3.5 h-3.5 text-red-400 flex-shrink-0 mt-0.5" />
-                          <span>{risk}</span>
+                        <div key={i} className="flex items-start space-x-2 text-xs font-bold text-rose-950 bg-rose-100 p-2.5 rounded-xl border border-rose-300 shadow-sm">
+                          <AlertTriangle className="w-4 h-4 text-rose-700 flex-shrink-0 mt-0.5" />
+                          <span className="font-bold text-rose-950">{risk}</span>
                         </div>
                       ))}
                       {liveRiskCalculation.mitigatingFactors.map((factor, i) => (
-                        <div key={i} className="flex items-start space-x-2 text-[11px] text-[#58b388] bg-emerald-950/20 p-2 rounded-lg border border-[#58b388]/20">
-                          <ShieldCheck className="w-3.5 h-3.5 text-[#58b388] flex-shrink-0 mt-0.5" />
-                          <span>{factor}</span>
+                        <div key={i} className="flex items-start space-x-2 text-xs font-bold text-emerald-950 bg-emerald-100 p-2.5 rounded-xl border border-emerald-300 shadow-sm">
+                          <ShieldCheck className="w-4 h-4 text-emerald-800 flex-shrink-0 mt-0.5" />
+                          <span className="font-bold text-emerald-950">{factor}</span>
                         </div>
                       ))}
                     </div>

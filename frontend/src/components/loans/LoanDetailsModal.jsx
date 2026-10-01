@@ -350,22 +350,22 @@ Underwriter ID    : ${user?.id || 'SYSTEM-ADMIN'}
                 <span className="text-[9px] text-[#1E2748] font-bold uppercase block">AI RISK SCORE</span>
                 <div className="flex items-baseline space-x-1.5 mt-0.5">
                   <span className={`text-2xl font-black font-mono ${
-                    score > 70 ? 'text-red-400' : score > 40 ? 'text-[#1E2748]' : 'text-emerald-400'
+                    score > 70 ? 'text-rose-800 font-extrabold' : score > 40 ? 'text-amber-900 font-extrabold' : 'text-emerald-800 font-extrabold'
                   }`}>
                     {score}
                   </span>
-                  <span className="text-xs text-[#1E2748] font-mono">/ 100</span>
+                  <span className="text-xs text-[#1E2748] font-mono font-bold">/ 100</span>
                 </div>
               </div>
 
               <div className="text-right">
                 <span className="text-[9px] text-[#1E2748] font-bold uppercase block">UNDERWRITING ADVISORY</span>
-                <span className={`px-2.5 py-0.5 rounded-lg text-[10px] font-black uppercase inline-block mt-0.5 ${
+                <span className={`px-2.5 py-0.5 rounded-lg text-[10px] font-black uppercase inline-block mt-0.5 shadow-sm ${
                   recommendation === 'APPROVE'
-                    ? 'bg-[#58b388]/20 text-[#58b388] border border-[#58b388]/40'
+                    ? 'bg-emerald-100 text-emerald-950 border border-emerald-400'
                     : recommendation === 'REJECT'
-                    ? 'bg-red-500/20 text-red-400 border border-red-500/40'
-                    : 'bg-[#EBE4CD]/10 text-[#1E2748] border border-[#1E2748]/15'
+                    ? 'bg-rose-100 text-rose-950 border border-rose-400'
+                    : 'bg-amber-100 text-amber-950 border border-amber-400'
                 }`}>
                   {recommendation}
                 </span>

@@ -10,14 +10,14 @@ export const RiskAssessmentBadge = ({ score, level }) => {
   }
 
   const scoreNum = Number(score);
-  let colorClass = 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30';
+  let colorClass = 'bg-emerald-100 text-emerald-950 border-emerald-400 font-extrabold shadow-sm';
   let levelText = level || 'LOW';
 
   if (scoreNum > 70) {
-    colorClass = 'bg-red-500/10 text-red-400 border-red-500/30';
+    colorClass = 'bg-rose-100 text-rose-950 border-rose-400 font-extrabold shadow-sm';
     levelText = level || 'HIGH / CRITICAL';
   } else if (scoreNum > 40) {
-    colorClass = 'bg-amber-500/10 text-amber-400 border-amber-500/30';
+    colorClass = 'bg-amber-100 text-amber-950 border-amber-400 font-extrabold shadow-sm';
     levelText = level || 'MODERATE';
   }
 
