@@ -288,13 +288,13 @@ export const LoansDatabasePage = () => {
       return <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-purple-500/10 text-purple-400 border border-purple-500/30">👤 Private Account</span>;
     }
     if (cat === 'sme') {
-      return <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border border-[#1E2748]/15">🏬 SME Business</span>;
+      return <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15">🏬 SME Business</span>;
     }
-    return <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border border-[#1E2748]/15">🏢 Corporate</span>;
+    return <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15">🏢 Corporate</span>;
   };
 
   return (
-    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -348,15 +348,15 @@ export const LoansDatabasePage = () => {
 
           {/* Executive Metrics Bar */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="p-4 bg-[#F6F2E3] text-[#1E2748]/60 rounded-2xl border border-[#1E2748]/15 space-y-1">
+            <div className="p-4 bg-[#F6F2E3] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 space-y-1">
               <span className="text-[10px] font-bold text-[#1E2748] uppercase block">TOTAL PORTFOLIO VOLUME</span>
               <span className="text-xl font-black text-[#1E2748] font-mono">
                 ${totalPrincipalSum.toLocaleString('en-US', { minimumFractionDigits: 2 })}
               </span>
-              <span className="text-[10px] text-[#53627C] block font-medium">{loans.length} Total Master Database Records</span>
+              <span className="text-[10px] text-[#1E2748] block font-medium">{loans.length} Total Master Database Records</span>
             </div>
 
-            <div className="p-4 bg-[#F6F2E3] text-[#1E2748]/80 rounded-2xl border border-[#58b388]/50 space-y-1 shadow-lg">
+            <div className="p-4 bg-[#F6F2E3] text-[#1E2748] rounded-2xl border border-[#58b388]/50 space-y-1 shadow-lg">
               <span className="text-[10px] font-bold text-[#58b388] uppercase block">DISBURSED EARNING ASSETS</span>
               <span className="text-xl font-black text-[#58b388] font-mono">
                 ${totalDisbursedSum.toLocaleString('en-US', { minimumFractionDigits: 2 })}
@@ -364,7 +364,7 @@ export const LoansDatabasePage = () => {
               <span className="text-[10px] text-[#58b388] block font-bold">Reconciled in General Ledger (1200)</span>
             </div>
 
-            <div className="p-4 bg-[#F6F2E3] text-[#1E2748]/60 rounded-2xl border border-[#1E2748]/15 space-y-1">
+            <div className="p-4 bg-[#F6F2E3] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 space-y-1">
               <span className="text-[10px] font-bold text-[#1E2748] uppercase block">APPROVED AWAITING DISBURSEMENT</span>
               <span className="text-xl font-black text-[#268bd2] font-mono">
                 ${totalApprovedSum.toLocaleString('en-US', { minimumFractionDigits: 2 })}
@@ -372,12 +372,12 @@ export const LoansDatabasePage = () => {
               <span className="text-[10px] text-[#268bd2] block font-bold">Ready for Treasury Authorization</span>
             </div>
 
-            <div className="p-4 bg-[#F6F2E3] text-[#1E2748]/60 rounded-2xl border border-[#1E2748]/15 space-y-1">
+            <div className="p-4 bg-[#F6F2E3] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 space-y-1">
               <span className="text-[10px] font-bold text-[#1E2748] uppercase block">PENDING PIPELINE VOLUME</span>
               <span className="text-xl font-black text-[#1E2748] font-mono">
                 ${totalPendingSum.toLocaleString('en-US', { minimumFractionDigits: 2 })}
               </span>
-              <span className="text-[10px] text-[#1E2748]/80 block font-bold">In Underwriting Review</span>
+              <span className="text-[10px] text-[#1E2748] block font-bold">In Underwriting Review</span>
             </div>
           </div>
 
@@ -387,7 +387,7 @@ export const LoansDatabasePage = () => {
             /* ========================================================================= */
             /* 🗄️ FULL MASTER LOANS DATABASE TABLE WITH SELECTION, EDIT & DELETE         */
             /* ========================================================================= */
-            <div className="glass-panel p-6 rounded-2xl border border-[#1E2748]/15 space-y-4 bg-[#F6F2E3] text-[#1E2748]/60 shadow-2xl">
+            <div className="glass-panel p-6 rounded-2xl border border-[#1E2748]/15 space-y-4 bg-[#F6F2E3] text-[#1E2748] shadow-2xl">
               {/* Search & Filter Bar */}
               <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#F6F2E3] text-[#1E2748] p-3.5 rounded-xl border border-[#1E2748]/15">
                 <div className="flex items-center space-x-2 w-full sm:w-96">
@@ -397,7 +397,7 @@ export const LoansDatabasePage = () => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search Loan Ref #, Applicant Name, Account #, Purpose..."
-                    className="w-full bg-transparent text-xs text-[#1E2748] placeholder-[#53627C] focus:outline-none"
+                    className="w-full bg-transparent text-xs text-[#1E2748] placeholder-[#1E2748] focus:outline-none"
                   />
                 </div>
 
@@ -405,7 +405,7 @@ export const LoansDatabasePage = () => {
                   <select
                     value={statusFilter}
                     onChange={(e) => setStatusFilter(e.target.value)}
-                    className="bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border border-[#1E2748]/15 rounded-lg p-2 font-semibold cursor-pointer"
+                    className="bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15 rounded-lg p-2 font-semibold cursor-pointer"
                   >
                     <option value="all" className="bg-[#F6F2E3] text-[#1E2748]">All Loan Statuses</option>
                     <option value="draft" className="bg-[#F6F2E3] text-[#1E2748]">Applied / Draft</option>
@@ -419,7 +419,7 @@ export const LoansDatabasePage = () => {
                   <select
                     value={categoryFilter}
                     onChange={(e) => setCategoryFilter(e.target.value)}
-                    className="bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border border-[#1E2748]/15 rounded-lg p-2 font-semibold cursor-pointer"
+                    className="bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15 rounded-lg p-2 font-semibold cursor-pointer"
                   >
                     <option value="all" className="bg-[#F6F2E3] text-[#1E2748]">All Categories</option>
                     <option value="corporate" className="bg-[#F6F2E3] text-[#1E2748]">Corporate Enterprise</option>
@@ -429,7 +429,7 @@ export const LoansDatabasePage = () => {
 
                   <button
                     onClick={handleExportCSV}
-                    className="px-3 py-2 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] rounded-lg border border-[#1E2748]/15 font-bold transition flex items-center space-x-1"
+                    className="px-3 py-2 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] rounded-lg border border-[#1E2748]/15 font-bold transition flex items-center space-x-1"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span>Export CSV</span>
@@ -472,7 +472,7 @@ export const LoansDatabasePage = () => {
                           {selectedLoanIds.length === filteredDatabaseLoans.length && filteredDatabaseLoans.length > 0 ? (
                             <CheckSquare className="w-4 h-4 text-[#1E2748]" />
                           ) : (
-                            <Square className="w-4 h-4 text-[#53627C]" />
+                            <Square className="w-4 h-4 text-[#1E2748]" />
                           )}
                         </button>
                       </th>
@@ -490,7 +490,7 @@ export const LoansDatabasePage = () => {
                   <tbody className="divide-y divide-[#1E2748]/15">
                     {filteredDatabaseLoans.length === 0 ? (
                       <tr>
-                        <td colSpan="10" className="py-8 text-center text-[#53627C] italic text-xs">
+                        <td colSpan="10" className="py-8 text-center text-[#1E2748] italic text-xs">
                           No loan records matching selected search query or filters.
                         </td>
                       </tr>
@@ -503,10 +503,10 @@ export const LoansDatabasePage = () => {
                         const accNum = l.customer?.account_number || `KSBC-ACC-${loanIdStr.slice(0, 6)}`;
 
                         return (
-                          <tr key={l.id || Math.random()} className={`hover:bg-[#F6F2E3] text-[#1E2748]/60 transition ${isSelected ? 'bg-[#F6F2E3] text-[#1E2748]/80 border-l-4 border-l-[#1E2748]' : ''}`}>
+                          <tr key={l.id || Math.random()} className={`hover:bg-[#F6F2E3] text-[#1E2748] transition ${isSelected ? 'bg-[#F6F2E3] text-[#1E2748] border-l-4 border-l-[#1E2748]' : ''}`}>
                             <td className="py-3.5 px-3 text-center">
                               <button onClick={() => handleToggleSelectRow(l.id)} className="text-[#1E2748]">
-                                {isSelected ? <CheckSquare className="w-4 h-4 text-[#1E2748]" /> : <Square className="w-4 h-4 text-[#53627C]" />}
+                                {isSelected ? <CheckSquare className="w-4 h-4 text-[#1E2748]" /> : <Square className="w-4 h-4 text-[#1E2748]" />}
                               </button>
                             </td>
 
@@ -543,7 +543,7 @@ export const LoansDatabasePage = () => {
                               {l.interest_rate}% ({l.term_months}m)
                             </td>
 
-                            <td className="py-3.5 px-3 text-[11px] text-[#53627C] max-w-xs truncate">
+                            <td className="py-3.5 px-3 text-[11px] text-[#1E2748] max-w-xs truncate">
                               {l.purpose}
                             </td>
 
@@ -574,7 +574,7 @@ export const LoansDatabasePage = () => {
                                 {/* View Details Modal Button */}
                                 <button
                                   onClick={() => setSelectedDetailLoan(l)}
-                                  className="p-1.5 bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] hover:bg-[#EBE4CD] hover:text-[#1E2748] rounded-lg transition border border-[#1E2748]/15 cursor-pointer"
+                                  className="p-1.5 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#EBE4CD] hover:text-[#1E2748] rounded-lg transition border border-[#1E2748]/15 cursor-pointer"
                                   title="View Full Loan Details & Outcome Actions"
                                 >
                                   <Eye className="w-3.5 h-3.5" />
@@ -583,7 +583,7 @@ export const LoansDatabasePage = () => {
                                 {/* Modify Button */}
                                 <button
                                   onClick={() => setEditingLoan(l)}
-                                  className="p-1.5 bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] hover:bg-[#EBE4CD] hover:text-[#1E2748] rounded-lg transition border border-[#1E2748]/15 cursor-pointer"
+                                  className="p-1.5 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#EBE4CD] hover:text-[#1E2748] rounded-lg transition border border-[#1E2748]/15 cursor-pointer"
                                   title="Modify Loan Record"
                                 >
                                   <Edit className="w-3.5 h-3.5" />
@@ -640,7 +640,7 @@ export const LoansDatabasePage = () => {
                   <p className="text-[11px] text-[#1E2748]">Loan Ref: #{editingLoan.id.slice(0, 8)}</p>
                 </div>
               </div>
-              <button onClick={() => setEditingLoan(null)} className="text-[#53627C] hover:text-[#1E2748]">
+              <button onClick={() => setEditingLoan(null)} className="text-[#1E2748] hover:text-[#1E2748]">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -725,7 +725,7 @@ export const LoansDatabasePage = () => {
                 <button
                   type="button"
                   onClick={() => setEditingLoan(null)}
-                  className="px-4 py-2 bg-[#F6F2E3] text-[#1E2748] text-[#53627C] rounded-xl font-semibold hover:bg-[#F6F2E3] text-[#1E2748]"
+                  className="px-4 py-2 bg-[#F6F2E3] text-[#1E2748] rounded-xl font-semibold hover:bg-[#F6F2E3] text-[#1E2748]"
                 >
                   Cancel
                 </button>

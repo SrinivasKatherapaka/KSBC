@@ -39,10 +39,10 @@ export const ReAuthModal = ({ isOpen, onClose, targetEmail, onAuthenticate }) =>
             </div>
             <div>
               <h3 className="text-base font-archivo font-extrabold text-[#1E2748]">Personnel Clearance Shift</h3>
-              <p className="text-[11px] text-[#53627C]">Verify password to switch security clearance</p>
+              <p className="text-[11px] text-[#1E2748]">Verify password to switch security clearance</p>
             </div>
           </div>
-          <button onClick={onClose} className="text-[#53627C] hover:text-[#1E2748]">
+          <button onClick={onClose} className="text-[#1E2748] hover:text-[#1E2748]">
             <X className="w-5 h-5" />
           </button>
         </div>
@@ -55,7 +55,7 @@ export const ReAuthModal = ({ isOpen, onClose, targetEmail, onAuthenticate }) =>
 
         <form onSubmit={handleSubmit} className="space-y-4 text-xs">
           <div className="p-3 bg-[#EBE4CD] rounded-xl border border-[#1E2748]/15 space-y-1">
-            <span className="text-[10px] uppercase font-bold text-[#53627C] block">Target Clearance Persona:</span>
+            <span className="text-[10px] uppercase font-bold text-[#1E2748] block">Target Clearance Persona:</span>
             <span className="font-mono font-bold text-[#1E2748] text-sm">{targetEmail}</span>
           </div>
 
@@ -80,7 +80,7 @@ export const ReAuthModal = ({ isOpen, onClose, targetEmail, onAuthenticate }) =>
             <button
               type="button"
               onClick={onClose}
-              className="px-3.5 py-2 bg-[#EBE4CD] text-[#53627C] rounded-xl font-bold hover:bg-[#EBE4CD] hover:text-[#1E2748]"
+              className="px-3.5 py-2 bg-[#EBE4CD] text-[#1E2748] rounded-xl font-bold hover:bg-[#EBE4CD] hover:text-[#1E2748]"
             >
               Cancel
             </button>

@@ -51,7 +51,7 @@ export const IntelligentReportingPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -73,7 +73,7 @@ export const IntelligentReportingPage = () => {
             <div className="flex items-center space-x-2 self-start md:self-auto">
               <button
                 onClick={handleCopyMarkdown}
-                className="px-3.5 py-2 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] text-xs font-bold rounded-xl border border-[#1E2748]/15 transition flex items-center space-x-1.5"
+                className="px-3.5 py-2 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] text-xs font-bold rounded-xl border border-[#1E2748]/15 transition flex items-center space-x-1.5"
               >
                 {copied ? <Check className="w-4 h-4 text-[#58b388]" /> : <Copy className="w-4 h-4 text-[#1E2748]" />}
                 <span>{copied ? 'Copied Markdown!' : 'Copy Markdown Report'}</span>
@@ -92,7 +92,7 @@ export const IntelligentReportingPage = () => {
           <ErrorAlert message={error} onClose={() => setError('')} />
 
           {/* Controls Bar */}
-          <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/60 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
+          <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
             <div className="flex items-center space-x-2">
               <span className="text-[10px] font-bold text-[#1E2748] uppercase">Select Report Module:</span>
               <select
@@ -124,7 +124,7 @@ export const IntelligentReportingPage = () => {
           {loading ? (
             <LoadingSpinner text="Synthesizing publication-ready Gemini AI intelligent report..." />
           ) : reportData ? (
-            <div className="glass-panel p-8 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/70 shadow-2xl space-y-6 text-xs leading-relaxed font-sans">
+            <div className="glass-panel p-8 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] shadow-2xl space-y-6 text-xs leading-relaxed font-sans">
               <div className="flex items-center justify-between border-b border-[#1E2748]/15 pb-4">
                 <div className="space-y-1">
                   <span className="text-[10px] font-mono text-[#1E2748] font-bold uppercase px-2 py-0.5 bg-[#F6F2E3] text-[#1E2748] rounded border border-[#1E2748]/15">
@@ -134,7 +134,7 @@ export const IntelligentReportingPage = () => {
                   <p className="text-[11px] text-[#1E2748]">Generated on {new Date(reportData.generatedAt).toLocaleString()}</p>
                 </div>
                 <div className="text-right font-mono text-xs">
-                  <span className="text-[10px] text-[#53627C] block font-sans uppercase">Security Clearance</span>
+                  <span className="text-[10px] text-[#1E2748] block font-sans uppercase">Security Clearance</span>
                   <span className="text-[#58b388] font-bold">RESTRICTED EXECUTIVE</span>
                 </div>
               </div>

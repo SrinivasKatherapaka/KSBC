@@ -173,7 +173,7 @@ export const AccountDetailsPage = () => {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
+      <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748]">
         <Sidebar />
         <div className="flex-1 flex flex-col min-w-0">
           <Navbar />
@@ -187,14 +187,14 @@ export const AccountDetailsPage = () => {
 
   if (!customer) {
     return (
-      <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
+      <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748]">
         <Sidebar />
         <div className="flex-1 flex flex-col min-w-0">
           <Navbar />
           <main className="p-8 space-y-6 max-w-5xl mx-auto w-full">
             <button
               onClick={() => navigate('/accounts')}
-              className="px-4 py-2 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] rounded-xl text-xs font-bold flex items-center space-x-2 border border-[#1E2748]/15 transition"
+              className="px-4 py-2 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] rounded-xl text-xs font-bold flex items-center space-x-2 border border-[#1E2748]/15 transition"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back to Accounts Database</span>
@@ -210,7 +210,7 @@ export const AccountDetailsPage = () => {
   const isCorporate = customer.client_category === 'corporate';
 
   return (
-    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -221,7 +221,7 @@ export const AccountDetailsPage = () => {
             <div className="flex items-center space-x-3">
               <button
                 onClick={() => navigate('/accounts')}
-                className="px-3.5 py-2 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] rounded-xl text-xs font-bold flex items-center space-x-2 border border-[#1E2748]/15 shadow transition"
+                className="px-3.5 py-2 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] rounded-xl text-xs font-bold flex items-center space-x-2 border border-[#1E2748]/15 shadow transition"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span>Back to Accounts Database</span>
@@ -234,7 +234,7 @@ export const AccountDetailsPage = () => {
             <div className="flex items-center space-x-2">
               <button
                 onClick={() => setIsSpecialAuthModalOpen(true)}
-                className="px-3.5 py-2 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] text-xs font-bold rounded-xl border border-[#1E2748]/15 transition flex items-center space-x-1.5 shadow"
+                className="px-3.5 py-2 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] text-xs font-bold rounded-xl border border-[#1E2748]/15 transition flex items-center space-x-1.5 shadow"
               >
                 <KeyRound className="w-4 h-4 text-[#1E2748]" />
                 <span>Security Clearance Action</span>
@@ -257,7 +257,7 @@ export const AccountDetailsPage = () => {
           {/* Detailed Account Header Banner */}
           <div className="glass-panel p-6 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] shadow-2xl flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="flex items-center space-x-4">
-              <div className="p-4 bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 shadow-xl flex-shrink-0">
+              <div className="p-4 bg-[#F6F2E3] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 shadow-xl flex-shrink-0">
                 <Wallet className="w-8 h-8 text-[#1E2748]" />
               </div>
               <div>
@@ -287,7 +287,7 @@ export const AccountDetailsPage = () => {
                   ? 'bg-[#58b388]/20 text-[#58b388] border-[#58b388]/40'
                   : customer.kyc_status === 'flagged'
                   ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
-                  : 'bg-[#F6F2E3] text-[#1E2748] text-[#53627C] border-[#1E2748]/15'
+                  : 'bg-[#F6F2E3] text-[#1E2748] border-[#1E2748]/15'
               }`}>
                 <ShieldCheck className="w-4 h-4" />
                 <span>KYC Status: {customer.kyc_status || 'Verified'}</span>
@@ -297,7 +297,7 @@ export const AccountDetailsPage = () => {
                 <div className="flex items-center space-x-2">
                   <button
                     onClick={handleOpenEdit}
-                    className="px-3.5 py-2 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border border-[#1E2748]/15 rounded-xl text-xs font-bold transition flex items-center space-x-1.5 shadow"
+                    className="px-3.5 py-2 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15 rounded-xl text-xs font-bold transition flex items-center space-x-1.5 shadow"
                   >
                     <Edit className="w-3.5 h-3.5 text-[#1E2748]" />
                     <span>Modify Account</span>
@@ -364,7 +364,7 @@ export const AccountDetailsPage = () => {
                 ) : (
                   <button
                     onClick={() => setIsIdUnlocked(false)}
-                    className="px-4 py-2.5 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] font-bold rounded-xl border border-[#1E2748]/15 transition flex items-center space-x-2 text-xs"
+                    className="px-4 py-2.5 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] font-bold rounded-xl border border-[#1E2748]/15 transition flex items-center space-x-2 text-xs"
                   >
                     <Lock className="w-4 h-4 text-[#1E2748]" />
                     <span>Re-Lock Identification Number</span>
@@ -377,7 +377,7 @@ export const AccountDetailsPage = () => {
           {/* Grid Layout: Account Details & Customer Information */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Customer Personal & Contact Profile Card */}
-            <div className="glass-panel p-5 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/60 space-y-4 shadow-xl">
+            <div className="glass-panel p-5 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] space-y-4 shadow-xl">
               <h2 className="text-sm font-black text-[#1E2748] uppercase tracking-wider flex items-center space-x-2 border-b border-[#1E2748]/15 pb-3">
                 <User className="w-4.5 h-4.5 text-[#1E2748]" />
                 <span>Customer Profile & Contact Information</span>
@@ -385,30 +385,30 @@ export const AccountDetailsPage = () => {
 
               <div className="space-y-3 text-xs">
                 <div className="flex justify-between py-1.5 border-b border-[#1E2748]/15/10">
-                  <span className="text-[#53627C] font-semibold">1. First Name / Entity Name:</span>
+                  <span className="text-[#1E2748] font-semibold">1. First Name / Entity Name:</span>
                   <span className="font-bold text-[#1E2748]">{customer.first_name}</span>
                 </div>
                 <div className="flex justify-between py-1.5 border-b border-[#1E2748]/15/10">
-                  <span className="text-[#53627C] font-semibold">2. Last Name / Corporate Suffix:</span>
+                  <span className="text-[#1E2748] font-semibold">2. Last Name / Corporate Suffix:</span>
                   <span className="font-bold text-[#1E2748]">{customer.last_name}</span>
                 </div>
                 <div className="flex justify-between py-1.5 border-b border-[#1E2748]/15/10">
-                  <span className="text-[#53627C] font-semibold">3. Primary Email Address:</span>
+                  <span className="text-[#1E2748] font-semibold">3. Primary Email Address:</span>
                   <span className="font-mono text-[#1E2748] font-bold">{customer.email}</span>
                 </div>
                 <div className="flex justify-between py-1.5 border-b border-[#1E2748]/15/10">
-                  <span className="text-[#53627C] font-semibold">4. Telephone Contact:</span>
+                  <span className="text-[#1E2748] font-semibold">4. Telephone Contact:</span>
                   <span className="font-mono text-[#1E2748]">{customer.phone || '+1-555-0199'}</span>
                 </div>
                 <div className="flex justify-between py-1.5">
-                  <span className="text-[#53627C] font-semibold">5. Customer Tier Category:</span>
+                  <span className="text-[#1E2748] font-semibold">5. Customer Tier Category:</span>
                   <span className="font-bold uppercase text-[#1E2748]">{customer.client_category || 'private_savings'}</span>
                 </div>
               </div>
             </div>
 
             {/* Account Financial Ledger Card */}
-            <div className="glass-panel p-5 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/60 space-y-4 shadow-xl">
+            <div className="glass-panel p-5 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] space-y-4 shadow-xl">
               <h2 className="text-sm font-black text-[#1E2748] uppercase tracking-wider flex items-center space-x-2 border-b border-[#1E2748]/15 pb-3">
                 <Wallet className="w-4.5 h-4.5 text-[#1E2748]" />
                 <span>Financial Ledger & Deposit Account Details</span>
@@ -416,29 +416,29 @@ export const AccountDetailsPage = () => {
 
               <div className="space-y-3 text-xs">
                 <div className="flex justify-between py-1.5 border-b border-[#1E2748]/15/10">
-                  <span className="text-[#53627C] font-semibold">1. Account Master Number:</span>
+                  <span className="text-[#1E2748] font-semibold">1. Account Master Number:</span>
                   <span className="font-mono font-bold text-[#1E2748]">
                     {customer.account_number || `KSBC-ACC-${customer.id.slice(0, 8)}`}
                   </span>
                 </div>
                 <div className="flex justify-between py-1.5 border-b border-[#1E2748]/15/10">
-                  <span className="text-[#53627C] font-semibold">2. Account Product Type:</span>
+                  <span className="text-[#1E2748] font-semibold">2. Account Product Type:</span>
                   <span className="font-medium text-[#1E2748]">
                     {customer.account_type || (isHnwi ? 'Private High-Net-Worth Reserve' : isCorporate ? 'Corporate Treasury Checking' : 'Private Standard Savings')}
                   </span>
                 </div>
                 <div className="flex justify-between py-1.5 border-b border-[#1E2748]/15/10">
-                  <span className="text-[#53627C] font-semibold">3. Current Deposit Balance:</span>
+                  <span className="text-[#1E2748] font-semibold">3. Current Deposit Balance:</span>
                   <span className="font-mono font-extrabold text-[#58b388] text-sm">
                     ${Number(customer.annual_revenue || 0).toLocaleString()}
                   </span>
                 </div>
                 <div className="flex justify-between py-1.5 border-b border-[#1E2748]/15/10">
-                  <span className="text-[#53627C] font-semibold">4. Operational Standing:</span>
+                  <span className="text-[#1E2748] font-semibold">4. Operational Standing:</span>
                   <span className="font-bold text-emerald-400 uppercase">Active & Authenticated</span>
                 </div>
                 <div className="flex justify-between py-1.5">
-                  <span className="text-[#53627C] font-semibold">5. Onboarding Date:</span>
+                  <span className="text-[#1E2748] font-semibold">5. Onboarding Date:</span>
                   <span className="font-mono text-[#1E2748]">
                     {customer.created_at ? new Date(customer.created_at).toLocaleDateString() : '2026-01-15'}
                   </span>
@@ -448,7 +448,7 @@ export const AccountDetailsPage = () => {
           </div>
 
           {/* KYC Compliance & Beneficial Ownership Audit Card */}
-          <div className="glass-panel p-5 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/60 space-y-3 shadow-xl">
+          <div className="glass-panel p-5 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] space-y-3 shadow-xl">
             <h2 className="text-sm font-black text-[#1E2748] uppercase tracking-wider flex items-center space-x-2 border-b border-[#1E2748]/15 pb-3">
               <ShieldCheck className="w-4.5 h-4.5 text-[#1E2748]" />
               <span>KYC Compliance Clearance & Beneficial Ownership Audit Remarks</span>
@@ -460,7 +460,7 @@ export const AccountDetailsPage = () => {
 
           {/* Associated Credit & Loan Portfolio Card */}
           {customerLoans.length > 0 && (
-            <div className="glass-panel p-5 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/60 space-y-4 shadow-xl">
+            <div className="glass-panel p-5 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] space-y-4 shadow-xl">
               <h2 className="text-sm font-black text-[#1E2748] uppercase tracking-wider flex items-center space-x-2 border-b border-[#1E2748]/15 pb-3">
                 <FileText className="w-4.5 h-4.5 text-[#1E2748]" />
                 <span>Associated Loan & Credit Facilities ({customerLoans.length} Applications)</span>
@@ -478,7 +478,7 @@ export const AccountDetailsPage = () => {
                   </thead>
                   <tbody className="divide-y divide-[#1E2748]/15 font-mono">
                     {customerLoans.map(l => (
-                      <tr key={l.id} className="hover:bg-[#F6F2E3] text-[#1E2748]/40">
+                      <tr key={l.id} className="hover:bg-[#F6F2E3] text-[#1E2748]">
                         <td className="py-2.5 px-3 text-[#1E2748] font-bold">#{l.id.slice(0, 8)}</td>
                         <td className="py-2.5 px-3 text-[#1E2748] font-sans">{l.purpose}</td>
                         <td className="py-2.5 px-3 text-right text-[#58b388] font-bold">${Number(l.principal_amount || 0).toLocaleString()}</td>
@@ -505,7 +505,7 @@ export const AccountDetailsPage = () => {
           <div className="glass-panel w-full max-w-lg p-6 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] shadow-2xl space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-[#1E2748]/15">
               <div className="flex items-center space-x-2">
-                <div className="p-2 bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
+                <div className="p-2 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
                   <Edit className="w-5 h-5 text-[#1E2748]" />
                 </div>
                 <div>
@@ -513,7 +513,7 @@ export const AccountDetailsPage = () => {
                   <p className="text-[11px] text-[#1E2748]">CFO & System Admin Executive Modification Clearance</p>
                 </div>
               </div>
-              <button onClick={() => setEditingCustomer(null)} className="text-[#53627C] hover:text-[#1E2748]">
+              <button onClick={() => setEditingCustomer(null)} className="text-[#1E2748] hover:text-[#1E2748]">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -585,7 +585,7 @@ export const AccountDetailsPage = () => {
                 <button
                   type="button"
                   onClick={() => setEditingCustomer(null)}
-                  className="px-4 py-2 bg-[#F6F2E3] text-[#1E2748] text-[#53627C] rounded-xl font-semibold hover:bg-[#F6F2E3] text-[#1E2748]"
+                  className="px-4 py-2 bg-[#F6F2E3] text-[#1E2748] rounded-xl font-semibold hover:bg-[#F6F2E3] text-[#1E2748]"
                 >
                   Cancel
                 </button>
@@ -624,7 +624,7 @@ export const AccountDetailsPage = () => {
               <button
                 type="button"
                 onClick={() => setDeletingCustomer(null)}
-                className="px-4 py-2 bg-[#F6F2E3] text-[#1E2748] text-[#53627C] rounded-xl font-semibold"
+                className="px-4 py-2 bg-[#F6F2E3] text-[#1E2748] rounded-xl font-semibold"
               >
                 Cancel
               </button>

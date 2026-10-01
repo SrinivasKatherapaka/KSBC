@@ -73,7 +73,7 @@ export const CfoAiAssistantPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -99,7 +99,7 @@ export const CfoAiAssistantPage = () => {
 
           {/* Executive Metrics Bar */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/60 space-y-1">
+            <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] space-y-1">
               <span className="text-[10px] uppercase font-bold text-[#1E2748] flex items-center space-x-1">
                 <Vault className="w-3.5 h-3.5 text-[#1E2748]" />
                 <span>Vault Reserves (1010)</span>
@@ -109,7 +109,7 @@ export const CfoAiAssistantPage = () => {
               </p>
             </div>
 
-            <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/60 space-y-1">
+            <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] space-y-1">
               <span className="text-[10px] uppercase font-bold text-[#1E2748] flex items-center space-x-1">
                 <Landmark className="w-3.5 h-3.5 text-[#1E2748]" />
                 <span>Loan Portfolio (1200)</span>
@@ -119,7 +119,7 @@ export const CfoAiAssistantPage = () => {
               </p>
             </div>
 
-            <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/60 space-y-1">
+            <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] space-y-1">
               <span className="text-[10px] uppercase font-bold text-[#1E2748] flex items-center space-x-1">
                 <Shield className="w-3.5 h-3.5 text-[#58b388]" />
                 <span>Capital Adequacy (CAR)</span>
@@ -129,7 +129,7 @@ export const CfoAiAssistantPage = () => {
               </p>
             </div>
 
-            <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/60 space-y-1">
+            <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] space-y-1">
               <span className="text-[10px] uppercase font-bold text-[#1E2748] flex items-center space-x-1">
                 <TrendingUp className="w-3.5 h-3.5 text-amber-400" />
                 <span>Net NPA Watchlist</span>
@@ -143,7 +143,7 @@ export const CfoAiAssistantPage = () => {
           <ErrorAlert message={error} onClose={() => setError('')} />
 
           {/* Interactive Chat Container */}
-          <div className="flex-1 glass-panel rounded-2xl border border-[#1E2748]/15 flex flex-col h-[550px] overflow-hidden bg-[#F6F2E3] text-[#1E2748]/80 shadow-2xl">
+          <div className="flex-1 glass-panel rounded-2xl border border-[#1E2748]/15 flex flex-col h-[550px] overflow-hidden bg-[#F6F2E3] text-[#1E2748] shadow-2xl">
             <div className="p-4 border-b border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/90 flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <div className="w-9 h-9 rounded-2xl bg-gradient-to-br from-[#1E2748] via-[#1E2748] to-[#1E2748] flex items-center justify-center shadow-lg p-0.5">
@@ -167,7 +167,7 @@ export const CfoAiAssistantPage = () => {
                 >
                   <div className={`max-w-xl p-4 rounded-2xl text-xs space-y-2 ${
                     m.sender === 'user'
-                      ? 'bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] rounded-tr-none shadow-lg border border-[#1E2748]/15'
+                      ? 'bg-[#F6F2E3] text-[#1E2748] rounded-tr-none shadow-lg border border-[#1E2748]/15'
                       : 'bg-[#EBE4CD]/90 text-[#1E2748] rounded-tl-none border border-[#1E2748]/15 shadow-lg'
                   }`}>
                     <div className="flex items-center space-x-2 font-bold text-[10px] uppercase">
@@ -195,7 +195,7 @@ export const CfoAiAssistantPage = () => {
                           <button
                             key={qIdx}
                             onClick={() => handleSendMessage(query)}
-                            className="px-2.5 py-1.5 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] rounded-xl text-[10px] font-semibold transition border border-[#1E2748]/15 flex items-center space-x-1.5 text-left"
+                            className="px-2.5 py-1.5 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] rounded-xl text-[10px] font-semibold transition border border-[#1E2748]/15 flex items-center space-x-1.5 text-left"
                           >
                             <span>{query}</span>
                             <ArrowRight className="w-3 h-3 text-[#1E2748] flex-shrink-0" />

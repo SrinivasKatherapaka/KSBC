@@ -44,7 +44,7 @@ export const CompliancePage = () => {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h1 className="text-2xl font-extrabold text-[#1E2748] font-heading">Compliance & KYC Hub</h1>
-              <p className="text-xs text-[#53627C]">Automated Document Parsing, Identity OCR & PEP/Sanctions Verification</p>
+              <p className="text-xs text-[#1E2748]">Automated Document Parsing, Identity OCR & PEP/Sanctions Verification</p>
             </div>
             <div className="flex items-center space-x-2 px-3.5 py-1.5 bg-[#58b388]/20 border border-[#58b388]/40 rounded-full text-xs text-[#1E2748] font-bold shadow-sm">
               <ShieldCheck className="w-4 h-4 text-[#58b388]" />
@@ -86,7 +86,7 @@ export const CompliancePage = () => {
                           {c.kyc_status}
                         </span>
                       </div>
-                      <p className="text-[10px] text-[#53627C] font-mono">EIN/SSN: {c.national_id}</p>
+                      <p className="text-[10px] text-[#1E2748] font-mono">EIN/SSN: {c.national_id}</p>
                     </button>
                   ))}
                 </div>
@@ -106,7 +106,7 @@ export const CompliancePage = () => {
                     <span>Sanctions & PEP Global Watchlist Screening Log</span>
                   </h3>
                   <div className="p-4 bg-[#FAF7E6] rounded-xl text-xs space-y-2 text-[#1E2748] font-mono border border-[#1E2748]/15">
-                    <div className="flex justify-between text-[#53627C] text-[10px] font-sans font-bold">
+                    <div className="flex justify-between text-[#1E2748] text-[10px] font-sans font-bold">
                       <span>GLOBAL DATABASE CHECK</span>
                       <span className="text-[#58b388] font-black">STATUS: CLEAR</span>
                     </div>

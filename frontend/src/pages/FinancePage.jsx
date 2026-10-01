@@ -29,7 +29,7 @@ export const FinancePage = () => {
   }, []);
 
   return (
-    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -38,7 +38,7 @@ export const FinancePage = () => {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h1 className="text-2xl font-extrabold text-[#1E2748] font-heading">Finance General Ledger (GL)</h1>
-              <p className="text-xs text-slate-400">Double-Entry Accounting, Chart of Accounts & Trial Balance Audit</p>
+              <p className="text-xs text-[#1E2748]">Double-Entry Accounting, Chart of Accounts & Trial Balance Audit</p>
             </div>
 
             {ledger.auditSummary && (
@@ -73,7 +73,7 @@ export const FinancePage = () => {
                     <div key={acc.account_code} className="p-4 bg-slate-900/70 rounded-xl border border-slate-800 space-y-1">
                       <div className="flex justify-between items-center text-xs">
                         <span className="font-mono font-bold text-blue-400">{acc.account_code}</span>
-                        <span className="text-[10px] font-bold uppercase text-slate-400 px-2 py-0.5 bg-slate-800 rounded">
+                        <span className="text-[10px] font-bold uppercase text-[#1E2748] px-2 py-0.5 bg-slate-800 rounded">
                           {acc.account_type}
                         </span>
                       </div>
@@ -96,7 +96,7 @@ export const FinancePage = () => {
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-xs">
                     <thead>
-                      <tr className="border-b border-white/10 text-slate-400 uppercase tracking-wider text-[10px] bg-slate-900/60">
+                      <tr className="border-b border-white/10 text-[#1E2748] uppercase tracking-wider text-[10px] bg-slate-900/60">
                         <th className="py-3 px-3">GL Code</th>
                         <th className="py-3 px-3">Reference ID</th>
                         <th className="py-3 px-3">Description</th>
@@ -109,7 +109,7 @@ export const FinancePage = () => {
                       {ledger.transactions.map((tx) => (
                         <tr key={tx.id} className="hover:bg-slate-800/40 transition">
                           <td className="py-3 px-3 font-bold text-blue-400">{tx.account_code}</td>
-                          <td className="py-3 px-3 text-slate-300 text-[11px]">{tx.reference_id}</td>
+                          <td className="py-3 px-3 text-[#1E2748] text-[11px]">{tx.reference_id}</td>
                           <td className="py-3 px-3 text-slate-200 font-sans">{tx.description}</td>
                           <td className="py-3 px-3 text-right font-bold text-emerald-400">
                             {Number(tx.debit_amount) > 0 ? `$${Number(tx.debit_amount).toLocaleString()}` : '-'}
@@ -117,7 +117,7 @@ export const FinancePage = () => {
                           <td className="py-3 px-3 text-right font-bold text-amber-400">
                             {Number(tx.credit_amount) > 0 ? `$${Number(tx.credit_amount).toLocaleString()}` : '-'}
                           </td>
-                          <td className="py-3 px-3 text-right text-[10px] text-slate-500 font-sans">
+                          <td className="py-3 px-3 text-right text-[10px] text-[#1E2748] font-sans">
                             {new Date(tx.timestamp).toLocaleString()}
                           </td>
                         </tr>

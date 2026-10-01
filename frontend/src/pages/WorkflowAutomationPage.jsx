@@ -67,7 +67,7 @@ export const WorkflowAutomationPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -102,18 +102,18 @@ export const WorkflowAutomationPage = () => {
               return (
                 <div
                   key={wf.id}
-                  className="glass-panel p-6 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/60 shadow-xl flex flex-col justify-between space-y-4 hover:border-[#1E2748]/15 transition"
+                  className="glass-panel p-6 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] shadow-xl flex flex-col justify-between space-y-4 hover:border-[#1E2748]/15 transition"
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="px-2.5 py-0.5 rounded text-[9px] font-bold border uppercase bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border-[#1E2748]/15 font-mono">
+                      <span className="px-2.5 py-0.5 rounded text-[9px] font-bold border uppercase bg-[#F6F2E3] text-[#1E2748] border-[#1E2748]/15 font-mono">
                         {wf.category}
                       </span>
                       <Icon className="w-5 h-5 text-[#1E2748]" />
                     </div>
 
                     <h3 className="text-base font-bold text-[#1E2748] leading-snug">{wf.title}</h3>
-                    <p className="text-xs text-[#53627C] leading-relaxed">{wf.description}</p>
+                    <p className="text-xs text-[#1E2748] leading-relaxed">{wf.description}</p>
                   </div>
 
                   <button
@@ -151,7 +151,7 @@ export const WorkflowAutomationPage = () => {
                 </span>
               </div>
 
-              <p className="text-xs text-[#1E2748] font-medium leading-relaxed bg-[#F6F2E3] text-[#1E2748]/60 p-3 rounded-xl border border-[#1E2748]/15">
+              <p className="text-xs text-[#1E2748] font-medium leading-relaxed bg-[#F6F2E3] text-[#1E2748] p-3 rounded-xl border border-[#1E2748]/15">
                 {executionResult.summary}
               </p>
 

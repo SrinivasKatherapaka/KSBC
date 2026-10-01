@@ -60,7 +60,7 @@ export const LoanApplicationModal = ({ isOpen, onClose, customers = [], onSubmit
       <div className="glass-panel w-full max-w-xl p-6 rounded-2xl border border-[#1E2748]/15 shadow-2xl relative bg-[#F6F2E3] text-[#1E2748]">
         <div className="flex items-center justify-between pb-4 border-b border-[#1E2748]/15 mb-5">
           <div className="flex items-center space-x-2">
-            <div className="p-2 bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
+            <div className="p-2 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
               <DollarSign className="w-5 h-5 text-[#1E2748]" />
             </div>
             <div>
@@ -68,7 +68,7 @@ export const LoanApplicationModal = ({ isOpen, onClose, customers = [], onSubmit
               <p className="text-xs text-[#1E2748]">Private Account Holder & Commercial Underwriting Intake</p>
             </div>
           </div>
-          <button onClick={onClose} className="p-1 text-[#53627C] hover:text-[#1E2748] rounded-lg">
+          <button onClick={onClose} className="p-1 text-[#1E2748] hover:text-[#1E2748] rounded-lg">
             <X className="w-5 h-5" />
           </button>
         </div>

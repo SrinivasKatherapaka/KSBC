@@ -221,9 +221,9 @@ export const LoansPage = () => {
       return <span className="inline-flex items-center px-2 py-0.5 rounded text-[9px] font-bold bg-purple-500/10 text-purple-400 border border-purple-500/30">👤 Private Account</span>;
     }
     if (cat === 'sme') {
-      return <span className="inline-flex items-center px-2 py-0.5 rounded text-[9px] font-bold bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border border-[#1E2748]/15">🏬 SME Business</span>;
+      return <span className="inline-flex items-center px-2 py-0.5 rounded text-[9px] font-bold bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15">🏬 SME Business</span>;
     }
-    return <span className="inline-flex items-center px-2 py-0.5 rounded text-[9px] font-bold bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border border-[#1E2748]/15">🏢 Corporate Enterprise</span>;
+    return <span className="inline-flex items-center px-2 py-0.5 rounded text-[9px] font-bold bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15">🏢 Corporate Enterprise</span>;
   };
 
   const renderLoanCard = (loan) => {
@@ -258,23 +258,23 @@ export const LoansPage = () => {
           <RiskAssessmentBadge score={loan.risk_score || 35} level={loan.ai_risk_assessment?.riskLevel} />
         </div>
 
-        <div className="p-2.5 bg-[#F6F2E3] text-[#1E2748]/80 rounded-xl border border-[#1E2748]/15 font-mono text-xs flex justify-between">
+        <div className="p-2.5 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15 font-mono text-xs flex justify-between">
           <div>
-            <span className="text-[9px] text-[#53627C] font-sans block">PRINCIPAL</span>
+            <span className="text-[9px] text-[#1E2748] font-sans block">PRINCIPAL</span>
             <span className="font-extrabold text-[#1E2748]">${Number(loan.principal_amount || 0).toLocaleString()}</span>
           </div>
           <div className="text-right">
-            <span className="text-[9px] text-[#53627C] font-sans block">RATE / TERM</span>
+            <span className="text-[9px] text-[#1E2748] font-sans block">RATE / TERM</span>
             <span className="font-bold text-[#1E2748]">{loan.interest_rate || 6.5}% ({loan.term_months || 36}m)</span>
           </div>
         </div>
 
-        <p className="text-[11px] text-[#53627C] line-clamp-2">
+        <p className="text-[11px] text-[#1E2748] line-clamp-2">
           <span className="text-[#1E2748] font-semibold">Purpose:</span> {loan.purpose || 'Commercial Growth'}
         </p>
 
         {loan.ai_risk_assessment?.summaryAdvisory && (
-          <div className="p-2 bg-[#EBE4CD]/80 rounded-lg text-[10px] italic text-[#53627C] border border-[#1E2748]/15">
+          <div className="p-2 bg-[#EBE4CD]/80 rounded-lg text-[10px] italic text-[#1E2748] border border-[#1E2748]/15">
             🤖 "{loan.ai_risk_assessment.summaryAdvisory}"
           </div>
         )}
@@ -357,7 +357,7 @@ export const LoansPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -395,7 +395,7 @@ export const LoansPage = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search Loan ID, Name, Account #, Purpose..."
-                className="w-full bg-transparent text-xs text-[#1E2748] placeholder-[#53627C] focus:outline-none"
+                className="w-full bg-transparent text-xs text-[#1E2748] placeholder-[#1E2748] focus:outline-none"
               />
             </div>
 
@@ -404,7 +404,7 @@ export const LoansPage = () => {
               <button
                 onClick={() => setCategoryFilter('all')}
                 className={`px-3 py-1.5 rounded-xl font-bold transition ${
-                  categoryFilter === 'all' ? 'bg-[#1E2748] text-[#FAF7E6] font-archivo font-extrabold' : 'bg-[#F6F2E3] text-[#1E2748] text-[#53627C] hover:text-[#1E2748]'
+                  categoryFilter === 'all' ? 'bg-[#1E2748] text-[#FAF7E6] font-archivo font-extrabold' : 'bg-[#F6F2E3] text-[#1E2748] hover:text-[#1E2748]'
                 }`}
               >
                 All Categories ({loans.length})
@@ -432,13 +432,13 @@ export const LoansPage = () => {
             /* Categorized 6-Column Underwriting Lifecycle Kanban Pipeline */
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3.5 items-start">
               {/* Column 1: Applied / Draft */}
-              <div className="glass-panel p-3.5 rounded-2xl border border-[#1E2748]/15 space-y-3 bg-[#F6F2E3] text-[#1E2748]/50 shadow-xl">
+              <div className="glass-panel p-3.5 rounded-2xl border border-[#1E2748]/15 space-y-3 bg-[#F6F2E3] text-[#1E2748] shadow-xl">
                 <div className="pb-2 border-b border-[#1E2748]/15">
                   <div className="flex justify-between items-center">
                     <span className="font-extrabold text-[#1E2748] text-[11px] uppercase flex items-center space-x-1">
                       <span>1. Applied / Draft</span>
                     </span>
-                    <span className="px-2 py-0.5 bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] rounded-full text-[10px] font-mono font-bold">
+                    <span className="px-2 py-0.5 bg-[#F6F2E3] text-[#1E2748] rounded-full text-[10px] font-mono font-bold">
                       {appliedLoans.length}
                     </span>
                   </div>
@@ -448,7 +448,7 @@ export const LoansPage = () => {
                 </div>
                 <div className="space-y-3 max-h-[650px] overflow-y-auto pr-1">
                   {appliedLoans.length === 0 ? (
-                    <div className="p-3 text-center text-[#53627C] text-[11px] italic bg-[#F6F2E3] text-[#1E2748]/40 rounded-xl">
+                    <div className="p-3 text-center text-[#1E2748] text-[11px] italic bg-[#F6F2E3] text-[#1E2748] rounded-xl">
                       No applied loans.
                     </div>
                   ) : (
@@ -458,13 +458,13 @@ export const LoansPage = () => {
               </div>
 
               {/* Column 2: In Process / Underwriting */}
-              <div className="glass-panel p-3.5 rounded-2xl border border-[#1E2748]/15 space-y-3 bg-[#F6F2E3] text-[#1E2748]/50 shadow-xl">
+              <div className="glass-panel p-3.5 rounded-2xl border border-[#1E2748]/15 space-y-3 bg-[#F6F2E3] text-[#1E2748] shadow-xl">
                 <div className="pb-2 border-b border-[#1E2748]/15">
                   <div className="flex justify-between items-center">
                     <span className="font-extrabold text-[#1E2748] text-[11px] uppercase flex items-center space-x-1">
                       <span>2. Underwriting</span>
                     </span>
-                    <span className="px-2 py-0.5 bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] rounded-full text-[10px] font-mono font-bold">
+                    <span className="px-2 py-0.5 bg-[#F6F2E3] text-[#1E2748] rounded-full text-[10px] font-mono font-bold">
                       {inProcessLoans.length}
                     </span>
                   </div>
@@ -474,7 +474,7 @@ export const LoansPage = () => {
                 </div>
                 <div className="space-y-3 max-h-[650px] overflow-y-auto pr-1">
                   {inProcessLoans.length === 0 ? (
-                    <div className="p-3 text-center text-[#53627C] text-[11px] italic bg-[#F6F2E3] text-[#1E2748]/40 rounded-xl">
+                    <div className="p-3 text-center text-[#1E2748] text-[11px] italic bg-[#F6F2E3] text-[#1E2748] rounded-xl">
                       No loans in review.
                     </div>
                   ) : (
@@ -484,7 +484,7 @@ export const LoansPage = () => {
               </div>
 
               {/* Column 3: On Hold */}
-              <div className="glass-panel p-3.5 rounded-2xl border border-amber-500/30 space-y-3 bg-[#F6F2E3] text-[#1E2748]/50 shadow-xl">
+              <div className="glass-panel p-3.5 rounded-2xl border border-amber-500/30 space-y-3 bg-[#F6F2E3] text-[#1E2748] shadow-xl">
                 <div className="pb-2 border-b border-amber-500/20">
                   <div className="flex justify-between items-center">
                     <span className="font-extrabold text-amber-400 text-[11px] uppercase flex items-center space-x-1">
@@ -500,7 +500,7 @@ export const LoansPage = () => {
                 </div>
                 <div className="space-y-3 max-h-[650px] overflow-y-auto pr-1">
                   {onHoldLoans.length === 0 ? (
-                    <div className="p-3 text-center text-[#53627C] text-[11px] italic bg-[#F6F2E3] text-[#1E2748]/40 rounded-xl">
+                    <div className="p-3 text-center text-[#1E2748] text-[11px] italic bg-[#F6F2E3] text-[#1E2748] rounded-xl">
                       No on-hold loans.
                     </div>
                   ) : (
@@ -510,7 +510,7 @@ export const LoansPage = () => {
               </div>
 
               {/* Column 4: Approved */}
-              <div className="glass-panel p-3.5 rounded-2xl border border-[#58b388]/30 space-y-3 bg-[#F6F2E3] text-[#1E2748]/50 shadow-xl">
+              <div className="glass-panel p-3.5 rounded-2xl border border-[#58b388]/30 space-y-3 bg-[#F6F2E3] text-[#1E2748] shadow-xl">
                 <div className="pb-2 border-b border-[#58b388]/20">
                   <div className="flex justify-between items-center">
                     <span className="font-extrabold text-[#58b388] text-[11px] uppercase flex items-center space-x-1">
@@ -526,7 +526,7 @@ export const LoansPage = () => {
                 </div>
                 <div className="space-y-3 max-h-[650px] overflow-y-auto pr-1">
                   {approvedLoans.length === 0 ? (
-                    <div className="p-3 text-center text-[#53627C] text-[11px] italic bg-[#F6F2E3] text-[#1E2748]/40 rounded-xl">
+                    <div className="p-3 text-center text-[#1E2748] text-[11px] italic bg-[#F6F2E3] text-[#1E2748] rounded-xl">
                       No approved loans.
                     </div>
                   ) : (
@@ -536,7 +536,7 @@ export const LoansPage = () => {
               </div>
 
               {/* Column 5: Disbursed Active Portfolio */}
-              <div className="glass-panel p-3.5 rounded-2xl border border-[#58b388]/40 space-y-3 bg-[#F6F2E3] text-[#1E2748]/70 shadow-2xl">
+              <div className="glass-panel p-3.5 rounded-2xl border border-[#58b388]/40 space-y-3 bg-[#F6F2E3] text-[#1E2748] shadow-2xl">
                 <div className="pb-2 border-b border-[#58b388]/30">
                   <div className="flex justify-between items-center">
                     <span className="font-extrabold text-[#58b388] text-[11px] uppercase flex items-center space-x-1">
@@ -552,7 +552,7 @@ export const LoansPage = () => {
                 </div>
                 <div className="space-y-3 max-h-[650px] overflow-y-auto pr-1">
                   {disbursedLoans.length === 0 ? (
-                    <div className="p-3 text-center text-[#53627C] text-[11px] italic bg-[#F6F2E3] text-[#1E2748]/40 rounded-xl">
+                    <div className="p-3 text-center text-[#1E2748] text-[11px] italic bg-[#F6F2E3] text-[#1E2748] rounded-xl">
                       No disbursed loans.
                     </div>
                   ) : (
@@ -562,7 +562,7 @@ export const LoansPage = () => {
               </div>
 
               {/* Column 6: Rejected Applications */}
-              <div className="glass-panel p-3.5 rounded-2xl border border-red-500/30 space-y-3 bg-[#F6F2E3] text-[#1E2748]/40 shadow-xl">
+              <div className="glass-panel p-3.5 rounded-2xl border border-red-500/30 space-y-3 bg-[#F6F2E3] text-[#1E2748] shadow-xl">
                 <div className="pb-2 border-b border-red-500/20">
                   <div className="flex justify-between items-center">
                     <span className="font-extrabold text-red-400 text-[11px] uppercase flex items-center space-x-1">
@@ -578,7 +578,7 @@ export const LoansPage = () => {
                 </div>
                 <div className="space-y-3 max-h-[650px] overflow-y-auto pr-1">
                   {rejectedLoans.length === 0 ? (
-                    <div className="p-3 text-center text-[#53627C] text-[11px] italic bg-[#F6F2E3] text-[#1E2748]/40 rounded-xl">
+                    <div className="p-3 text-center text-[#1E2748] text-[11px] italic bg-[#F6F2E3] text-[#1E2748] rounded-xl">
                       No rejected applications.
                     </div>
                   ) : (

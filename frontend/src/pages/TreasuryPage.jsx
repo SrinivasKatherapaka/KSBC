@@ -36,7 +36,7 @@ export const TreasuryPage = () => {
   }, []);
 
   return (
-    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -44,7 +44,7 @@ export const TreasuryPage = () => {
         <main className="p-6 md:p-8 space-y-6 max-w-7xl mx-auto w-full">
           <div>
             <h1 className="text-2xl font-extrabold text-[#1E2748] font-heading">Treasury & Capital Management</h1>
-            <p className="text-xs text-slate-400">Vault Cash Reserves, Liquidity Ratios & Payout Authorization</p>
+            <p className="text-xs text-[#1E2748]">Vault Cash Reserves, Liquidity Ratios & Payout Authorization</p>
           </div>
 
           <ErrorAlert message={error} onClose={() => setError('')} />
@@ -93,7 +93,7 @@ export const TreasuryPage = () => {
                 <div className="space-y-3 font-mono text-xs">
                   <div>
                     <div className="flex justify-between mb-1">
-                      <span className="text-slate-300 font-sans">Vault & Central Bank Liquid Reserves</span>
+                      <span className="text-[#1E2748] font-sans">Vault & Central Bank Liquid Reserves</span>
                       <span className="text-blue-400 font-bold">
                         {((metrics.vaultCashReserves / (metrics.vaultCashReserves + metrics.loanPortfolioBalance)) * 100).toFixed(1)}%
                       </span>
@@ -108,7 +108,7 @@ export const TreasuryPage = () => {
 
                   <div>
                     <div className="flex justify-between mb-1">
-                      <span className="text-slate-300 font-sans">Commercial Earning Loans Asset Ratio</span>
+                      <span className="text-[#1E2748] font-sans">Commercial Earning Loans Asset Ratio</span>
                       <span className="text-emerald-400 font-bold">
                         {((metrics.loanPortfolioBalance / (metrics.vaultCashReserves + metrics.loanPortfolioBalance)) * 100).toFixed(1)}%
                       </span>

@@ -49,7 +49,7 @@ export const AiAssistantPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 h-screen">
         <Navbar />
@@ -60,7 +60,7 @@ export const AiAssistantPage = () => {
               <Bot className="w-6 h-6 text-blue-400" />
               <span>AI ERP Assistant</span>
             </h1>
-            <p className="text-xs text-slate-400">Context-Aware Natural Language Interface powered by Gemini 2.5 Flash</p>
+            <p className="text-xs text-[#1E2748]">Context-Aware Natural Language Interface powered by Gemini 2.5 Flash</p>
           </div>
 
           <ErrorAlert message={error} onClose={() => setError('')} />
@@ -84,7 +84,7 @@ export const AiAssistantPage = () => {
 
                   {msg.suggestedActions && msg.suggestedActions.length > 0 && (
                     <div className="pt-2 border-t border-slate-800 space-y-1">
-                      <span className="text-[10px] uppercase font-bold text-slate-500 block">Suggested Quick Queries:</span>
+                      <span className="text-[10px] uppercase font-bold text-[#1E2748] block">Suggested Quick Queries:</span>
                       <div className="flex flex-wrap gap-1.5">
                         {msg.suggestedActions.map((action, aIdx) => (
                           <button

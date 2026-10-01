@@ -47,7 +47,7 @@ export const DefaultersPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -56,7 +56,7 @@ export const DefaultersPage = () => {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h1 className="text-2xl font-extrabold text-[#1E2748] font-heading">Loan Defaulters & NPA Risk Manager</h1>
-              <p className="text-xs text-[#1E2748]/70">Early Warning Indicator & AI Non-Performing Asset (NPA) Restructuring Workout Plans</p>
+              <p className="text-xs text-[#1E2748]">Early Warning Indicator & AI Non-Performing Asset (NPA) Restructuring Workout Plans</p>
             </div>
             <div className="flex items-center space-x-2 px-3 py-1 bg-red-500/10 border border-red-500/30 rounded-full text-xs text-red-400 font-bold">
               <AlertOctagon className="w-4 h-4 text-red-400 animate-pulse" />
@@ -79,11 +79,11 @@ export const DefaultersPage = () => {
 
                 <div className="space-y-3">
                   {defaulters.map((d) => (
-                    <div key={d.id} className="p-4 bg-[#F6F2E3] text-[#1E2748]/60 rounded-xl border border-[#1E2748]/15 space-y-3 hover:border-red-600/50 transition">
+                    <div key={d.id} className="p-4 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15 space-y-3 hover:border-red-600/50 transition">
                       <div className="flex justify-between items-start">
                         <div>
                           <h4 className="font-bold text-[#1E2748] text-sm">{d.borrowerName}</h4>
-                          <span className="text-[10px] font-mono text-[#1E2748]/70">ID: {d.id} | Collateral: {d.collateralType}</span>
+                          <span className="text-[10px] font-mono text-[#1E2748]">ID: {d.id} | Collateral: {d.collateralType}</span>
                         </div>
                         <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold border font-mono uppercase ${
                           d.daysPastDue > 90
@@ -96,11 +96,11 @@ export const DefaultersPage = () => {
 
                       <div className="grid grid-cols-2 gap-2 text-xs font-mono p-2.5 bg-[#F6F2E3] text-[#1E2748] rounded-lg">
                         <div>
-                          <span className="text-[9px] text-slate-400 font-sans block">ORIGINAL PRINCIPAL</span>
+                          <span className="text-[9px] text-[#1E2748] font-sans block">ORIGINAL PRINCIPAL</span>
                           <span className="font-bold text-slate-200">${Number(d.originalPrincipal).toLocaleString()}</span>
                         </div>
                         <div>
-                          <span className="text-[9px] text-slate-400 font-sans block">REMAINING PAST DUE BALANCE</span>
+                          <span className="text-[9px] text-[#1E2748] font-sans block">REMAINING PAST DUE BALANCE</span>
                           <span className="font-extrabold text-red-400">${Number(d.remainingBalance).toLocaleString()}</span>
                         </div>
                       </div>
@@ -135,7 +135,7 @@ export const DefaultersPage = () => {
                     </div>
 
                     <div className="p-3 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15 text-xs font-mono space-y-1">
-                      <span className="text-slate-400 font-sans text-[10px] block">BORROWER ACCOUNT</span>
+                      <span className="text-[#1E2748] font-sans text-[10px] block">BORROWER ACCOUNT</span>
                       <span className="font-bold text-[#1E2748] text-sm block">{activeStrategy.borrowerName}</span>
                       <span className="text-amber-400 block font-bold">NPA Stage: {activeStrategy.npaClassification}</span>
                     </div>
@@ -155,7 +155,7 @@ export const DefaultersPage = () => {
                       ))}
                     </div>
 
-                    <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-800 text-xs italic text-slate-300">
+                    <div className="p-3 bg-slate-900/80 rounded-xl border border-slate-800 text-xs italic text-[#1E2748]">
                       🤖 <span className="font-bold text-amber-400 not-italic">Gemini AI Executive Summary:</span> "{activeStrategy.aiExecutiveSummary}"
                     </div>
 
@@ -175,7 +175,7 @@ export const DefaultersPage = () => {
                     </div>
                   </div>
                 ) : (
-                  <div className="glass-panel p-8 rounded-2xl border border-[#1E2748]/15 text-center text-slate-400 text-xs space-y-2">
+                  <div className="glass-panel p-8 rounded-2xl border border-[#1E2748]/15 text-center text-[#1E2748] text-xs space-y-2">
                     <FileText className="w-8 h-8 text-rose-500/40 mx-auto" />
                     <p>Select any defaulting account on the left and click "Generate AI Workout Plan" to build a Gemini recovery strategy.</p>
                   </div>

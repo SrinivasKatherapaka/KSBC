@@ -96,7 +96,7 @@ export const CustomerServicePage = () => {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h1 className="text-2xl font-extrabold text-[#1E2748] font-heading">24/7 AI Customer Support & Eligibility Portal</h1>
-              <p className="text-xs text-[#53627C]">Powered by Gemini 2.5 Flash Banking Representative Engine</p>
+              <p className="text-xs text-[#1E2748]">Powered by Gemini 2.5 Flash Banking Representative Engine</p>
             </div>
             <div className="flex items-center space-x-2 px-3.5 py-1.5 bg-[#58b388]/20 border border-[#58b388]/40 rounded-full text-xs text-[#1E2748] font-bold shadow-sm">
               <span className="w-2.5 h-2.5 rounded-full bg-[#58b388] animate-pulse"></span>
@@ -111,7 +111,7 @@ export const CustomerServicePage = () => {
               className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2 border ${
                 activeTab === 'chat'
                   ? 'bg-[#1E2748] text-[#FAF7E6] border-[#1E2748] shadow-md font-extrabold'
-                  : 'bg-[#F3EEDC] text-[#53627C] border-[#1E2748]/15 hover:bg-[#EBE4CD]'
+                  : 'bg-[#F3EEDC] text-[#1E2748] border-[#1E2748]/15 hover:bg-[#EBE4CD]'
               }`}
             >
               <MessageSquare className="w-4 h-4 text-[#C59E5F]" />
@@ -123,7 +123,7 @@ export const CustomerServicePage = () => {
               className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2 border ${
                 activeTab === 'eligibility'
                   ? 'bg-[#1E2748] text-[#FAF7E6] border-[#1E2748] shadow-md font-extrabold'
-                  : 'bg-[#F3EEDC] text-[#53627C] border-[#1E2748]/15 hover:bg-[#EBE4CD]'
+                  : 'bg-[#F3EEDC] text-[#1E2748] border-[#1E2748]/15 hover:bg-[#EBE4CD]'
               }`}
             >
               <CreditCard className="w-4 h-4 text-[#C59E5F]" />
@@ -135,7 +135,7 @@ export const CustomerServicePage = () => {
               className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2 border ${
                 activeTab === 'faq'
                   ? 'bg-[#1E2748] text-[#FAF7E6] border-[#1E2748] shadow-md font-extrabold'
-                  : 'bg-[#F3EEDC] text-[#53627C] border-[#1E2748]/15 hover:bg-[#EBE4CD]'
+                  : 'bg-[#F3EEDC] text-[#1E2748] border-[#1E2748]/15 hover:bg-[#EBE4CD]'
               }`}
             >
               <BookOpen className="w-4 h-4 text-[#C59E5F]" />
@@ -156,7 +156,7 @@ export const CustomerServicePage = () => {
                   </div>
                   <div>
                     <h3 className="text-sm font-extrabold text-[#1E2748]">KSBC Virtual Representative</h3>
-                    <p className="text-[10px] text-[#53627C] font-mono">Gemini 2.5 Flash Neural Support</p>
+                    <p className="text-[10px] text-[#1E2748] font-mono">Gemini 2.5 Flash Neural Support</p>
                   </div>
                 </div>
                 <span className="text-[10px] font-mono font-bold bg-[#FAF7E6] px-2.5 py-1 rounded-full border border-[#1E2748]/15 text-[#1E2748]">
@@ -311,7 +311,7 @@ export const CustomerServicePage = () => {
                 ].map((item, idx) => (
                   <div key={idx} className="p-4 bg-[#FAF7E6] rounded-xl border border-[#1E2748]/15 space-y-1.5">
                     <span className="font-extrabold text-[#1E2748] block text-sm">{item.q}</span>
-                    <p className="text-[#53627C] leading-relaxed">{item.a}</p>
+                    <p className="text-[#1E2748] leading-relaxed">{item.a}</p>
                     <button
                       onClick={() => { setActiveTab('chat'); handleSendMessage(item.q); }}
                       className="mt-2 text-[10px] font-bold text-[#1E2748] hover:underline flex items-center space-x-1"

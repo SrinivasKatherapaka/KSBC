@@ -363,9 +363,9 @@ export const FreshLoanApplicationsPage = () => {
       return <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30">👑 HNWI Wealth</span>;
     }
     if (cat === 'sme') {
-      return <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border border-[#1E2748]/15">🏬 SME Business</span>;
+      return <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15">🏬 SME Business</span>;
     }
-    return <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border border-[#1E2748]/15">🏢 Corporate</span>;
+    return <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15">🏢 Corporate</span>;
   };
 
   // Render Status Badge
@@ -388,7 +388,7 @@ export const FreshLoanApplicationsPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -398,7 +398,7 @@ export const FreshLoanApplicationsPage = () => {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <div className="flex items-center space-x-2.5">
-                <div className="p-2 bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] rounded-xl border border-[#1E2748]/15 shadow-md">
+                <div className="p-2 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15 shadow-md">
                   <FileCheck className="w-6 h-6 text-[#1E2748]" />
                 </div>
                 <div>
@@ -440,7 +440,7 @@ export const FreshLoanApplicationsPage = () => {
               className={`px-4 py-2.5 rounded-xl text-xs font-black transition flex items-center space-x-2 cursor-pointer ${
                 activeSubTab === 'intake'
                   ? 'bg-[#1E2748] hover:bg-[#141C33] text-[#FAF7E6] font-archivo font-extrabold shadow-lg shadow-[#FFFFFF]/40 border border-[#1E2748]/15'
-                  : 'bg-[#F6F2E3] text-[#1E2748]/70 text-[#53627C] hover:text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] border border-transparent'
+                  : 'bg-[#F6F2E3] text-[#1E2748] hover:text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] border border-transparent'
               }`}
             >
               <Plus className="w-4 h-4" />
@@ -452,12 +452,12 @@ export const FreshLoanApplicationsPage = () => {
               className={`px-4 py-2.5 rounded-xl text-xs font-black transition flex items-center space-x-2 cursor-pointer ${
                 activeSubTab === 'queue'
                   ? 'bg-[#1E2748] hover:bg-[#141C33] text-[#FAF7E6] font-archivo font-extrabold shadow-lg shadow-[#FFFFFF]/40 border border-[#1E2748]/15'
-                  : 'bg-[#F6F2E3] text-[#1E2748]/70 text-[#53627C] hover:text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] border border-transparent'
+                  : 'bg-[#F6F2E3] text-[#1E2748] hover:text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] border border-transparent'
               }`}
             >
               <Layers className="w-4 h-4" />
               <span>⚡ Fresh Applications Queue</span>
-              <span className="px-1.5 py-0.2 rounded-full bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] text-[10px] font-mono font-bold">
+              <span className="px-1.5 py-0.2 rounded-full bg-[#F6F2E3] text-[#1E2748] text-[10px] font-mono font-bold">
                 {loans.length}
               </span>
             </button>
@@ -467,7 +467,7 @@ export const FreshLoanApplicationsPage = () => {
               className={`px-4 py-2.5 rounded-xl text-xs font-black transition flex items-center space-x-2 cursor-pointer ${
                 activeSubTab === 'audit'
                   ? 'bg-[#1E2748] hover:bg-[#141C33] text-[#FAF7E6] font-archivo font-extrabold shadow-lg shadow-[#FFFFFF]/40 border border-[#1E2748]/15'
-                  : 'bg-[#F6F2E3] text-[#1E2748]/70 text-[#53627C] hover:text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] border border-transparent'
+                  : 'bg-[#F6F2E3] text-[#1E2748] hover:text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] border border-transparent'
               }`}
             >
               <BarChart2 className="w-4 h-4" />
@@ -496,7 +496,7 @@ export const FreshLoanApplicationsPage = () => {
           {activeSubTab === 'intake' && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
               {/* Left Column: Intake Form */}
-              <div className="lg:col-span-7 glass-panel p-6 rounded-2xl border border-[#1E2748]/15 space-y-5 bg-[#F6F2E3] text-[#1E2748]/60 shadow-2xl">
+              <div className="lg:col-span-7 glass-panel p-6 rounded-2xl border border-[#1E2748]/15 space-y-5 bg-[#F6F2E3] text-[#1E2748] shadow-2xl">
                 <div className="flex items-center justify-between pb-3 border-b border-[#1E2748]/15">
                   <div>
                     <h3 className="font-extrabold text-[#1E2748] text-base flex items-center space-x-2">
@@ -640,18 +640,18 @@ export const FreshLoanApplicationsPage = () => {
                   </div>
 
                   {/* Financial Parameters for Risk Calculation */}
-                  <div className="p-3.5 bg-[#F6F2E3] text-[#1E2748]/70 rounded-xl border border-[#1E2748]/15 space-y-3">
+                  <div className="p-3.5 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15 space-y-3">
                     <div className="flex items-center justify-between">
                       <span className="text-[11px] font-bold text-[#1E2748] uppercase tracking-wider flex items-center space-x-1.5">
                         <Sparkles className="w-3.5 h-3.5 text-[#1E2748]" />
                         <span>Applicant Financial Verification Telemetry</span>
                       </span>
-                      <span className="text-[10px] text-[#53627C]">Used for Live Risk Engine</span>
+                      <span className="text-[10px] text-[#1E2748]">Used for Live Risk Engine</span>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                       <div>
-                        <label className="block text-[10px] text-[#53627C] font-semibold mb-1">
+                        <label className="block text-[10px] text-[#1E2748] font-semibold mb-1">
                           Annual Revenue / Income ($)
                         </label>
                         <input
@@ -664,7 +664,7 @@ export const FreshLoanApplicationsPage = () => {
                       </div>
 
                       <div>
-                        <label className="block text-[10px] text-[#53627C] font-semibold mb-1">
+                        <label className="block text-[10px] text-[#1E2748] font-semibold mb-1">
                           Credit Score (300 - 850)
                         </label>
                         <input
@@ -678,7 +678,7 @@ export const FreshLoanApplicationsPage = () => {
                       </div>
 
                       <div>
-                        <label className="block text-[10px] text-[#53627C] font-semibold mb-1">
+                        <label className="block text-[10px] text-[#1E2748] font-semibold mb-1">
                           Collateral Value ($)
                         </label>
                         <input
@@ -706,7 +706,7 @@ export const FreshLoanApplicationsPage = () => {
                         className={`p-2.5 rounded-xl border text-center font-extrabold text-[11px] transition flex flex-col items-center justify-center space-y-1 cursor-pointer ${
                           initialAction === 'underwriting'
                             ? 'bg-[#1E2748] text-[#FAF7E6] font-archivo font-extrabold border-[#1E2748]/15 shadow-md'
-                            : 'bg-[#F6F2E3] text-[#1E2748] text-[#53627C] border-[#1E2748]/15 hover:text-[#1E2748]'
+                            : 'bg-[#F6F2E3] text-[#1E2748] border-[#1E2748]/15 hover:text-[#1E2748]'
                         }`}
                       >
                         <Clock className="w-4 h-4" />
@@ -719,7 +719,7 @@ export const FreshLoanApplicationsPage = () => {
                         className={`p-2.5 rounded-xl border text-center font-extrabold text-[11px] transition flex flex-col items-center justify-center space-y-1 cursor-pointer ${
                           initialAction === 'approved'
                             ? 'bg-[#58b388] text-[#1E2748] border-[#58b388] shadow-md'
-                            : 'bg-[#F6F2E3] text-[#1E2748] text-[#53627C] border-[#1E2748]/15 hover:text-[#1E2748]'
+                            : 'bg-[#F6F2E3] text-[#1E2748] border-[#1E2748]/15 hover:text-[#1E2748]'
                         }`}
                       >
                         <CheckCircle2 className="w-4 h-4" />
@@ -732,7 +732,7 @@ export const FreshLoanApplicationsPage = () => {
                         className={`p-2.5 rounded-xl border text-center font-extrabold text-[11px] transition flex flex-col items-center justify-center space-y-1 cursor-pointer ${
                           initialAction === 'on_hold'
                             ? 'bg-amber-500 text-[#1E2748] border-amber-500 shadow-md'
-                            : 'bg-[#F6F2E3] text-[#1E2748] text-[#53627C] border-[#1E2748]/15 hover:text-[#1E2748]'
+                            : 'bg-[#F6F2E3] text-[#1E2748] border-[#1E2748]/15 hover:text-[#1E2748]'
                         }`}
                       >
                         <PauseCircle className="w-4 h-4" />
@@ -745,7 +745,7 @@ export const FreshLoanApplicationsPage = () => {
                         className={`p-2.5 rounded-xl border text-center font-extrabold text-[11px] transition flex flex-col items-center justify-center space-y-1 cursor-pointer ${
                           initialAction === 'rejected'
                             ? 'bg-red-500 text-[#1E2748] border-red-500 shadow-md'
-                            : 'bg-[#F6F2E3] text-[#1E2748] text-[#53627C] border-[#1E2748]/15 hover:text-[#1E2748]'
+                            : 'bg-[#F6F2E3] text-[#1E2748] border-[#1E2748]/15 hover:text-[#1E2748]'
                         }`}
                       >
                         <XCircle className="w-4 h-4" />
@@ -754,7 +754,7 @@ export const FreshLoanApplicationsPage = () => {
                     </div>
 
                     <div>
-                      <label className="block text-[10px] text-[#53627C] font-semibold mb-1">
+                      <label className="block text-[10px] text-[#1E2748] font-semibold mb-1">
                         Underwriting Decision Notes / Hold Reason
                       </label>
                       <input
@@ -792,10 +792,10 @@ export const FreshLoanApplicationsPage = () => {
 
               {/* Right Column: Live AI Risk Calculation Preview Panel */}
               <div className="lg:col-span-5 space-y-4">
-                <div className="glass-panel p-6 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/80 shadow-2xl space-y-4 relative overflow-hidden">
+                <div className="glass-panel p-6 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] shadow-2xl space-y-4 relative overflow-hidden">
                   <div className="flex items-center justify-between pb-3 border-b border-[#1E2748]/15">
                     <div className="flex items-center space-x-2">
-                      <div className="p-2 bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
+                      <div className="p-2 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
                         <Sparkles className="w-5 h-5 text-[#1E2748]" />
                       </div>
                       <div>
@@ -811,14 +811,14 @@ export const FreshLoanApplicationsPage = () => {
                   {/* Main Score Gauge */}
                   <div className="p-4 bg-[#F6F2E3] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 flex items-center justify-between">
                     <div>
-                      <span className="text-[10px] text-[#53627C] font-bold uppercase tracking-wider block">
+                      <span className="text-[10px] text-[#1E2748] font-bold uppercase tracking-wider block">
                         CALCULATED RISK SCORE
                       </span>
                       <div className="flex items-baseline space-x-2 mt-1">
                         <span className={`text-4xl font-black font-mono ${liveRiskCalculation.riskColor}`}>
                           {liveRiskCalculation.riskScore}
                         </span>
-                        <span className="text-sm text-[#53627C] font-mono">/ 100</span>
+                        <span className="text-sm text-[#1E2748] font-mono">/ 100</span>
                       </div>
                       <span className={`inline-block mt-1 px-2.5 py-0.5 rounded text-[10px] font-extrabold uppercase ${liveRiskCalculation.riskBg} ${liveRiskCalculation.riskColor}`}>
                         {liveRiskCalculation.riskLevel} RISK LEVEL
@@ -826,7 +826,7 @@ export const FreshLoanApplicationsPage = () => {
                     </div>
 
                     <div className="text-right space-y-1">
-                      <span className="text-[10px] text-[#53627C] font-bold uppercase tracking-wider block">
+                      <span className="text-[10px] text-[#1E2748] font-bold uppercase tracking-wider block">
                         AI RECOMMENDATION
                       </span>
                       <span className={`text-xs font-black px-3 py-1 rounded-xl uppercase inline-block ${
@@ -838,7 +838,7 @@ export const FreshLoanApplicationsPage = () => {
                       }`}>
                         {liveRiskCalculation.recommendation}
                       </span>
-                      <p className="text-[9px] text-[#53627C] font-mono">
+                      <p className="text-[9px] text-[#1E2748] font-mono">
                         Default Prob: {liveRiskCalculation.defaultProbability}%
                       </p>
                     </div>
@@ -846,8 +846,8 @@ export const FreshLoanApplicationsPage = () => {
 
                   {/* Metric Chips */}
                   <div className="grid grid-cols-2 gap-3 text-xs">
-                    <div className="p-3 bg-[#F6F2E3] text-[#1E2748]/80 rounded-xl border border-[#1E2748]/15">
-                      <span className="text-[9px] text-[#53627C] block">DEBT-TO-INCOME (DTI)</span>
+                    <div className="p-3 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
+                      <span className="text-[9px] text-[#1E2748] block">DEBT-TO-INCOME (DTI)</span>
                       <span className="text-sm font-extrabold text-[#1E2748] font-mono">
                         {(liveRiskCalculation.dtiRatio * 100).toFixed(1)}%
                       </span>
@@ -856,8 +856,8 @@ export const FreshLoanApplicationsPage = () => {
                       </span>
                     </div>
 
-                    <div className="p-3 bg-[#F6F2E3] text-[#1E2748]/80 rounded-xl border border-[#1E2748]/15">
-                      <span className="text-[9px] text-[#53627C] block">COLLATERAL COVERAGE</span>
+                    <div className="p-3 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
+                      <span className="text-[9px] text-[#1E2748] block">COLLATERAL COVERAGE</span>
                       <span className="text-sm font-extrabold text-[#1E2748] font-mono">
                         {(liveRiskCalculation.collateralRatio * 100).toFixed(0)}%
                       </span>
@@ -866,20 +866,20 @@ export const FreshLoanApplicationsPage = () => {
                       </span>
                     </div>
 
-                    <div className="p-3 bg-[#F6F2E3] text-[#1E2748]/80 rounded-xl border border-[#1E2748]/15">
-                      <span className="text-[9px] text-[#53627C] block">MAX RECOMMENDED LOAN</span>
+                    <div className="p-3 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
+                      <span className="text-[9px] text-[#1E2748] block">MAX RECOMMENDED LOAN</span>
                       <span className="text-sm font-extrabold text-[#58b388] font-mono">
                         ${liveRiskCalculation.maxRecommendedLoan.toLocaleString()}
                       </span>
-                      <span className="text-[9px] text-[#53627C] block mt-0.5">42% Revenue Cap</span>
+                      <span className="text-[9px] text-[#1E2748] block mt-0.5">42% Revenue Cap</span>
                     </div>
 
-                    <div className="p-3 bg-[#F6F2E3] text-[#1E2748]/80 rounded-xl border border-[#1E2748]/15">
-                      <span className="text-[9px] text-[#53627C] block">REQUEST RATIO</span>
+                    <div className="p-3 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
+                      <span className="text-[9px] text-[#1E2748] block">REQUEST RATIO</span>
                       <span className="text-sm font-extrabold text-[#1E2748] font-mono">
                         {((Number(principalAmount) / Math.max(Number(annualRevenue), 1)) * 100).toFixed(1)}%
                       </span>
-                      <span className="text-[9px] text-[#53627C] block mt-0.5">Principal / Revenue</span>
+                      <span className="text-[9px] text-[#1E2748] block mt-0.5">Principal / Revenue</span>
                     </div>
                   </div>
 
@@ -923,7 +923,7 @@ export const FreshLoanApplicationsPage = () => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search Fresh Applications by Name, ID, Purpose..."
-                    className="w-full bg-transparent text-xs text-[#1E2748] placeholder-[#53627C] focus:outline-none"
+                    className="w-full bg-transparent text-xs text-[#1E2748] placeholder-[#1E2748] focus:outline-none"
                   />
                 </div>
 
@@ -931,7 +931,7 @@ export const FreshLoanApplicationsPage = () => {
                   <select
                     value={statusFilter}
                     onChange={(e) => setStatusFilter(e.target.value)}
-                    className="bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border border-[#1E2748]/15 rounded-lg p-2 font-semibold cursor-pointer text-xs"
+                    className="bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15 rounded-lg p-2 font-semibold cursor-pointer text-xs"
                   >
                     <option value="all">All Statuses ({loans.length})</option>
                     <option value="fresh">Fresh Intake / Underwriting</option>
@@ -944,7 +944,7 @@ export const FreshLoanApplicationsPage = () => {
                   <select
                     value={categoryFilter}
                     onChange={(e) => setCategoryFilter(e.target.value)}
-                    className="bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border border-[#1E2748]/15 rounded-lg p-2 font-semibold cursor-pointer text-xs"
+                    className="bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15 rounded-lg p-2 font-semibold cursor-pointer text-xs"
                   >
                     <option value="all">All Categories</option>
                     <option value="corporate">Corporate</option>
@@ -956,7 +956,7 @@ export const FreshLoanApplicationsPage = () => {
                   <select
                     value={riskFilter}
                     onChange={(e) => setRiskFilter(e.target.value)}
-                    className="bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border border-[#1E2748]/15 rounded-lg p-2 font-semibold cursor-pointer text-xs"
+                    className="bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15 rounded-lg p-2 font-semibold cursor-pointer text-xs"
                   >
                     <option value="all">All Risk Levels</option>
                     <option value="low">Low Risk (≤40)</option>
@@ -967,14 +967,14 @@ export const FreshLoanApplicationsPage = () => {
                   <div className="flex items-center space-x-1 bg-[#F6F2E3] text-[#1E2748] p-1 rounded-lg border border-[#1E2748]/15">
                     <button
                       onClick={() => setViewLayout('cards')}
-                      className={`p-1.5 rounded cursor-pointer ${viewLayout === 'cards' ? 'bg-[#1E2748] text-[#FAF7E6] font-archivo font-extrabold' : 'text-[#53627C]'}`}
+                      className={`p-1.5 rounded cursor-pointer ${viewLayout === 'cards' ? 'bg-[#1E2748] text-[#FAF7E6] font-archivo font-extrabold' : 'text-[#1E2748]'}`}
                       title="Card Grid View"
                     >
                       <LayoutGrid className="w-3.5 h-3.5" />
                     </button>
                     <button
                       onClick={() => setViewLayout('table')}
-                      className={`p-1.5 rounded cursor-pointer ${viewLayout === 'table' ? 'bg-[#1E2748] text-[#FAF7E6] font-archivo font-extrabold' : 'text-[#53627C]'}`}
+                      className={`p-1.5 rounded cursor-pointer ${viewLayout === 'table' ? 'bg-[#1E2748] text-[#FAF7E6] font-archivo font-extrabold' : 'text-[#1E2748]'}`}
                       title="Table List View"
                     >
                       <List className="w-3.5 h-3.5" />
@@ -986,10 +986,10 @@ export const FreshLoanApplicationsPage = () => {
               {loading ? (
                 <LoadingSpinner text="Loading Fresh Applications Intake Queue..." />
               ) : filteredQueueLoans.length === 0 ? (
-                <div className="glass-panel p-12 text-center rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/40 space-y-3">
-                  <FileText className="w-12 h-12 text-[#1E2748]/50 mx-auto" />
+                <div className="glass-panel p-12 text-center rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] space-y-3">
+                  <FileText className="w-12 h-12 text-[#1E2748] mx-auto" />
                   <h4 className="text-base font-bold text-[#1E2748]">No Loan Applications Match Filters</h4>
-                  <p className="text-xs text-[#53627C]">Try adjusting your search criteria or register a new loan application in the Intake tab.</p>
+                  <p className="text-xs text-[#1E2748]">Try adjusting your search criteria or register a new loan application in the Intake tab.</p>
                   <button
                     onClick={() => setActiveSubTab('intake')}
                     className="px-4 py-2 bg-[#1E2748] text-[#FAF7E6] font-archivo font-extrabold font-bold rounded-xl text-xs cursor-pointer"
@@ -1009,7 +1009,7 @@ export const FreshLoanApplicationsPage = () => {
                     return (
                       <div
                         key={loan.id}
-                        className="glass-panel p-4 rounded-2xl border border-[#1E2748]/15 space-y-3 bg-[#F6F2E3] text-[#1E2748]/60 hover:border-[#1E2748]/15/60 transition shadow-xl relative flex flex-col justify-between"
+                        className="glass-panel p-4 rounded-2xl border border-[#1E2748]/15 space-y-3 bg-[#F6F2E3] text-[#1E2748] hover:border-[#1E2748]/15/60 transition shadow-xl relative flex flex-col justify-between"
                       >
                         <div>
                           {/* Card Header */}
@@ -1045,13 +1045,13 @@ export const FreshLoanApplicationsPage = () => {
                           {/* Loan Numbers Box */}
                           <div className="mt-3 p-2.5 bg-[#F6F2E3] text-[#1E2748]/90 rounded-xl border border-[#1E2748]/15 font-mono text-xs flex justify-between">
                             <div>
-                              <span className="text-[9px] text-[#53627C] font-sans block">PRINCIPAL</span>
+                              <span className="text-[9px] text-[#1E2748] font-sans block">PRINCIPAL</span>
                               <span className="font-extrabold text-[#1E2748] text-sm">
                                 ${Number(loan.principal_amount || 0).toLocaleString()}
                               </span>
                             </div>
                             <div className="text-right">
-                              <span className="text-[9px] text-[#53627C] font-sans block">RATE / TERM</span>
+                              <span className="text-[9px] text-[#1E2748] font-sans block">RATE / TERM</span>
                               <span className="font-bold text-[#1E2748]">
                                 {loan.interest_rate || 6.5}% ({loan.term_months || 36}m)
                               </span>
@@ -1060,11 +1060,11 @@ export const FreshLoanApplicationsPage = () => {
 
                           {/* Purpose & Notes */}
                           <div className="mt-2.5 space-y-1 text-xs">
-                            <p className="text-[11px] text-[#53627C] line-clamp-1">
+                            <p className="text-[11px] text-[#1E2748] line-clamp-1">
                               <span className="text-[#1E2748] font-bold">Purpose:</span> {loan.purpose || 'Commercial Growth'}
                             </p>
                             {loan.decision_notes && (
-                              <p className="text-[10px] italic text-[#1E2748]/80 line-clamp-2 bg-[#F6F2E3] text-[#1E2748]/50 p-1.5 rounded border border-[#1E2748]/15/15">
+                              <p className="text-[10px] italic text-[#1E2748] line-clamp-2 bg-[#F6F2E3] text-[#1E2748] p-1.5 rounded border border-[#1E2748]/15/15">
                                 💬 "{loan.decision_notes}"
                               </p>
                             )}
@@ -1162,7 +1162,7 @@ export const FreshLoanApplicationsPage = () => {
                 </div>
               ) : (
                 /* Table Layout */
-                <div className="glass-panel rounded-2xl border border-[#1E2748]/15 overflow-hidden shadow-2xl bg-[#F6F2E3] text-[#1E2748]/50">
+                <div className="glass-panel rounded-2xl border border-[#1E2748]/15 overflow-hidden shadow-2xl bg-[#F6F2E3] text-[#1E2748]">
                   <div className="overflow-x-auto">
                     <table className="w-full text-left text-xs">
                       <thead>
@@ -1185,7 +1185,7 @@ export const FreshLoanApplicationsPage = () => {
                           const score = Number(loan.risk_score || 35);
 
                           return (
-                            <tr key={loan.id} className="hover:bg-[#F6F2E3] text-[#1E2748]/60 transition">
+                            <tr key={loan.id} className="hover:bg-[#F6F2E3] text-[#1E2748] transition">
                               <td className="py-3.5 px-3 font-mono font-bold">
                                 <button
                                   onClick={() => setSelectedDetailLoan(loan)}
@@ -1211,7 +1211,7 @@ export const FreshLoanApplicationsPage = () => {
                               <td className="py-3.5 px-3 text-center font-mono text-[11px]">
                                 {loan.interest_rate}% ({loan.term_months}m)
                               </td>
-                              <td className="py-3.5 px-3 text-[11px] text-[#53627C] max-w-xs truncate">
+                              <td className="py-3.5 px-3 text-[11px] text-[#1E2748] max-w-xs truncate">
                                 {loan.purpose}
                               </td>
                               <td className="py-3.5 px-3 text-center">
@@ -1224,7 +1224,7 @@ export const FreshLoanApplicationsPage = () => {
                                 <div className="flex items-center justify-center space-x-1.5">
                                   <button
                                     onClick={() => setSelectedDetailLoan(loan)}
-                                    className="p-1 bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border border-[#1E2748]/15 hover:bg-[#EBE4CD] hover:text-[#1E2748] rounded text-[10px] font-bold cursor-pointer"
+                                    className="p-1 bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15 hover:bg-[#EBE4CD] hover:text-[#1E2748] rounded text-[10px] font-bold cursor-pointer"
                                     title="View Full Details"
                                   >
                                     <Eye className="w-3.5 h-3.5" />
@@ -1282,7 +1282,7 @@ export const FreshLoanApplicationsPage = () => {
             <div className="space-y-6">
               {/* Analytics Metric Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/60 space-y-1 shadow-lg">
+                <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] space-y-1 shadow-lg">
                   <div className="flex justify-between items-center text-[#1E2748]">
                     <span className="text-[10px] font-bold uppercase tracking-wider">Total Intake Volume</span>
                     <FileText className="w-4 h-4" />
@@ -1295,7 +1295,7 @@ export const FreshLoanApplicationsPage = () => {
                   </p>
                 </div>
 
-                <div className="glass-panel p-4 rounded-2xl border border-[#58b388]/30 bg-[#F6F2E3] text-[#1E2748]/60 space-y-1 shadow-lg">
+                <div className="glass-panel p-4 rounded-2xl border border-[#58b388]/30 bg-[#F6F2E3] text-[#1E2748] space-y-1 shadow-lg">
                   <div className="flex justify-between items-center text-[#58b388]">
                     <span className="text-[10px] font-bold uppercase tracking-wider">Approved Volume</span>
                     <CheckCircle2 className="w-4 h-4" />
@@ -1308,7 +1308,7 @@ export const FreshLoanApplicationsPage = () => {
                   </p>
                 </div>
 
-                <div className="glass-panel p-4 rounded-2xl border border-amber-500/30 bg-[#F6F2E3] text-[#1E2748]/60 space-y-1 shadow-lg">
+                <div className="glass-panel p-4 rounded-2xl border border-amber-500/30 bg-[#F6F2E3] text-[#1E2748] space-y-1 shadow-lg">
                   <div className="flex justify-between items-center text-amber-400">
                     <span className="text-[10px] font-bold uppercase tracking-wider">On-Hold Watchlist</span>
                     <PauseCircle className="w-4 h-4" />
@@ -1321,7 +1321,7 @@ export const FreshLoanApplicationsPage = () => {
                   </p>
                 </div>
 
-                <div className="glass-panel p-4 rounded-2xl border border-red-500/30 bg-[#F6F2E3] text-[#1E2748]/60 space-y-1 shadow-lg">
+                <div className="glass-panel p-4 rounded-2xl border border-red-500/30 bg-[#F6F2E3] text-[#1E2748] space-y-1 shadow-lg">
                   <div className="flex justify-between items-center text-red-400">
                     <span className="text-[10px] font-bold uppercase tracking-wider">Rejected Applications</span>
                     <XCircle className="w-4 h-4" />
@@ -1336,7 +1336,7 @@ export const FreshLoanApplicationsPage = () => {
               </div>
 
               {/* Action Log History Table */}
-              <div className="glass-panel p-6 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/70 space-y-4 shadow-2xl">
+              <div className="glass-panel p-6 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] space-y-4 shadow-2xl">
                 <div className="flex items-center justify-between pb-3 border-b border-[#1E2748]/15">
                   <div>
                     <h3 className="font-extrabold text-[#1E2748] text-base">Underwriting Action Decision Logs & Audit Trail</h3>
@@ -1367,7 +1367,7 @@ export const FreshLoanApplicationsPage = () => {
                         const score = Number(l.risk_score || 35);
 
                         return (
-                          <tr key={l.id} className="hover:bg-[#F6F2E3] text-[#1E2748]/60 transition">
+                          <tr key={l.id} className="hover:bg-[#F6F2E3] text-[#1E2748] transition">
                             <td className="py-3 px-3 font-mono font-bold">
                               <button
                                 onClick={() => setSelectedDetailLoan(l)}
@@ -1395,7 +1395,7 @@ export const FreshLoanApplicationsPage = () => {
                             <td className="py-3 px-3 text-center">
                               {renderStatusBadge(l.status)}
                             </td>
-                            <td className="py-3 px-3 text-[11px] text-[#53627C]">
+                            <td className="py-3 px-3 text-[11px] text-[#1E2748]">
                               {l.decision_notes || (l.action_logs?.[0]?.notes) || 'Underwriting intake record recorded'}
                             </td>
                             <td className="py-3 px-3 text-right font-mono text-[10px] text-[#1E2748]">
@@ -1419,7 +1419,7 @@ export const FreshLoanApplicationsPage = () => {
           <div className="glass-panel w-full max-w-lg p-6 rounded-2xl border border-[#1E2748]/15 shadow-2xl relative bg-[#F6F2E3] text-[#1E2748] space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-[#1E2748]/15">
               <div className="flex items-center space-x-2">
-                <div className="p-2 bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
+                <div className="p-2 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
                   <CheckCircle2 className="w-5 h-5 text-[#1E2748]" />
                 </div>
                 <div>
@@ -1431,18 +1431,18 @@ export const FreshLoanApplicationsPage = () => {
                   </p>
                 </div>
               </div>
-              <button onClick={() => setActionModalLoan(null)} className="text-[#53627C] hover:text-[#1E2748] cursor-pointer">
+              <button onClick={() => setActionModalLoan(null)} className="text-[#1E2748] hover:text-[#1E2748] cursor-pointer">
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <div className="p-3 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15 space-y-2 text-xs">
               <div className="flex justify-between">
-                <span className="text-[#53627C]">Requested Principal:</span>
+                <span className="text-[#1E2748]">Requested Principal:</span>
                 <span className="font-mono font-bold text-[#1E2748]">${Number(actionModalLoan.principal_amount || 0).toLocaleString()}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#53627C]">Calculated AI Risk Score:</span>
+                <span className="text-[#1E2748]">Calculated AI Risk Score:</span>
                 <span className="font-mono font-bold text-[#1E2748]">{actionModalLoan.risk_score || 35}/100</span>
               </div>
             </div>

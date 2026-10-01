@@ -43,7 +43,7 @@ export const RegisterPage = () => {
       <div className="w-full max-w-md">
         <div className="text-center mb-8 flex flex-col items-center space-y-3">
           <FlyingMatLogo size="xl" />
-          <p className="text-xs text-[#53627C] uppercase tracking-widest font-black font-archivo">Personnel Registration & Clearance</p>
+          <p className="text-xs text-[#1E2748] uppercase tracking-widest font-black font-archivo">Personnel Registration & Clearance</p>
         </div>
 
         <div className="glass-panel p-8 rounded-3xl border border-[#1E2748]/15 shadow-2xl space-y-6 bg-[#F3EEDC]/95">

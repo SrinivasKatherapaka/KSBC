@@ -38,7 +38,7 @@ export const PredictiveAnalyticsPage = () => {
   }, [scenario]);
 
   return (
-    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -69,8 +69,8 @@ export const PredictiveAnalyticsPage = () => {
                   onClick={() => setScenario(s.id)}
                   className={`px-3 py-1.5 rounded-lg font-bold transition text-xs ${
                     scenario === s.id
-                      ? 'bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border border-[#1E2748]/15 shadow'
-                      : 'text-[#53627C] hover:text-[#1E2748]'
+                      ? 'bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15 shadow'
+                      : 'text-[#1E2748] hover:text-[#1E2748]'
                   }`}
                 >
                   {s.label}
@@ -86,7 +86,7 @@ export const PredictiveAnalyticsPage = () => {
           ) : analytics ? (
             <div className="space-y-6">
               {/* Executive Predictive Advisory Panel */}
-              <div className="glass-panel p-5 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/80 space-y-2 shadow-xl">
+              <div className="glass-panel p-5 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] space-y-2 shadow-xl">
                 <div className="flex items-center space-x-2 text-[#1E2748]">
                   <Sparkles className="w-5 h-5 text-[#1E2748]" />
                   <h3 className="text-sm font-bold text-[#1E2748]">Gemini AI 12-Month Predictive Executive Summary</h3>
@@ -98,7 +98,7 @@ export const PredictiveAnalyticsPage = () => {
 
               {/* Stress Test KPI Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="p-4 bg-[#F6F2E3] text-[#1E2748]/60 rounded-2xl border border-[#1E2748]/15 space-y-1">
+                <div className="p-4 bg-[#F6F2E3] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 space-y-1">
                   <span className="text-[10px] font-bold text-[#1E2748] uppercase block">PROJECTED DEPOSITS (12M)</span>
                   <span className="text-xl font-black text-[#1E2748] font-mono">
                     ${(analytics.projectedDepositCurve[11] / 1000000).toFixed(2)}M
@@ -106,7 +106,7 @@ export const PredictiveAnalyticsPage = () => {
                   <span className="text-[10px] text-[#58b388] block font-bold">+18.0% Cumulative Growth</span>
                 </div>
 
-                <div className="p-4 bg-[#F6F2E3] text-[#1E2748]/60 rounded-2xl border border-[#1E2748]/15 space-y-1">
+                <div className="p-4 bg-[#F6F2E3] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 space-y-1">
                   <span className="text-[10px] font-bold text-[#1E2748] uppercase block">PROJECTED PORTFOLIO (12M)</span>
                   <span className="text-xl font-black text-[#1E2748] font-mono">
                     ${(analytics.projectedPortfolioCurve[11] / 1000000).toFixed(2)}M
@@ -114,15 +114,15 @@ export const PredictiveAnalyticsPage = () => {
                   <span className="text-[10px] text-[#58b388] block font-bold">+26.4% Expansion</span>
                 </div>
 
-                <div className="p-4 bg-[#F6F2E3] text-[#1E2748]/60 rounded-2xl border border-[#1E2748]/15 space-y-1">
+                <div className="p-4 bg-[#F6F2E3] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 space-y-1">
                   <span className="text-[10px] font-bold text-[#1E2748] uppercase block">PROBABILITY OF DEFAULT (PD)</span>
                   <span className="text-xl font-black text-amber-300 font-mono">
                     {analytics.stressTestMetrics.probabilityOfDefault}
                   </span>
-                  <span className="text-[10px] text-[#53627C] block font-medium">ECL Provision: ${analytics.stressTestMetrics.expectedCreditLossAmount.toLocaleString()}</span>
+                  <span className="text-[10px] text-[#1E2748] block font-medium">ECL Provision: ${analytics.stressTestMetrics.expectedCreditLossAmount.toLocaleString()}</span>
                 </div>
 
-                <div className="p-4 bg-[#F6F2E3] text-[#1E2748]/60 rounded-2xl border border-[#1E2748]/15 space-y-1">
+                <div className="p-4 bg-[#F6F2E3] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 space-y-1">
                   <span className="text-[10px] font-bold text-[#1E2748] uppercase block">TIER-1 CAPITAL ADEQUACY</span>
                   <span className="text-xl font-black text-[#58b388] font-mono">
                     {analytics.stressTestMetrics.tier1CapitalCoverage}
@@ -132,7 +132,7 @@ export const PredictiveAnalyticsPage = () => {
               </div>
 
               {/* 12-Month Predictive Monthly Trajectory Table */}
-              <div className="glass-panel p-5 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/60 space-y-4 shadow-xl">
+              <div className="glass-panel p-5 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] space-y-4 shadow-xl">
                 <h3 className="text-sm font-bold text-[#1E2748] flex items-center space-x-2">
                   <Activity className="w-4 h-4 text-[#1E2748]" />
                   <span>12-Month Projected Trajectory Breakdown ({scenario.toUpperCase()} Scenario)</span>
@@ -151,7 +151,7 @@ export const PredictiveAnalyticsPage = () => {
                     </thead>
                     <tbody className="divide-y divide-[#1E2748]/15">
                       {analytics.months.map((m, idx) => (
-                        <tr key={idx} className="hover:bg-[#F6F2E3] text-[#1E2748]/40 transition font-mono">
+                        <tr key={idx} className="hover:bg-[#F6F2E3] text-[#1E2748] transition font-mono">
                           <td className="py-3 px-3 font-bold text-[#1E2748] font-sans">{m}</td>
                           <td className="py-3 px-3 text-right font-extrabold text-[#1E2748]">
                             ${analytics.projectedDepositCurve[idx].toLocaleString()}

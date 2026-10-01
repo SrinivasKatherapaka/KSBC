@@ -281,7 +281,7 @@ export const AccountsPage = () => {
   const calcTotalDeposits = (accList) => accList.reduce((sum, a) => sum + Number(a.annual_revenue || 0), 0);
 
   return (
-    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -307,7 +307,7 @@ export const AccountsPage = () => {
 
               <button
                 onClick={() => setIsAuthModalOpen(true)}
-                className="px-4 py-2.5 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] text-xs font-bold rounded-xl border border-[#1E2748]/15 transition flex items-center space-x-2 shadow-lg"
+                className="px-4 py-2.5 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] text-xs font-bold rounded-xl border border-[#1E2748]/15 transition flex items-center space-x-2 shadow-lg"
               >
                 <KeyRound className="w-4 h-4 text-[#1E2748]" />
                 <span>Re-Verify Password Clearance</span>
@@ -318,8 +318,8 @@ export const AccountsPage = () => {
           {/* Authorization Status Banner */}
           <div className={`glass-panel p-4 rounded-2xl border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs ${
             canCreateAccount
-              ? 'border-[#58b388]/40 bg-[#F6F2E3] text-[#1E2748]/80 text-[#58b388]'
-              : 'border-amber-500/40 bg-[#F6F2E3] text-[#1E2748]/80 text-amber-300'
+              ? 'border-[#58b388]/40 bg-[#F6F2E3] text-[#1E2748] text-[#58b388]'
+              : 'border-amber-500/40 bg-[#F6F2E3] text-[#1E2748] text-amber-300'
           }`}>
             <div className="flex items-center space-x-3 font-bold">
               <ShieldCheck className="w-5 h-5 flex-shrink-0 text-[#1E2748]" />
@@ -329,14 +329,14 @@ export const AccountsPage = () => {
                     ? '🔐 Executive Intake Clearance Authenticated: CFO, Compliance & Admin Account Creation Unlocked'
                     : '👁️ Read-Only Operational View: Creating / Modifying Accounts Requires CFO, Compliance or Admin Clearance'}
                 </span>
-                <p className="text-[11px] text-[#53627C] font-normal mt-0.5">
+                <p className="text-[11px] text-[#1E2748] font-normal mt-0.5">
                   Active Persona: <strong className="text-[#1E2748]">{user?.first_name} {user?.last_name}</strong> ({user?.email}) — Role: <span className="uppercase text-[#1E2748]">{user?.role}</span>
                 </p>
               </div>
             </div>
 
             <div className="font-mono text-xs text-right">
-              <span className="text-[10px] text-[#53627C] block font-sans">TOTAL DEPOSITS IN DATABASE</span>
+              <span className="text-[10px] text-[#1E2748] block font-sans">TOTAL DEPOSITS IN DATABASE</span>
               <span className="font-extrabold text-[#1E2748] text-base">${calcTotalDeposits(customers).toLocaleString()}</span>
             </div>
           </div>
@@ -357,7 +357,7 @@ export const AccountsPage = () => {
           <ErrorAlert message={error} onClose={() => setError('')} />
 
           {/* Category Filter & Search Bar */}
-          <div className="glass-panel p-3.5 rounded-2xl border border-[#1E2748]/15 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-[#F6F2E3] text-[#1E2748]/60">
+          <div className="glass-panel p-3.5 rounded-2xl border border-[#1E2748]/15 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-[#F6F2E3] text-[#1E2748]">
             <div className="flex space-x-2 font-mono text-xs overflow-x-auto">
               {[
                 { id: 'ALL', label: `All Accounts (${customers.length})` },
@@ -370,8 +370,8 @@ export const AccountsPage = () => {
                   onClick={() => setCategoryFilter(f.id)}
                   className={`px-3.5 py-2 rounded-xl font-semibold transition text-xs flex-shrink-0 ${
                     categoryFilter === f.id
-                      ? 'bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border border-[#1E2748]/15 shadow-md font-bold'
-                      : 'bg-[#F6F2E3] text-[#1E2748]/60 text-[#53627C] hover:text-[#1E2748] border border-[#1E2748]/15'
+                      ? 'bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15 shadow-md font-bold'
+                      : 'bg-[#F6F2E3] text-[#1E2748] hover:text-[#1E2748] border border-[#1E2748]/15'
                   }`}
                 >
                   {f.label}
@@ -411,7 +411,7 @@ export const AccountsPage = () => {
                 </button>
                 <button
                   onClick={() => setSelectedIds([])}
-                  className="px-3 py-1.5 bg-[#F6F2E3] text-[#1E2748] text-[#53627C] hover:text-[#1E2748] rounded-xl font-semibold"
+                  className="px-3 py-1.5 bg-[#F6F2E3] text-[#1E2748] hover:text-[#1E2748] rounded-xl font-semibold"
                 >
                   Deselect All
                 </button>
@@ -423,7 +423,7 @@ export const AccountsPage = () => {
           {loading ? (
             <LoadingSpinner text="Retrieving authenticated master accounts database..." />
           ) : (
-            <div className="glass-panel rounded-2xl border border-[#1E2748]/15 overflow-hidden p-5 space-y-4 bg-[#F6F2E3] text-[#1E2748]/60 shadow-xl">
+            <div className="glass-panel rounded-2xl border border-[#1E2748]/15 overflow-hidden p-5 space-y-4 bg-[#F6F2E3] text-[#1E2748] shadow-xl">
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
                   <thead>
@@ -460,7 +460,7 @@ export const AccountsPage = () => {
                         <tr
                           key={c.id}
                           onClick={() => { setViewingCustomer(c); navigate(`/accounts/${c.id}`); }}
-                          className={`transition cursor-pointer ${isSelected ? 'bg-[#F6F2E3] text-[#1E2748]/90' : 'hover:bg-[#F6F2E3] text-[#1E2748]/70 hover:shadow-inner'}`}
+                          className={`transition cursor-pointer ${isSelected ? 'bg-[#F6F2E3] text-[#1E2748]/90' : 'hover:bg-[#F6F2E3] text-[#1E2748] hover:shadow-inner'}`}
                           title="Click row to view detailed customer account information"
                         >
                           {/* Selection Checkbox Cell */}
@@ -472,7 +472,7 @@ export const AccountsPage = () => {
                               {isSelected ? (
                                 <CheckSquare className="w-4 h-4 text-[#1E2748]" />
                               ) : (
-                                <Square className="w-4 h-4 text-[#53627C]" />
+                                <Square className="w-4 h-4 text-[#1E2748]" />
                               )}
                             </button>
                           </td>
@@ -501,12 +501,12 @@ export const AccountsPage = () => {
                           </td>
 
                           {/* Account Type */}
-                          <td className="py-3.5 px-4 text-[#53627C] font-medium">
+                          <td className="py-3.5 px-4 text-[#1E2748] font-medium">
                             {c.account_type || (isHnwi ? 'Private High-Net-Worth Reserve' : isCorporate ? 'Corporate Treasury Checking' : 'Private Standard Savings')}
                           </td>
 
                           {/* SSN / EIN (Displays last 4 digits, rest masked under *) */}
-                          <td className="py-3.5 px-4 font-mono text-[#53627C]">
+                          <td className="py-3.5 px-4 font-mono text-[#1E2748]">
                             {isUnlocked
                               ? (c.national_id || 'US-SSN-648-92-9918')
                               : (c.national_id && c.national_id.length >= 4
@@ -526,7 +526,7 @@ export const AccountsPage = () => {
                                 ? 'bg-[#58b388]/20 text-[#58b388] border-[#58b388]/40'
                                 : c.kyc_status === 'flagged'
                                 ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
-                                : 'bg-[#F6F2E3] text-[#1E2748] text-[#53627C] border-[#1E2748]/15'
+                                : 'bg-[#F6F2E3] text-[#1E2748] border-[#1E2748]/15'
                             }`}>
                               {c.kyc_status}
                             </span>
@@ -537,7 +537,7 @@ export const AccountsPage = () => {
                             <div className="flex items-center justify-center space-x-1.5">
                               <button
                                 onClick={() => { setViewingCustomer(c); navigate(`/accounts/${c.id}`); }}
-                                className="px-2.5 py-1 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] hover:text-[#1E2748] border border-[#1E2748]/15 rounded-lg text-[10px] font-bold transition flex items-center space-x-1 shadow"
+                                className="px-2.5 py-1 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] hover:text-[#1E2748] border border-[#1E2748]/15 rounded-lg text-[10px] font-bold transition flex items-center space-x-1 shadow"
                                 title="View Detailed Account Information"
                               >
                                 <Eye className="w-3 h-3 text-[#1E2748]" />
@@ -545,7 +545,7 @@ export const AccountsPage = () => {
                               </button>
                               <button
                                 onClick={() => handleOpenEdit(c)}
-                                className="px-2.5 py-1 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border border-[#1E2748]/15 rounded-lg text-[10px] font-bold transition flex items-center space-x-1 shadow"
+                                className="px-2.5 py-1 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15 rounded-lg text-[10px] font-bold transition flex items-center space-x-1 shadow"
                                 title="Modify Account Details (CFO / Admin Only)"
                               >
                                 <Edit className="w-3 h-3 text-[#1E2748]" />
@@ -578,7 +578,7 @@ export const AccountsPage = () => {
           <div className="glass-panel w-full max-w-2xl p-6 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-3 border-b border-[#1E2748]/15">
               <div className="flex items-center space-x-2">
-                <div className="p-2 bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
+                <div className="p-2 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
                   <UserPlus className="w-5 h-5 text-[#1E2748]" />
                 </div>
                 <div>
@@ -586,7 +586,7 @@ export const AccountsPage = () => {
                   <p className="text-[11px] text-[#1E2748]">CFO, Compliance & Admin Executive Intake Clearance</p>
                 </div>
               </div>
-              <button onClick={() => setIsCreateModalOpen(false)} className="text-[#53627C] hover:text-[#1E2748]">
+              <button onClick={() => setIsCreateModalOpen(false)} className="text-[#1E2748] hover:text-[#1E2748]">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -720,7 +720,7 @@ export const AccountsPage = () => {
                 <button
                   type="button"
                   onClick={() => setIsCreateModalOpen(false)}
-                  className="px-4 py-2 bg-[#F6F2E3] text-[#1E2748] text-[#53627C] rounded-xl font-semibold hover:bg-[#F6F2E3] text-[#1E2748]"
+                  className="px-4 py-2 bg-[#F6F2E3] text-[#1E2748] rounded-xl font-semibold hover:bg-[#F6F2E3] text-[#1E2748]"
                 >
                   Cancel
                 </button>
@@ -743,7 +743,7 @@ export const AccountsPage = () => {
           <div className="glass-panel w-full max-w-lg p-6 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] shadow-2xl space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-[#1E2748]/15">
               <div className="flex items-center space-x-2">
-                <div className="p-2 bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
+                <div className="p-2 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
                   <Edit className="w-5 h-5 text-[#1E2748]" />
                 </div>
                 <div>
@@ -751,7 +751,7 @@ export const AccountsPage = () => {
                   <p className="text-[11px] text-[#1E2748]">CFO & System Admin Executive Modification Clearance</p>
                 </div>
               </div>
-              <button onClick={() => setEditingCustomer(null)} className="text-[#53627C] hover:text-[#1E2748]">
+              <button onClick={() => setEditingCustomer(null)} className="text-[#1E2748] hover:text-[#1E2748]">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -823,7 +823,7 @@ export const AccountsPage = () => {
                 <button
                   type="button"
                   onClick={() => setEditingCustomer(null)}
-                  className="px-4 py-2 bg-[#F6F2E3] text-[#1E2748] text-[#53627C] rounded-xl font-semibold hover:bg-[#F6F2E3] text-[#1E2748]"
+                  className="px-4 py-2 bg-[#F6F2E3] text-[#1E2748] rounded-xl font-semibold hover:bg-[#F6F2E3] text-[#1E2748]"
                 >
                   Cancel
                 </button>
@@ -862,7 +862,7 @@ export const AccountsPage = () => {
               <button
                 type="button"
                 onClick={() => setDeletingCustomer(null)}
-                className="px-4 py-2 bg-[#F6F2E3] text-[#1E2748] text-[#53627C] rounded-xl font-semibold"
+                className="px-4 py-2 bg-[#F6F2E3] text-[#1E2748] rounded-xl font-semibold"
               >
                 Cancel
               </button>
@@ -893,7 +893,7 @@ export const AccountsPage = () => {
               </div>
             </div>
 
-            <p className="text-xs text-[#53627C] leading-relaxed">{accessDeniedMsg}</p>
+            <p className="text-xs text-[#1E2748] leading-relaxed">{accessDeniedMsg}</p>
 
             <div className="p-3 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15 text-xs space-y-1">
               <span className="text-[10px] text-[#1E2748] font-bold uppercase block">Authorized Clearance Personas:</span>
@@ -905,7 +905,7 @@ export const AccountsPage = () => {
             <div className="pt-2 flex justify-end space-x-2">
               <button
                 onClick={() => { setAccessDeniedMsg(''); setIsAuthModalOpen(true); }}
-                className="px-4 py-2 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] font-bold rounded-xl text-xs border border-[#1E2748]/15"
+                className="px-4 py-2 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] font-bold rounded-xl text-xs border border-[#1E2748]/15"
               >
                 Switch Credentials Persona
               </button>

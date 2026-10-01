@@ -119,7 +119,7 @@ export const ProcurementPage = () => {
   });
 
   return (
-    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -165,15 +165,15 @@ export const ProcurementPage = () => {
 
           {/* Executive Metrics Bar */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="p-4 bg-[#F6F2E3] text-[#1E2748]/60 rounded-2xl border border-[#1E2748]/15 space-y-1">
+            <div className="p-4 bg-[#F6F2E3] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 space-y-1">
               <span className="text-[10px] font-bold text-[#1E2748] uppercase block">TOTAL ISSUED POs VALUE</span>
               <span className="text-xl font-black text-[#1E2748] font-mono">
                 ${totalIssuedValue.toLocaleString('en-US', { minimumFractionDigits: 2 })}
               </span>
-              <span className="text-[10px] text-[#53627C] block font-medium">{purchaseOrders.length} Commercial Purchase Orders</span>
+              <span className="text-[10px] text-[#1E2748] block font-medium">{purchaseOrders.length} Commercial Purchase Orders</span>
             </div>
 
-            <div className="p-4 bg-[#F6F2E3] text-[#1E2748]/80 rounded-2xl border border-[#1E2748]/15 space-y-1 shadow-lg">
+            <div className="p-4 bg-[#F6F2E3] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 space-y-1 shadow-lg">
               <span className="text-[10px] font-bold text-[#1E2748] uppercase block flex items-center space-x-1">
                 <Clock className="w-3 h-3 text-[#1E2748]" />
                 <span>PENDING PAYMENTS DUE</span>
@@ -181,10 +181,10 @@ export const ProcurementPage = () => {
               <span className="text-xl font-black text-[#1E2748] font-mono">
                 ${pendingPaymentsDue.toLocaleString('en-US', { minimumFractionDigits: 2 })}
               </span>
-              <span className="text-[10px] text-[#1E2748]/80 block font-bold">Vendor Liabilities Active</span>
+              <span className="text-[10px] text-[#1E2748] block font-bold">Vendor Liabilities Active</span>
             </div>
 
-            <div className="p-4 bg-[#F6F2E3] text-[#1E2748]/60 rounded-2xl border border-[#1E2748]/15 space-y-1">
+            <div className="p-4 bg-[#F6F2E3] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 space-y-1">
               <span className="text-[10px] font-bold text-[#1E2748] uppercase block">APPROVED BANKING VENDORS</span>
               <span className="text-xl font-black text-[#58b388] font-mono">
                 {vendors.length} Vendors
@@ -192,12 +192,12 @@ export const ProcurementPage = () => {
               <span className="text-[10px] text-[#58b388] block font-bold">100% Tax & BSA Cleared</span>
             </div>
 
-            <div className="p-4 bg-[#F6F2E3] text-[#1E2748]/60 rounded-2xl border border-[#1E2748]/15 space-y-1">
+            <div className="p-4 bg-[#F6F2E3] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 space-y-1">
               <span className="text-[10px] font-bold text-[#1E2748] uppercase block">TOTAL PAID TO DATE</span>
               <span className="text-xl font-black text-[#58b388] font-mono">
                 ${totalPaidToDate.toLocaleString('en-US', { minimumFractionDigits: 2 })}
               </span>
-              <span className="text-[10px] text-[#53627C] block font-medium">Reconciled in Vault Cash</span>
+              <span className="text-[10px] text-[#1E2748] block font-medium">Reconciled in Vault Cash</span>
             </div>
           </div>
 
@@ -206,7 +206,7 @@ export const ProcurementPage = () => {
           ) : (
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Approved Vendors Panel */}
-              <div className="glass-panel p-5 rounded-2xl border border-[#1E2748]/15 space-y-4 bg-[#F6F2E3] text-[#1E2748]/60 shadow-xl">
+              <div className="glass-panel p-5 rounded-2xl border border-[#1E2748]/15 space-y-4 bg-[#F6F2E3] text-[#1E2748] shadow-xl">
                 <h3 className="text-sm font-bold text-[#1E2748] flex items-center space-x-2">
                   <Building2 className="w-4 h-4 text-[#1E2748]" />
                   <span>Approved Banking Vendors ({vendors.length})</span>
@@ -221,7 +221,7 @@ export const ProcurementPage = () => {
                           Approved
                         </span>
                       </div>
-                      <p className="text-[10px] text-[#53627C] font-mono">Tax ID: {v.tax_id}</p>
+                      <p className="text-[10px] text-[#1E2748] font-mono">Tax ID: {v.tax_id}</p>
                       <p className="text-[11px] text-[#1E2748]">{v.contact_email}</p>
                     </div>
                   ))}
@@ -229,7 +229,7 @@ export const ProcurementPage = () => {
               </div>
 
               {/* Purchase Orders & Payments Due Main Hub */}
-              <div className="lg:col-span-2 glass-panel p-6 rounded-2xl border border-[#1E2748]/15 space-y-4 bg-[#F6F2E3] text-[#1E2748]/60 shadow-xl">
+              <div className="lg:col-span-2 glass-panel p-6 rounded-2xl border border-[#1E2748]/15 space-y-4 bg-[#F6F2E3] text-[#1E2748] shadow-xl">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#1E2748]/15 pb-3">
                   <h3 className="text-sm font-bold text-[#1E2748] flex items-center space-x-2">
                     <CreditCard className="w-4 h-4 text-[#1E2748]" />
@@ -249,8 +249,8 @@ export const ProcurementPage = () => {
                         onClick={() => setActiveTab(t.id)}
                         className={`px-2.5 py-1 rounded-lg font-bold transition ${
                           activeTab === t.id
-                            ? 'bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border border-[#1E2748]/15 shadow'
-                            : 'text-[#53627C] hover:text-[#1E2748]'
+                            ? 'bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15 shadow'
+                            : 'text-[#1E2748] hover:text-[#1E2748]'
                         }`}
                       >
                         {t.label}
@@ -260,7 +260,7 @@ export const ProcurementPage = () => {
                 </div>
 
                 {filteredOrders.length === 0 ? (
-                  <div className="p-8 text-center text-[#53627C] text-xs">
+                  <div className="p-8 text-center text-[#1E2748] text-xs">
                     No purchase orders matching selected status.
                   </div>
                 ) : (
@@ -284,13 +284,13 @@ export const ProcurementPage = () => {
                           const isProcessing = processingPoId === po.id;
 
                           return (
-                            <tr key={po.id} className="hover:bg-[#F6F2E3] text-[#1E2748]/40 transition">
+                            <tr key={po.id} className="hover:bg-[#F6F2E3] text-[#1E2748] transition">
                               <td className="py-3.5 px-3 font-mono font-bold text-[#1E2748]">
                                 {po.po_number || `PO-${po.id.slice(0, 8)}`}
                               </td>
                               <td className="py-3.5 px-3 space-y-0.5">
                                 <span className="font-bold text-[#1E2748] block">{vendorName}</span>
-                                <span className="text-[11px] text-[#53627C] block">{po.description}</span>
+                                <span className="text-[11px] text-[#1E2748] block">{po.description}</span>
                               </td>
                               <td className="py-3.5 px-3 text-right font-mono font-extrabold text-[#1E2748]">
                                 ${Number(po.amount || 0).toLocaleString('en-US', { minimumFractionDigits: 2 })}
@@ -328,7 +328,7 @@ export const ProcurementPage = () => {
                                     {isProcessing ? 'Processing...' : 'Process Payment'}
                                   </button>
                                 ) : (
-                                  <span className="text-[10px] text-[#53627C]">Pending CFO</span>
+                                  <span className="text-[10px] text-[#1E2748]">Pending CFO</span>
                                 )}
                               </td>
                             </tr>
@@ -350,7 +350,7 @@ export const ProcurementPage = () => {
           <div className="glass-panel w-full max-w-lg p-6 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] shadow-2xl space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-[#1E2748]/15">
               <div className="flex items-center space-x-2">
-                <div className="p-2 bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
+                <div className="p-2 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15">
                   <ShoppingBag className="w-5 h-5 text-[#1E2748]" />
                 </div>
                 <div>
@@ -358,7 +358,7 @@ export const ProcurementPage = () => {
                   <p className="text-[11px] text-[#1E2748]">Procurement & Expense General Ledger Posting</p>
                 </div>
               </div>
-              <button onClick={() => setIsPoModalOpen(false)} className="text-[#53627C] hover:text-[#1E2748]">
+              <button onClick={() => setIsPoModalOpen(false)} className="text-[#1E2748] hover:text-[#1E2748]">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -404,7 +404,7 @@ export const ProcurementPage = () => {
                 <button
                   type="button"
                   onClick={() => setIsPoModalOpen(false)}
-                  className="px-4 py-2 bg-[#F6F2E3] text-[#1E2748] text-[#53627C] rounded-xl font-semibold hover:bg-[#F6F2E3] text-[#1E2748]"
+                  className="px-4 py-2 bg-[#F6F2E3] text-[#1E2748] rounded-xl font-semibold hover:bg-[#F6F2E3] text-[#1E2748]"
                 >
                   Cancel
                 </button>

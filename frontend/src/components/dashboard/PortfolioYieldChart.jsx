@@ -68,7 +68,7 @@ export const PortfolioYieldChart = ({
             <TrendingUp className="w-5 h-5 text-[#1E2748]" />
             <span>Commercial Loan Portfolio Yield & Asset Trajectory</span>
           </h3>
-          <p className="text-xs text-[#53627C] font-medium">
+          <p className="text-xs text-[#1E2748] font-semibold">
             Live accrued interest & balance sheet capital growth ({effectiveCount} Master Accounts)
           </p>
         </div>
@@ -160,7 +160,7 @@ export const PortfolioYieldChart = ({
                   y={viewBoxHeight - 5}
                   textAnchor="middle"
                   className={`text-[11px] font-mono font-bold transition ${
-                    isHovered ? 'fill-[#1E2748]' : 'fill-[#53627C]'
+                    isHovered ? 'fill-[#1E2748]' : 'fill-[#1E2748]'
                   }`}
                 >
                   {months[idx]}
@@ -191,28 +191,28 @@ export const PortfolioYieldChart = ({
       {/* Live Financial Metrics Bar */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 border-t border-[#1E2748]/15 text-xs">
         <div className="p-3 bg-[#EBE4CD] rounded-xl border border-[#1E2748]/15">
-          <span className="text-[#53627C] block text-[10px] font-bold uppercase">TOTAL DISBURSED PORTFOLIO</span>
+          <span className="text-[#1E2748] block text-[10px] font-bold uppercase">TOTAL DISBURSED PORTFOLIO</span>
           <span className="text-base font-extrabold text-[#1E2748] font-mono">${effectivePortfolio.toLocaleString()}</span>
         </div>
 
         <div className="p-3 bg-[#EBE4CD] rounded-xl border border-[#1E2748]/15">
-          <span className="text-[#53627C] block text-[10px] font-bold uppercase">MONTHLY INTEREST REVENUE</span>
+          <span className="text-[#1E2748] block text-[10px] font-bold uppercase">MONTHLY INTEREST REVENUE</span>
           <span className="text-base font-extrabold text-emerald-800 font-mono">
-            ${monthlyRevenue.toLocaleString()} <span className="text-[10px] text-[#53627C]">/ mo</span>
+            ${monthlyRevenue.toLocaleString()} <span className="text-[10px] text-[#1E2748]">/ mo</span>
           </span>
         </div>
 
         <div className="p-3 bg-[#EBE4CD] rounded-xl border border-[#1E2748]/15">
-          <span className="text-[#53627C] block text-[10px] font-bold uppercase">MASTER CUSTOMER DEPOSITS</span>
+          <span className="text-[#1E2748] block text-[10px] font-bold uppercase">MASTER CUSTOMER DEPOSITS</span>
           <span className="text-base font-extrabold text-[#1E2748] font-mono">
             ${effectiveDeposits.toLocaleString()}
           </span>
         </div>
 
         <div className="p-3 bg-[#EBE4CD] rounded-xl border border-[#1E2748]/15">
-          <span className="text-[#53627C] block text-[10px] font-bold uppercase">LIVE ACCOUNTS & YIELD</span>
+          <span className="text-[#1E2748] block text-[10px] font-bold uppercase">LIVE ACCOUNTS & YIELD</span>
           <span className="text-base font-extrabold text-[#1E2748] font-mono">
-            {effectiveCount} <span className="text-xs text-[#53627C] font-semibold">Accounts ({yieldPercentage}% APR)</span>
+            {effectiveCount} <span className="text-xs text-[#1E2748] font-bold">Accounts ({yieldPercentage}% APR)</span>
           </span>
         </div>
       </div>

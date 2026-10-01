@@ -40,7 +40,7 @@ export const LoginPage = () => {
         {/* KSBC Header Branding with Single-Unit Temple Logo */}
         <div className="text-center mb-8 flex flex-col items-center space-y-3">
           <FlyingMatLogo size="xl" />
-          <p className="text-xs text-[#53627C] uppercase tracking-widest font-black font-archivo">Enterprise Banking ERP</p>
+          <p className="text-xs text-[#1E2748] uppercase tracking-widest font-black font-archivo">Enterprise Banking ERP</p>
         </div>
 
         <div className="glass-panel p-8 rounded-3xl border border-[#1E2748]/15 shadow-2xl space-y-6 bg-[#F3EEDC]/95">
@@ -62,7 +62,7 @@ export const LoginPage = () => {
                 Corporate Email Address
               </label>
               <div className="relative">
-                <Mail className="absolute left-3.5 top-3.5 w-4 h-4 text-[#53627C]" />
+                <Mail className="absolute left-3.5 top-3.5 w-4 h-4 text-[#1E2748]" />
                 <input
                   type="email"
                   value={email}
@@ -79,7 +79,7 @@ export const LoginPage = () => {
                 Security Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3.5 top-3.5 w-4 h-4 text-[#53627C]" />
+                <Lock className="absolute left-3.5 top-3.5 w-4 h-4 text-[#1E2748]" />
                 <input
                   type="password"
                   value={password}
@@ -103,7 +103,7 @@ export const LoginPage = () => {
 
           {/* Preset Persona Quick Fill */}
           <div className="pt-4 border-t border-[#1E2748]/15">
-            <span className="block text-[10px] font-archivo font-extrabold text-[#53627C] uppercase tracking-wider mb-2">
+            <span className="block text-[10px] font-archivo font-extrabold text-[#1E2748] uppercase tracking-wider mb-2">
               Select Demo Clearance Persona:
             </span>
             <div className="grid grid-cols-2 gap-2 text-[11px]">
@@ -113,7 +113,7 @@ export const LoginPage = () => {
                 className="p-2 text-left rounded-lg bg-[#EBE4CD] hover:bg-[#E3DCBF] border border-[#1E2748]/15 text-[#1E2748] transition"
               >
                 <div className="font-bold text-[#1E2748]">👔 CFO Executive</div>
-                <div className="text-[9px] text-[#53627C]">cfo@banking.com</div>
+                <div className="text-[9px] text-[#1E2748]">cfo@banking.com</div>
               </button>
               <button 
                 type="button" 
@@ -121,7 +121,7 @@ export const LoginPage = () => {
                 className="p-2 text-left rounded-lg bg-[#EBE4CD] hover:bg-[#E3DCBF] border border-[#1E2748]/15 text-[#1E2748] transition"
               >
                 <div className="font-bold text-[#1E2748]">📋 Loan Officer</div>
-                <div className="text-[9px] text-[#53627C]">loan@banking.com</div>
+                <div className="text-[9px] text-[#1E2748]">loan@banking.com</div>
               </button>
               <button 
                 type="button" 
@@ -129,7 +129,7 @@ export const LoginPage = () => {
                 className="p-2 text-left rounded-lg bg-[#EBE4CD] hover:bg-[#E3DCBF] border border-[#1E2748]/15 text-[#1E2748] transition"
               >
                 <div className="font-bold text-[#1E2748]">🏛️ Treasury Manager</div>
-                <div className="text-[9px] text-[#53627C]">treasury@banking.com</div>
+                <div className="text-[9px] text-[#1E2748]">treasury@banking.com</div>
               </button>
               <button 
                 type="button" 
@@ -137,7 +137,7 @@ export const LoginPage = () => {
                 className="p-2 text-left rounded-lg bg-[#EBE4CD] hover:bg-[#E3DCBF] border border-[#1E2748]/15 text-[#1E2748] transition"
               >
                 <div className="font-bold text-[#1E2748]">🛡️ Compliance Officer</div>
-                <div className="text-[9px] text-[#53627C]">compliance@banking.com</div>
+                <div className="text-[9px] text-[#1E2748]">compliance@banking.com</div>
               </button>
               <button 
                 type="button" 
@@ -145,7 +145,7 @@ export const LoginPage = () => {
                 className="p-2 text-left rounded-lg bg-[#EBE4CD] hover:bg-[#E3DCBF] border border-[#1E2748]/15 text-[#1E2748] transition"
               >
                 <div className="font-bold text-[#1E2748]">👥 Customer Ops</div>
-                <div className="text-[9px] text-[#53627C]">customerops@banking.com</div>
+                <div className="text-[9px] text-[#1E2748]">customerops@banking.com</div>
               </button>
               <button 
                 type="button" 
@@ -153,7 +153,7 @@ export const LoginPage = () => {
                 className="p-2 text-left rounded-lg bg-[#EBE4CD] hover:bg-[#E3DCBF] border border-[#1E2748]/15 text-[#1E2748] transition"
               >
                 <div className="font-bold text-[#1E2748]">📊 Finance Manager</div>
-                <div className="text-[9px] text-[#53627C]">finance@banking.com</div>
+                <div className="text-[9px] text-[#1E2748]">finance@banking.com</div>
               </button>
             </div>
           </div>

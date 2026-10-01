@@ -137,7 +137,7 @@ export const DashboardPage = () => {
                   {user?.role?.replace('_', ' ')}
                 </span>
               </div>
-              <p className="text-xs md:text-sm text-[#53627C] font-medium">Unified Real-Time KSBC Banking Operations & AI Intelligence Hub</p>
+              <p className="text-xs md:text-sm text-[#1E2748] font-semibold">Unified Real-Time KSBC Banking Operations & AI Intelligence Hub</p>
             </div>
 
             <div className="flex items-center space-x-3">
@@ -164,7 +164,7 @@ export const DashboardPage = () => {
                     className={`flex items-center space-x-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
                       isActive
                         ? 'bg-[#1E2748] text-[#FAF7E6] shadow-md font-extrabold'
-                        : 'bg-[#EBE4CD] hover:bg-[#E3DCBF] text-[#53627C] hover:text-[#1E2748] border border-[#1E2748]/10'
+                        : 'bg-[#EBE4CD] hover:bg-[#E3DCBF] text-[#1E2748] hover:text-[#1E2748] border border-[#1E2748]/10'
                     }`}
                   >
                     <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#C59E5F]' : 'text-[#1E2748]'}`} />
@@ -289,29 +289,29 @@ export const DashboardPage = () => {
                     >
                       Commercial Loan Pipeline
                     </h3>
-                    <p className="text-xs text-[#53627C] mb-4 font-medium">Active KSBC applications by status ({loans.length} total)</p>
+                    <p className="text-xs text-[#1E2748] mb-4 font-semibold">Active KSBC applications by status ({loans.length} total)</p>
                     
                     <div className="space-y-2.5 text-xs">
                       <div className="p-2.5 bg-[#EBE4CD] rounded-xl border border-[#1E2748]/15 flex justify-between items-center">
-                        <span className="text-[#53627C] font-semibold">Applied (Draft)</span>
+                        <span className="text-[#1E2748] font-semibold">Applied (Draft)</span>
                         <span className="font-bold text-[#1E2748] font-mono">
                           {loans.filter(l => l.status === 'draft').length} Loans
                         </span>
                       </div>
                       <div className="p-2.5 bg-[#EBE4CD] rounded-xl border border-[#1E2748]/15 flex justify-between items-center">
-                        <span className="text-[#53627C] font-semibold">In Process (Compliance / Risk)</span>
+                        <span className="text-[#1E2748] font-semibold">In Process (Compliance / Risk)</span>
                         <span className="font-bold text-[#1E2748] font-mono">
                           {loans.filter(l => l.status === 'underwriting' || l.status === 'compliance_review').length} Loans
                         </span>
                       </div>
                       <div className="p-2.5 bg-[#EBE4CD] rounded-xl border border-[#1E2748]/15 flex justify-between items-center">
-                        <span className="text-[#53627C] font-semibold">Approved (Awaiting Payout)</span>
+                        <span className="text-[#1E2748] font-semibold">Approved (Awaiting Payout)</span>
                         <span className="font-bold text-[#1E2748] font-mono">
                           {loans.filter(l => l.status === 'approved').length} Loans
                         </span>
                       </div>
                       <div className="p-2.5 bg-[#EBE4CD] rounded-xl border border-[#1E2748]/15 flex justify-between items-center">
-                        <span className="text-[#53627C] font-semibold">Disbursed to Portfolio</span>
+                        <span className="text-[#1E2748] font-semibold">Disbursed to Portfolio</span>
                         <span className="font-bold text-emerald-800 font-mono">
                           {loans.filter(l => l.status === 'disbursed').length} Loans
                         </span>

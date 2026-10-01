@@ -133,7 +133,7 @@ export const FraudDetectionPage = () => {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h1 className="text-2xl font-extrabold text-[#1E2748] font-heading">AI Fraud Detection & AML Security Sentinel</h1>
-              <p className="text-xs text-[#53627C]">Real-Time Gemini 2.5 Anomaly Scoring & Anti-Money Laundering (AML) Threat Matrix</p>
+              <p className="text-xs text-[#1E2748]">Real-Time Gemini 2.5 Anomaly Scoring & Anti-Money Laundering (AML) Threat Matrix</p>
             </div>
             <div className="flex items-center space-x-2 px-3.5 py-1.5 bg-red-500/10 border border-red-500/30 rounded-full text-xs text-red-700 font-bold shadow-sm">
               <ShieldAlert className="w-4 h-4 text-red-600 animate-pulse" />
@@ -148,7 +148,7 @@ export const FraudDetectionPage = () => {
               className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2 border ${
                 activeTab === 'threat_feed'
                   ? 'bg-[#1E2748] text-[#FAF7E6] border-[#1E2748] shadow-md font-extrabold'
-                  : 'bg-[#F3EEDC] text-[#53627C] border-[#1E2748]/15 hover:bg-[#EBE4CD]'
+                  : 'bg-[#F3EEDC] text-[#1E2748] border-[#1E2748]/15 hover:bg-[#EBE4CD]'
               }`}
             >
               <Activity className="w-4 h-4 text-[#C59E5F]" />
@@ -160,7 +160,7 @@ export const FraudDetectionPage = () => {
               className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2 border ${
                 activeTab === 'simulator'
                   ? 'bg-[#1E2748] text-[#FAF7E6] border-[#1E2748] shadow-md font-extrabold'
-                  : 'bg-[#F3EEDC] text-[#53627C] border-[#1E2748]/15 hover:bg-[#EBE4CD]'
+                  : 'bg-[#F3EEDC] text-[#1E2748] border-[#1E2748]/15 hover:bg-[#EBE4CD]'
               }`}
             >
               <Zap className="w-4 h-4 text-[#C59E5F]" />
@@ -172,7 +172,7 @@ export const FraudDetectionPage = () => {
               className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2 border ${
                 activeTab === 'sar_generator'
                   ? 'bg-[#1E2748] text-[#FAF7E6] border-[#1E2748] shadow-md font-extrabold'
-                  : 'bg-[#F3EEDC] text-[#53627C] border-[#1E2748]/15 hover:bg-[#EBE4CD]'
+                  : 'bg-[#F3EEDC] text-[#1E2748] border-[#1E2748]/15 hover:bg-[#EBE4CD]'
               }`}
             >
               <FileText className="w-4 h-4 text-[#C59E5F]" />
@@ -204,7 +204,7 @@ export const FraudDetectionPage = () => {
                             <div className="flex justify-between items-start">
                               <div>
                                 <h4 className="font-bold text-[#1E2748] text-sm">{tx.accountHolder}</h4>
-                                <span className="text-[10px] font-mono text-[#53627C]">
+                                <span className="text-[10px] font-mono text-[#1E2748]">
                                   {tx.accountNumber} | {tx.transactionType}
                                 </span>
                               </div>
@@ -222,15 +222,15 @@ export const FraudDetectionPage = () => {
 
                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs font-mono p-2.5 bg-[#EBE4CD] rounded-lg">
                               <div>
-                                <span className="text-[9px] text-[#53627C] font-sans block font-bold">AMOUNT</span>
+                                <span className="text-[9px] text-[#1E2748] font-sans block font-bold">AMOUNT</span>
                                 <span className="font-extrabold text-red-600">${Number(tx.amount).toLocaleString()}</span>
                               </div>
                               <div>
-                                <span className="text-[9px] text-[#53627C] font-sans block font-bold">LOCATION & IP</span>
+                                <span className="text-[9px] text-[#1E2748] font-sans block font-bold">LOCATION & IP</span>
                                 <span className="font-bold text-[#1E2748] text-[11px] truncate block">{tx.location}</span>
                               </div>
                               <div>
-                                <span className="text-[9px] text-[#53627C] font-sans block font-bold">FRAUD SCORE</span>
+                                <span className="text-[9px] text-[#1E2748] font-sans block font-bold">FRAUD SCORE</span>
                                 <span className="font-extrabold text-[#1E2748]">{tx.fraudScore}/100</span>
                               </div>
                             </div>
@@ -291,7 +291,7 @@ export const FraudDetectionPage = () => {
                         </div>
 
                         <div className="p-3.5 bg-[#FAF7E6] rounded-xl border border-[#1E2748]/15 text-xs font-mono space-y-1">
-                          <span className="text-[#53627C] font-sans text-[10px] block font-bold">TRANSACTION AUDIT VERDICT</span>
+                          <span className="text-[#1E2748] font-sans text-[10px] block font-bold">TRANSACTION AUDIT VERDICT</span>
                           <span className="font-bold text-[#1E2748] text-sm block">{analysisResult.transactionId}</span>
                           <span className="text-red-600 block font-bold">Risk Tag: {analysisResult.riskTag}</span>
                         </div>
@@ -306,7 +306,7 @@ export const FraudDetectionPage = () => {
                           ))}
                         </div>
 
-                        <div className="p-3.5 bg-[#FAF7E6] rounded-xl border border-[#1E2748]/15 text-xs italic text-[#53627C] space-y-1">
+                        <div className="p-3.5 bg-[#FAF7E6] rounded-xl border border-[#1E2748]/15 text-xs italic text-[#1E2748] space-y-1">
                           <span className="font-bold text-[#1E2748] not-italic block flex items-center space-x-1.5">
                             <Sparkles className="w-3.5 h-3.5 text-[#C59E5F]" />
                             <span>Gemini Fraud Summary:</span>
@@ -323,7 +323,7 @@ export const FraudDetectionPage = () => {
                         </button>
                       </div>
                     ) : (
-                      <div className="glass-panel p-8 rounded-2xl border border-[#1E2748]/15 text-center text-[#53627C] text-xs space-y-2 bg-[#F3EEDC]">
+                      <div className="glass-panel p-8 rounded-2xl border border-[#1E2748]/15 text-center text-[#1E2748] text-xs space-y-2 bg-[#F3EEDC]">
                         <ShieldAlert className="w-8 h-8 text-[#1E2748] mx-auto" />
                         <p>Click "Run AI Audit" on any flagged transaction to generate deep Gemini anomaly diagnostic signals.</p>
                       </div>
@@ -345,7 +345,7 @@ export const FraudDetectionPage = () => {
               <form onSubmit={handleRunSimulator} className="space-y-4 text-xs">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[#53627C] font-bold mb-1 uppercase text-[10px]">ACCOUNT HOLDER</label>
+                    <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">ACCOUNT HOLDER</label>
                     <input
                       type="text"
                       value={simTx.accountHolder}
@@ -356,7 +356,7 @@ export const FraudDetectionPage = () => {
                   </div>
 
                   <div>
-                    <label className="block text-[#53627C] font-bold mb-1 uppercase text-[10px]">ACCOUNT NUMBER</label>
+                    <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">ACCOUNT NUMBER</label>
                     <input
                       type="text"
                       value={simTx.accountNumber}
@@ -369,7 +369,7 @@ export const FraudDetectionPage = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[#53627C] font-bold mb-1 uppercase text-[10px]">TRANSACTION AMOUNT ($)</label>
+                    <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">TRANSACTION AMOUNT ($)</label>
                     <input
                       type="number"
                       value={simTx.amount}
@@ -380,7 +380,7 @@ export const FraudDetectionPage = () => {
                   </div>
 
                   <div>
-                    <label className="block text-[#53627C] font-bold mb-1 uppercase text-[10px]">TRANSACTION TYPE</label>
+                    <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">TRANSACTION TYPE</label>
                     <select
                       value={simTx.transactionType}
                       onChange={(e) => setSimTx({ ...simTx, transactionType: e.target.value })}
@@ -396,7 +396,7 @@ export const FraudDetectionPage = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[#53627C] font-bold mb-1 uppercase text-[10px]">ORIGINATION LOCATION & IP</label>
+                    <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">ORIGINATION LOCATION & IP</label>
                     <input
                       type="text"
                       value={simTx.location}
@@ -407,7 +407,7 @@ export const FraudDetectionPage = () => {
                   </div>
 
                   <div>
-                    <label className="block text-[#53627C] font-bold mb-1 uppercase text-[10px]">HISTORICAL AVG AMOUNT ($)</label>
+                    <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">HISTORICAL AVG AMOUNT ($)</label>
                     <input
                       type="number"
                       value={simTx.averageTransactionAmount}
@@ -449,35 +449,35 @@ export const FraudDetectionPage = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 bg-[#FAF7E6] rounded-xl border border-[#1E2748]/15">
                     <div>
-                      <span className="text-[10px] text-[#53627C] font-sans block font-bold uppercase">SUBJECT NAME</span>
+                      <span className="text-[10px] text-[#1E2748] font-sans block font-bold uppercase">SUBJECT NAME</span>
                       <span className="font-extrabold text-[#1E2748]">{sarReport.subjectName}</span>
                     </div>
                     <div>
-                      <span className="text-[10px] text-[#53627C] font-sans block font-bold uppercase">SUBJECT ACCOUNT</span>
+                      <span className="text-[10px] text-[#1E2748] font-sans block font-bold uppercase">SUBJECT ACCOUNT</span>
                       <span className="font-extrabold text-[#1E2748]">{sarReport.subjectAccount}</span>
                     </div>
                     <div>
-                      <span className="text-[10px] text-[#53627C] font-sans block font-bold uppercase">TOTAL SUSPICIOUS AMOUNT</span>
+                      <span className="text-[10px] text-[#1E2748] font-sans block font-bold uppercase">TOTAL SUSPICIOUS AMOUNT</span>
                       <span className="font-black text-red-600">${sarReport.totalSuspiciousAmount.toLocaleString()}</span>
                     </div>
                     <div>
-                      <span className="text-[10px] text-[#53627C] font-sans block font-bold uppercase">REGULATORY FILING DATE</span>
+                      <span className="text-[10px] text-[#1E2748] font-sans block font-bold uppercase">REGULATORY FILING DATE</span>
                       <span className="font-bold text-[#1E2748]">{sarReport.regulatoryFilingDate}</span>
                     </div>
                   </div>
 
                   <div className="p-4 bg-[#FAF7E6] rounded-xl border border-[#1E2748]/15 space-y-1.5 font-sans">
                     <span className="font-bold text-[#1E2748] block text-[11px] uppercase">FinCEN Regulatory Narrative Summary:</span>
-                    <p className="text-[#53627C] leading-relaxed italic">"{sarReport.narrativeSummary}"</p>
+                    <p className="text-[#1E2748] leading-relaxed italic">"{sarReport.narrativeSummary}"</p>
                   </div>
 
                   <div className="p-4 bg-[#FAF7E6] rounded-xl border border-[#1E2748]/15 flex justify-between items-center font-sans">
-                    <span className="text-[#53627C] font-bold text-xs">RECOMMENDED COMPLIANCE ACTION:</span>
+                    <span className="text-[#1E2748] font-bold text-xs">RECOMMENDED COMPLIANCE ACTION:</span>
                     <span className="font-black text-red-600 text-xs">{sarReport.recommendedAction}</span>
                   </div>
                 </div>
               ) : (
-                <div className="p-8 text-center text-[#53627C] text-xs space-y-2">
+                <div className="p-8 text-center text-[#1E2748] text-xs space-y-2">
                   <FileText className="w-8 h-8 text-[#1E2748] mx-auto" />
                   <p>Click "Generate SAR" on any suspicious transaction to construct a FinCEN regulatory report.</p>
                   <button

@@ -225,7 +225,7 @@ export const LoanCalculatorPage = () => {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h1 className="text-2xl font-extrabold text-[#1E2748] font-heading">AI Loan Risk Calculator & 12-Month Predictor</h1>
-              <p className="text-xs text-[#53627C]">Powered by Gemini 2.0 Flash Neural Credit Risk Engine</p>
+              <p className="text-xs text-[#1E2748]">Powered by Gemini 2.0 Flash Neural Credit Risk Engine</p>
             </div>
             <div className="flex items-center space-x-2 px-3.5 py-1.5 bg-[#EBE4CD] border border-[#1E2748]/15 rounded-full text-xs text-[#1E2748] font-bold shadow-sm">
               <Sparkles className="w-4 h-4 text-[#C59E5F]" />
@@ -240,7 +240,7 @@ export const LoanCalculatorPage = () => {
               className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2 border ${
                 activeTab === 'underwriter'
                   ? 'bg-[#1E2748] text-[#FAF7E6] border-[#1E2748] shadow-md font-extrabold'
-                  : 'bg-[#F3EEDC] text-[#53627C] border-[#1E2748]/15 hover:bg-[#EBE4CD]'
+                  : 'bg-[#F3EEDC] text-[#1E2748] border-[#1E2748]/15 hover:bg-[#EBE4CD]'
               }`}
             >
               <Calculator className="w-4 h-4 text-[#C59E5F]" />
@@ -252,7 +252,7 @@ export const LoanCalculatorPage = () => {
               className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2 border ${
                 activeTab === 'predictor'
                   ? 'bg-[#1E2748] text-[#FAF7E6] border-[#1E2748] shadow-md font-extrabold'
-                  : 'bg-[#F3EEDC] text-[#53627C] border-[#1E2748]/15 hover:bg-[#EBE4CD]'
+                  : 'bg-[#F3EEDC] text-[#1E2748] border-[#1E2748]/15 hover:bg-[#EBE4CD]'
               }`}
             >
               <LineChart className="w-4 h-4 text-[#C59E5F]" />
@@ -321,7 +321,7 @@ export const LoanCalculatorPage = () => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-[#53627C] font-bold mb-1 uppercase text-[10px]">CUSTOMER / APPLICANT FULL NAME</label>
+                        <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">CUSTOMER / APPLICANT FULL NAME</label>
                         <input
                           type="text"
                           value={formData.applicantName}
@@ -333,7 +333,7 @@ export const LoanCalculatorPage = () => {
                       </div>
 
                       <div>
-                        <label className="block text-[#53627C] font-bold mb-1 uppercase text-[10px]">ACCOUNT NUMBER</label>
+                        <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">ACCOUNT NUMBER</label>
                         <input
                           type="text"
                           value={formData.accountNumber}
@@ -347,7 +347,7 @@ export const LoanCalculatorPage = () => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-[#53627C] font-bold mb-1 uppercase text-[10px]">TAX ID / SSN / EIN</label>
+                        <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">TAX ID / SSN / EIN</label>
                         <input
                           type="text"
                           value={formData.taxId}
@@ -359,7 +359,7 @@ export const LoanCalculatorPage = () => {
                       </div>
 
                       <div>
-                        <label className="block text-[#53627C] font-bold mb-1 uppercase text-[10px]">CONTACT EMAIL</label>
+                        <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">CONTACT EMAIL</label>
                         <input
                           type="email"
                           value={formData.customerEmail}
@@ -375,7 +375,7 @@ export const LoanCalculatorPage = () => {
                   {/* Financial Parameters */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[#53627C] font-bold mb-1 uppercase text-[10px]">APPLICANT CATEGORY</label>
+                      <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">APPLICANT CATEGORY</label>
                       <select
                         value={formData.applicantCategory}
                         onChange={(e) => setFormData({ ...formData, applicantCategory: e.target.value })}
@@ -389,7 +389,7 @@ export const LoanCalculatorPage = () => {
                     </div>
 
                     <div>
-                      <label className="block text-[#53627C] font-bold mb-1 uppercase text-[10px]">CREDIT SCORE (FICO)</label>
+                      <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">CREDIT SCORE (FICO)</label>
                       <input
                         type="number"
                         min="300"
@@ -404,7 +404,7 @@ export const LoanCalculatorPage = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[#53627C] font-bold mb-1 uppercase text-[10px]">REQUESTED PRINCIPAL ($)</label>
+                      <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">REQUESTED PRINCIPAL ($)</label>
                       <input
                         type="number"
                         min="10000"
@@ -417,7 +417,7 @@ export const LoanCalculatorPage = () => {
                     </div>
 
                     <div>
-                      <label className="block text-[#53627C] font-bold mb-1 uppercase text-[10px]">ANNUAL REVENUE / INCOME ($)</label>
+                      <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">ANNUAL REVENUE / INCOME ($)</label>
                       <input
                         type="number"
                         min="50000"
@@ -432,7 +432,7 @@ export const LoanCalculatorPage = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div>
-                      <label className="block text-[#53627C] font-bold mb-1 uppercase text-[10px]">INTEREST RATE (%)</label>
+                      <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">INTEREST RATE (%)</label>
                       <input
                         type="number"
                         step="0.1"
@@ -446,7 +446,7 @@ export const LoanCalculatorPage = () => {
                     </div>
 
                     <div>
-                      <label className="block text-[#53627C] font-bold mb-1 uppercase text-[10px]">TERM LENGTH</label>
+                      <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">TERM LENGTH</label>
                       <select
                         value={formData.termMonths}
                         onChange={(e) => setFormData({ ...formData, termMonths: e.target.value })}
@@ -461,7 +461,7 @@ export const LoanCalculatorPage = () => {
                     </div>
 
                     <div>
-                      <label className="block text-[#53627C] font-bold mb-1 uppercase text-[10px]">COLLATERAL VALUE ($)</label>
+                      <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">COLLATERAL VALUE ($)</label>
                       <input
                         type="number"
                         min="0"
@@ -473,7 +473,7 @@ export const LoanCalculatorPage = () => {
                   </div>
 
                   <div>
-                    <label className="block text-[#53627C] font-bold mb-1 uppercase text-[10px]">LOAN PURPOSE</label>
+                    <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">LOAN PURPOSE</label>
                     <select
                       value={formData.loanPurpose}
                       onChange={(e) => setFormData({ ...formData, loanPurpose: e.target.value })}
@@ -530,7 +530,7 @@ export const LoanCalculatorPage = () => {
                         <span className="font-bold text-[#1E2748]">{assessment.applicantName || formData.applicantName}</span>
                         <span className="font-mono text-[#1E2748] font-bold">{assessment.accountNumber || formData.accountNumber}</span>
                       </div>
-                      <div className="flex justify-between items-center text-[11px] text-[#53627C]">
+                      <div className="flex justify-between items-center text-[11px] text-[#1E2748]">
                         <span>Tax ID: <code className="text-[#1E2748]">{assessment.taxId || formData.taxId}</code></span>
                         <span className="text-[#1E2748]">{assessment.customerEmail || formData.customerEmail}</span>
                       </div>
@@ -544,7 +544,7 @@ export const LoanCalculatorPage = () => {
                         }`}>
                           {assessment.riskScore}/100
                         </span>
-                        <span className="text-[10px] text-[#53627C] block font-bold uppercase">{assessment.riskLevel} RISK</span>
+                        <span className="text-[10px] text-[#1E2748] block font-bold uppercase">{assessment.riskLevel} RISK</span>
                       </div>
 
                       <div className="p-4 bg-[#FAF7E6] rounded-xl border border-[#1E2748]/15 text-center space-y-0.5">
@@ -552,12 +552,12 @@ export const LoanCalculatorPage = () => {
                         <span className="text-3xl font-extrabold font-mono text-[#1E2748]">
                           {assessment.defaultProbability}%
                         </span>
-                        <span className="text-[10px] text-[#53627C] block font-semibold">12-Month Horizon</span>
+                        <span className="text-[10px] text-[#1E2748] block font-semibold">12-Month Horizon</span>
                       </div>
                     </div>
 
                     <div className="p-3.5 bg-[#FAF7E6] rounded-xl border border-[#1E2748]/15 flex justify-between items-center text-xs font-mono">
-                      <span className="text-[#53627C] font-sans font-bold">MAX RECOMMENDED CREDIT LIMIT:</span>
+                      <span className="text-[#1E2748] font-sans font-bold">MAX RECOMMENDED CREDIT LIMIT:</span>
                       <span className="text-[#58b388] font-black text-sm">${Number(assessment.maxRecommendedLoan || 0).toLocaleString()}</span>
                     </div>
 
@@ -571,7 +571,7 @@ export const LoanCalculatorPage = () => {
                       ))}
                     </div>
 
-                    <div className="p-3.5 bg-[#FAF7E6] rounded-xl border border-[#1E2748]/15 text-xs text-[#53627C] space-y-1">
+                    <div className="p-3.5 bg-[#FAF7E6] rounded-xl border border-[#1E2748]/15 text-xs text-[#1E2748] space-y-1">
                       <span className="font-bold text-[#1E2748] block flex items-center space-x-1.5">
                         <Sparkles className="w-3.5 h-3.5 text-[#C59E5F]" />
                         <span>Gemini AI Advisory:</span>
@@ -603,7 +603,7 @@ export const LoanCalculatorPage = () => {
                     </div>
                   </div>
                 ) : (
-                  <div className="glass-panel p-8 rounded-2xl border border-[#1E2748]/15 text-center text-[#53627C] text-xs space-y-2 bg-[#F3EEDC]">
+                  <div className="glass-panel p-8 rounded-2xl border border-[#1E2748]/15 text-center text-[#1E2748] text-xs space-y-2 bg-[#F3EEDC]">
                     <Calculator className="w-8 h-8 text-[#1E2748] mx-auto" />
                     <p>Select a customer account or enter custom details and click "Calculate AI Risk" to run neural credit scoring.</p>
                   </div>
@@ -624,7 +624,7 @@ export const LoanCalculatorPage = () => {
 
                 <div className="space-y-4 text-xs">
                   <div>
-                    <label className="block text-[#53627C] font-bold mb-1 uppercase text-[10px]">PREDICTIVE SCENARIO PRESET</label>
+                    <label className="block text-[#1E2748] font-bold mb-1 uppercase text-[10px]">PREDICTIVE SCENARIO PRESET</label>
                     <div className="grid grid-cols-2 gap-2">
                       {[
                         { id: 'baseline', label: '🌱 Baseline Growth', shift: 0, rev: 5, inf: 2.5 },
@@ -710,7 +710,7 @@ export const LoanCalculatorPage = () => {
                         <Sparkles className="w-4 h-4 text-[#C59E5F]" />
                         <span>AI 12-Month Predictive Risk Assessment</span>
                       </h3>
-                      <p className="text-[10px] text-[#53627C]">{computedPredictor.scenarioTitle}</p>
+                      <p className="text-[10px] text-[#1E2748]">{computedPredictor.scenarioTitle}</p>
                     </div>
                     <span className={`px-3 py-1 rounded-full text-xs font-black font-mono uppercase border ${
                       computedPredictor.riskLevel === 'HIGH'
@@ -725,31 +725,31 @@ export const LoanCalculatorPage = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div className="p-4 bg-[#FAF7E6] rounded-xl border border-[#1E2748]/15 text-center space-y-1">
-                      <span className="text-[10px] font-bold text-[#53627C] uppercase block">PREDICTED RISK SCORE</span>
+                      <span className="text-[10px] font-bold text-[#1E2748] uppercase block">PREDICTED RISK SCORE</span>
                       <span className="text-3xl font-black font-mono text-[#1E2748]">{computedPredictor.predictedScore}/100</span>
-                      <span className="text-[9px] text-[#53627C] block font-semibold">Under Stress Scenario</span>
+                      <span className="text-[9px] text-[#1E2748] block font-semibold">Under Stress Scenario</span>
                     </div>
 
                     <div className="p-4 bg-[#FAF7E6] rounded-xl border border-[#1E2748]/15 text-center space-y-1">
-                      <span className="text-[10px] font-bold text-[#53627C] uppercase block">DEFAULT PROBABILITY</span>
+                      <span className="text-[10px] font-bold text-[#1E2748] uppercase block">DEFAULT PROBABILITY</span>
                       <span className="text-3xl font-black font-mono text-red-600">{computedPredictor.predictedDefaultProb}%</span>
-                      <span className="text-[9px] text-[#53627C] block font-semibold">12-Month Expected</span>
+                      <span className="text-[9px] text-[#1E2748] block font-semibold">12-Month Expected</span>
                     </div>
 
                     <div className="p-4 bg-[#FAF7E6] rounded-xl border border-[#1E2748]/15 text-center space-y-1">
-                      <span className="text-[10px] font-bold text-[#53627C] uppercase block">NIM YIELD TRAJECTORY</span>
+                      <span className="text-[10px] font-bold text-[#1E2748] uppercase block">NIM YIELD TRAJECTORY</span>
                       <span className="text-3xl font-black font-mono text-[#58b388]">{computedPredictor.nimYield}%</span>
-                      <span className="text-[9px] text-[#53627C] block font-semibold">Weighted APR Yield</span>
+                      <span className="text-[9px] text-[#1E2748] block font-semibold">Weighted APR Yield</span>
                     </div>
                   </div>
 
                   <div className="p-4 bg-[#FAF7E6] rounded-xl border border-[#1E2748]/15 space-y-2 text-xs">
                     <div className="flex justify-between items-center">
-                      <span className="text-[#53627C] font-bold">MAX SAFE BORROWING CEILING:</span>
+                      <span className="text-[#1E2748] font-bold">MAX SAFE BORROWING CEILING:</span>
                       <span className="font-mono font-black text-[#58b388] text-sm">${computedPredictor.maxSafeCeiling.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between items-center pt-2 border-t border-[#1E2748]/10">
-                      <span className="text-[#53627C] font-bold">ESTIMATED CREDIT LOSS PROVISION:</span>
+                      <span className="text-[#1E2748] font-bold">ESTIMATED CREDIT LOSS PROVISION:</span>
                       <span className="font-mono font-black text-red-600 text-sm">${computedPredictor.estimatedLossProvision.toLocaleString()}</span>
                     </div>
                   </div>
@@ -759,7 +759,7 @@ export const LoanCalculatorPage = () => {
                       <Shield className="w-4 h-4 text-[#C59E5F]" />
                       <span>Gemini Predictive Underwriting Advisory:</span>
                     </span>
-                    <p className="text-[#53627C] italic">
+                    <p className="text-[#1E2748] italic">
                       "Under stress conditions ({computedPredictor.scenarioTitle}), applicant {formData.applicantName} demonstrates a predicted default probability of {computedPredictor.predictedDefaultProb}%. Recommended max credit ceiling is capped at ${computedPredictor.maxSafeCeiling.toLocaleString()}. Verdict: {computedPredictor.recommendation}."
                     </p>
                   </div>

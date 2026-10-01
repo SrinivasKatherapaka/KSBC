@@ -55,11 +55,11 @@ export const AccountDetailsModal = ({
   return (
     <>
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-        <div className="glass-panel w-full max-w-3xl p-6 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto text-xs text-[#53627C]">
+        <div className="glass-panel w-full max-w-3xl p-6 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto text-xs text-[#1E2748]">
           {/* Detailed Account Header */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#1E2748]/15">
             <div className="flex items-center space-x-3">
-              <div className="p-3 bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 shadow">
+              <div className="p-3 bg-[#F6F2E3] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 shadow">
                 <Wallet className="w-6 h-6 text-[#1E2748]" />
               </div>
               <div>
@@ -89,14 +89,14 @@ export const AccountDetailsModal = ({
                   ? 'bg-[#58b388]/20 text-[#58b388] border-[#58b388]/40'
                   : customer.kyc_status === 'flagged'
                   ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
-                  : 'bg-[#F6F2E3] text-[#1E2748] text-[#53627C] border-[#1E2748]/15'
+                  : 'bg-[#F6F2E3] text-[#1E2748] border-[#1E2748]/15'
               }`}>
                 <ShieldCheck className="w-3.5 h-3.5" />
                 <span>KYC {customer.kyc_status || 'Verified'}</span>
               </span>
               <button
                 onClick={onClose}
-                className="p-1.5 bg-[#F6F2E3] text-[#1E2748] text-[#53627C] hover:text-[#1E2748] rounded-xl border border-[#1E2748]/15 transition"
+                className="p-1.5 bg-[#F6F2E3] text-[#1E2748] hover:text-[#1E2748] rounded-xl border border-[#1E2748]/15 transition"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -153,7 +153,7 @@ export const AccountDetailsModal = ({
                 ) : (
                   <button
                     onClick={() => setIsIdUnlocked(false)}
-                    className="px-4 py-2.5 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] font-bold rounded-xl border border-[#1E2748]/15 transition flex items-center space-x-2 text-xs"
+                    className="px-4 py-2.5 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] font-bold rounded-xl border border-[#1E2748]/15 transition flex items-center space-x-2 text-xs"
                   >
                     <Lock className="w-4 h-4 text-[#1E2748]" />
                     <span>Re-Lock Identification Number</span>
@@ -166,7 +166,7 @@ export const AccountDetailsModal = ({
           {/* Grid Layout: Account Details & Customer Information */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Customer Personal & Contact Info Card */}
-            <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/60 space-y-3">
+            <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] space-y-3">
               <h3 className="text-xs font-bold text-[#1E2748] uppercase tracking-wider flex items-center space-x-2 border-b border-[#1E2748]/15 pb-2">
                 <User className="w-4 h-4 text-[#1E2748]" />
                 <span>Customer Profile & Contact Information</span>
@@ -174,30 +174,30 @@ export const AccountDetailsModal = ({
 
               <div className="space-y-2 text-xs">
                 <div className="flex justify-between py-1 border-b border-[#1E2748]/15/10">
-                  <span className="text-[#53627C]">First Name / Entity:</span>
+                  <span className="text-[#1E2748]">First Name / Entity:</span>
                   <span className="font-bold text-[#1E2748]">{customer.first_name}</span>
                 </div>
                 <div className="flex justify-between py-1 border-b border-[#1E2748]/15/10">
-                  <span className="text-[#53627C]">Last Name / Suffix:</span>
+                  <span className="text-[#1E2748]">Last Name / Suffix:</span>
                   <span className="font-bold text-[#1E2748]">{customer.last_name}</span>
                 </div>
                 <div className="flex justify-between py-1 border-b border-[#1E2748]/15/10">
-                  <span className="text-[#53627C]">Email Address:</span>
+                  <span className="text-[#1E2748]">Email Address:</span>
                   <span className="font-mono text-[#1E2748] font-bold">{customer.email}</span>
                 </div>
                 <div className="flex justify-between py-1 border-b border-[#1E2748]/15/10">
-                  <span className="text-[#53627C]">Telephone Contact:</span>
+                  <span className="text-[#1E2748]">Telephone Contact:</span>
                   <span className="font-mono text-[#1E2748]">{customer.phone || '+1-555-0199'}</span>
                 </div>
                 <div className="flex justify-between py-1">
-                  <span className="text-[#53627C]">Client Tier Category:</span>
+                  <span className="text-[#1E2748]">Client Tier Category:</span>
                   <span className="font-bold uppercase text-[#1E2748]">{customer.client_category || 'private_savings'}</span>
                 </div>
               </div>
             </div>
 
             {/* Account Financial Ledger Card */}
-            <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/60 space-y-3">
+            <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] space-y-3">
               <h3 className="text-xs font-bold text-[#1E2748] uppercase tracking-wider flex items-center space-x-2 border-b border-[#1E2748]/15 pb-2">
                 <Wallet className="w-4 h-4 text-[#1E2748]" />
                 <span>Financial Ledger & Deposit Summary</span>
@@ -205,29 +205,29 @@ export const AccountDetailsModal = ({
 
               <div className="space-y-2 text-xs">
                 <div className="flex justify-between py-1 border-b border-[#1E2748]/15/10">
-                  <span className="text-[#53627C]">Account Number:</span>
+                  <span className="text-[#1E2748]">Account Number:</span>
                   <span className="font-mono font-bold text-[#1E2748]">
                     {customer.account_number || `KSBC-ACC-${customer.id.slice(0, 8)}`}
                   </span>
                 </div>
                 <div className="flex justify-between py-1 border-b border-[#1E2748]/15/10">
-                  <span className="text-[#53627C]">Account Product Type:</span>
+                  <span className="text-[#1E2748]">Account Product Type:</span>
                   <span className="font-medium text-[#1E2748]">
                     {customer.account_type || (isHnwi ? 'Private High-Net-Worth Reserve' : isCorporate ? 'Corporate Treasury Checking' : 'Private Standard Savings')}
                   </span>
                 </div>
                 <div className="flex justify-between py-1 border-b border-[#1E2748]/15/10">
-                  <span className="text-[#53627C]">Current Deposit Balance:</span>
+                  <span className="text-[#1E2748]">Current Deposit Balance:</span>
                   <span className="font-mono font-extrabold text-[#58b388] text-sm">
                     ${Number(customer.annual_revenue || 0).toLocaleString()}
                   </span>
                 </div>
                 <div className="flex justify-between py-1 border-b border-[#1E2748]/15/10">
-                  <span className="text-[#53627C]">Operational Standing:</span>
+                  <span className="text-[#1E2748]">Operational Standing:</span>
                   <span className="font-bold text-emerald-400 uppercase">Active & Authenticated</span>
                 </div>
                 <div className="flex justify-between py-1">
-                  <span className="text-[#53627C]">Account Onboarding Date:</span>
+                  <span className="text-[#1E2748]">Account Onboarding Date:</span>
                   <span className="font-mono text-[#1E2748]">
                     {customer.created_at ? new Date(customer.created_at).toLocaleDateString() : '2026-01-15'}
                   </span>
@@ -237,7 +237,7 @@ export const AccountDetailsModal = ({
           </div>
 
           {/* KYC Compliance & Audit Remarks */}
-          <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748]/60 space-y-3">
+          <div className="glass-panel p-4 rounded-2xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] space-y-3">
             <h3 className="text-xs font-bold text-[#1E2748] uppercase tracking-wider flex items-center space-x-2 border-b border-[#1E2748]/15 pb-2">
               <ShieldCheck className="w-4 h-4 text-[#1E2748]" />
               <span>KYC Compliance Clearance & Beneficial Ownership Audit Notes</span>
@@ -258,7 +258,7 @@ export const AccountDetailsModal = ({
                 <>
                   <button
                     onClick={() => { onClose(); onEdit(customer); }}
-                    className="px-3.5 py-2 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border border-[#1E2748]/15 rounded-xl font-bold transition flex items-center space-x-1.5 shadow"
+                    className="px-3.5 py-2 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15 rounded-xl font-bold transition flex items-center space-x-1.5 shadow"
                   >
                     <Edit className="w-3.5 h-3.5 text-[#1E2748]" />
                     <span>Modify Account</span>

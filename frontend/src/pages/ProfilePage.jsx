@@ -8,7 +8,7 @@ export const ProfilePage = () => {
   const { user, logout } = useAuth();
 
   return (
-    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -16,7 +16,7 @@ export const ProfilePage = () => {
         <main className="p-6 md:p-8 space-y-6 max-w-4xl mx-auto w-full">
           <div>
             <h1 className="text-2xl font-extrabold text-[#1E2748] font-heading">User Profile & Security Clearance</h1>
-            <p className="text-xs text-slate-400">Managed Personnel Credentials & RBAC Access Matrix</p>
+            <p className="text-xs text-[#1E2748]">Managed Personnel Credentials & RBAC Access Matrix</p>
           </div>
 
           <div className="glass-panel p-8 rounded-3xl border border-white/10 space-y-6">
@@ -37,12 +37,12 @@ export const ProfilePage = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
               <div className="p-4 bg-slate-900/60 rounded-2xl border border-slate-800 space-y-1">
-                <span className="text-slate-400 font-bold uppercase text-[10px] block">Corporate Email</span>
+                <span className="text-[#1E2748] font-bold uppercase text-[10px] block">Corporate Email</span>
                 <span className="text-[#1E2748] font-mono text-sm">{user?.email}</span>
               </div>
               <div className="p-4 bg-slate-900/60 rounded-2xl border border-slate-800 space-y-1">
-                <span className="text-slate-400 font-bold uppercase text-[10px] block">Personnel User ID</span>
-                <span className="text-slate-300 font-mono text-sm">{user?.id}</span>
+                <span className="text-[#1E2748] font-bold uppercase text-[10px] block">Personnel User ID</span>
+                <span className="text-[#1E2748] font-mono text-sm">{user?.id}</span>
               </div>
             </div>
 

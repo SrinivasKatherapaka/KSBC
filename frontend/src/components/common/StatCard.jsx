@@ -25,14 +25,14 @@ export const StatCard = ({ title, value, change, icon: Icon, color = 'navy', des
     <div className={`glass-card p-5 rounded-2xl border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${colorMap[color] || colorMap.navy}`}>
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-xs font-bold text-[#53627C] uppercase tracking-wider mb-1.5">{title}</p>
+          <p className="text-xs font-bold text-[#1E2748] uppercase tracking-wider mb-1.5">{title}</p>
           <h3 
             className="text-2xl font-black text-[#1E2748] tracking-tight leading-none"
             style={{ fontFamily: "'Archivo Black', sans-serif" }}
           >
             {value}
           </h3>
-          {description && <p className="text-xs text-[#53627C]/80 mt-1.5">{description}</p>}
+          {description && <p className="text-xs text-[#1E2748] mt-1.5 font-medium">{description}</p>}
         </div>
         {Icon && (
           <div className={`p-3 rounded-2xl border ${iconBgMap[color] || iconBgMap.navy} shadow-sm`}>
@@ -45,7 +45,7 @@ export const StatCard = ({ title, value, change, icon: Icon, color = 'navy', des
           <span className={change.startsWith('+') ? 'text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-300' : 'text-amber-800 bg-amber-100/80 px-2 py-0.5 rounded-full border border-amber-300'}>
             {change}
           </span>
-          <span className="text-[#53627C]">vs last cycle</span>
+          <span className="text-[#1E2748]">vs last cycle</span>
         </div>
       )}
     </div>

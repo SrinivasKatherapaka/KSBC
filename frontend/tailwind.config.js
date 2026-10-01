@@ -36,8 +36,8 @@ export default {
           'gold-light': '#DFBD84',
           'gold-dark': '#A68249',
           'text-primary': '#1E2748',
-          'text-secondary': '#53627C',
-          'text-muted': '#7E8DA4',
+          'text-secondary': '#1E2748',
+          'text-muted': '#1E2748',
           'text-navy': '#1E2748'
         }
       }

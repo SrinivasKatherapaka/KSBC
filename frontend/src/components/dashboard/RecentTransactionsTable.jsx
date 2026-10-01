@@ -11,7 +11,7 @@ export const RecentTransactionsTable = ({ transactions = [] }) => {
           >
             General Ledger Postings & Audit Trail
           </h3>
-          <p className="text-xs text-[#53627C] font-medium">Live feed of double-entry debit & credit movements</p>
+          <p className="text-xs text-[#1E2748] font-semibold">Live feed of double-entry debit & credit movements</p>
         </div>
         <span className="text-xs font-mono font-bold text-[#1E2748] bg-[#EBE4CD] px-2.5 py-1 rounded-lg border border-[#1E2748]/20">
           {transactions.length} Postings
@@ -19,14 +19,14 @@ export const RecentTransactionsTable = ({ transactions = [] }) => {
       </div>
 
       {transactions.length === 0 ? (
-        <div className="p-8 text-center text-[#53627C] text-xs font-medium bg-[#EBE4CD] rounded-xl border border-[#1E2748]/15">
+        <div className="p-8 text-center text-[#1E2748] text-xs font-semibold bg-[#EBE4CD] rounded-xl border border-[#1E2748]/15">
           No General Ledger postings registered yet. Disburse a loan or process a PO to create ledger records.
         </div>
       ) : (
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead>
-              <tr className="border-b border-[#1E2748]/15 text-[#53627C] uppercase tracking-wider text-[10px] font-bold">
+              <tr className="border-b border-[#1E2748]/15 text-[#1E2748] uppercase tracking-wider text-[10px] font-bold">
                 <th className="py-3 px-2">Account Code</th>
                 <th className="py-3 px-2">Reference ID</th>
                 <th className="py-3 px-2">Description</th>
@@ -41,15 +41,15 @@ export const RecentTransactionsTable = ({ transactions = [] }) => {
                 return (
                   <tr key={tx.id} className="hover:bg-[#EBE4CD]/60 transition-colors">
                     <td className="py-3 px-2 font-bold text-[#1E2748]">{tx.account_code}</td>
-                    <td className="py-3 px-2 text-[#53627C] text-[11px]">{tx.reference_id}</td>
-                    <td className="py-3 px-2 text-[#1E2748] font-sans font-medium">{tx.description}</td>
+                    <td className="py-3 px-2 text-[#1E2748] text-[11px] font-semibold">{tx.reference_id}</td>
+                    <td className="py-3 px-2 text-[#1E2748] font-sans font-semibold">{tx.description}</td>
                     <td className="py-3 px-2 text-right font-bold text-emerald-800">
                       {isDebit ? `$${Number(tx.debit_amount).toLocaleString()}` : '-'}
                     </td>
                     <td className="py-3 px-2 text-right font-bold text-[#1E2748]">
                       {!isDebit ? `$${Number(tx.credit_amount).toLocaleString()}` : '-'}
                     </td>
-                    <td className="py-3 px-2 text-right text-[10px] text-[#53627C] font-sans font-medium">
+                    <td className="py-3 px-2 text-right text-[10px] text-[#1E2748] font-sans font-semibold">
                       {new Date(tx.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     </td>
                   </tr>

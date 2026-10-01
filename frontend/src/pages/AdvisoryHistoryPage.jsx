@@ -39,7 +39,7 @@ export const AdvisoryHistoryPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -47,7 +47,7 @@ export const AdvisoryHistoryPage = () => {
         <main className="p-6 md:p-8 space-y-6 max-w-7xl mx-auto w-full">
           <div>
             <h1 className="text-2xl font-extrabold text-[#1E2748] font-heading">AI Advisory Audit History</h1>
-            <p className="text-xs text-slate-400">Historical Log of Credit Underwriting Evaluations, Compliance Scans & Advisory Reports</p>
+            <p className="text-xs text-[#1E2748]">Historical Log of Credit Underwriting Evaluations, Compliance Scans & Advisory Reports</p>
           </div>
 
           <ErrorAlert message={error} onClose={() => setError('')} />
@@ -57,7 +57,7 @@ export const AdvisoryHistoryPage = () => {
           ) : (
             <div className="space-y-4">
               {sessions.length === 0 ? (
-                <div className="glass-panel p-8 text-center text-slate-500 text-xs rounded-2xl border border-white/10">
+                <div className="glass-panel p-8 text-center text-[#1E2748] text-xs rounded-2xl border border-white/10">
                   No AI advisory sessions logged yet. Trigger a loan risk assessment or OCR scan to populate history.
                 </div>
               ) : (
@@ -70,13 +70,13 @@ export const AdvisoryHistoryPage = () => {
                         </span>
                         <div>
                           <span className="text-xs font-bold text-[#1E2748] uppercase tracking-wider">{s.session_type.replace('_', ' ')}</span>
-                          <p className="text-[10px] text-slate-400">{new Date(s.created_at).toLocaleString()}</p>
+                          <p className="text-[10px] text-[#1E2748]">{new Date(s.created_at).toLocaleString()}</p>
                         </div>
                       </div>
 
                       <button
                         onClick={() => handleDelete(s.id)}
-                        className="p-2 text-slate-400 hover:text-red-400 rounded-lg transition"
+                        className="p-2 text-[#1E2748] hover:text-red-400 rounded-lg transition"
                         title="Delete record"
                       >
                         <Trash2 className="w-4 h-4" />
@@ -84,8 +84,8 @@ export const AdvisoryHistoryPage = () => {
                     </div>
 
                     <div className="p-3 bg-slate-900/60 rounded-xl text-xs space-y-1">
-                      <span className="text-slate-400 font-bold block text-[10px]">Prompt Context:</span>
-                      <p className="text-slate-300 font-sans">{s.prompt_context}</p>
+                      <span className="text-[#1E2748] font-bold block text-[10px]">Prompt Context:</span>
+                      <p className="text-[#1E2748] font-sans">{s.prompt_context}</p>
                     </div>
 
                     <div className="p-3 bg-slate-900/90 rounded-xl text-xs font-mono overflow-x-auto text-emerald-400 border border-slate-800">

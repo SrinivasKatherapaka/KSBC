@@ -36,7 +36,7 @@ export const Navbar = () => {
             <span className="text-[11px] font-archivo font-black uppercase tracking-wider">KSBC Live</span>
           </div>
 
-          <div className="hidden lg:flex items-center space-x-2 text-xs text-[#53627C] font-medium">
+          <div className="hidden lg:flex items-center space-x-2 text-xs text-[#1E2748] font-semibold">
             <Sparkles className="w-3.5 h-3.5 text-[#C59E5F]" />
             <span>Gemini Underwriting Engine Active</span>
           </div>
@@ -61,7 +61,7 @@ export const Navbar = () => {
                   className={`w-full text-left px-2.5 py-1.5 rounded-xl text-xs font-medium transition flex items-center justify-between ${
                     user?.email === p.email
                       ? 'bg-[#1E2748] text-[#FAF7E6] font-bold shadow-sm'
-                      : 'text-[#53627C] hover:bg-[#EBE4CD] hover:text-[#1E2748]'
+                      : 'text-[#1E2748] hover:bg-[#EBE4CD] hover:text-[#1E2748]'
                   }`}
                 >
                   <span>{p.label}</span>
@@ -73,7 +73,7 @@ export const Navbar = () => {
 
           <div className="hidden sm:flex items-center space-x-2 bg-[#EBE4CD] px-3 py-1.5 rounded-xl border border-[#1E2748]/20 text-xs shadow-sm">
             <Shield className="w-3.5 h-3.5 text-[#1E2748]" />
-            <span className="text-[#53627C] font-medium">Clearance:</span>
+            <span className="text-[#1E2748] font-bold">Clearance:</span>
             <span className="text-[#1E2748] font-mono font-bold capitalize">{user?.role?.replace('_', ' ')}</span>
           </div>
 

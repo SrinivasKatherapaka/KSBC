@@ -93,7 +93,7 @@ export const CustomersPage = () => {
   });
 
   return (
-    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748] text-[#53627C]">
+    <div className="flex min-h-screen bg-[#FAF7E6] text-[#1E2748]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Navbar />
@@ -102,7 +102,7 @@ export const CustomersPage = () => {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h1 className="text-2xl font-extrabold text-[#1E2748] font-heading">Authenticated Customer Database</h1>
-              <p className="text-xs text-[#1E2748]/70">KSBC Corporate Client Records ({customers.length} Accounts Onboarded)</p>
+              <p className="text-xs text-[#1E2748]">KSBC Corporate Client Records ({customers.length} Accounts Onboarded)</p>
             </div>
 
             <div className="flex items-center space-x-3">
@@ -130,7 +130,7 @@ export const CustomersPage = () => {
               <ShieldCheck className="w-4 h-4" />
               <span>🔐 Security Clearance Authenticated: Viewing Encrypted KSBC Corporate Client Ledger ({user?.role?.replace('_', ' ')})</span>
             </div>
-            <span className="font-mono text-[10px] text-slate-400 font-semibold hidden sm:inline">
+            <span className="font-mono text-[10px] text-[#1E2748] font-semibold hidden sm:inline">
               Session JWT Token Validated
             </span>
           </div>
@@ -149,7 +149,7 @@ export const CustomersPage = () => {
 
                 {/* Search Bar */}
                 <div className="relative w-full md:w-72">
-                  <Search className="absolute left-3 top-2.5 w-4 h-4 text-[#1E2748]/60" />
+                  <Search className="absolute left-3 top-2.5 w-4 h-4 text-[#1E2748]" />
                   <input
                     type="text"
                     value={searchQuery}
@@ -163,7 +163,7 @@ export const CustomersPage = () => {
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
                   <thead>
-                    <tr className="border-b border-[#1E2748]/15 text-[#1E2748]/70 uppercase tracking-wider text-[10px] bg-[#F6F2E3] text-[#1E2748]">
+                    <tr className="border-b border-[#1E2748]/15 text-[#1E2748] uppercase tracking-wider text-[10px] bg-[#F6F2E3] text-[#1E2748]">
                       <th className="py-3 px-4">Client Name</th>
                       <th className="py-3 px-4">Tax / EIN ID</th>
                       <th className="py-3 px-4">Contact Details</th>
@@ -176,18 +176,18 @@ export const CustomersPage = () => {
                       <tr key={c.id} className="hover:bg-rose-950/30 transition">
                         <td className="py-3.5 px-4">
                           <span className="font-bold text-[#1E2748] block">{c.first_name} {c.last_name}</span>
-                          <span className="text-[10px] text-[#1E2748]/60 font-mono">ID: {c.id.slice(0, 8)}</span>
+                          <span className="text-[10px] text-[#1E2748] font-mono">ID: {c.id.slice(0, 8)}</span>
                         </td>
-                        <td className="py-3.5 px-4 font-mono text-slate-300">
+                        <td className="py-3.5 px-4 font-mono text-[#1E2748]">
                           {isUnlocked ? c.national_id : '••••••••••••'}
                         </td>
                         <td className="py-3.5 px-4 space-y-0.5">
-                          <div className="flex items-center space-x-1.5 text-slate-300">
-                            <Mail className="w-3 h-3 text-[#1E2748]/60" />
+                          <div className="flex items-center space-x-1.5 text-[#1E2748]">
+                            <Mail className="w-3 h-3 text-[#1E2748]" />
                             <span>{c.email}</span>
                           </div>
-                          <div className="flex items-center space-x-1.5 text-slate-400 text-[11px]">
-                            <Phone className="w-3 h-3 text-[#1E2748]/60" />
+                          <div className="flex items-center space-x-1.5 text-[#1E2748] text-[11px]">
+                            <Phone className="w-3 h-3 text-[#1E2748]" />
                             <span>{c.phone}</span>
                           </div>
                         </td>
@@ -200,7 +200,7 @@ export const CustomersPage = () => {
                               ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
                               : c.kyc_status === 'flagged'
                               ? 'bg-amber-500/10 text-amber-400 border-amber-500/30'
-                              : 'bg-slate-800 text-slate-400 border-slate-700'
+                              : 'bg-slate-800 text-[#1E2748] border-slate-700'
                           }`}>
                             {c.kyc_status}
                           </span>
@@ -221,14 +221,14 @@ export const CustomersPage = () => {
           <div className="glass-panel w-full max-w-md p-6 rounded-2xl border border-[#1E2748]/15 relative">
             <div className="flex items-center justify-between pb-3 border-b border-[#1E2748]/15 mb-4">
               <h3 className="text-base font-bold text-[#1E2748]">Onboard New Corporate Client</h3>
-              <button onClick={() => setIsModalOpen(false)} className="text-slate-400 hover:text-[#1E2748]">
+              <button onClick={() => setIsModalOpen(false)} className="text-[#1E2748] hover:text-[#1E2748]">
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <form onSubmit={handleOnboardCustomer} className="space-y-3 text-xs">
               <div>
-                <label className="block text-slate-300 font-semibold mb-1">Company / First Name</label>
+                <label className="block text-[#1E2748] font-semibold mb-1">Company / First Name</label>
                 <input
                   type="text"
                   value={formData.firstName}
@@ -240,7 +240,7 @@ export const CustomersPage = () => {
               </div>
 
               <div>
-                <label className="block text-slate-300 font-semibold mb-1">Entity Type / Last Name</label>
+                <label className="block text-[#1E2748] font-semibold mb-1">Entity Type / Last Name</label>
                 <input
                   type="text"
                   value={formData.lastName}
@@ -252,7 +252,7 @@ export const CustomersPage = () => {
               </div>
 
               <div>
-                <label className="block text-slate-300 font-semibold mb-1">Corporate Email</label>
+                <label className="block text-[#1E2748] font-semibold mb-1">Corporate Email</label>
                 <input
                   type="email"
                   value={formData.email}
@@ -264,7 +264,7 @@ export const CustomersPage = () => {
               </div>
 
               <div>
-                <label className="block text-slate-300 font-semibold mb-1">Phone Number</label>
+                <label className="block text-[#1E2748] font-semibold mb-1">Phone Number</label>
                 <input
                   type="text"
                   value={formData.phone}
@@ -276,7 +276,7 @@ export const CustomersPage = () => {
               </div>
 
               <div>
-                <label className="block text-slate-300 font-semibold mb-1">National Tax ID / EIN</label>
+                <label className="block text-[#1E2748] font-semibold mb-1">National Tax ID / EIN</label>
                 <input
                   type="text"
                   value={formData.nationalId}
@@ -288,7 +288,7 @@ export const CustomersPage = () => {
               </div>
 
               <div>
-                <label className="block text-slate-300 font-semibold mb-1">Annual Revenue / Deposits ($)</label>
+                <label className="block text-[#1E2748] font-semibold mb-1">Annual Revenue / Deposits ($)</label>
                 <input
                   type="number"
                   value={formData.annualRevenue}
@@ -302,7 +302,7 @@ export const CustomersPage = () => {
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-3 py-2 bg-rose-950 text-slate-300 rounded-xl font-semibold"
+                  className="px-3 py-2 bg-rose-950 text-[#1E2748] rounded-xl font-semibold"
                 >
                   Cancel
                 </button>

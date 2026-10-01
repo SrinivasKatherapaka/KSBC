@@ -41,12 +41,12 @@ export const ProtectedRoute = ({ children, roles = [] }) => {
               403 Security Barrier
             </span>
             <h2 className="text-xl font-heading font-black text-[#1E2748]">Portal Access Restricted</h2>
-            <p className="text-xs text-[#53627C] mt-2 leading-relaxed font-medium">
+            <p className="text-xs text-[#1E2748] mt-2 leading-relaxed font-medium">
               Your active personnel clearance role (<strong className="text-[#1E2748] capitalize">{effectiveRole.replace('_', ' ')}</strong>) is not authorized to access this KSBC ERP Portal.
             </p>
           </div>
 
-          <div className="p-3 bg-[#EBE4CD] rounded-xl border border-[#1E2748]/15 text-[11px] text-[#53627C] flex items-center justify-center space-x-2">
+          <div className="p-3 bg-[#EBE4CD] rounded-xl border border-[#1E2748]/15 text-[11px] text-[#1E2748] flex items-center justify-center space-x-2">
             <Lock className="w-4 h-4 text-[#1E2748]" />
             <span>Switch clearance role via top navbar to access.</span>
           </div>

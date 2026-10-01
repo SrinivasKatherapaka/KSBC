@@ -163,12 +163,12 @@ Underwriter ID    : ${user?.id || 'SYSTEM-ADMIN'}
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
-      <div className="glass-panel w-full max-w-4xl p-6 rounded-3xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] shadow-2xl space-y-5 max-h-[92vh] overflow-y-auto text-xs text-[#53627C]">
+      <div className="glass-panel w-full max-w-4xl p-6 rounded-3xl border border-[#1E2748]/15 bg-[#F6F2E3] text-[#1E2748] shadow-2xl space-y-5 max-h-[92vh] overflow-y-auto text-xs text-[#1E2748]">
         
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#1E2748]/15">
           <div className="flex items-center space-x-3">
-            <div className="p-3 bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 shadow-md">
+            <div className="p-3 bg-[#F6F2E3] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 shadow-md">
               <Landmark className="w-6 h-6 text-[#1E2748]" />
             </div>
             <div>
@@ -176,7 +176,7 @@ Underwriter ID    : ${user?.id || 'SYSTEM-ADMIN'}
                 <h2 className="text-xl font-black text-[#1E2748]">
                   {applicantName}
                 </h2>
-                <span className="font-mono text-xs px-2 py-0.5 rounded bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] font-bold border border-[#1E2748]/15">
+                <span className="font-mono text-xs px-2 py-0.5 rounded bg-[#F6F2E3] text-[#1E2748] font-bold border border-[#1E2748]/15">
                   Ref #{loanIdStr}
                 </span>
               </div>
@@ -209,7 +209,7 @@ Underwriter ID    : ${user?.id || 'SYSTEM-ADMIN'}
 
             <button
               onClick={onClose}
-              className="p-1.5 bg-[#F6F2E3] text-[#1E2748] text-[#53627C] hover:text-[#1E2748] rounded-xl border border-[#1E2748]/15 transition cursor-pointer"
+              className="p-1.5 bg-[#F6F2E3] text-[#1E2748] hover:text-[#1E2748] rounded-xl border border-[#1E2748]/15 transition cursor-pointer"
               title="Close Modal"
             >
               <X className="w-5 h-5" />
@@ -221,7 +221,7 @@ Underwriter ID    : ${user?.id || 'SYSTEM-ADMIN'}
         {feedbackMsg && (
           <div className="p-3 bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15 rounded-xl text-xs font-bold text-[#1E2748] flex items-center justify-between">
             <span>{feedbackMsg}</span>
-            <button onClick={() => setFeedbackMsg('')} className="text-[#53627C] hover:text-[#1E2748]">
+            <button onClick={() => setFeedbackMsg('')} className="text-[#1E2748] hover:text-[#1E2748]">
               <X className="w-4 h-4" />
             </button>
           </div>
@@ -230,31 +230,31 @@ Underwriter ID    : ${user?.id || 'SYSTEM-ADMIN'}
         {/* Financial Overview 4-Metric Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <div className="p-3.5 bg-[#F6F2E3] text-[#1E2748]/90 rounded-2xl border border-[#1E2748]/15">
-            <span className="text-[10px] text-[#53627C] uppercase font-bold block">PRINCIPAL REQUESTED</span>
+            <span className="text-[10px] text-[#1E2748] uppercase font-bold block">PRINCIPAL REQUESTED</span>
             <p className="text-xl font-black text-[#1E2748] font-mono mt-1">
               ${principal.toLocaleString()}
             </p>
-            <span className="text-[10px] text-[#53627C]">Commercial Facility</span>
+            <span className="text-[10px] text-[#1E2748]">Commercial Facility</span>
           </div>
 
           <div className="p-3.5 bg-[#F6F2E3] text-[#1E2748]/90 rounded-2xl border border-[#1E2748]/15">
-            <span className="text-[10px] text-[#53627C] uppercase font-bold block">RATE & TERM</span>
+            <span className="text-[10px] text-[#1E2748] uppercase font-bold block">RATE & TERM</span>
             <p className="text-xl font-black text-[#1E2748] font-mono mt-1">
               {rate}% <span className="text-xs font-normal">({term}m)</span>
             </p>
-            <span className="text-[10px] text-[#53627C]">{(term / 12).toFixed(1)} Year Amortization</span>
+            <span className="text-[10px] text-[#1E2748]">{(term / 12).toFixed(1)} Year Amortization</span>
           </div>
 
           <div className="p-3.5 bg-[#F6F2E3] text-[#1E2748]/90 rounded-2xl border border-[#1E2748]/15">
-            <span className="text-[10px] text-[#53627C] uppercase font-bold block">MONTHLY PAYMENT (EMI)</span>
+            <span className="text-[10px] text-[#1E2748] uppercase font-bold block">MONTHLY PAYMENT (EMI)</span>
             <p className="text-xl font-black text-[#58b388] font-mono mt-1">
               ${monthlyPayment.toLocaleString()}
             </p>
-            <span className="text-[10px] text-[#53627C]">Est. Debt Service</span>
+            <span className="text-[10px] text-[#1E2748]">Est. Debt Service</span>
           </div>
 
           <div className="p-3.5 bg-[#F6F2E3] text-[#1E2748]/90 rounded-2xl border border-[#1E2748]/15">
-            <span className="text-[10px] text-[#53627C] uppercase font-bold block">TOTAL REPAYMENT</span>
+            <span className="text-[10px] text-[#1E2748] uppercase font-bold block">TOTAL REPAYMENT</span>
             <p className="text-xl font-black text-[#1E2748] font-mono mt-1">
               ${totalRepayment.toLocaleString()}
             </p>
@@ -266,30 +266,30 @@ Underwriter ID    : ${user?.id || 'SYSTEM-ADMIN'}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           
           {/* Left Panel: Applicant & Facility Credentials */}
-          <div className="p-4 bg-[#F6F2E3] text-[#1E2748]/70 rounded-2xl border border-[#1E2748]/15 space-y-3">
+          <div className="p-4 bg-[#F6F2E3] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 space-y-3">
             <div className="flex items-center justify-between pb-2 border-b border-[#1E2748]/15">
               <h3 className="font-extrabold text-[#1E2748] text-xs uppercase tracking-wider flex items-center space-x-1.5">
                 <Building className="w-4 h-4 text-[#1E2748]" />
                 <span>Borrower Profile & Facility Credentials</span>
               </h3>
-              <span className="px-2 py-0.5 rounded text-[9px] font-bold uppercase bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] border border-[#1E2748]/15">
+              <span className="px-2 py-0.5 rounded text-[9px] font-bold uppercase bg-[#F6F2E3] text-[#1E2748] border border-[#1E2748]/15">
                 {category.replace('_', ' ')}
               </span>
             </div>
 
             <div className="space-y-2.5 text-xs">
               <div className="flex justify-between items-center">
-                <span className="text-[#53627C]">Account Holder:</span>
+                <span className="text-[#1E2748]">Account Holder:</span>
                 <span className="font-bold text-[#1E2748]">{applicantName}</span>
               </div>
 
               <div className="flex justify-between items-center">
-                <span className="text-[#53627C]">Master Account #:</span>
+                <span className="text-[#1E2748]">Master Account #:</span>
                 <span className="font-mono font-bold text-[#1E2748]">{accountNumber}</span>
               </div>
 
               <div className="flex justify-between items-center">
-                <span className="text-[#53627C]">National Tax / EIN ID:</span>
+                <span className="text-[#1E2748]">National Tax / EIN ID:</span>
                 <div className="flex items-center space-x-1.5">
                   <span className="font-mono text-[#1E2748]">{maskedTaxId}</span>
                   <button
@@ -304,22 +304,22 @@ Underwriter ID    : ${user?.id || 'SYSTEM-ADMIN'}
               </div>
 
               <div className="flex justify-between items-center">
-                <span className="text-[#53627C]">Annual Revenue / Income:</span>
+                <span className="text-[#1E2748]">Annual Revenue / Income:</span>
                 <span className="font-mono font-bold text-[#58b388]">${annualRevenue.toLocaleString()}</span>
               </div>
 
               <div className="flex justify-between items-center">
-                <span className="text-[#53627C]">Loan Purpose:</span>
+                <span className="text-[#1E2748]">Loan Purpose:</span>
                 <span className="font-semibold text-[#1E2748] text-right max-w-[200px] truncate">{purpose}</span>
               </div>
 
               <div className="flex justify-between items-center">
-                <span className="text-[#53627C]">Collateral Valuation:</span>
+                <span className="text-[#1E2748]">Collateral Valuation:</span>
                 <span className="font-mono text-[#1E2748]">${collateralValue.toLocaleString()} (125% Buffer)</span>
               </div>
 
               <div className="pt-2 border-t border-[#1E2748]/15/15">
-                <span className="text-[10px] text-[#53627C] block mb-1 font-bold uppercase">Decision Notes / Status Rationale:</span>
+                <span className="text-[10px] text-[#1E2748] block mb-1 font-bold uppercase">Decision Notes / Status Rationale:</span>
                 <p className="text-[11px] italic text-[#1E2748] bg-[#F6F2E3] text-[#1E2748] p-2 rounded-xl border border-[#1E2748]/15">
                   "{loan.decision_notes || 'Application processed under automated underwriting criteria.'}"
                 </p>
@@ -328,7 +328,7 @@ Underwriter ID    : ${user?.id || 'SYSTEM-ADMIN'}
           </div>
 
           {/* Right Panel: AI Credit Risk & Underwriting Engine */}
-          <div className="p-4 bg-[#F6F2E3] text-[#1E2748]/70 rounded-2xl border border-[#1E2748]/15 space-y-3">
+          <div className="p-4 bg-[#F6F2E3] text-[#1E2748] rounded-2xl border border-[#1E2748]/15 space-y-3">
             <div className="flex items-center justify-between pb-2 border-b border-[#1E2748]/15">
               <h3 className="font-extrabold text-[#1E2748] text-xs uppercase tracking-wider flex items-center space-x-1.5">
                 <Sparkles className="w-4 h-4 text-[#1E2748]" />
@@ -347,19 +347,19 @@ Underwriter ID    : ${user?.id || 'SYSTEM-ADMIN'}
             {/* Score & Recommendation Banner */}
             <div className="p-3 bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15 flex items-center justify-between">
               <div>
-                <span className="text-[9px] text-[#53627C] font-bold uppercase block">AI RISK SCORE</span>
+                <span className="text-[9px] text-[#1E2748] font-bold uppercase block">AI RISK SCORE</span>
                 <div className="flex items-baseline space-x-1.5 mt-0.5">
                   <span className={`text-2xl font-black font-mono ${
                     score > 70 ? 'text-red-400' : score > 40 ? 'text-[#1E2748]' : 'text-emerald-400'
                   }`}>
                     {score}
                   </span>
-                  <span className="text-xs text-[#53627C] font-mono">/ 100</span>
+                  <span className="text-xs text-[#1E2748] font-mono">/ 100</span>
                 </div>
               </div>
 
               <div className="text-right">
-                <span className="text-[9px] text-[#53627C] font-bold uppercase block">UNDERWRITING ADVISORY</span>
+                <span className="text-[9px] text-[#1E2748] font-bold uppercase block">UNDERWRITING ADVISORY</span>
                 <span className={`px-2.5 py-0.5 rounded-lg text-[10px] font-black uppercase inline-block mt-0.5 ${
                   recommendation === 'APPROVE'
                     ? 'bg-[#58b388]/20 text-[#58b388] border border-[#58b388]/40'
@@ -374,27 +374,27 @@ Underwriter ID    : ${user?.id || 'SYSTEM-ADMIN'}
 
             {/* Risk Telemetry Metrics */}
             <div className="grid grid-cols-2 gap-2 text-xs">
-              <div className="p-2 bg-[#F6F2E3] text-[#1E2748]/80 rounded-lg border border-[#1E2748]/15">
-                <span className="text-[9px] text-[#53627C] block">DEFAULT PROBABILITY</span>
+              <div className="p-2 bg-[#F6F2E3] text-[#1E2748] rounded-lg border border-[#1E2748]/15">
+                <span className="text-[9px] text-[#1E2748] block">DEFAULT PROBABILITY</span>
                 <span className="font-mono font-bold text-[#1E2748]">{defaultProb}%</span>
               </div>
-              <div className="p-2 bg-[#F6F2E3] text-[#1E2748]/80 rounded-lg border border-[#1E2748]/15">
-                <span className="text-[9px] text-[#53627C] block">DTI BURDEN RATIO</span>
+              <div className="p-2 bg-[#F6F2E3] text-[#1E2748] rounded-lg border border-[#1E2748]/15">
+                <span className="text-[9px] text-[#1E2748] block">DTI BURDEN RATIO</span>
                 <span className="font-mono font-bold text-[#1E2748]">{(dtiRatio * 100).toFixed(1)}%</span>
               </div>
-              <div className="p-2 bg-[#F6F2E3] text-[#1E2748]/80 rounded-lg border border-[#1E2748]/15">
-                <span className="text-[9px] text-[#53627C] block">RECOMMENDED BORROWING CAP</span>
+              <div className="p-2 bg-[#F6F2E3] text-[#1E2748] rounded-lg border border-[#1E2748]/15">
+                <span className="text-[9px] text-[#1E2748] block">RECOMMENDED BORROWING CAP</span>
                 <span className="font-mono font-bold text-[#58b388]">${maxRecommended.toLocaleString()}</span>
               </div>
-              <div className="p-2 bg-[#F6F2E3] text-[#1E2748]/80 rounded-lg border border-[#1E2748]/15">
-                <span className="text-[9px] text-[#53627C] block">LOAN-TO-VALUE (LTV)</span>
+              <div className="p-2 bg-[#F6F2E3] text-[#1E2748] rounded-lg border border-[#1E2748]/15">
+                <span className="text-[9px] text-[#1E2748] block">LOAN-TO-VALUE (LTV)</span>
                 <span className="font-mono font-bold text-[#1E2748]">80.0%</span>
               </div>
             </div>
 
             {/* AI Summary Quote */}
             {aiData.summaryAdvisory && (
-              <p className="text-[10px] italic text-[#53627C] bg-[#F6F2E3] text-[#1E2748] p-2 rounded-lg border border-[#1E2748]/15/15">
+              <p className="text-[10px] italic text-[#1E2748] bg-[#F6F2E3] text-[#1E2748] p-2 rounded-lg border border-[#1E2748]/15/15">
                 🤖 "{aiData.summaryAdvisory}"
               </p>
             )}
@@ -408,7 +408,7 @@ Underwriter ID    : ${user?.id || 'SYSTEM-ADMIN'}
               <h4 className="font-extrabold text-[#1E2748] text-xs uppercase flex items-center space-x-2">
                 <span>Confirm Action: {activeActionPrompt.toUpperCase().replace('_', ' ')}</span>
               </h4>
-              <button onClick={() => setActiveActionPrompt(null)} className="text-[#53627C] hover:text-[#1E2748]">
+              <button onClick={() => setActiveActionPrompt(null)} className="text-[#1E2748] hover:text-[#1E2748]">
                 <X className="w-4 h-4" />
               </button>
             </div>
@@ -460,7 +460,7 @@ Underwriter ID    : ${user?.id || 'SYSTEM-ADMIN'}
             <button
               type="button"
               onClick={handleExportSlip}
-              className="px-3 py-2 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] text-[#1E2748] rounded-xl border border-[#1E2748]/15 font-bold transition flex items-center space-x-1.5 cursor-pointer text-xs"
+              className="px-3 py-2 bg-[#F6F2E3] text-[#1E2748] hover:bg-[#F6F2E3] text-[#1E2748] rounded-xl border border-[#1E2748]/15 font-bold transition flex items-center space-x-1.5 cursor-pointer text-xs"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Export Loan Memorandum</span>
